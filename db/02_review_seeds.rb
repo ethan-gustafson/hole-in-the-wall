@@ -1,0 +1,1 @@
+my_first_review = Review.create(title: "Why it is important to wash your cat", content: "But the truth is, there is simply no reason to bathe your cat. In fact, cats can spend up to 50% of their waking hours grooming to cover themselves with their scent. So when you step in and bathe them, you are essentially erasing their ID—a Raw Cat staple and a source of serious mojo.")
