@@ -1,1 +1,1 @@
-hot_dog_heaven = Store.create(name: "Hot Dog Heaven", address: "5355 E Colonial Dr, Orlando, FL 32807")
+saigon_bistro = Store.create(name: "Saigon Bistro", address: "600 S Yonge St # 16B, Ormond Beach, FL 32174", url: "http://www.saigon-bistro.com/index.html")

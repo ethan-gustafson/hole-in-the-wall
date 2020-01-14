@@ -6,4 +6,4 @@ configure :development do
 end
 
 require_relative '../app/controllers/appcontroller.rb'
-require_all 'app/models'
+require_all 'app'
