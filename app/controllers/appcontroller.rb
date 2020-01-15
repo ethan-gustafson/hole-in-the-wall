@@ -1,14 +1,14 @@
 class AppController < Sinatra::Base
 
     configure do
-        set :public_folder, 'public' # tells the appcontroller where to find the public folder
-        set :views, 'app/views' # tells the appcontroller where to find the views
+        set :public_folder, 'public' # tells the appcontroller where to find the public folder.
+        set :views, 'app/views' # tells the appcontroller where to find the views.
         enable :sessions
         set :session_secret, "no_hack"
       end
     
     get '/hole-in-the-wall' do  # Done 
-        erb :index # Offers a sign up or log in page
+        erb :index # Offers a sign up or log in page.
     end
 
     get '/hole-in-the-wall/home' do 
@@ -21,8 +21,7 @@ class AppController < Sinatra::Base
 
     post '/hole-in-the-wall/login' do # posts to login and redirects to the home if successful.
     @user = User.find_by(username: params[:username])
-        binding.pry
-        if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated
+        if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
 			
             session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
             redirect to '/hole-in-the-wall/home'
@@ -31,7 +30,7 @@ class AppController < Sinatra::Base
         end
     end
 
-    get '/hole-in-the-wall/signup' do # has the sign up form
+    get '/hole-in-the-wall/signup' do # has the sign up form.
         erb :signup
     end
 
@@ -44,7 +43,7 @@ class AppController < Sinatra::Base
         end
     end
 
-    get '/hole-in-the-wall/account' do # Shows the users reviews, favorite stores and the logout button
+    get '/hole-in-the-wall/account' do # Shows the users reviews, favorite stores and the logout button.
         erb :account
     end
 
