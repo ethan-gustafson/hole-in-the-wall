@@ -2,8 +2,7 @@ require 'bundler'
 Bundler.require
 
 configure :development do
-	set :database, {adapter: "sqlite3", database: "db/database.sqlite3"}
+	set :database, {adapter: "sqlite3", database: 'sqlite3:db/hole-in-the-wall.db'}
 end
 
-require_relative '../app/controllers/appcontroller.rb'
 require_all 'app'

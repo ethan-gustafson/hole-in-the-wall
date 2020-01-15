@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     has_secure_password
     has_many :reviews
-    has_many :stores
+    has_many :stores, through: :user_stores
 end
 
 
