@@ -3,7 +3,9 @@
 Hole in the wall is a Sinatra CRUD - MVC app that allows users to review hole in the wall types of stores. 
 
 # Installation
-NOTE: It is not possible to use this app as of January 2020.
+NOTE: If you would like to run this application, you will have to clone this repository into your terminal, make sure all gems included are installed and then you can run shotgun.
+
+Or if you would just like to watch the YouTube presentation, watch here: 
 
 # Usage
 Users can sign up, review a store, save a store to their profile, access all of their stores and can access their list of reviews.
