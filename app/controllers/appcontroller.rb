@@ -88,10 +88,16 @@ class AppController < Sinatra::Base
 
     patch "/my-reviews/:id" do # patch request to the specific id
         @editing = Review.find_by_id(params[:id]) # finds the right id to patch
-        @editing.title = params[:title] # sets the title equal to the new input
-        @editing.content = params[:content] # sets the content equal to the new input
-        @editing.save # saves the new review
-        redirect to "/my-reviews/#{@editing.id}" # redirects to the specific id page
+        if logged_in? && current_user.id == @editing.user_id
+            if valid_params?
+                @editing.update(:title => params[:review])
+                redirect to "/my-reviews/#{@editing.id}" # redirects to the specific id page
+            else
+                redirect to '/my-reviews/form'
+            end
+        else
+            erb :'/reviews/no_access'
+        end
     end
 
     delete "/my-reviews/:id" do
@@ -123,6 +129,6 @@ class AppController < Sinatra::Base
                 value == ""
             end
         end
-        
+
 	end
 end
