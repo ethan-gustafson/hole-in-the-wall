@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
     has_secure_password
     validates_presence_of :username, :password
+    validates :username, uniqueness: true
+    validates :email, uniqueness: true
     has_many :reviews
     has_many :stores, through: :user_stores
 end

@@ -90,7 +90,7 @@ class AppController < Sinatra::Base
         @editing = Review.find_by_id(params[:id]) # finds the right id to patch
         if logged_in? && current_user.id == @editing.user_id
             if valid_params?
-                @editing.update(:title => params[:review])
+                @editing.update(params[:review])
                 redirect to "/my-reviews/#{@editing.id}" # redirects to the specific id page
             else
                 redirect to '/my-reviews/form'
