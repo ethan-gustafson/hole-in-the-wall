@@ -7,12 +7,16 @@ class AppController < Sinatra::Base
         set :session_secret, "no_hack" # an encryption key that that creates a session_id.
       end
 
-    get '/hole-in-the-wall' do  # Done 
+    get '/hole-in-the-wall' do  
         erb :index # Offers a sign up or log in page.
     end
 
     get '/home' do 
+        if logged_in?
         erb :home # Shows all stores, shows account and log out buttons.
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     get '/login' do
@@ -49,21 +53,34 @@ class AppController < Sinatra::Base
 
     get '/account' do # Shows the users reviews, favorite stores and the logout button.
         @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
+        if logged_in?
         erb :account
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     get "/my-reviews" do
+        if logged_in?
         @reviews = current_user.reviews # shows all of this specific user's reviews
         erb :'/reviews/my_reviews' # Gives links to each review - Gives link to the Home Page
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     get "/my-reviews/form" do # shows the review form
+        if logged_in?
         erb :'/reviews/review_form'
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     post "/my-reviews" do
-        @review = Review.create(:title => params[:title], :content => params[:content], :user_id => current_user.id) # When a new review is created
+        @review = Review.new(:title => params[:review][:title], :content => params[:review][:content], :user_id => current_user.id) # When a new review is created
         redirect to "/my-reviews/#{@review.id}" # it is redirected to that specific review from @review
+        # add logic for validation
     end
 
     get "/my-reviews/:id" do
@@ -71,6 +88,8 @@ class AppController < Sinatra::Base
 
         if logged_in? && current_user.id == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
         erb :'/reviews/individual_review' # Shows the correct review.
+        elsif !logged_in?
+            redirect to '/hole-in-the-wall'
         else
             erb :'/reviews/no_access'
         end
@@ -81,6 +100,8 @@ class AppController < Sinatra::Base
 
         if logged_in? && current_user.id == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
         erb :'/reviews/edit' # Allows the user to edit that review.
+        elsif !logged_in?
+            redirect to '/hole-in-the-wall'
         else
             erb :'/reviews/no_access' # they get the error message if it is not their review
         end
@@ -101,9 +122,14 @@ class AppController < Sinatra::Base
     end
 
     delete "/my-reviews/:id" do
-        @deletion = Review.find_by_id(params[:id])
-        @deletion.delete
-        redirect '/my-reviews'
+        @deletion = Review.find_by_id(params[:id]) # will find the review by the params id
+
+        if logged_in? && current_user.id == @deletion.user_id # if the current user is equal to the review user id
+        @deletion.delete # then we will delete the post. 
+        redirect '/my-reviews' # Redirected to their reviews.
+        else
+            erb :'/reviews/no_access' # if they do not, then they shall get the error page.
+        end
     end
 
     get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
