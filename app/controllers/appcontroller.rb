@@ -3,8 +3,8 @@ class AppController < Sinatra::Base
     configure do
         set :public_folder, 'public' # tells the appcontroller where to find the public folder.
         set :views, 'app/views' # tells the appcontroller where to find the views.
-        enable :sessions
-        set :session_secret, "no_hack"
+        enable :sessions # sessions is a hash
+        set :session_secret, "no_hack" # an encryption key that that creates a session_id.
       end
 
     get '/hole-in-the-wall' do  # Done 
