@@ -1,0 +1,66 @@
+class UsersController < ApplicationController
+
+    get '/hole-in-the-wall' do  
+        erb :'/users/index' # Offers a sign up or log in page.
+    end
+
+    get '/login' do
+        erb :'/users/login' # has a login form.
+    end
+
+    post '/login' do # posts to login and redirects to the home if successful.
+    @user = User.find_by(:username => params[:username])
+        
+        if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
+            session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
+            redirect to '/home'
+        else
+            erb :'/users/show_error'
+        end
+    end
+
+    get '/signup' do # has the sign up form.
+        erb :'/users/new_signup'
+    end
+
+    post '/signup' do # signs up a user and redirects them to the home page or error page.
+        @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+
+            if @user_signup.valid?
+            @user_signup.save # If it is a valid user and the password is authenticated.
+            session[:user_id] = @user_signup.id
+            redirect '/home'
+            elsif @user_signup.invalid? # if the params are empty, bad data won't be uploaded.
+                erb :'/users/show_error'
+        else
+            erb :'/users/show_error'
+        end
+    end
+
+    get '/home' do 
+        if logged_in?
+        erb :'/users/show_home' 
+        else
+            redirect to '/hole-in-the-wall'
+        end
+    end
+
+    get '/account' do # Shows the users reviews, favorite stores and the logout button.
+        @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
+        if logged_in?
+        erb :'/users/show_account'
+        else
+            redirect to '/hole-in-the-wall'
+        end
+    end
+
+    get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
+        erb :'/users/show_error'
+    end
+
+    get "/logout" do# logs out the user.
+		session.clear
+		redirect "/hole-in-the-wall"
+	end
+
+end
