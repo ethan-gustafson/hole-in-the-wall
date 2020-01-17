@@ -36,8 +36,12 @@ class AppController < Sinatra::Base
 
     post '/signup' do # signs up a user and redirects them to the home page or error page.
         @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
-        if @user_signup.save
+
+            if @user_signup.save # If it is a valid user and the password is authenticated.
+            session[:user_id] = @user_signup.id
             redirect '/home'
+            elsif @user_signup.empty? # if the params are empty, bad data won't be uploaded.
+                redirect '/error'
         else
             redirect '/error'
         end
@@ -53,15 +57,19 @@ class AppController < Sinatra::Base
         erb :'/reviews/my_reviews' # Gives links to each review - Gives link to the Home Page
     end
 
+    get "/my-reviews/form" do # shows the review form
+        erb :'/reviews/review_form'
+    end
+
     post "/my-reviews" do
-        @review = Review.create(params) # When a new review is created
+        @review = Review.create(:title => params[:title], :content => params[:content], :user_id => current_user.id) # When a new review is created
         redirect to "/my-reviews/#{@review.id}" # it is redirected to that specific review from @review
     end
 
     get "/my-reviews/:id" do
         @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
-        
-        if logged_in? && current_user == @user_review.id # if the user is logged in and their user_id is equal to the @user_review params id
+
+        if logged_in? && current_user.id == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
         erb :'/reviews/individual_review' # Shows the correct review.
         else
             erb :'/reviews/no_access'
@@ -71,7 +79,7 @@ class AppController < Sinatra::Base
     get "/my-reviews/:id/edit" do
         @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
 
-        if logged_in? && current_user == @user_review.id # if the user is logged in and their user_id is equal to the @user_review params id
+        if logged_in? && current_user.id == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
         erb :'/reviews/edit' # Allows the user to edit that review.
         else
             erb :'/reviews/no_access' # they get the error message if it is not their review
@@ -86,8 +94,10 @@ class AppController < Sinatra::Base
         redirect to "/my-reviews/#{@editing.id}" # redirects to the specific id page
     end
 
-    get "/review-form" do # shows the review form
-        erb :'/reviews/review_form'
+    delete "/my-reviews/:id" do
+        @deletion = Review.find_by_id(params[:id])
+        @deletion.delete
+        redirect '/my-reviews'
     end
 
     get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
@@ -106,6 +116,13 @@ class AppController < Sinatra::Base
 
 		def current_user # identifies the current user.
 			User.find(session[:user_id])
-		end
+        end
+        
+        def valid_params?
+            params[:review].none? do |key,value|
+                value == ""
+            end
+        end
+        
 	end
 end

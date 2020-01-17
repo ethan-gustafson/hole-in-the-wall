@@ -2,7 +2,7 @@
 <html>
 <head>
 <h1>
-    <form action="/my-reviews/<%= @edit.id %>" method="POST">
+    <form action="/my-reviews/<%= @user_review.id %>" method="POST">
         <input id="hidden" type="hidden" name="_method" value="patch">
         <h3>New Title: </h3>
         <input type="text" name="title" placeholder="Title:">

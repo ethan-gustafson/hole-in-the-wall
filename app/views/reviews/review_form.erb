@@ -2,13 +2,15 @@
 <html>
 <head>
 <h1>Enter a new store review:</h1>
-<form action="/my-reviews" method="POST">
-<input type="title" name="title" placeholder="Title:">
+
+        <form action="/my-reviews" method="POST">
+        <input type="text" name="review[title]" placeholder="Title:">
 <br>
 <br>
-<textarea rows="4" cols="50" placeholder="Content:" <input type="title" name="content"></textarea>
-<input type="submit" value="Submit">
-</form>
+        <textarea rows="4" cols="50" placeholder="Content:" <input type="text" name="review[content]"></textarea>
+        <input type="submit" value="Submit" id="submit">
+    </form>
+
 </head>
 <body>
 </body>
