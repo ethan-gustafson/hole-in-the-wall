@@ -1,0 +1,17 @@
+<DOCTYPE! html>
+<html>
+<head>
+<h1>
+    <form action="/my-reviews/<%= @edit.id %>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="patch">
+        <h3>New Title: </h3>
+        <input type="text" name="title" placeholder="Title:">
+        <p>New Content: </p>
+        <textarea rows="4" cols="50" placeholder="Content:" <input type="text" name="content"></textarea>
+        <input type="submit" value="submit">
+    </form>
+</h1>
+</head>
+<body>
+</body>
+</html>

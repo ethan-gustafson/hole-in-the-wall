@@ -1,0 +1,14 @@
+<DOCTYPE! html>
+<html>
+<head>
+<h1>Here are all your reviews!</h1>
+
+<% @reviews.each.with_index(1) do |review, index| %>
+    <a href="/my-reviews/<%=review.id%>"><%=index%>. <%= review.title %></a>
+    <% end %>
+
+<h1><a href="/home">Home Page</a></h1>
+</head>
+<body>
+</body>
+</html>

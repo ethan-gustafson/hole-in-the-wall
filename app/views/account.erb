@@ -1,9 +1,14 @@
 <DOCTYPE! html>
 <html>
 <head>
-<title>Hole in the Wall</title>
+<title>Account info:</title>
+<h1>User id: <%=@session_user.id%> </h1>
+<h1>Name: <%=@session_user.name%> </h1>
+<h1>Username: <%=@session_user.username%> </h1>
+<h1>Email: <%=@session_user.email%> </h1>
 </head>
 <body>
-<h1><a href="/hole-in-the-wall/logout">Log Out</a></h1>
+<h1><a href="/home">Home Page</a></h1>
+<h1><a href="/logout">Log Out</a></h1>
 </body>
 </html>

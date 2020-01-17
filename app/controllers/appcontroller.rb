@@ -4,63 +4,108 @@ class AppController < Sinatra::Base
         set :public_folder, 'public' # tells the appcontroller where to find the public folder.
         set :views, 'app/views' # tells the appcontroller where to find the views.
         enable :sessions
+        set :session_secret, "no_hack"
       end
 
     get '/hole-in-the-wall' do  # Done 
         erb :index # Offers a sign up or log in page.
     end
 
-    get '/hole-in-the-wall/home' do 
+    get '/home' do 
         erb :home # Shows all stores, shows account and log out buttons.
     end
 
-    get '/hole-in-the-wall/login' do
+    get '/login' do
         erb :login # has a login form.
     end
-   
-    post '/hole-in-the-wall/login' do # posts to login and redirects to the home if successful.
+
+    post '/login' do # posts to login and redirects to the home if successful.
     @user = User.find_by(:username => params[:username])
-    
+        
         if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
             session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
-            redirect to '/hole-in-the-wall/home'
+            redirect to '/home'
         else
-            redirect '/hole-in-the-wall/error'
+            redirect '/error'
         end
     end
-    get '/hole-in-the-wall/signup' do # has the sign up form.
+
+    get '/signup' do # has the sign up form.
         erb :signup
     end
 
-    post '/hole-in-the-wall/signup' do # signs up a user and redirects them to the home page or error page.
-        user = User.new(params)
-        if user.save
-            redirect '/hole-in-the-wall/home'
+    post '/signup' do # signs up a user and redirects them to the home page or error page.
+        @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+        if @user_signup.save
+            redirect '/home'
         else
-            redirect '/hole-in-the-wall/error'
+            redirect '/error'
         end
     end
 
-    get '/hole-in-the-wall/account' do # Shows the users reviews, favorite stores and the logout button.
+    get '/account' do # Shows the users reviews, favorite stores and the logout button.
+        @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
         erb :account
     end
 
-    get '/hole-in-the-wall/error' do # shows an error message that will tell the user to go back and log in or sign up.
+    get "/my-reviews" do
+        @reviews = current_user.reviews # shows all of this specific user's reviews
+        erb :'/reviews/my_reviews' # Gives links to each review - Gives link to the Home Page
+    end
+
+    post "/my-reviews" do
+        @review = Review.create(params) # When a new review is created
+        redirect to "/my-reviews/#{@review.id}" # it is redirected to that specific review from @review
+    end
+
+    get "/my-reviews/:id" do
+        @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
+        
+        if logged_in? && current_user == @user_review.id # if the user is logged in and their user_id is equal to the @user_review params id
+        erb :'/reviews/individual_review' # Shows the correct review.
+        else
+            erb :'/reviews/no_access'
+        end
+    end
+
+    get "/my-reviews/:id/edit" do
+        @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
+
+        if logged_in? && current_user == @user_review.id # if the user is logged in and their user_id is equal to the @user_review params id
+        erb :'/reviews/edit' # Allows the user to edit that review.
+        else
+            erb :'/reviews/no_access' # they get the error message if it is not their review
+        end
+    end
+
+    patch "/my-reviews/:id" do # patch request to the specific id
+        @editing = Review.find_by_id(params[:id]) # finds the right id to patch
+        @editing.title = params[:title] # sets the title equal to the new input
+        @editing.content = params[:content] # sets the content equal to the new input
+        @editing.save # saves the new review
+        redirect to "/my-reviews/#{@editing.id}" # redirects to the specific id page
+    end
+
+    get "/review-form" do # shows the review form
+        erb :'/reviews/review_form'
+    end
+
+    get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
         erb :error
     end
 
-    get "/hole-in-the-wall/logout" do# logs out the user.
+    get "/logout" do# logs out the user.
 		session.clear
 		redirect "/hole-in-the-wall"
 	end
 
-    # helpers do
-    #     def is_logged_in? # verifies that the session is true.
-	# 		!!session[:user_id]
-	# 	end
+    helpers do
+        def logged_in? # verifies that the session is true.
+			!!session[:user_id]
+		end
 
-	# 	def current_user # identifies the current user.
-	# 		User.find(session[:user_id])
-	# 	end
-	# end
+		def current_user # identifies the current user.
+			User.find(session[:user_id])
+		end
+	end
 end
