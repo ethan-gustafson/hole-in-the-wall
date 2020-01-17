@@ -40,7 +40,7 @@ class AppController < Sinatra::Base
             if @user_signup.save # If it is a valid user and the password is authenticated.
             session[:user_id] = @user_signup.id
             redirect '/home'
-            elsif @user_signup.empty? # if the params are empty, bad data won't be uploaded.
+            elsif @user_signup.invalid? # if the params are empty, bad data won't be uploaded.
                 redirect '/error'
         else
             redirect '/error'
