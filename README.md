@@ -11,6 +11,9 @@ Users can sign up, review a store, save a store to their profile, access all of 
 # Development
 This Sinatra App is currently in development as of January 2020.
 
+# LICENSE
+https://github.com/GoodGuyGuf/hole-in-the-wall/blob/master/LICENSE
+
 # Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hole-in-the-wall This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
