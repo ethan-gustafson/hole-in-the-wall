@@ -1,6 +1,7 @@
 html {
     font-family: 'Vollkorn', serif;
     color: rgb(54, 54, 54);
+    background-color: rgb(245, 245, 245);
 }
 
 
@@ -16,12 +17,30 @@ h1#signup {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: white;
 }
 
-h2 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
+input[type=text] {
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 4px;
+}
+
+input[type=email] {
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 4px;
+}
+
+input[type=password] {
+    border: 2px solid rgb(70, 70, 70);
+    border-radius: 4px;
+}
+
+input[type=submit] {
+    background-color: white;
+    color: black;
+    border: 1px solid rgb(82, 82, 82);
+    border-radius: 4px;
 }

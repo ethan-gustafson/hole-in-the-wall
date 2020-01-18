@@ -4,6 +4,20 @@ class UsersController < ApplicationController
         erb :'/users/index' # Offers a sign up or log in page.
     end
 
+    post '/hole-in-the-wall' do
+    @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+
+        if @user_signup.valid?
+            @user_signup.save # If it is a valid user and the password is authenticated.
+            session[:user_id] = @user_signup.id
+            redirect '/home'
+        elsif @user_signup.invalid? # if the params are empty, bad data won't be uploaded.
+            erb :'/users/show_error'
+        else
+            erb :'/users/show_error'
+        end
+    end
+
     get '/login' do
         erb :'/users/login' # has a login form.
     end
@@ -14,24 +28,6 @@ class UsersController < ApplicationController
         if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
             session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
             redirect to '/home'
-        else
-            erb :'/users/show_error'
-        end
-    end
-
-    get '/signup' do # has the sign up form.
-        erb :'/users/new_signup'
-    end
-
-    post '/signup' do # signs up a user and redirects them to the home page or error page.
-        @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
-
-            if @user_signup.valid?
-            @user_signup.save # If it is a valid user and the password is authenticated.
-            session[:user_id] = @user_signup.id
-            redirect '/home'
-            elsif @user_signup.invalid? # if the params are empty, bad data won't be uploaded.
-                erb :'/users/show_error'
         else
             erb :'/users/show_error'
         end
