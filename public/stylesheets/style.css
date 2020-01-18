@@ -1,12 +1,13 @@
 html {
     font-family: 'Vollkorn', serif;
+    color: rgb(54, 54, 54);
 }
+
 
 h1#intro {
     position: absolute;
     top: 0px;
     left: 30px;
-    color: rgb(31, 31, 31);
 }
 
 h1#signup {
