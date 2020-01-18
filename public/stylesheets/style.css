@@ -1,7 +1,13 @@
 h1 {
     text-align: center;
+    font-family: 'Vollkorn', serif;
+}
+
+h1#intro {
+    color: rgb(31, 31, 31);
 }
 
 h2 {
     text-align: center;
+    font-family: 'Vollkorn', serif;
 }
