@@ -1,0 +1,32 @@
+html {
+    font-family: 'Vollkorn', serif;
+    color: rgb(54, 54, 54);
+    background-color: rgb(245, 245, 245);
+}
+
+div.container {
+    position: fixed;
+    float: left;
+    width: 1440;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: rgb(34, 34, 34);
+  }
+
+h1#intro {
+    position: absolute;
+    font-size: 27;
+    top: -5.8px;
+    left: 90px;
+    color: rgb(248, 248, 248);
+}
+
+h2#profile a.button {
+    position: absolute;
+    font-size: 27;
+    top: 12px;
+    right: 90px;
+    color: rgb(248, 248, 248);
+    text-decoration: none;
+}
