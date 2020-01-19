@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
     post '/hole-in-the-wall' do
     @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
-
         if @user_signup.valid?
             @user_signup.save # If it is a valid user and the password is authenticated.
             session[:user_id] = @user_signup.id
