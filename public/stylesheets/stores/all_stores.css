@@ -36,7 +36,14 @@ h1#store-iterator a{
     font-size: 27;
     top: 50px;
     left: 30px;
+    height: 10;
     color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+
+h1#store-iterator a:hover{
+    color: rgb(255, 123, 123);
+    transition-duration: 0.4s;
 }
 
 div button.dropbtn { 
