@@ -9,27 +9,29 @@ class StoresController < ApplicationController
     end
 
     get '/stores/:id' do
+    @store = Store.find_by_id(params[:id])
+        
         if logged_in?
-            
-            else
-                redirect to '/hole-in-the-wall'
-            end
+            erb :'/stores/show_individual_store'
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     get '/my-stores' do
         if logged_in?
             
-            else
-                redirect to '/hole-in-the-wall'
-            end
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
     get '/my-stores/:id' do
         if logged_in?
             
-            else
-                redirect to '/hole-in-the-wall'
-            end
+        else
+            redirect to '/hole-in-the-wall'
+        end
     end
 
 end
