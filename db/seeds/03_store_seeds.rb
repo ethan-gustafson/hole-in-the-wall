@@ -27,7 +27,7 @@ drunken_monkey_coffee_car = Store.create(:name => "Drunken Monkey Coffee Bar",
 )
 
 # 5
-beefy_king - Store.create(:name => "Beefy King", 
+beefy_king = Store.create(:name => "Beefy King", 
 :address => "424 N Bumby Ave, Orlando, FL 32803", 
 :url => "http://beefyking.com/", 
 :description => "Serving the BEST Roast Beef sandwich for over 40 years! Come into Beefy King today and try one of our award winning products. Offering a variety of mouthwatering Roast Beef, Ham, Turkey, Pastrami, Corned Beef, Bar BQ Beef and Bar BQ Pork all served hot, fresh and made to order!"
