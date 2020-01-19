@@ -24,15 +24,16 @@ h1#intro {
 
 h1#signup {
     position: absolute;
-    top: 48%;
+    top: 51%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     border: 1px solid #000;
     border-radius: 30px;
-    padding: 20px;
+    padding: 23px;
     background-color: white;
 }
+
 
 form {
     margin-top: 30px
@@ -86,12 +87,13 @@ input.button:hover {
     transition-duration: 0.4s;
 }
 
-p.login a {
+h1 p.login a {
     color: rgb(104, 104, 104);
+
 }
 
-p.login a:hover {
-    color: rgb(255, 123, 123);
+h1 p.login a:hover {
+    color: rgb(255, 107, 107);
     text-decoration: underline;
     transition-duration: 0.4s;
 }
