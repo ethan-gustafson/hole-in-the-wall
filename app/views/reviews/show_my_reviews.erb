@@ -4,10 +4,9 @@
 <h1>Here are all your reviews!</h1>
 
 <% @reviews.each.with_index(1) do |review, index| %>
-    <a href="/my-reviews/<%=review.id%>"><%=index%>. <%= review.title %><br></a>
+    <a href="/stores/<%=review.store_id%>"><%=index%>. <%= review.title %><br></a>
     <% end %>
 
-<h1><a href="/my-reviews/form">Create a new Review</a></h1>
 <h1><a href="/home">Home Page</a></h1>
 </head>
 <body>

@@ -20,7 +20,7 @@ mannys_pizza_house = Store.create(:name => "Manny's Pizza House",
 )
 
 # 4
-drunken_monkey_coffee_car = Store.create(:name => "Drunken Monkey Coffee Bar", 
+drunken_monkey_coffee_bar = Store.create(:name => "Drunken Monkey Coffee Bar", 
 :address => "444 N Bumby Ave, Orlando FL 32803", 
 :url => "http://drunkenmonkeycoffee.com/", 
 :description => "Drunken Monkey Coffee Bar was conceived to fill the need in Orlando for excellent coffee and food that everyone can eat... think college-town coffeehouse."

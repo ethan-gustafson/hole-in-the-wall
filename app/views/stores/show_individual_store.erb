@@ -14,6 +14,10 @@
 <p id="store-url"><%=@store.url%></p>
 <p id="store-address"><%=@store.address%></p>
 <p id="store-description"><%=@store.description%></p>
+<p id="store-reviews"><%@store.reviews.each do |review| %>
+    <a href="/stores/<%=review.id%>" <%= review.content %><br></a>
+    <% end %>
+    </p>
 </body>
 
 </html>
