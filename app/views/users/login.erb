@@ -1,14 +1,21 @@
 <DOCTYPE! html>
 <html>
 <head>
-    <title>Login:</title>
-        <form action="/login" method="POST">
-            <h1>Username: <input id="username" type="text" name="username" placeholder="Username:"></h1>
-            <h1>Password: <input id="password" type="password" name="password" placeholder="Password:"></h1>
-            <input type="submit" value="Log in">
-        </form>
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/users/login.css">
+<div class="container"></div>
+<h1 id="intro">Hole in the Wall</h1>
+<title>Login</title>
 </head>
+
 <body>
-    <h2>Don't have an account? Sign up here: <a href="/hole-in-the-wall">Sign up</a></h1>
+<h1 id="form">
+        <form action="/login" method="POST">
+            <h1 class="username">Username: <input id="username" type="text" name="username" placeholder="Username:"></h1>
+            <h1 class="password">Password: <input id="password" type="password" name="password" placeholder="Password:"></h1>
+            <input class="button" type="submit" value="Log In">
+        </form>
+        <p id="signup">Dont have an account? <a href="/hole-in-the-wall">Sign up</a></p>
+</h1>
 </body>
 </html>
