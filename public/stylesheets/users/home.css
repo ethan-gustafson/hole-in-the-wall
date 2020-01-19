@@ -14,15 +14,24 @@ div.container {
     background-color: rgb(34, 34, 34);
   }
 
-h1#intro {
+h1#intro a{
     position: absolute;
     font-size: 27;
-    top: -5.8px;
+    top: 13px;
     left: 90px;
     color: rgb(248, 248, 248);
+    text-decoration: none;
 }
 
 h3#allstores a{
+    position: absolute;
+    font-size: 27;
+    top: 11px;
+    left: 397px;
+    color: rgb(248, 248, 248);
+}
+
+h3.allusers a{
     position: absolute;
     font-size: 27;
     top: 11px;

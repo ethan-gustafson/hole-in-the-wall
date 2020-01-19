@@ -40,6 +40,24 @@ class UsersController < ApplicationController
         end
     end
 
+    get '/users' do
+        @users = User.all
+        if logged_in?
+            erb :'/users/show_all_users'
+        else
+            redirect to '/hole-in-the-wall'
+        end
+    end
+
+    get '/users/:id' do
+        @find_user = User.find_by(params[:id])
+        if logged_in?
+            erb :'/users/show_individual_user'
+        else
+            redirect to '/hole-in-the-wall'
+        end
+    end
+
     get '/account' do # Shows the users reviews, favorite stores and the logout button.
         @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
         if logged_in?

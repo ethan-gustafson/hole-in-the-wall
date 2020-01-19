@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
     get "/my-reviews" do
         if logged_in?
         @reviews = current_user.reviews # shows all of this specific user's reviews
-        #binding.pry
         erb :'/reviews/show_my_reviews' # Gives links to each review - Gives link to the Home Page
         else
             redirect to '/hole-in-the-wall'

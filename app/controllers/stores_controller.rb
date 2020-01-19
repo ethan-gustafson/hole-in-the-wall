@@ -10,7 +10,6 @@ class StoresController < ApplicationController
 
     get '/stores/:id' do
     @store = Store.find_by_id(params[:id])
-       # binding.pry
         if logged_in?
             erb :'/stores/show_individual_store'
         else

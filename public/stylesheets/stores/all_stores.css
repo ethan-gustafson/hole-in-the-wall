@@ -15,12 +15,13 @@ div.container {
 }
 
 
-h1#intro {
+h1#intro a{
     position: absolute;
     font-size: 27;
-    top: -5.8px;
+    top: 13px;
     left: 90px;
     color: rgb(248, 248, 248);
+    text-decoration: none;
 }
 
 h1#state {

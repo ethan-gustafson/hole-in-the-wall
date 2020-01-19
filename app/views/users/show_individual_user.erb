@@ -1,25 +1,16 @@
 <DOCTYPE! html>
 <html>
-
 <head>
-<title>Stores</title>
+<title>Home</title>
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stylesheets/stores/all_stores.css">
+<link rel="stylesheet" href="stylesheets/users/home.css">
 <div class="container"></div>
-<h1 id="intro"><a href="/home">Hole in the Wall</a>
+<h1 id="intro">Hole in the Wall
 </h1>
 </head>
-
-<h1 id="state">FL</h1>
-
 <body>
-<h1 id="store-iterator">
-    <% Store.all.each.with_index(1) do |store, index| %>
-        <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %> - <%= store.address%><br></a>
-    <% end %>
-</h1>
 
-    <div class="dropdown">
+<div class="dropdown">
     <button class="dropbtn">Profile</button>
     <div class="dropdown-content">
         <a href="/account">Account</a>
@@ -29,5 +20,9 @@
     </div>
 </div>
 
+<h3>User id: <%=@find_user.id%> - <%=@find_user.username%></h3>
+
+<h3 id="allstores"><a href="/stores">Stores</a></h3>
+<h3 id="allusers"><a href="/users">Users</a></h3>
 </body>
 </html>
