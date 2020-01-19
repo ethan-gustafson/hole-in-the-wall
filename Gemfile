@@ -13,6 +13,7 @@ gem 'require_all'
 gem 'capybara'
 gem 'rack-test'
 gem 'shotgun'
+gem 'css_parser'
 
 group :development do
     gem 'sqlite3', '~>1.3.6'
