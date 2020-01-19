@@ -14,7 +14,7 @@ div.container {
     background-color: rgb(34, 34, 34);
   }
 
-h1.logo{
+h1#intro{
     position: fixed;
     font-size: 27;
     top: -4.8px;
