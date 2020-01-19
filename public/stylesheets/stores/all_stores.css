@@ -23,6 +23,22 @@ h1#intro {
     color: rgb(248, 248, 248);
 }
 
+h1#state {
+    position: relative;
+    font-size: 27;
+    top: 60px;
+    left: 30px;
+    color: rgb(54, 54, 54);
+}
+
+h1#store-iterator a{
+    position: relative;
+    font-size: 27;
+    top: 50px;
+    left: 30px;
+    color: rgb(54, 54, 54);
+}
+
 div button.dropbtn { 
     background-color: rgb(34, 34, 34); /* The background color of the profile button */
     font-family: 'Vollkorn', serif;
@@ -35,18 +51,18 @@ div button.dropbtn {
 
 
 div.dropdown { /* Where the button will be located in the page */
-    position: relative;
+    position: absolute;
     float: right;
-    top: 2;
+    top: 10;
     right: 90;
     display: block;
 }
 
 div.dropdown-content { /* Where the dropdown will place */
     display: none;
-    position: fixed;
+    position: absolute;
     top: 40;
-    right: 58;
+    right: -35;
     background-color: #ffffff;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);

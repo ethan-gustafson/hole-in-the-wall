@@ -13,9 +13,20 @@
 <h1 id="state">FL</h1>
 
 <body>
-<% Store.all.each.with_index(1) do |store, index| %>
+<h1 id="store-iterator"><% Store.all.each.with_index(1) do |store, index| %>
     <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %><br></a>
     <% end %>
-</body>
+</h1>
 
+    <div class="dropdown">
+    <button class="dropbtn">Profile</button>
+    <div class="dropdown-content">
+        <a href="/account">Account</a>
+        <a href="/my-reviews">My Reviews</a>
+        <a href="/my-stores">My Stores</a>
+        <a href="/logout">Log out</a>
+    </div>
+</div>
+
+</body>
 </html>
