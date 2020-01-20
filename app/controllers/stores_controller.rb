@@ -17,17 +17,6 @@ class StoresController < ApplicationController
         end
     end
 
-    post "/stores/:id" do
-        @review = Review.new(:title => params[:review][:title], :content => params[:review][:content])
-        if @review.valid?
-            @review.save
-            @review.user_id = current_user.id
-        redirect to "/my-reviews/#{@review.id}" # it is redirected to that specific review from @review
-        else
-            redirect to "/my-reviews"
-        end
-    end
-
     get '/my-stores' do
         if logged_in?
             

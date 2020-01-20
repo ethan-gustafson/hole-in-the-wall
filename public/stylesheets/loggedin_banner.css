@@ -63,7 +63,7 @@ div button.dropbtn {
     padding: 3px 3px;
     font-size: 27px;
     border: none;
-    cursor: pointer;
+    cursor: auto;
 }
 
 div button.dropbtn:hover{

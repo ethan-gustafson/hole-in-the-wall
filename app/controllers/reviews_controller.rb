@@ -20,6 +20,18 @@ class ReviewsController < ApplicationController
         end
     end
 
+    post "/my-reviews/:id" do
+        @review = Review.new(:title => params[:review][:title], :content => params[:review][:content], :user_id => session[:user_id], :store_id => params[:store_id])
+        if @review.valid?
+            @review.save
+            # @review.user_id = current_user.id
+        redirect to "/my-reviews/#{@review.id}" # it is redirected to that specific review from @review
+        else
+            redirect to "/my-reviews"
+        end
+    end
+
+
 
     get "/my-reviews/:id/edit" do
         @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review

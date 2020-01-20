@@ -16,7 +16,7 @@
 <body>
 <div class="storeinfo">
     <h1 id="store-name"><%=@store.name%></h1>
-    <p id="store-id"><%=@store.id%>
+    <h1 id="store-id">Store Id: <%=@store.id%></h1>
     <p id="store-url"><%=@store.url%></p>
     <p id="store-address"><%=@store.address%></p>
     <p id="store-description"><%=@store.description%></p>
@@ -40,7 +40,8 @@
 
 <div class="form">
 <h2 class="createbanner">Create a New Review</h2>
-<h2><form action="/stores/:id" method="POST">
+<h2><form action="/my-reviews/:id" method="POST">
+        <input id="store-id" type="text" name="store_id" placeholder="Store Id">
         <input id="title" type="text" name="review[title]" placeholder="Title">
 <br>
 <br>

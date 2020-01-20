@@ -22,6 +22,16 @@ label{
     left: 470px;
 }
 
+h2 #store-id{
+    position: absolute;
+    font-size: 15;
+    width: 300px;
+    margin: auto auto auto 350px;
+    padding: 20px;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 4px;
+}
+
 h2 #title{
     position: absolute;
     font-size: 15;

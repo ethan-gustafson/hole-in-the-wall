@@ -120,7 +120,7 @@ div.dropdown-content a {
 }
 
 div.dropdown-content a:hover { /* Background color of each dropdown link */
-    background-color: #f1f1f1
+    background-color: #f1f1f1;
 }
 
 div.dropdown:hover .dropdown-content { /* When your mouse hovers over the button, it displays the block */

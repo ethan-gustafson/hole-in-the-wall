@@ -21,7 +21,7 @@
 </div>
 
 <div class="feed">
-<h2><%Review.all.each.with_index(1) do |review, index|%>
+<h2><%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
 <a href="/stores/<%=review.store_id%>">'<%=review.user.username%>' Reviewed <%=review.store.name%>: <%= review.title %><br></a>
 <p><%= review.content%></p>
 <%end%>
