@@ -33,7 +33,7 @@ h2 #title{
 }
 
 
-textarea{
+textarea#content{
     position: relative;
     font-size: 12;
     width: 60%;
