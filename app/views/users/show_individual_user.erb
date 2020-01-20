@@ -3,9 +3,9 @@
 <head>
 <title>Home</title>
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="stylesheets/users/individual_user.css">
+<link rel="stylesheet" href="/stylesheets/users/individual_user.css">
 <div class="container"></div>
-<h1 id="intro">Hole in the Wall
+<h1 id="intro"><a href="/home">Hole in the Wall</a>
 </h1>
 </head>
 <body>
@@ -20,7 +20,7 @@
     </div>
 </div>
 
-<h3>User id: <%=@find_user.id%> - <%=@find_user.username%></h3>
+<h3 id="userid">User id: <%=@find_user.id%> - <%=@find_user.username%></h3>
 
 <h3 id="allstores"><a href="/stores">Stores</a></h3>
 <h3 id="allusers"><a href="/users">Users</a></h3>

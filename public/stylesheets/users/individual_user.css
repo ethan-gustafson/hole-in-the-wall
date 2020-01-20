@@ -3,3 +3,128 @@ html {
     color: rgb(54, 54, 54);
     background-color: rgb(245, 245, 245);
 }
+
+div.container {
+    position: fixed;
+    float: left;
+    width: 1440;
+    height: 60px;
+    top: 0;
+    left: 0;
+    background-color: rgb(34, 34, 34);
+}
+
+h1#intro a{
+    position: fixed;
+    font-size: 27;
+    top: 13px;
+    left: 90px;
+    color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h1#intro a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
+h3#allstores a{
+    position: fixed;
+    font-size: 27;
+    top: 13px;
+    left: 397px;
+    color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h3#allstores a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
+h3#allusers a{
+    position: fixed;
+    font-size: 27;
+    top: 13px;
+    left: 315px;
+    color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h3#allusers a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
+h3#userid{
+    position: relative;
+    top: 60;
+}
+
+div.feed h2{
+    width: 30%;
+    display: inline-block;
+    font-size: 9;
+    text-align: center;
+    border: 2px black;
+    border-radius: 4px;
+}
+
+div button.dropbtn { 
+    background-color: rgb(34, 34, 34); /* The background color of the profile button */
+    font-family: 'Vollkorn', serif;
+    color: white; /* The text color of the profile button */
+    padding: 3px 3px;
+    font-size: 27px;
+    border: none;
+    cursor: pointer;
+}
+
+div button.dropbtn:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.2s;
+}
+
+
+div.dropdown { /* Where the button will be located in the page */
+    position: fixed;
+    float: right;
+    top: 10;
+    right: 90;
+    display: block;
+}
+
+div.dropdown-content { /* Where the dropdown will place */
+    display: none;
+    position: absolute;
+    top: 40;
+    right: -35;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: black;
+    border-radius: 4px;
+}
+
+div.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+div.dropdown-content a:hover { /* Background color of each dropdown link */
+    background-color: #f1f1f1
+}
+
+div.dropdown:hover .dropdown-content { /* When your mouse hovers over the button, it displays the block */
+    display: block;
+}
+
+div.dropdown:hover .dropbtn {
+    background-color: #161616;
+    border: black;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
