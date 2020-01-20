@@ -56,13 +56,24 @@ h3.allusers a:hover{
     transition-duration: 0.4s;
 }
 
-div.feed h2{
-    width: 30%;
-    display: inline-block;
-    font-size: 9;
+div.feed {
+    /*overflow-y: hidden;*/
+    overflow-x: hidden;
+    overflow-x: auto;
     text-align: center;
-    border: 2px black;
+    width: 1000px;
+    height: 600px;
+    margin: 100px auto 0px auto;
+    border: solid 2px black;
     border-radius: 4px;
+    background-color: white;
+}
+
+div.feed h2{
+    width: 80%;
+    display: inline-block;
+    font-size: 18;
+    text-align: center;
 }
 
 div button.dropbtn { 
