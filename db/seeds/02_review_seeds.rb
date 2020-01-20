@@ -62,63 +62,63 @@ mannys_pizza_house_3 = Review.create(:title => "Best Pizza I have ever had - Man
 )
 
 # 10
-drunken_monkey_coffee_bar = Review.create(:title => "Awesome Spot - Drunken Monkey Coffee Bar",
+drunken_monkey_coffee_bar = Review.create(:title => "Awesome Spot",
 :content => "What a lovely spot for a delicious treat or coffee. Plenty of vegan options as well.  Comfortable and relaxed but not too loud. ",
 :user_id => 1,
 :store_id => 4
 )
 
 # 11
-drunken_monkey_coffee_bar_2 = Review.create(:title => "Very Relaxing - Drunken Monkey Coffee Bar",
+drunken_monkey_coffee_bar_2 = Review.create(:title => "Very Relaxing",
 :content => "I love places that aren't super out marketed or talked about because it's usually those cozy little spots. Drunken monkey is a super relaxed vibe!",
 :user_id => 2,
 :store_id => 4
 )
 
 # 12
-drunken_monkey_coffee_bar_3 = Review.create(:title => "I Jittery - Drunken Monkey Coffee Bar",
+drunken_monkey_coffee_bar_3 = Review.create(:title => "I Jittery",
 :content => "Everyone here loves me! They all let me try their coffee. It's safe to say I'll never come down from this energy high.",
 :user_id => 3,
 :store_id => 4
 )
 
 # 13
-beefy_king = Review.create(:title => "They Do What They Do Really Well - Beefy King",
+beefy_king = Review.create(:title => "They Do What They Do Really Well",
 :content => "Friendly and prompt service, settled for their classic combo. Beef sandwich XL with cheese and onion with tater tots. Orange milkshake followed. Well priced, has a great sized menu and feels that they do what they do really well.",
 :user_id => 1,
 :store_id => 5
 )
 
 # 14
-beefy_king_2 = Review.create(:title => "Never Disappointing - Beefy King",
+beefy_king_2 = Review.create(:title => "Never Disappointing",
 :content => "It's great to experience a fast food joint where they keep it simple and continue to do what has worked for 50 years! Meat quality is excellent!",
 :user_id => 2,
 :store_id => 5
 )
 
 # 15
-beefy_king_3 = Review.create(:title => "All hail the king - Beefy King",
+beefy_king_3 = Review.create(:title => "All hail the king",
 :content => "Royalty here serves amazing beef. So tender and royally fantastic.",
 :user_id => 3,
 :store_id => 5
 )
 
 #16
-hollerbachs = Review.create(:title => "First Time eating German Food - Hollerbach's Willow Tree Cafe",
+hollerbachs = Review.create(:title => "First Time eating German Food",
 :content => "Great service, fun entertainment and amazing food.",
 :user_id => 1,
 :store_id => 6
 )
 
 # 17
-hollerbachs = Review.create(:title => "Amazing food ! - Hollerbach's Willow Tree Cafe",
+hollerbachs = Review.create(:title => "Amazing food!",
 :content => "They know how to throw a good festival!",
 :user_id => 2,
 :store_id => 6
 )
 
 # 18
-hollerbachs = Review.create(:title => "Fantastisch! - Hollerbach's Willow Tree Cafe",
+hollerbachs = Review.create(:title => "Fantastisch!",
 :content => "They gave me dog treats and someone slipped me some beer. 10/10 would go again.",
 :user_id => 3,
 :store_id => 6
