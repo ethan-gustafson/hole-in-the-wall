@@ -23,6 +23,11 @@ h1#intro a{
     text-decoration: none;
 }
 
+h1#intro a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
 h1#state {
     position: relative;
     font-size: 27;
@@ -49,9 +54,15 @@ h1#store-iterator a:hover{
 h3.allusers a{
     position: absolute;
     font-size: 27;
-    top: 11px;
+    top: 13px;
     left: 315px;
     color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h3.allusers a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
 }
 
 div button.dropbtn { 
@@ -64,6 +75,10 @@ div button.dropbtn {
     cursor: pointer;
 }
 
+div button.dropbtn:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.2s;
+}
 
 div.dropdown { /* Where the button will be located in the page */
     position: absolute;

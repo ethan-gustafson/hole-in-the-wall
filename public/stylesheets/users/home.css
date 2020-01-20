@@ -12,10 +12,10 @@ div.container {
     top: 0;
     left: 0;
     background-color: rgb(34, 34, 34);
-  }
+}
 
 h1#intro a{
-    position: absolute;
+    position: fixed;
     font-size: 27;
     top: 13px;
     left: 90px;
@@ -23,20 +23,46 @@ h1#intro a{
     text-decoration: none;
 }
 
+h1#intro a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
 h3#allstores a{
-    position: absolute;
+    position: fixed;
     font-size: 27;
-    top: 11px;
+    top: 13px;
     left: 397px;
     color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h3#allstores a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
 }
 
 h3.allusers a{
-    position: absolute;
+    position: fixed;
     font-size: 27;
-    top: 11px;
+    top: 13px;
     left: 315px;
     color: rgb(248, 248, 248);
+    text-decoration: none;
+}
+
+h3.allusers a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
+div.feed h2{
+    width: 30%;
+    display: inline-block;
+    font-size: 9;
+    text-align: center;
+    border: 2px black;
+    border-radius: 4px;
 }
 
 div button.dropbtn { 
@@ -49,9 +75,14 @@ div button.dropbtn {
     cursor: pointer;
 }
 
+div button.dropbtn:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.2s;
+}
+
 
 div.dropdown { /* Where the button will be located in the page */
-    position: absolute;
+    position: fixed;
     float: right;
     top: 10;
     right: 90;
