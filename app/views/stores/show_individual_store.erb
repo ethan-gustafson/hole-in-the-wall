@@ -14,16 +14,18 @@
 </head>
 
 <body>
-<h1 id="store-name"><%=@store.name%></h1>
-<p id="store-url"><%=@store.url%></p>
-<p id="store-address"><%=@store.address%></p>
-<p id="store-description"><%=@store.description%></p>
-<p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
-    <a href="/stores/<%=review.user_id%>"><%=index%>. <%= review.title %><br></a>
-    <%=review.content %>
+<div class="storeinfo">
+    <h1 id="store-name"><%=@store.name%></h1>
+    <p id="store-url"><%=@store.url%></p>
+    <p id="store-address"><%=@store.address%></p>
+    <p id="store-description"><%=@store.description%></p>
+    <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
+        <a href="/stores/<%=review.user_id%>"><%=index%>. <%= review.title %><br></a>
+        <%=review.content %>
     <br>
-    <% end %>
+        <% end %>
     </p>
+</div>
 
 <div class="dropdown">
     <button class="dropbtn">Profile</button>
@@ -35,6 +37,17 @@
     </div>
 </div>
 
+<div class="form">
+<h2 class="createbanner">Create a New Review</h2>
+<h2><form action="/my-reviews" method="POST">
+        <input id="title" type="text" name="review[title] placeholder="Title">
+<br>
+<br>
+        <textarea <input id="content" type="text" name="review[content]" placeholder="Content"></textarea>
+        <input id="submit" type="submit" value="Submit">
+    </form>
+<h2>
+</div>
 </body>
 
 </html>

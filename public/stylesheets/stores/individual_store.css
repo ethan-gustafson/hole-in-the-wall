@@ -1,1 +1,75 @@
-/* Going to need this for later */
+form {
+    margin-top: 30px
+}
+
+div.form{
+    border: solid black;
+    border-radius: 4px;
+}
+
+h2.createbanner{
+    position: relative;
+    text-align: left;
+    left: 20;
+}
+
+::placeholder{
+    text-align: left;
+}
+
+label{
+    position: absolute;
+    left: 470px;
+}
+
+h2 #title{
+    position: absolute;
+    font-size: 15;
+    width: 300px;
+    margin: auto auto auto 28px;
+    padding: 20px;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 4px;
+}
+
+
+textarea{
+    position: relative;
+    font-size: 12;
+    width: 60%;
+    height: 150px;
+    padding: 12px 20px;
+    margin: 0px 0px 20px 28px;
+    box-sizing: border-box;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 4px;
+    background-color: white;
+    overflow: hidden;
+    resize: none;
+}
+
+input#title::placeholder{
+    color: black 0.8;
+}
+
+::placeholder{
+    color: black 0.8;
+}
+
+
+input#submit {
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    margin-top: 10px;
+    margin: auto auto auto 30px;
+    border: 2px solid rgb(82, 82, 82);
+    border-radius: 4px;
+    background-color: rgb(245, 245, 245);
+    outline:none;
+}
+
+input#submit:hover {
+    background-color: rgb(255, 208, 208);
+    transition-duration: 0.4s;
+}

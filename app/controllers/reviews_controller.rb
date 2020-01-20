@@ -9,14 +9,6 @@ class ReviewsController < ApplicationController
         end
     end
 
-    get "/my-reviews/form" do # shows the review form
-        if logged_in?
-        erb :'/reviews/new_review_form'
-        else
-            redirect to '/hole-in-the-wall'
-        end
-    end
-
     post "/my-reviews" do
         @review = Review.new(:title => params[:review][:title], :content => params[:review][:content], :user_id => current_user.id) # When a new review is created
         if @review.valid?

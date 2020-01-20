@@ -5,18 +5,19 @@
 <title>Stores</title>
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/stores/allstores.css">
+<link rel="stylesheet" href="stylesheets/loggedin_banner.css">
 <div class="container"></div>
 <h1 id="intro"><a href="/home">Hole in the Wall</a></h1>
 </head>
-
 <h1 id="state">FL</h1>
-
 <body>
-<h1 id="store-iterator">
+<div id="store-iterator">
+<h1>
     <% Store.all.each.with_index(1) do |store, index| %>
         <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %> - <%= store.address%><br></a>
     <% end %>
 </h1>
+</div>
 
     <div class="dropdown">
     <button class="dropbtn">Profile</button>
