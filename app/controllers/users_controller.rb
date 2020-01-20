@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     end
 
     get '/users/:id' do
-        @find_user = User.find_by(params[:id])
+        @find_user = User.find_by_id(params[:id])
         if logged_in?
             erb :'/users/show_individual_user'
         else

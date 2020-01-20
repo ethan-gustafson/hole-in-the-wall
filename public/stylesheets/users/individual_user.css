@@ -61,6 +61,16 @@ h3#userid{
     top: 60;
 }
 
+h3#usersreviews{
+    position: relative;
+    top: 40;
+}
+
+p#indexreviews{
+    position: relative;
+    top: 35;
+}
+
 div.feed h2{
     width: 30%;
     display: inline-block;
