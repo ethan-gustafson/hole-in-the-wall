@@ -2,14 +2,30 @@
 <html>
 <head>
 <title>Account info:</title>
-<h1>User id: <%=@session_user.id%> </h1>
-<h1>Name: <%=@session_user.name%> </h1>
-<h1>Username: <%=@session_user.username%> </h1>
-<h1>Email: <%=@session_user.email%> </h1>
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/users/account.css">
+<div class="container"></div>
+<div class="info">
+    <h1 id="intro"><a href="/home">Hole in the Wall</a>
+    <h1>User id: <%=@session_user.id%> </h1>
+    <h1>Name: <%=@session_user.name%> </h1>
+    <h1>Username: <%=@session_user.username%> </h1>
+    <h1>Email: <%=@session_user.email%> </h1>
+</div>
 </head>
 <body>
-<h1><a href="/home">Home Page</a></h1>
-<h1><a href="/my-reviews">My Reviews</a></h1>
-<h1><a href="/logout">Log Out</a></h1>
+
+<div class="dropdown">
+    <button class="dropbtn">Profile</button>
+    <div class="dropdown-content">
+        <a href="/account">Account</a>
+        <a href="/my-reviews">My Reviews</a>
+        <a href="/my-stores">My Stores</a>
+        <a href="/logout">Log out</a>
+    </div>
+</div>
+
+<h3 id="allstores"><a href="/stores">Stores</a></h3>
+<h3 class="allusers"><a href="/users">Users</a></h3>
 </body>
 </html>

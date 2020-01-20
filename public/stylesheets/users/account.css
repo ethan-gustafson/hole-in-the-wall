@@ -12,6 +12,21 @@ div.container {
     top: 0;
     left: 0;
     background-color: rgb(34, 34, 34);
+    
+}
+
+div.info{
+    width: fit-content;
+    margin: 180px auto auto auto;
+    padding: 30px;
+    border: solid rgb(34, 34, 34);
+    border-radius: 4px;
+}
+
+div.info h1{
+    height: 80px;
+    text-align: center;
+    margin: -20px auto auto auto;
 }
 
 h1#intro a{
@@ -42,7 +57,7 @@ h3#allstores a:hover{
     transition-duration: 0.4s;
 }
 
-h3#allusers a{
+h3.allusers a{
     position: fixed;
     font-size: 27;
     top: 13px;
@@ -51,23 +66,7 @@ h3#allusers a{
     text-decoration: none;
 }
 
-h3#allusers a:hover{
-    color: rgb(255, 107, 107);
-    transition-duration: 0.4s;
-}
-
-h1#users{
-    position: relative;
-    top: 65;
-    left: 53;
-}
-
-h1#users a{
-    color: rgb(44, 44, 44);
-    text-decoration: none;
-}
-
-h1#users a:hover{
+h3.allusers a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
 }

@@ -57,7 +57,6 @@ h3.allusers a:hover{
 }
 
 div.feed {
-    /*overflow-y: hidden;*/
     overflow-x: hidden;
     overflow-x: auto;
     text-align: center;
