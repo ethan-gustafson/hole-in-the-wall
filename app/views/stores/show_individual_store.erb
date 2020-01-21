@@ -21,7 +21,7 @@
     <h3 id="store-address"><%=@store.address%></h3>
     <p id="store-description"><%=@store.description%></p>
     <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
-        <a href="/stores/<%=review.user_id%>"><%=index%>. <%= review.title %><br></a>
+        <a href="/users/<%=review.user_id%>"><%=index%>. <%=review.user.username%>: <%= review.title %><br></a>
         <%=review.content %>
     <br>
     <br>
