@@ -3,6 +3,7 @@ class Createreviews < ActiveRecord::Migration[5.2]
     create_table :reviews do |c|
       c.string :title
       c.string :content
+      c.timestamps
     end
   end
 end

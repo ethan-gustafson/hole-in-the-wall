@@ -60,7 +60,7 @@ div.feed {
     overflow-x: hidden;
     overflow-x: auto;
     text-align: center;
-    width: 1000px;
+    width: 800px;
     height: 600px;
     margin: 100px auto 0px auto;
     border: solid 2px black;
@@ -73,6 +73,24 @@ div.feed h2{
     display: inline-block;
     font-size: 18;
     text-align: center;
+}
+
+div.feed a{
+    font-size: 20;
+    color: rgb(255, 107, 107);
+    text-decoration-color: rgb(127, 219, 255);
+}
+
+div.feed a:hover{
+    color: rgb(253, 72, 72);
+    text-decoration-color: rgb(98, 211, 255);
+    transition-duration: 0.4s;
+}
+
+div.feed p{
+    width: 65%;
+    display: inline-block;
+    font-size: 18;
 }
 
 div button.dropbtn { 
