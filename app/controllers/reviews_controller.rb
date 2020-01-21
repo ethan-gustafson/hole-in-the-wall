@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
         @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
 
         if logged_in? && current_user.id  == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
-        erb :'/reviews/edit', :layout => :logged_in # Allows the user to edit that review.
+        erb :'/reviews/edit' # Allows the user to edit that review.
         elsif logged_in?
             redirect to '/hole-in-the-wall'
         else
