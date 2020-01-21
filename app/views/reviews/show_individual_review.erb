@@ -24,9 +24,7 @@
 </div>
 
 <div class="reviewinfo">
-    <h1>Review id: <%= @user_review.id %> </h1>
-    <h1>User id: <%=@user_review.user_id%></h1>
-    <h1>Store id: <%= @user_review.store_id %> </h1>
+    <h1>Review id: <%= @user_review.id %> - User id: <%=@user_review.user_id%> - Store id: <%= @user_review.store_id %></h1>
     <h1><%=@user_review.title%></h1>
     <h3><%=@user_review.content%></h3>
 </div>
@@ -35,7 +33,7 @@
 
 <form action="/my-reviews/<%=@user_review.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="delete">
-<h3> Delete this review? <input type="submit" value="delete"></h3>
+<input type="submit" value="delete">
 </form>
 </body>
 </html>

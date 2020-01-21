@@ -1,9 +1,74 @@
 body div.reviewinfo{
-    position: relative;
-    top: 60;
+    overflow-x: auto;
+    text-align: center;
+    width: 800px;
+    height: 420px;
+    margin: 90px auto 0px auto;
+    border: solid 2px black;
+    border-radius: 4px;
+    background-color: white;
+}
+
+body div.reviewinfo h1{
+    width: 80%;
+    display: inline-block;
+    font-size: 30;
+    text-align: center;
+}
+
+body div.reviewinfo h1:hover{
+    color: rgb(253, 72, 72);
+    transition-duration: 0.4s;
+    cursor: default;
+}
+
+body div.reviewinfo h3{
+    width: 90%;
+    display: inline-block;
+    font-size: 20;
+    text-align: center;
 }
 
 h3#href{
-    position: relative;
-    top: 100;
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 23px;
+    background-color: white;
+}
+
+h3#href a{
+    color: black;
+    text-decoration: none;
+}
+
+h3#href a:hover{
+    color: rgb(253, 72, 72);
+    transition-duration: 0.4s;
+}
+
+form{
+    text-align: center;
+}
+
+input[type=submit]{
+    position: absolute;
+    font-size: 20;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 23px;
+    background-color: white;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(255, 208, 208);
+    transition-duration: 0.4s;
 }
