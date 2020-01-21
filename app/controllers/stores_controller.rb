@@ -1,20 +1,14 @@
 class StoresController < ApplicationController
 
     get '/stores' do
-        if logged_in? # session works, users logged in will see 
+        redirect_if_not_logged_in? # session works, users logged in will see 
         erb :'/stores/show_stores' # all of the stores.
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get '/stores/:id' do
+    redirect_if_not_logged_in?
     @store = Store.find_by_id(params[:id])
-        if logged_in?
-            erb :'/stores/show_individual_store'
-        else
-            redirect to '/hole-in-the-wall'
-        end
+    erb :'/stores/show_individual_store'
     end
 
     # get '/my-stores' do
