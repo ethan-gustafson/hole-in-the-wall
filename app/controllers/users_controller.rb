@@ -31,38 +31,26 @@ class UsersController < ApplicationController
     end
 
     get '/home' do 
-        if logged_in?
+        redirect_if_not_logged_in?
         erb :'/users/show_home'
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get '/users' do
+        redirect_if_not_logged_in?
         @users = User.all
-        if logged_in?
             erb :'/users/show_all_users'
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get '/users/:id' do
+        redirect_if_not_logged_in?
         @find_user = User.find_by_id(params[:id])
-        if logged_in?
             erb :'/users/show_individual_user'
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get '/account' do # Shows the users reviews, favorite stores and the logout button.
+        redirect_if_not_logged_in?
         @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
-        if logged_in?
         erb :'/users/show_account'
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
