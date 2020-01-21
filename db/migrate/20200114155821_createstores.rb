@@ -5,6 +5,7 @@ class Createstores < ActiveRecord::Migration[5.2]
       c.string :address
       c.string :url
       c.string :description
+      c.string :image
     end
   end
 end

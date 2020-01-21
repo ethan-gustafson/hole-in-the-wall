@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_01_15_212034) do
     t.string "address"
     t.string "url"
     t.string "description"
+    t.string "image"
   end
 
   create_table "user_stores", force: :cascade do |t|
