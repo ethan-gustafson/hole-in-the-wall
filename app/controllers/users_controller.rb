@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     get '/users' do
         @users = User.all
         if logged_in?
-            erb :'/users/show_all_users'
+            erb :'/users/show_all_users', :layout => :logged_in
         else
             redirect to '/hole-in-the-wall'
         end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     get '/users/:id' do
         @find_user = User.find_by_id(params[:id])
         if logged_in?
-            erb :'/users/show_individual_user'
+            erb :'/users/show_individual_user', :layout => :logged_in
         else
             redirect to '/hole-in-the-wall'
         end
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
     get '/account' do # Shows the users reviews, favorite stores and the logout button.
         @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
         if logged_in?
-        erb :'/users/show_account'
+        erb :'/users/show_account', :layout => :logged_in
         else
             redirect to '/hole-in-the-wall'
         end
