@@ -10,7 +10,13 @@ class ApplicationController < Sinatra::Base
       helpers do
         def logged_in? # verifies that the session is true.
 			!!session[:user_id]
-		end
+        end
+        
+        def redirect_if_not_logged_in?
+            if !logged_in?
+                redirect to '/hole-in-the-wall'
+            end
+        end
 
 		def current_user # identifies the current user.
 			User.find(session[:user_id])

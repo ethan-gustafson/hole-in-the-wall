@@ -1,23 +1,16 @@
 class ReviewsController < ApplicationController
 
     get "/my-reviews" do
-        if logged_in?
+        redirect_if_not_logged_in?
         @reviews = current_user.reviews # shows all of this specific user's reviews
         erb :'/reviews/show_my_reviews' # Gives links to each review - Gives link to the Home Page
-        else
-            redirect to '/hole-in-the-wall'
-        end
     end
 
     get "/my-reviews/:id" do
+        redirect_if_not_logged_in?
+        validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
-        if logged_in? && current_user.id  == @user_review.user_id # if the user is logged in and their user_id is equal to the @user_review params id
         erb :'/reviews/show_individual_review' # Shows the correct review.
-        elsif !logged_in?
-            redirect to '/hole-in-the-wall'
-        else
-            erb :'/reviews/error_no_access'
-        end
     end
 
     post "/my-reviews/:id" do
@@ -33,11 +26,9 @@ class ReviewsController < ApplicationController
     end
 
     get "/my-reviews/:id/edit" do
-        if !logged_in?
-            redirect to '/hole-in-the-wall'  # they get the error message if it is not their review
-        end
-        @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
+        redirect_if_not_logged_in?  # they get the error message if it is not their review
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
+        @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
         erb :'/reviews/edit' # Allows the user to edit that review.
     end
 
