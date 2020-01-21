@@ -1,7 +1,14 @@
 h1#pagebanner{
-    margin: 65px 334px auto 26px;
+    margin: 82px 334px auto 81px;
 }
 
 h3.reviewlist{
-    margin: 0px 300px auto 26px;
+    overflow-x: auto;
+    text-align: center;
+    width: 800px;
+    height: 500px;
+    margin: 40px auto 0px auto;
+    border: solid 2px black;
+    border-radius: 4px;
+    background-color: white;
 }

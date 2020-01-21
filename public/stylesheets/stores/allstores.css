@@ -7,7 +7,6 @@ h1#state {
 }
 
 div#store-iterator{
-    overflow-x: hidden;
     overflow-x: auto;
     text-align: center;
     width: 1000px;
