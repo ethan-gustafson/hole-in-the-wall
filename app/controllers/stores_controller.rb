@@ -6,9 +6,9 @@ class StoresController < ApplicationController
     end
 
     get '/stores/:id' do
-    redirect_if_not_logged_in?
-    @store = Store.find_by_id(params[:id])
-    erb :'/stores/show_individual_store'
+        redirect_if_not_logged_in?
+        @store = Store.find_by_id(params[:id])
+        erb :'/stores/show_individual_store'
     end
 
     # get '/my-stores' do

@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     get '/users/:id' do
         redirect_if_not_logged_in?
         @find_user = User.find_by_id(params[:id])
-            erb :'/users/show_individual_user'
+        erb :'/users/show_individual_user'
     end
 
     get '/account' do # Shows the users reviews, favorite stores and the logout button.

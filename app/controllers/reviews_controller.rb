@@ -19,7 +19,7 @@ class ReviewsController < ApplicationController
             @user_review.store_id = params[:id]
             @user_review.user_id = session[:user_id]
             @user_review.save
-        redirect to "/my-reviews/#{@user_review.id}" # it is redirected to that specific review from @review
+            redirect to "/my-reviews/#{@user_review.id}" # it is redirected to that specific review from @review
         else
             redirect to "/my-reviews"
         end
