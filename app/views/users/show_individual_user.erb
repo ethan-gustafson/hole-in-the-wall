@@ -1,13 +1,30 @@
-
+<DOCTYPE! html>
 <head>
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <title><%=@find_user.username%></title>
 <link rel="stylesheet" href="/stylesheets/users/individual_user.css">
 </head>
 
 <body>
 
+<div class="container"></div>
+<h1 id="intro"><a href="/home">Hole in the Wall</a>
+<h3 id="allstores"><a href="/stores">Stores</a></h3>
+<h3 class="allusers"><a href="/users">Users</a></h3>
+
+<div class="dropdown">
+    <button class="dropbtn">Profile</button>
+    <div class="dropdown-content">
+        <a href="/account">Account</a>
+        <a href="/my-reviews">My Reviews</a>
+        <a href="/my-stores">My Stores</a>
+        <a href="/logout">Log out</a>
+    </div>
+</div>
+
 <h3 id="userid">User id: <%=@find_user.id%> - <%=@find_user.username%></h3>
 <h3 id="usersreviews">Reviews: <%=@find_user.reviews.count%> <%@find_user.reviews.each.with_index(1) do |review, index|%> </h3>
     <p id="indexreviews"><%=index%>. <%=review.store.name%>: <%=review.title%></p>
     <%end%>
 </body>
+</html>

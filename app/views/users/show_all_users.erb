@@ -1,13 +1,33 @@
+<DOCTYPE! html>
+<html>
 <head>
+
 <title>Users</title>
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/users/users.css">
 <link rel="stylesheet" href="stylesheets/loggedin_banner.css">
 </head>
 
 <body>
+<div class="container"></div>
+<h1 id="intro"><a href="/home">Hole in the Wall</a>
+<h3 id="allstores"><a href="/stores">Stores</a></h3>
+<h3 class="allusers"><a href="/users">Users</a></h3>
+
+<div class="dropdown">
+    <button class="dropbtn">Profile</button>
+    <div class="dropdown-content">
+        <a href="/account">Account</a>
+        <a href="/my-reviews">My Reviews</a>
+        <a href="/my-stores">My Stores</a>
+        <a href="/logout">Log out</a>
+    </div>
+</div>
+
 <h1 id="users"><%User.all.each.with_index(1) do |user, index|%>
     <a href="/users/<%=user.id%>"><%=index%>. <%= user.username %><br></a>
     <%end%>
     </h1>
 </body>
+</html>
 
