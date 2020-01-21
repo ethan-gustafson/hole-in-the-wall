@@ -1,26 +1,8 @@
-<DOCTYPE! html>
-<html>
 <head>
 <title>Home</title>
-<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/users/home.css">
-<div class="container"></div>
-<h1 id="intro"><a href="/home">Hole in the Wall</a>
-<h3 id="allstores"><a href="/stores">Stores</a></h3>
-<h3 class="allusers"><a href="/users">Users</a></h3>
-</h1>
 </head>
 <body>
-
-<div class="dropdown">
-    <button class="dropbtn">Profile</button>
-    <div class="dropdown-content">
-        <a href="/account">Account</a>
-        <a href="/my-reviews">My Reviews</a>
-        <a href="/my-stores">My Stores</a>
-        <a href="/logout">Log out</a>
-    </div>
-</div>
 
 <div class="feed">
 <h2><%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
@@ -29,6 +11,5 @@
 <%end%>
 </h2>
 </div>
-
 </body>
-</html>
+

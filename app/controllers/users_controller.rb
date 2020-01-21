@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     get '/hole-in-the-wall' do  
-        erb :'/users/index' # Offers a sign up or log in page.
+        erb :'/users/index', :layout => :logged_out # Offers a sign up or log in page.
     end
 
     post '/hole-in-the-wall' do
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     end
 
     get '/login' do
-        erb :'/users/login' # has a login form.
+        erb :'/users/login', :layout => :logged_out # has a login form.
     end
 
     post '/login' do # posts to login and redirects to the home if successful.
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     get '/home' do 
         if logged_in?
-        erb :'/users/show_home' 
+        erb :'/users/show_home', :layout => :logged_in
         else
             redirect to '/hole-in-the-wall'
         end
