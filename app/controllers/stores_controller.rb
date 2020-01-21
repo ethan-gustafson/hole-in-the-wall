@@ -27,7 +27,7 @@ class StoresController < ApplicationController
     # end
 
     # post '/my-stores' do
-        
+        # needs a UserStore.new - UserStore model
     # end
 
     # get '/my-stores/:id' do

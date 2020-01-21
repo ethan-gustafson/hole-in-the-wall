@@ -9,9 +9,7 @@ class UsersController < ApplicationController
         if @user_signup.valid?
             @user_signup.save # If it is a valid user and the password is authenticated.
             session[:user_id] = @user_signup.id
-            redirect '/home'
-        elsif @user_signup.invalid? # if the params are empty, bad data won't be uploaded.
-            erb :'/users/show_error'
+            redirect '/home' # redirects leave the current method - loses the instance variable
         else
             erb :'/users/show_error'
         end
