@@ -18,16 +18,22 @@ class StoresController < ApplicationController
     end
 
     get '/my-stores' do
+    @my_stores = current_user.stores
         if logged_in?
-            
+            erb :'/stores/my_stores'
         else
             redirect to '/hole-in-the-wall'
         end
     end
 
+    post '/my-stores' do
+        
+    end
+
     get '/my-stores/:id' do
+    @favorited = Store.find_by_id(params[:id])
         if logged_in?
-            
+            erb :'/stores/show_individual_store'
         else
             redirect to '/hole-in-the-wall'
         end
