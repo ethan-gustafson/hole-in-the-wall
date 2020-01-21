@@ -21,6 +21,13 @@ class ApplicationController < Sinatra::Base
                 value == ""
             end
         end
+
+        def validreview?
+            if !logged_in? && current_user.id  != @user_review.user_id
+                erb :'/reviews/error_no_access'
+            end
+        end
+
     end
 
 end
