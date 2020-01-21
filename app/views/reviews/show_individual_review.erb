@@ -1,13 +1,7 @@
-<DOCTYPE! html>
-<html>
+
 <head>
-<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/loggedin_banner.css">
 <link rel="stylesheet" href="/stylesheets/reviews/individual_review.css">
-<div class="container"></div>
-<h1 id="intro"><a href="/home">Hole in the Wall</a>
-<h3 id="allstores"><a href="/stores">Stores</a></h3>
-<h3 class="allusers"><a href="/users">Users</a></h3>
 </head>
 <body>
 <div class="reviewinfo">
@@ -19,19 +13,10 @@
 </div>
 <h3 id="href"><a href="/my-reviews/<%= @user_review.id %>/edit">Would you like to edit this review?</a></h3>
 
-<div class="dropdown">
-    <button class="dropbtn">Profile</button>
-    <div class="dropdown-content">
-        <a href="/account">Account</a>
-        <a href="/my-reviews">My Reviews</a>
-        <a href="/my-stores">My Stores</a>
-        <a href="/logout">Log out</a>
-    </div>
-</div>
 
 <form action="/my-reviews/<%=@user_review.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="delete">
 <h3> Delete this review? <input type="submit" value="delete"></h3>
 </form>
 </body>
-</html>
+
