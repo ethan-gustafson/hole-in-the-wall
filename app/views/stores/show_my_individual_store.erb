@@ -24,11 +24,7 @@
     </div>
 </div>
 
-    <h1 id="store-link"><%UserStore.all.each.with_index(1) do |store, index|%>
-        <a href="/my-stores/<%=store.store_id%>"><%=index%>. <%= Store.find_by_id(store.store_id).name %><br></a>
-    <br>
-    <br>
-        <% end %>
+    <h1><%=@user_store.name%>
     </h1>
 
 </body>
