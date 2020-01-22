@@ -12,25 +12,21 @@ class StoresController < ApplicationController
     end
 
     # get '/my-stores' do
-    # @my_stores = current_user.stores
-    #     if logged_in?
-    #         erb :'/stores/my_stores'
-    #     else
-    #         redirect to '/hole-in-the-wall'
-    #     end
+    #     redirect_if_not_logged_in?
+        
+    #     erb :'/stores/my_stores'
     # end
 
-    # post '/my-stores' do
-        # needs a UserStore.new - UserStore model
+    # post '/my-stores/:id' do 
+    #     @store = Store.find_by_id(params[:id])
+        
+    #     redirect to "/my-stores"
+    #     erb :'/stores/my_stores'
     # end
 
     # get '/my-stores/:id' do
-    # @favorited = Store.find_by_id(params[:id])
-    #     if logged_in?
-    #         erb :'/stores/show_individual_store'
-    #     else
-    #         redirect to '/hole-in-the-wall'
-    #     end
+    #     redirect_if_not_logged_in?
+    #     @store = Store.find_by_id(params[:id])
     # end
 
 end
