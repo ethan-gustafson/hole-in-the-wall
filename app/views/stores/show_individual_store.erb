@@ -1,19 +1,10 @@
-<DOCTYPE! html>
-<html>
-
 <head>
 <title>Stores</title>
-<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/stylesheets/loggedin_banner.css" type="text/css">
 <link rel="stylesheet" href="/stylesheets/stores/individual_store.css" type="text/css">
-<div class="container"></div>
-<h1 id="intro"><a href="/home">Hole in the Wall</a>
-<h3 class="allusers"><a href="/users">Users</a></h3>
-<h3 id="allstores"><a href="/stores">Stores</a></h3>
-</h1>
 </head>
 
 <body>
+
 <div class="storeinfo">
     <h1 id="store-name"><a href="<%=@store.url%>"><%=@store.name%></a>
     </h1>
@@ -21,26 +12,16 @@
         <form action="/my-stores/<%=@store.id%>" method="POST">
         <button input class="button" type="submit" value="<%=@store%>">Favorite?</button>
     </div>
-    <img src="<%=@store.image%>" alt="google.com" style="width:700px;height:500px;">
-    <h3 id="store-address"><%=@store.address%></h3>
-    <p id="store-description"><%=@store.description%></p>
-    <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
-        <a href="/users/<%=review.user_id%>"><%=index%>. <%=review.user.username%>: <%= review.title %><br></a>
-        <%=review.content %>
-    <br>
-    <br>
-        <% end %>
-    </p>
-</div>
-
-<div class="dropdown">
-    <button class="dropbtn">Profile</button>
-    <div class="dropdown-content">
-        <a href="/account">Account</a>
-        <a href="/my-reviews">My Reviews</a>
-        <a href="/my-stores">My Stores</a>
-        <a href="/logout">Log out</a>
-    </div>
+        <img src="<%=@store.image%>" alt="google.com" style="width:700px;height:500px;">
+        <h3 id="store-address"><%=@store.address%></h3>
+        <p id="store-description"><%=@store.description%></p>
+        <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
+            <a href="/users/<%=review.user_id%>"><%=index%>. <%=review.user.username%>: <%= review.title %><br></a>
+            <%=review.content %>
+        <br>
+        <br>
+            <% end %>
+        </p>
 </div>
 
 <div class="form">
@@ -52,9 +33,7 @@
             <textarea <input id="content" type="text" name="review[content]" placeholder="Content"></textarea>
             <input id="submit" type="submit" value="Submit">
         </form>
-    <h2>
+    </h2>
 
 </div>
 </body>
-
-</html>
