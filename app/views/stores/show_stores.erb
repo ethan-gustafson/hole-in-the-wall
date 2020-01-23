@@ -1,35 +1,16 @@
-<DOCTYPE! html>
-<html>
-
 <head>
 <title>Stores</title>
-<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="stylesheets/stores/allstores.css">
-<link rel="stylesheet" href="stylesheets/loggedin_banner.css">
-<div class="container"></div>
-<h1 id="intro"><a href="/home">Hole in the Wall</a></h1>
 </head>
-<h1 id="state">FL</h1>
+
 <body>
+<h1 id="state">FL</h1>
 <div id="store-iterator">
-<h1>
-    <% Store.all.each.with_index(1) do |store, index| %>
-        <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %><br></a>
-    <% end %>
-</h1>
+    <h1>
+        <% Store.all.each.with_index(1) do |store, index| %>
+            <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %><br></a>
+        <% end %>
+    </h1>
 </div>
-
-    <div class="dropdown">
-    <button class="dropbtn">Profile</button>
-    <div class="dropdown-content">
-        <a href="/account">Account</a>
-        <a href="/my-reviews">My Reviews</a>
-        <a href="/my-stores">My Stores</a>
-        <a href="/logout">Log out</a>
-    </div>
-</div>
-
-<h3 class="allusers"><a href="/users">Users</a></h3>
 
 </body>
-</html>
