@@ -32,7 +32,6 @@ class StoresController < ApplicationController
 
     delete '/my-stores/:id' do
         @user_store = UserStore.find_by_id(params[:id]) 
-        binding.pry
         @user_store.delete
         redirect "/my-stores" 
     end

@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
     get "/logout" do# logs out the user.
 		session.clear
-		redirect "/hole-in-the-wall"
+		redirect "/"
 	end
 
 end
