@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
-    get '/hole-in-the-wall' do  
+    get '/' do  
         erb :'/users/index' # Offers a sign up or log in page.
     end
 
-    post '/hole-in-the-wall' do
+    post '/' do
     @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
         if @user_signup.valid?
             @user_signup.save # If it is a valid user and the password is authenticated.

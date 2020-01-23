@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
         
         def redirect_if_not_logged_in?
             if !logged_in?
-                redirect to '/hole-in-the-wall'
+                redirect to '/'
             end
         end
 
