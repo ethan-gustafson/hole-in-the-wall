@@ -1,0 +1,21 @@
+<DOCTYPE! html>
+<html>
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+
+    <% if logged_in?%>
+        <link rel="stylesheet" href="stylesheets/loggedin_banner.css" type="text/css">
+    <% else %>
+        <link rel="stylesheet" href="stylesheets/loggedout_banner.css" type="text/css">
+    <%end%>
+
+    <%=yield%>
+
+</head>
+
+<body>
+    <%=yield%>
+</body>
+
+</html>
