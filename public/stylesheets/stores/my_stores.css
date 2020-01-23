@@ -12,3 +12,19 @@ h1#store-link{
     border-radius: 4px;
     background-color: white;
 }
+
+div form input#submit{
+    position: relative;
+    padding: 10px;
+    top: -39px;
+    left: 155px;
+    margin: auto auto auto auto;
+    border: solid 2px black;
+    border-radius: 4px;
+    background-color: white;
+}
+
+div form input#submit:hover{
+    background-color: rgb(255, 208, 208);
+    transition-duration: 0.4s;
+}

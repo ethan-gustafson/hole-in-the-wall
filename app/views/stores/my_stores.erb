@@ -24,12 +24,16 @@
     </div>
 </div>
 
-    <h1 id="store-link"><%UserStore.all.each.with_index(1) do |store, index|%>
-        <a href="/my-stores/<%=store.store_id%>"><%=index%>. <%= Store.find_by_id(store.store_id).name %><br></a>
+    <h1 id="store-link"><%@my_stores.all.each.with_index(1) do |userstore, index|%>
+        <a href="/my-stores/<%=userstore.id%>"><%=index%>. <%= Store.find_by_id(userstore.store_id).name %></a>
+        <form action="/my-stores/<%=userstore.id%>" method="POST">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input id="submit" type="submit" value="delete">
     <br>
     <br>
         <% end %>
     </h1>
+
 
 </body>
 </html>
