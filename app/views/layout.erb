@@ -2,10 +2,26 @@
 <html>
 <head>
 
-<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"> <!-- Font -->
 
     <% if logged_in?%>
         <link rel="stylesheet" href="stylesheets/loggedin_banner.css" type="text/css">
+
+        <div class="container"></div>
+            <h1 id="intro"><a href="/home">Hole in the Wall</a>
+            <h3 id="allstores"><a href="/stores">Stores</a></h3>
+            <h3 class="allusers"><a href="/users">Users</a></h3>
+
+            <div class="dropdown">
+                <button class="dropbtn">Profile</button>
+                <div class="dropdown-content">
+                    <a href="/account">Account</a>
+                    <a href="/my-reviews">My Reviews</a>
+                    <a href="/my-stores">My Stores</a>
+                    <a href="/logout">Log out</a>
+                </div>
+            </div>
+
     <% else %>
         <link rel="stylesheet" href="stylesheets/loggedout_banner.css" type="text/css">
     <%end%>
