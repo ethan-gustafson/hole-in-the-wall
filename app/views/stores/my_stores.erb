@@ -7,15 +7,18 @@
 
 <h1 id="pagebanner">Here are all your Stores!</h1>
 
-    <h1 id="store-link"><%@my_stores.all.each.with_index(1) do |userstore, index|%>
-        <a href="/my-stores/<%=userstore.id%>"><%=index%>. <%= userstore.store.name %></a>
-        <form action="/my-stores/<%=userstore.id%>" method="POST">
-        <input id="hidden" type="hidden" name="_method" value="delete">
-        <input id="submit" type="submit" value="delete">
-        </form>
-    <br>
-    <br>
-        <% end %>
-    </h1>
+    <div class="my-stores">
+        <section id="store-link">
+        <%@my_stores.all.each.with_index(1) do |userstore, index|%>
+            <h1><a href="/my-stores/<%=userstore.id%>"><%=index%>. <%= userstore.store.name %></a></h1>
+            <form action="/my-stores/<%=userstore.id%>" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="delete">
+            <input id="submit" type="submit" value="delete">
+            </form>
+        <br>
+        <br>
+            <% end %>
+        </section>
+    </div>
 
 </body>

@@ -2,7 +2,7 @@ h1#pagebanner{
     margin: 82px 334px auto 81px;
 }
 
-h1#store-link{
+div.my-stores{
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -13,18 +13,27 @@ h1#store-link{
     background-color: white;
 }
 
-div form input#submit{
+div.my-stores a{
+    font-size: 40;
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+
+div.my-stores a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
+}
+
+form input#submit{
     position: relative;
-    padding: 10px;
-    top: -39px;
-    left: 155px;
-    margin: auto auto auto auto;
+    font-size: 18;
+    padding: 15px;
     border: solid 2px black;
     border-radius: 4px;
     background-color: white;
 }
 
-div form input#submit:hover{
+form input#submit:hover{
     background-color: rgb(255, 208, 208);
     transition-duration: 0.4s;
 }
