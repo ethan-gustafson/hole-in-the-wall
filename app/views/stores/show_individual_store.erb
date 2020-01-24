@@ -13,7 +13,7 @@
         <form action="/my-stores/<%=@store.id%>" method="POST">
         <button input class="button" type="submit" value="<%=@store%>">Favorite?</button>
     </div>
-        <img src="<%=@store.image%>" alt="google.com" style="width:700px;height:500px;">
+        <img src="<%=@store.image%>" alt="Restaurant Photo" style="width:700px;height:500px;">
         <h3 id="store-address"><%=@store.address%></h3>
         <p id="store-description"><%=@store.description%></p>
         <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>

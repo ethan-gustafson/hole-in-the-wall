@@ -1,10 +1,10 @@
 <DOCTYPE! html>
-<html>
+<html lang="en">
 <head>
 
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"> <!-- Font -->
 
-    <% if logged_in?%>
+    <% if logged_in? %>
         <link rel="stylesheet" href="stylesheets/loggedin_banner.css" type="text/css">
 
         <div class="container"></div>
@@ -24,12 +24,14 @@
 
     <% else %>
         <link rel="stylesheet" href="stylesheets/loggedout_banner.css" type="text/css">
-    <%end%>
+    <% end %>
 
 </head>
 
 <body>
-<%=yield%>
+
+    <%= yield %>
+    
 </body>
 
 </html>
