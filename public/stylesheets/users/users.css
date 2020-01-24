@@ -1,4 +1,4 @@
-h1#users{
+section{
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -10,7 +10,9 @@ h1#users{
     background-color: white;
 }
 
+
 h1#users a{
+    font-size: 40;
     color: rgb(44, 44, 44);
     text-decoration: none;
 }

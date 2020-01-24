@@ -1,24 +1,9 @@
-h3#userid{
-    position: relative;
-    top: 60;
-}
-
-h3#usersreviews{
-    position: relative;
-    top: 40;
-}
-
-p#indexreviews{
-    position: relative;
-    top: 35;
-}
-
-div.feed h2{
-    width: 30%;
-    display: inline-block;
-    font-size: 9;
-    text-align: center;
-    border: 2px black;
+div.wrapper{
+    width: fit-content;
+    overflow-x: auto;
+    margin: 180px auto auto auto;
+    padding: 30px;
+    border: solid rgb(34, 34, 34);
     border-radius: 4px;
+    background-color: white;
 }
-
