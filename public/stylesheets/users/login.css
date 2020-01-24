@@ -1,9 +1,17 @@
-form {
-    margin-top: 30px
+#form {
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 8px;
+    padding: 28px;
+    background-color: white;
 }
 
-::placeholder {
-    color: rgb(150, 150, 150);
+form {
+    margin-top: 30px
 }
 
 input {
@@ -32,6 +40,10 @@ input[type=password] {
     border-radius: 4px;
 }
 
+::placeholder {
+    color: rgb(150, 150, 150);
+}
+
 .username {
     font-size: 30;
 }
@@ -40,28 +52,16 @@ input[type=password] {
     font-size: 30;
 }
 
-#form {
-    position: absolute;
-    top: 51%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 8px;
-    padding: 23px;
-    background-color: white;
-}
-
-body p#signup {
+p#signup {
     font-size: 20;
     bottom: 0;
 }
 
-body p#signup a {
+p#signup a {
     color: rgb(104, 104, 104);
 }
 
-body p#signup a:hover {
+p#signup a:hover {
     color: rgb(255, 107, 107);
     text-decoration: underline;
     transition-duration: 0.4s;
