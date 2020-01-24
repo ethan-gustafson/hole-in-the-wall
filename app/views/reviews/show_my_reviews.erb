@@ -4,10 +4,17 @@
 </head>
 
 <body>
-<h1 id="pagebanner">Here are all your reviews!</h1>
 
-<h3 class="reviewlist"><% @reviews.each.with_index(1) do |review, index| %>
+<header>
+    <h1 id="pagebanner">Here are all your reviews!</h1>
+</header>
+
+<section>
+<h3 class="reviewlist">
+    <% @reviews.each.with_index(1) do |review, index| %>
     <a href="/my-reviews/<%=review.id%>"><%=index%>. <%= review.title %><br></a>
     <% end %>
 </h3>
+</section>
+
 </body>

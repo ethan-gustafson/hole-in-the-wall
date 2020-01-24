@@ -2,7 +2,7 @@ h1#pagebanner{
     margin: 82px 334px auto 81px;
 }
 
-h3.reviewlist{
+section {
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -11,4 +11,15 @@ h3.reviewlist{
     border: solid 2px black;
     border-radius: 4px;
     background-color: white;
+}
+
+section h3.reviewlist a{
+    font-size: 30;
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+
+section h3.reviewlist a:hover{
+    color: rgb(255, 107, 107);
+    transition-duration: 0.4s;
 }
