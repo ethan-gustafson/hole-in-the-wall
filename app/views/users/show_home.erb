@@ -5,14 +5,23 @@
 <body>
 
 <div class="feed">
-    <h2><%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
-        <h1><%=review.user.username%> Reviewed:</h1> 
-        <h3>
-            <a href="/stores/<%=review.store_id%>"><%=review.store.name%>: <%= review.title %><br></a>
-        </h3>
-            <p><%= review.content%></p>
-            <%end%>
+    <div class="inside-feed">
+    <%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
 
-    </h2>
+    <h1>
+    <%=review.user.username%> Reviewed:
+    </h1> 
+
+    <h3>
+        <a href="/stores/<%=review.store_id%>"><%=review.store.name%>: <%= review.title %><br></a>
+    </h3>
+
+    <p>
+    <%= review.content%>
+    </p>
+
+    <%end%>
+    </div>
 </div>
+
 </body>

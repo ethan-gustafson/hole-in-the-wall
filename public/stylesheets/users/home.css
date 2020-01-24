@@ -1,7 +1,7 @@
 div.feed {
     overflow-x: auto;
     text-align: center;
-    width: 800px;
+    width: 56%;
     height: 600px;
     margin: 100px auto 0px auto;
     border: solid 2px black;
@@ -9,27 +9,27 @@ div.feed {
     background-color: white;
 }
 
-div.feed h2{
+div.inside-feed{
     width: 80%;
     display: inline-block;
     font-size: 18;
     text-align: center;
 }
 
-div.feed a{
+div.inside-feed a{
     font-size: 20;
     color: rgb(255, 107, 107);
     text-decoration-color: rgb(127, 219, 255);
 }
 
-div.feed a:hover{
+div.inside-feed a:hover{
     color: rgb(253, 72, 72);
     text-decoration-color: rgb(98, 211, 255);
     transition-duration: 0.4s;
 }
 
-div.feed p{
-    width: 65%;
+div.inside-feed p{
+    width: 90%;
     display: inline-block;
     font-size: 18;
 }
