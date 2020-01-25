@@ -7,7 +7,7 @@ saigon_bistro = Review.create(:title => "High quality food!",
 
 # 2
 saigon_bistro_2 = Review.create(:title => "Something New",
-:content => "Let's start off by saying that it should be illegal to make food this good. Jk, but it's truly amazing. I've been to another honey bake out west, and this one hands down wins. The food seems to be served with more love. The staff is amazing. Also, a bunch of discounts, and military friendly.",
+:content => "Let's start off by saying that it should be illegal to make food this good. Jk, but it's truly amazing. The food seems to be served with more love. The staff is amazing. Also, a bunch of discounts, and military friendly.",
 :user_id => 2,
 :store_id => 1
 )
