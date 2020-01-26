@@ -7,8 +7,8 @@
 <body>
 
 <div class="reviewinfo">
-    <h1>Review id: <%= @user_review.id %> - User id: <%=@user_review.user_id%> - Store: '<%= @user_review.store.name %>' - Created at: <%=@user_review.created_at%></h1>
-    <h1><%=@user_review.title%></h1>
+    <h1>User: <%=@user_review.user.username%> - Store: '<%= @user_review.store.name %>' - Created at: <%=@user_review.created_at%></h1>
+    <h1>'<%=@user_review.title%>'</h1>
     <h3><%=@user_review.content%></h3>
 </div>
 <h3 id="href"><a href="/my-reviews/<%= @user_review.id %>/edit">Would you like to edit this review?</a></h3>
