@@ -7,15 +7,25 @@
 <body>
 
 <div class="storeinfo">
-    <h1 id="store-name"><a href="<%=@store.url%>"><%=@store.name%></a>
+    <h1 id="store-name">
+    <a href="<%=@store.url%>"><%=@store.name%></a>
     </h1>
+
     <div class="formbutton">
         <form action="/my-stores/<%=@store.id%>" method="POST">
         <button input class="button" type="submit" value="<%=@store%>">Favorite?</button>
+        </form>
     </div>
+    
         <img src="<%=@store.image%>" alt="Restaurant Photo" style="width:700px;height:500px;">
-        <h3 id="store-address"><%=@store.address%></h3>
-        <p id="store-description"><%=@store.description%></p>
+        
+        <h3 id="store-address">
+            <%=@store.address%>
+        </h3>
+
+        <p id="store-description">
+            <%=@store.description%>
+        </p>
         <p id="store-reviews"><%@store.reviews.each.with_index(1) do |review, index|%>
             <a href="/users/<%=review.user_id%>"><%=index%>. <%=review.user.username%>: <%= review.title %><br></a>
             <%=review.content %>
