@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     validates :email, uniqueness: true
     
     has_many :reviews
+    has_many :user_stores
+    has_many :stores, through: :user_stores
 end
 
 
