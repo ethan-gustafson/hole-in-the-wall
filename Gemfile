@@ -5,6 +5,7 @@ gem 'thin'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'activerecord', '5.2.3', :require => 'active_record'
 gem 'database_cleaner'
+gem 'pg'
 gem 'pry'
 gem 'pry-nav'
 gem 'rake'
@@ -17,7 +18,6 @@ gem 'css_parser'
 gem 'w3c_validators'
 
 group :development do
-    gem 'sqlite3', '~>1.3.6'
       gem 'rspec'
       gem 'tux'
     end

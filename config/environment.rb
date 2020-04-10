@@ -2,8 +2,8 @@ require 'bundler'
 Bundler.require
 
 ActiveRecord::Base.establish_connection(
-	:adapter => "sqlite3", 
-	:database => 'db/database.sqlite3'
+	:adapter => "postgresql", 
+	:database => 'hole-in-the-wall_development'
 )
 
 require_all 'app'
