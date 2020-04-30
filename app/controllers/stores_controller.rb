@@ -2,13 +2,13 @@ class StoresController < ApplicationController
 
     get '/stores' do
         redirect_if_not_logged_in? # session works, users logged in will see 
-        erb :'/stores/show_stores' # all of the stores.
+        erb :'/stores/index' # all of the stores.
     end
 
     get '/stores/:id' do
         redirect_if_not_logged_in?
         @store = Store.find_by_id(params[:id])
-        erb :'/stores/show_individual_store'
+        erb :'/stores/show'
     end
 
     get '/my-stores' do

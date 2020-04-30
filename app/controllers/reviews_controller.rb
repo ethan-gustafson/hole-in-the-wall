@@ -3,14 +3,14 @@ class ReviewsController < ApplicationController
     get "/my-reviews" do
         redirect_if_not_logged_in?
         @reviews = current_user.reviews # shows all of this specific user's reviews
-        erb :'/reviews/show_my_reviews' # Gives links to each review - Gives link to the Home Page
+        erb :'/reviews/show' # Gives links to each review - Gives link to the Home Page
     end
 
     get "/my-reviews/:id" do
         redirect_if_not_logged_in?
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
-        erb :'/reviews/show_individual_review' # Shows the correct review.
+        erb :'/reviews/show' # Shows the correct review.
     end
 
     post "/my-reviews/:id" do

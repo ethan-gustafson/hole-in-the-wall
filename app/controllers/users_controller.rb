@@ -11,7 +11,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user_signup.id
             redirect '/home' # redirects leave the current method - loses the instance variable
         else
-            erb :'/users/show_error'
+            erb :'/errors/show_error'
         end
     end
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
             redirect to '/home'
         else
-            erb :'/users/show_error'
+            erb :'/errors/show_error'
         end
     end
 
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     end
 
     get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
-        erb :'/users/show_error'
+        erb :'/errors/show_error'
     end
 
     get "/logout" do# logs out the user.
