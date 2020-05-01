@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    get ('/') {erb :'/users/index'} # Offers a sign up or log in page.
+    get ('/') {erb :'/users/new'} # Offers a sign up or log in page.
 
     post '/' do
     @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
