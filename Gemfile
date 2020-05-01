@@ -14,8 +14,6 @@ gem 'require_all'
 gem 'capybara'
 gem 'rack-test'
 gem 'shotgun'
-gem 'css_parser'
-gem 'w3c_validators'
 
 group :development do
       gem 'rspec'
