@@ -1,7 +1,5 @@
-h1#state {
-    position: relative;
-    font-size: 27;
-    top: 60;
+#state {
+    margin-top: 7%;
     text-align: center;
     color: rgb(54, 54, 54);
 }
@@ -9,16 +7,15 @@ h1#state {
 div#store-iterator{
     overflow-x: auto;
     text-align: center;
-    width: 1000px;
-    height: 340px;
-    margin: 65px auto 65px auto;
+    width: 70%;
+    height: 30%;
+    margin: 1% auto 5% auto;
     border: solid 2px black;
     border-radius: 4px;
     background-color: white;
 }
 
 div#store-iterator h1{
-    font-size: 40;
     margin: 40px auto 100px auto;
     color: rgb(54, 54, 54);
     text-decoration: none;
