@@ -9,6 +9,12 @@ class StoresController < ApplicationController
         erb :'/stores/show'
     end
 
+    get ('/stores/new') { erb :'/stores/new' }
+
+    post '/stores' do
+        @store = Store.new
+    end
+
     get '/my-stores' do
         @my_stores = UserStore.all
         erb :'/stores/my_stores'
