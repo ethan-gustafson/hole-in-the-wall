@@ -1,16 +1,10 @@
 class User < ActiveRecord::Base
     has_secure_password
-    validates :name, presence: true
-    validates_presence_of :username, :password
-    validates :username, uniqueness: true
-    validates :email, uniqueness: true
+    validates :name, :username, :password, presence: true
+    validates :username, :email, uniqueness: true
     
     has_many :reviews
-    has_many :user_stores
+    has_many :user_stores # These are the stores the user has liked
     has_many :stores, through: :user_stores
+    has_many :created_stores, through: :user_stores, source: :store # These are the stores the user has created
 end
-
-
-# Note that even though our database has a column called password_digest, 
-# we still access the attribute of password. 
-# This is given to us by has_secure_password
