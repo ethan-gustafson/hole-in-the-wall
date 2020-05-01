@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-    before {redirect_if_not_logged_in?}
+    before { redirect_if_not_logged_in? }
 
     get ("/my-reviews") {
         @reviews = current_user.reviews # shows all of this specific user's reviews
