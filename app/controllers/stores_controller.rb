@@ -1,24 +1,22 @@
 class StoresController < ApplicationController
 
+    before { redirect_if_not_logged_in? }
+
     get '/stores' do
-        redirect_if_not_logged_in? # session works, users logged in will see 
         erb :'/stores/index' # all of the stores.
     end
 
     get '/stores/:id' do
-        redirect_if_not_logged_in?
         @store = Store.find_by_id(params[:id])
         erb :'/stores/show'
     end
 
     get '/my-stores' do
-        redirect_if_not_logged_in?
         @my_stores = UserStore.all
         erb :'/stores/my_stores'
     end
 
     get'/my-stores/:id' do
-        redirect_if_not_logged_in?
         @user_store = UserStore.find_by_id(params[:id]) 
         @store = Store.find_by_id(@user_store.store_id)
         redirect "/stores/#{@store.id}"
