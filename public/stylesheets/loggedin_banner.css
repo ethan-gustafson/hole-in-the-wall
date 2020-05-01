@@ -6,8 +6,7 @@ html {
 
 div.container {
     position: fixed;
-    float: left;
-    width: 1440;
+    width: 100%;
     height: 60px;
     top: 0;
     left: 0;
@@ -17,7 +16,6 @@ div.container {
 
 h1#intro a{
     position: fixed;
-    font-size: 27;
     top: 13px;
     left: 90px;
     color: rgb(248, 248, 248);
@@ -30,32 +28,30 @@ h1#intro a:hover{
     transition-duration: 0.4s;
 }
 
-h3#allstores a{
+h2#allstores a{
     position: fixed;
-    font-size: 27;
-    top: 13px;
-    left: 397px;
+    top: 2.5%;
+    left: 30%;
     color: rgb(248, 248, 248);
     z-index: 2;
     text-decoration: none;
 }
 
-h3#allstores a:hover{
+h2#allstores a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
 }
 
-h3.allusers a{
+h2.allusers a{
     position: fixed;
-    font-size: 27;
-    top: 13px;
-    left: 315px;
+    left: 24%;
+    top: 2.5%;
     color: rgb(248, 248, 248);
     z-index: 2;
     text-decoration: none;
 }
 
-h3.allusers a:hover{
+h2.allusers a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
 }
@@ -78,11 +74,8 @@ div button.dropbtn:hover{
 
 div.dropdown { /* Where the button will be located in the page */
     position: fixed;
-    float: right;
-    top: 10;
-    right: 90;
-    display: block;
-    z-index: 2;
+    right: 9%;
+    top: 1.5%;
 }
 
 div.dropdown-content { /* Where the dropdown will place */

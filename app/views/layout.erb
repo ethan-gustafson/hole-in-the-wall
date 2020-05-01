@@ -17,10 +17,10 @@
 
     <% if logged_in? %>
 
-    <div class="container"></div>
+    <div class="container">
                 <h1 id="intro"><a href="/home">Hole in the Wall</a></h1>
-                <h3 id="allstores"><a href="/stores">Stores</a></h3>
-                <h3 class="allusers"><a href="/users">Users</a></h3>
+                <h2 class="allusers"><a href="/users">Users</a></h2>
+                <h2 id="allstores"><a href="/stores">Stores</a></h2>
 
             <div class="dropdown">
                 <button class="dropbtn">Profile</button>
@@ -31,7 +31,7 @@
                     <a href="/logout">Log out</a>
                 </div>
             </div>
-
+    </div>
         <% else %>
             <div id="container"></div>
         <% end %>

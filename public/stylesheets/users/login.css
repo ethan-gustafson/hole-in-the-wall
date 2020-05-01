@@ -79,4 +79,5 @@ input.button:hover {
     border: 2px solid rgb(82, 82, 82);
     border-radius: 4px;
     transition-duration: 0.4s;
+    cursor: pointer;
 }
