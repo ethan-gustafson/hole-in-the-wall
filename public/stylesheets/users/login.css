@@ -57,11 +57,11 @@ p#signup {
     bottom: 0;
 }
 
-p#signup a {
+h2#signup a {
     color: rgb(104, 104, 104);
 }
 
-p#signup a:hover {
+h2#signup a:hover {
     color: rgb(255, 107, 107);
     text-decoration: underline;
     transition-duration: 0.4s;
