@@ -37,11 +37,12 @@
 
 <div class="form">
     <h2 class="createbanner">Create a New Review:</h2>
-    <h2><form action="/my-reviews/<%=@store.id%>" method="POST">
+    <h2><form action="/my-reviews/:id" method="POST">
             <input id="title" type="text" name="review[title]" placeholder="Title">
     <br>
     <br>
             <textarea <input id="content" type="text" name="review[content]" placeholder="Content"></textarea>
+            <input type="hidden" name='store_id' value='<%=@store.id%>''>
             <input id="submit" type="submit" value="Submit">
         </form>
     </h2>
