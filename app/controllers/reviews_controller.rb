@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
         erb :'/reviews/show_my_reviews' # Gives links to each review - Gives link to the Home Page
     }
 
-    get "/my-reviews/:id" do
+    get ("/my-reviews/:id") {
         redirect_if_not_logged_in?
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
@@ -15,9 +15,9 @@ class ReviewsController < ApplicationController
         else
             redirect to "/my-reviews"
         end
-    end
+    }
 
-    post "/my-reviews/:id" do
+    post ("/my-reviews/:id") {
         @user_review = Review.new(params[:review])
         if @user_review.valid?
             @user_review.store_id = params[:store_id]
@@ -27,16 +27,16 @@ class ReviewsController < ApplicationController
         else
             redirect to "/my-reviews"
         end
-    end
+    }
 
-    get "/my-reviews/:id/edit" do
+    get ("/my-reviews/:id/edit") {
         redirect_if_not_logged_in?  # they get the error message if it is not their review
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
         erb :'/reviews/edit' # Allows the user to edit that review.
-    end
+    }
 
-    patch "/my-reviews/:id" do # patch request to the specific id
+    patch ("/my-reviews/:id") { # patch request to the specific id
         @user_review = Review.find_by_id(params[:id]) # finds the right id to patch
         validreview? 
 
@@ -46,14 +46,14 @@ class ReviewsController < ApplicationController
         else
             redirect to '/my-reviews/form'
         end
-    end
+    }
 
-    delete "/my-reviews/:id" do
+    delete ("/my-reviews/:id") {
         @user_review = Review.find_by_id(params[:id]) # will find the review by the params id
 
         validreview?  # if the current user is equal to the review user id
         @user_review.destroy # then we will delete the post. 
         redirect '/my-reviews' # Redirected to their reviews.
-    end
+    }
 
 end
