@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-    get '/' do  
-        erb :'/users/index' # Offers a sign up or log in page.
-    end
+    get ('/') {erb :'/users/index'} # Offers a sign up or log in page.
 
     post '/' do
     @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
@@ -15,9 +13,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/login' do
-        erb :'/users/login' # has a login form.
-    end
+    get ('/login') {erb :'/users/login'} # has a login form.
 
     post '/login' do # posts to login and redirects to the home if successful.
     @user = User.find_by(:username => params[:username])
@@ -53,9 +49,7 @@ class UsersController < ApplicationController
         erb :'/users/show_account'
     end
 
-    get '/error' do # shows an error message that will tell the user to go back and log in or sign up.
-        erb :'/errors/show_error'
-    end
+    get ('/error') {erb :'/errors/show_error'} # shows an error message that will tell the user to go back and log in or sign up.
 
     get "/logout" do# logs out the user.
 		session.clear
