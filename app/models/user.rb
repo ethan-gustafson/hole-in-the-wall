@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
     validates :username, :email, uniqueness: true
     
     has_many :reviews
-    has_many :stores # These are the stores the user has created
     has_many :user_stores # These are the stores the user has liked
     has_many :stores, through: :user_stores
 end

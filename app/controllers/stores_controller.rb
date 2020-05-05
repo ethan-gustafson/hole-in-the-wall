@@ -9,19 +9,6 @@ class StoresController < ApplicationController
         erb :'/stores/show'
     end
 
-    get ('/stores/new') { erb :'/stores/new' }
-
-    post '/stores' do
-        @store = Store.create(
-            :name => params[:name], 
-            :address => params[:address], 
-            :url => params[:url], 
-            :description => params[:description],
-            :image => params[:image],
-            user_id: current_user.id
-        )
-    end
-
     get '/my-stores' do
         @my_stores = UserStore.all
         erb :'/stores/my_stores'
