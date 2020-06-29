@@ -1,4 +1,4 @@
-div.feed {
+main.feed {
     overflow-x: auto;
     text-align: center;
     width: 56%;
@@ -8,7 +8,7 @@ div.feed {
     border-radius: 4px;
     background-color: white;
 }
-
+/* 
 div.inside-feed{
     width: 80%;
     display: inline-block;
@@ -32,6 +32,6 @@ div.inside-feed p{
     width: 90%;
     display: inline-block;
     font-size: 18;
-}
+} */
 
 

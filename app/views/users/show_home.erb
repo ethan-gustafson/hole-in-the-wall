@@ -1,27 +1,20 @@
 <head>
-<title>Home</title>
-<link rel="stylesheet" href="stylesheets/users/home.css">
+    <link rel="stylesheet" href="stylesheets/users/home.css">
 </head>
+
 <body>
 
-<div class="feed">
-    <div class="inside-feed">
+<main class="feed">
     <%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
 
-    <h1>
-    <%=review.user.username%> Reviewed:
-    </h1> 
-
-    <h3>
-        <a href="/stores/<%=review.store_id%>"><%=review.store.name%>: <%= review.title %><br></a>
-    </h3>
-
-    <p>
-    <%= review.content%>
-    </p>
+        <section>
+            <h1><%=review.user.username%> Reviewed:</h1> 
+            <h3><a href="/stores/<%=review.store_id%>"><%=review.store.name%>: <%= review.title %></a></h3>
+            <br>
+            <p><%= review.content%></p>
+        </section>
 
     <%end%>
-    </div>
-</div>
+</main>
 
 </body>
