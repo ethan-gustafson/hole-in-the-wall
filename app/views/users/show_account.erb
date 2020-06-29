@@ -1,14 +1,15 @@
 <head>
-<title>Account info:</title>
-<link rel="stylesheet" href="stylesheets/users/account.css">
+    <link rel="stylesheet" href="stylesheets/users/account.css">
 </head>
+
 <body>
 
-<div class="info">
-    <h1 id="intro"><a href="/home">Hole in the Wall</a>
-    <h1>User id: <%=@session_user.id%> </h1>
-    <h1>Name: <%=@session_user.name%> </h1>
-    <h1>Username: <%=@session_user.username%> </h1>
-    <h1>Email: <%=@session_user.email%> </h1>
-</div>
+    <section class="info">
+        <h1 id="intro"><a href="/home">Hole in the Wall</a>
+        <h1>User id: <%=@session_user.id%> </h1>
+        <h1>Name: <%=@session_user.name%> </h1>
+        <h1>Username: <%=@session_user.username%> </h1>
+        <h1>Email: <%=@session_user.email%> </h1>
+    </section>
+    
 </body>

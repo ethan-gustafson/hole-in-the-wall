@@ -1,4 +1,4 @@
-div.info{
+.info{
     width: fit-content;
     margin: 180px auto auto auto;
     padding: 30px;
@@ -7,7 +7,7 @@ div.info{
     background-color: white;
 }
 
-div.info h1{
+.info h1{
     height: 80px;
     text-align: center;
     margin: -20px auto auto auto;
