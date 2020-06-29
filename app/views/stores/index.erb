@@ -12,7 +12,8 @@
 <main id="store-iterator">
     <h1>
         <% Store.all.each.with_index(1) do |store, index| %>
-            <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %><br></a>
+            <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %></a>
+            <br>
         <% end %>
     </h1>
 </main>

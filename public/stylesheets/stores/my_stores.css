@@ -2,7 +2,11 @@ h1#pagebanner{
     margin: 82px 334px auto 81px;
 }
 
-div.my-stores{
+input{
+    cursor: pointer;
+}
+
+.my-stores{
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -13,13 +17,13 @@ div.my-stores{
     background-color: white;
 }
 
-div.my-stores a{
+.my-stores a{
     font-size: 40;
     color: rgb(54, 54, 54);
     text-decoration: none;
 }
 
-div.my-stores a:hover{
+.my-stores a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
 }
