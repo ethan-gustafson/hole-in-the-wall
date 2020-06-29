@@ -4,7 +4,7 @@
     color: rgb(54, 54, 54);
 }
 
-div#store-iterator{
+#store-iterator{
     overflow-x: auto;
     text-align: center;
     width: 70%;
@@ -15,18 +15,18 @@ div#store-iterator{
     background-color: white;
 }
 
-div#store-iterator h1{
+#store-iterator h1{
     margin: 40px auto 100px auto;
     color: rgb(54, 54, 54);
     text-decoration: none;
 }
 
-div#store-iterator h1 a{
+#store-iterator h1 a{
     color: rgb(54, 54, 54);
     text-decoration: none;
 }
 
-div#store-iterator a:hover{
+#store-iterator a:hover{
     color: rgb(255, 123, 123);
     transition-duration: 0.4s;
 }

@@ -1,19 +1,20 @@
 <head>
-<title>Stores</title>
-<link rel="stylesheet" href="stylesheets/stores/allstores.css">
+    <title>Stores</title>
+    <link rel="stylesheet" href="stylesheets/stores/allstores.css">
 </head>
 
 <body>
+
 <header>
-<h1 id="state">FL</h1>
+    <h1 id="state">FL</h1>
 </header>
 
-<div id="store-iterator">
+<main id="store-iterator">
     <h1>
         <% Store.all.each.with_index(1) do |store, index| %>
             <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %><br></a>
         <% end %>
     </h1>
-</div>
+</main>
 
 </body>
