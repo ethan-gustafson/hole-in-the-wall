@@ -1,16 +1,18 @@
 <head>
-<title>Users</title>
-<link rel="stylesheet" href="stylesheets/users/users.css">
+    <link rel="stylesheet" href="stylesheets/users/users.css">
 </head>
 
 <body>
 
-<section>
-    <h1 id="users"><%User.all.each.with_index(1) do |user, index|%>
-        <a href="/users/<%=user.id%>"><%=index%>. <%= user.username %><br></a>
-        <%end%>
-    </h1>
-</section>
+<main>
+    <section>
+        <h1 id="users">
+            <%User.all.each.with_index(1) do |user, index|%>
+                <a href="/users/<%=user.id%>"><%=index%>. <%= user.username %><br></a>
+            <%end%>
+        </h1>
+    </section>
+</main>
 
 </body>
 
