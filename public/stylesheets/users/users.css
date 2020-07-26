@@ -1,4 +1,4 @@
-section{
+/* section{
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -20,4 +20,4 @@ h1#users a{
 h1#users a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
-}
+} */

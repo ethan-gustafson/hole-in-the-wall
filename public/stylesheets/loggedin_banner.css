@@ -1,4 +1,4 @@
-html {
+/* html {
     font-family: 'Vollkorn', serif;
     color: rgb(54, 54, 54);
     background-color: rgb(245, 245, 245);
@@ -55,11 +55,12 @@ h2.allusers a:hover{
     color: rgb(255, 107, 107);
     transition-duration: 0.4s;
 }
-
+*/
+/*
 div button.dropbtn { 
-    background-color: rgb(34, 34, 34); /* The background color of the profile button */
+    background-color: rgb(34, 34, 34); // The background color of the profile button 
     font-family: 'Vollkorn', serif;
-    color: white; /* The text color of the profile button */
+    color: white; // The text color of the profile button 
     padding: 3px 3px;
     font-size: 27px;
     border: none;
@@ -72,13 +73,13 @@ div button.dropbtn:hover{
 }
 
 
-div.dropdown { /* Where the button will be located in the page */
+div.dropdown { // Where the button will be located in the page /
     position: fixed;
     right: 9%;
     top: 1.5%;
 }
 
-div.dropdown-content { /* Where the dropdown will place */
+div.dropdown-content { // Where the dropdown will place 
     display: none;
     position: absolute;
     top: 40;
@@ -98,11 +99,11 @@ div.dropdown-content a {
     display: block;
 }
 
-div.dropdown-content a:hover { /* Background color of each dropdown link */
+div.dropdown-content a:hover { // Background color of each dropdown link /
     background-color: #f1f1f1
 }
 
-div.dropdown:hover .dropdown-content { /* When your mouse hovers over the button, it displays the block */
+div.dropdown:hover .dropdown-content { // When your mouse hovers over the button, it displays the block
     display: block;
 }
 
@@ -111,4 +112,4 @@ div.dropdown:hover .dropbtn {
     border: black;
     border-radius: 4px;
     transition-duration: 0.4s;
-}
+} */

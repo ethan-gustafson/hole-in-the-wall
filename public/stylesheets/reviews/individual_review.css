@@ -1,4 +1,4 @@
-body div.reviewinfo{
+/* body div.reviewinfo{
     overflow-x: auto;
     text-align: center;
     width: 800px;
@@ -71,4 +71,4 @@ input[type=submit]{
 input[type=submit]:hover {
     background-color: rgb(255, 208, 208);
     transition-duration: 0.4s;
-}
+} */

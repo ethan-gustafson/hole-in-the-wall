@@ -1,4 +1,4 @@
-h1 form{
+/* h1 form{
     position: relative;
     margin: 100px 0px 100px 82;
     width: 500px;
@@ -49,4 +49,4 @@ h1 form input[type=submit]{
 h1 form input[type=submit]:hover {
     background-color: rgb(255, 208, 208);
     transition-duration: 0.4s;
-}
+} */
