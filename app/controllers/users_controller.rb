@@ -1,9 +1,10 @@
+require 'pry'
 class UsersController < ApplicationController
 
     get ('/') { erb :'/users/new' } # Offers a sign up or log in page.
 
     post '/' do
-    @user_signup = User.new(:name => params[:name], :username => params[:username], :email => params[:email], :password => params[:password])
+    @user_signup = User.new(params)
         if @user_signup.valid?
             @user_signup.save # If it is a valid user and the password is authenticated.
             session[:user_id] = @user_signup.id
