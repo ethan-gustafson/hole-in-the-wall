@@ -1,21 +1,12 @@
-<head>
-    <title><%=@find_user.username%></title>
-    <link rel="stylesheet" href="/stylesheets/users/individual_user.css">
-    <link rel="stylesheet" href="/stylesheets/loggedin_banner.css" type="text/css">
-</head>
+<main>
+    <article>
+        <h2><%=@find_user.username%></h2>
+        <h3>Reviews: <%=@find_user.reviews.count%></h3>
 
-<body>
-
-<main class="wrapper">
-    <h3 id="userid">User id: <%=@find_user.id%> - <%=@find_user.username%></h3>
-    
-    <h3 id="usersreviews">
-        Reviews: <%=@find_user.reviews.count%> <%@find_user.reviews.each.with_index(1) do |review, index|%> 
-    </h3>
-
-    <p id="indexreviews"><%=index%>. <%=review.store.name%>: <%=review.title%></p>
-        <%end%>
+        <ol>
+            <%@find_user.reviews.each do |review|%> 
+                <li><%=review.store.name%>: <%=review.title%></li>
+            <%end%>
+        </ol>
+    </article>
 </main>
-
-</body>
-
