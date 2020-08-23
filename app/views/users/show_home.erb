@@ -1,20 +1,11 @@
-<head>
-    <link rel="stylesheet" href="stylesheets/users/home.css">
-</head>
-
-<body>
-
-<main class="feed">
-    <%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
-
-        <section>
-            <h1><%=review.user.username%> Reviewed:</h1> 
-            <h3><a href="/stores/<%=review.store_id%>"><%=review.store.name%>: <%= review.title %></a></h3>
-            <br>
-            <p><%= review.content%></p>
-        </section>
-
-    <%end%>
+<main>
+    <article>
+        <%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
+            <section>
+                <h2><%=review.user.username%> reviewed: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2> 
+                <h3>Title: <%= review.title %></h3>
+                <p><%= review.content%></p>
+            </section>
+        <%end%>
+    </article>
 </main>
-
-</body>
