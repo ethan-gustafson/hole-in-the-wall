@@ -1,19 +1,9 @@
-<head>
-    <link rel="stylesheet" href="stylesheets/users/users.css">
-</head>
-
-<body>
-
 <main>
-    <section>
-        <h1 id="users">
-            <%@users.each.with_index(1) do |user, index|%>
-                <a href="/users/<%=user.id%>"><%=index%>. <%= user.username %><br></a>
+    <article>
+        <ol>
+            <%@users.each do |user, index|%>
+                <li><a href="/users/<%=user.id%>"> <%= user.username %></a></li>
             <%end%>
-        </h1>
-    </section>
+        </ol>
+    </article>
 </main>
-
-</body>
-
-
