@@ -6,16 +6,18 @@
 <body>
 
 <header class="banner">
-    <h1 id="intro">Hole in the Wall</h1>
+    <h1>Hole in the Wall</h1>
 </header>
 
-<section id="form">
-    <form action="/login" method="POST">
-        <h1 class="username">Username: <input id="username" type="text" name="username" placeholder="Username:"></h1>
-        <h1 class="password">Password: <input id="password" type="password" name="password" placeholder="Password:"></h1>
-        <input class="button" type="submit" value="Log In">
-    </form>
-    <h2 id="signup">Dont have an account? <a href="/hole-in-the-wall">Sign up</a></h2>
-</section>
+<main>
+    <article>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username:">
+            <input type="password" name="password" placeholder="Password:">
+            <input type="submit" value="Log In">
+            <p>Dont have an account? <a href="/hole-in-the-wall">Sign up</a></p>
+        </form>
+    </article>
+</main>
 
 </body>
