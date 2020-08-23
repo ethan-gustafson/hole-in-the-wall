@@ -1,20 +1,13 @@
-<head>
-<title>My Reviews</title>
-<link rel="stylesheet" href="stylesheets/reviews/my-reviews.css">
-</head>
-
-<body>
-
 <header>
-    <h1 id="pagebanner">Here are all your reviews!</h1>
+    <h2>Here are all your reviews!</h2>
 </header>
 
-<section>
-<h3 class="reviewlist">
-    <% @reviews.each.with_index(1) do |review, index| %>
-    <a href="/my-reviews/<%=review.id%>"><%=index%>. <%= review.title %><br></a>
-    <% end %>
-</h3>
-</section>
-
-</body>
+<main>
+    <article>    
+        <ol>
+            <% @reviews.each do |review| %>
+                <li><a href="/my-reviews/<%=review.id%>"><%= review.title %></a></li>
+            <% end %>
+        </ol>
+    </article>
+</main>
