@@ -1,21 +1,13 @@
-<head>
-    <title>Stores</title>
-    <link rel="stylesheet" href="stylesheets/stores/allstores.css">
-</head>
-
-<body>
-
 <header>
-    <h1 id="state">FL</h1>
+    <h2>FL</h2>
 </header>
 
-<main id="store-iterator">
-    <h1>
-        <% Store.all.each.with_index(1) do |store, index| %>
-            <a href="/stores/<%=store.id%>"><%=index%>. <%= store.name %></a>
-            <br>
-        <% end %>
-    </h1>
+<main>
+    <article>
+        <ol>
+            <% Store.all.each do |store| %>
+                <li><a href="/stores/<%=store.id%>"><%= store.name %></a></li>
+            <% end %>
+        </ol>
+    </article>
 </main>
-
-</body>
