@@ -1,25 +1,19 @@
-<head>
-<title>My Favorited Stores</title>
-<link rel="stylesheet" href="stylesheets/stores/my_stores.css" type="text/css">
-</head>
-
-<body>
-
 <header>
-    <h1 id="pagebanner">Here are all your Stores!</h1>
+    <h2>Here are all your Stores!</h1>
 </header>
 
-    <main class="my-stores">
-        <section id="store-link">
-            <%@my_stores.all.each.with_index(1) do |userstore, index|%>
-                <h1><a href="/my-stores/<%=userstore.id%>"><%=index%>. <%= userstore.store.name %></a></h1>
-                <form action="/my-stores/<%=userstore.id%>" method="POST">
-                    <input id="hidden" type="hidden" name="_method" value="delete">
-                    <input id="submit" type="submit" value="delete">
-                </form>
-            <br>
+<main>
+    <article>
+        <ol>
+            <%@my_stores.all.each do |userstore|%>
+                <li>
+                    <a href="/my-stores/<%=userstore.id%>"><%= userstore.store.name %></a>
+                    <form action="/my-stores/<%=userstore.id%>" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                        <input id="submit" type="submit" value="delete">                
+                    </form>
+                </li>
             <% end %>
-        </section>
-    </main>
-
-</body>
+        </ol>
+    </article>
+</main>
