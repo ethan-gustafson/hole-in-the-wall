@@ -17,23 +17,24 @@
 
     <% if logged_in? %>
 
-    <div class="container">
-                <h1 id="intro"><a href="/home">Hole in the Wall</a></h1>
-                <h2 class="allusers"><a href="/users">Users</a></h2>
-                <h2 id="allstores"><a href="/stores">Stores</a></h2>
+    <header>
+        <nav>
+            <ul>
+                <li><h1><a href="/home">Hole in the Wall</a></h1></li>
+                <li><h2><a href="/users">Users</a></h2></li>
+                <li><h2><a href="/stores">Stores</a></h2></li>
+                <li><p><a href="/account">Account</a></p></li>
+                <li><p><a href="/my-reviews">My Reviews</a></p></li>
+                <li><p><a href="/my-stores">My Stores</a></p></li>
+                <li><p><a href="/logout">Log out</a></p></li>
+            </ul>
+        </nav>
+    </header>
 
-            <div class="dropdown">
-                <button class="dropbtn">Profile</button>
-                <div class="dropdown-content">
-                    <a href="/account">Account</a>
-                    <a href="/my-reviews">My Reviews</a>
-                    <a href="/my-stores">My Stores</a>
-                    <a href="/logout">Log out</a>
-                </div>
-            </div>
-    </div>
         <% else %>
-            <div id="container"></div>
+            <header>
+                <h1>Hole in the Wall</h1>
+            </header>
         <% end %>
 
     <%= yield %>
