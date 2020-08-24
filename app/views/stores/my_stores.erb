@@ -4,16 +4,14 @@
 
 <main>
     <article>
-        <ol>
-            <%@my_stores.all.each do |userstore|%>
-                <li>
-                    <a href="/my-stores/<%=userstore.id%>"><%= userstore.store.name %></a>
-                    <form action="/my-stores/<%=userstore.id%>" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <input id="submit" type="submit" value="delete">                
-                    </form>
-                </li>
+        <%@my_stores.all.each do |userstore|%>
+            <section>
+                <p><a href="/my-stores/<%=userstore.id%>"><%= userstore.store.name %></a></p>
+                <form action="/my-stores/<%=userstore.id%>" method="POST">
+                    <input type="hidden" name="_method" value="delete">
+                    <input id="submit" type="submit" value="delete">                
+                </form>
+            </section>
             <% end %>
-        </ol>
     </article>
 </main>
