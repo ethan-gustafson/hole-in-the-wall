@@ -35,6 +35,7 @@ class UsersController < ApplicationController
 
     get '/home' do 
         redirect_if_not_logged_in?
+        @home_feed_reviews = Review.all[0..9].reverse
         erb :'/users/show_home'
     end
 

@@ -1,6 +1,6 @@
 <main>
     <article>
-        <%Review.all.order(id: :desc).each.with_index(1)do |review, index|%>
+        <%@home_feed_reviews.each do |review|%>
             <section>
                 <h2><%=review.user.username%> reviewed: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2> 
                 <h3>Title: <%= review.title %></h3>
