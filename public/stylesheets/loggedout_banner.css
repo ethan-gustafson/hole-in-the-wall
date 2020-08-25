@@ -1,9 +1,9 @@
-/* html {
-    font-family: 'Vollkorn', serif;
-    color: rgb(54, 54, 54);
-    background-color: rgb(245, 245, 245);
+html {
+    font-family: 'Vollkorn', serif, Arial;
+    background-color: white;
 }
 
+/* 
 div#container { 
     width: 100%;
     height: 60px;

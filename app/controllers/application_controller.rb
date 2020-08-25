@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
       end
 
       helpers do
+
         def logged_in? # verifies that the session is true.
 			!!session[:user_id]
         end
@@ -15,6 +16,12 @@ class ApplicationController < Sinatra::Base
         def redirect_if_not_logged_in?
             if !logged_in?
                 redirect to '/'
+            end
+        end
+
+        def redirect_if_logged_in_user_accesses_a_not_logged_in_page?
+            if logged_in? 
+                redirect '/home'
             end
         end
 

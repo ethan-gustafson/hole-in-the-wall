@@ -16,7 +16,6 @@
 <body>
 
     <% if logged_in? %>
-
     <header>
         <nav>
             <ul>
@@ -30,13 +29,7 @@
             </ul>
         </nav>
     </header>
-
-        <% else %>
-            <header>
-                <h1>Hole in the Wall</h1>
-                <h2>Log in to review stores considered to be a "Hole in the Wall."</h2>
-            </header>
-        <% end %>
+    <% end %>
 
     <%= yield %>
 

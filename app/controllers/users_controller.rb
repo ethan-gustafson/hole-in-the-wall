@@ -1,7 +1,10 @@
 require 'pry'
 class UsersController < ApplicationController
 
-    get ('/') { erb :'/users/new' } # Offers a sign up or log in page.
+    get '/' do 
+      redirect_if_logged_in_user_accesses_a_not_logged_in_page?
+      erb :'/users/new'
+    end
 
     post '/' do
     @user_signup = User.new(params)
@@ -14,7 +17,10 @@ class UsersController < ApplicationController
         end
     end
 
-    get ('/login') { erb :'/users/login' } # has a login form.
+    get '/login' do  
+      redirect_if_logged_in_user_accesses_a_not_logged_in_page?
+      erb :'/users/login' 
+    end
 
     post '/login' do # posts to login and redirects to the home if successful.
     @user = User.find_by(:username => params[:username])
