@@ -1,0 +1,85 @@
+/*
+COLOR PALETTE
+https://colours.neilorangepeel.com/category/red/
+#8B0000 - darkred
+#B22222 - firebrick
+#FF0000 - red
+#CD5C5C - indianred
+#F08080 - lightcoral
+#FA8072 - salmon
+#E9967A - darksalmon
+#FFA07A - lightsalmon
+#DC143C - crimson
+*/
+
+html {
+    font-family: 'Vollkorn', serif, Arial;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+    margin: 0 0;
+    padding: 0;
+}
+
+#logo-container { 
+    background-color: black;
+    overflow: hidden;
+}
+
+#logo{
+    color: #FA8072;
+    padding-left: 100px;
+}
+
+article {
+    text-align: center;
+}
+
+#form-wrap {
+    margin: 0 auto;
+    width: 400px;
+    padding: 10px;
+}
+
+#grid-container{
+    display: grid;
+    border: solid black 2px;
+    border-radius: 2px;
+}
+
+a {
+    color: salmon;
+}
+
+a:hover{
+    color: firebrick;
+    transition-duration: 0.4s;
+}
+
+input {
+    margin-top: 10px;
+    padding: 10px;
+    border: solid black 2px;
+    border-radius: 4px;
+}
+
+label{
+    display: block;
+    margin-top: 5%;
+}
+
+input[type="submit"]{
+    background-color: salmon;
+}
+
+input[type="submit"]:hover{
+    background-color: firebrick;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
