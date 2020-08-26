@@ -3,11 +3,13 @@ class ReviewsController < ApplicationController
     before { redirect_if_not_logged_in? }
 
     get ("/my-reviews") {
+        loggedin_banner
         @reviews = current_user.reviews # shows all of this specific user's reviews
         erb :'/reviews/show_my_reviews' # Gives links to each review - Gives link to the Home Page
     }
 
     get ("/my-reviews/:id") {
+        loggedin_banner_dynamic
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # finds the right review from post "/my-reviews" @review
         if @user_review
@@ -30,6 +32,7 @@ class ReviewsController < ApplicationController
     }
 
     get ("/my-reviews/:id/edit") {
+        loggedin_banner_dynamic
         validreview? # if the user is logged in and their user_id is equal to the @user_review params id
         @user_review = Review.find_by_id(params[:id]) # keeps the same id from the right review
         erb :'/reviews/edit' # Allows the user to edit that review.
