@@ -85,7 +85,7 @@ class UsersController < ApplicationController
         css('<link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">')
 
         if logged_in? && current_user.id == params[:id].to_i
-            @current_user = current_user
+            current_user
         else
             @user = User.find_by_id(params[:id])
         end
@@ -96,16 +96,15 @@ class UsersController < ApplicationController
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
 
-        @user = current_user
+        current_user
         erb :'users/edit'
     end
 
     patch "/user/edit" do
-        if current_user.update(
+        if current_user.update!(
             username: params[:user][:username], 
             name: params[:user][:name], 
-            email: params[:user][:email], 
-            password: current_user.password_digest
+            email: params[:user][:email]
         )
             redirect "/users/#{current_user.id}"
         else
@@ -121,9 +120,8 @@ class UsersController < ApplicationController
     end
 
     delete "/user/delete" do
-        @current_user = current_user
+        current_user.destroy
         session.clear
-        @current_user.destroy
         
         redirect "/login"
     end
@@ -131,6 +129,6 @@ class UsersController < ApplicationController
     get "/logout" do# logs out the user.
 		session.clear
 		redirect "/"
-	end
+    end
 
 end

@@ -7,17 +7,17 @@
                     <input type="hidden" name="_method" value="patch">
                     <div>
                         <label for="username">New Username: </label>
-                        <input id="username" type="text" name="user[username]" value="<%=@user.username%>">
+                        <input id="username" type="text" name="user[username]" value="<%=current_user.username%>">
                     </div>
 
                     <div>
                         <label for="name">New Name:</label>
-                        <input id="name" type="text" name="user[name]" value="<%=@user.name%>">
+                        <input id="name" type="text" name="user[name]" value="<%=current_user.name%>">
                     </div>
 
                     <div>
                         <label for="email">New Email:</label>
-                        <input id="email" type="email" name="user[email]" value="<%=@user.email%>">
+                        <input id="email" type="email" name="user[email]" value="<%=current_user.email%>">
                     </div>
                     
                     <input type="submit" value="Submit">
