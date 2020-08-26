@@ -9,6 +9,7 @@ gem 'activerecord', '~> 6.0', '>= 6.0.2.2', :require => 'active_record'
 gem 'rake'
 gem 'bcrypt'
 gem 'require_all'
+gem 'faker'
 
 group :test do
   gem 'rspec'

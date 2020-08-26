@@ -43,7 +43,8 @@ article {
 
 #form-wrap {
     margin: 0 auto;
-    width: 400px;
+    max-width: 400px;
+    width: 85%;
     padding: 10px;
 }
 
