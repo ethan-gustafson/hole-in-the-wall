@@ -1,13 +1,10 @@
-<header>
-    <h2>FL</h2>
-</header>
-
 <main>
+    <h2>Create A Store <a href="/store/new">Here</a>.</h2>
     <article>
-        <ol>
-            <% Store.all.each do |store| %>
-                <li><a href="/stores/<%=store.id%>"><%= store.name %></a></li>
-            <% end %>
-        </ol>
+            <ol>
+                <% Store.all.each do |store| %>
+                    <li><a href="/stores/<%=store.id%>"><%=store.id%>. <%= store.name %></a></li>
+                <% end %>
+            </ol>
     </article>
 </main>

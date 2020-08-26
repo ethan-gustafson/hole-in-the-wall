@@ -1,16 +1,22 @@
 <main>
-    <h2><a href="<%=@store.url%>"><%=@store.name%></a></h2>
+    <h2><%=@store.name%></h2>
     <article>
 
         <section>
-            <form action="/my-stores/<%=@store.id%>" method="POST">
-                <input type="hidden" name="favorited" value="<%=@store%>">
+            <form action="/my-stores" method="POST">
+                <input type="hidden" name="store_id" value="<%=@store.id%>">
                 <input type="submit" value="Favorite?">
             </form>
         </section>
     
         <section>
-            <img src="<%=@store.image%>" alt="Restaurant Photo" style="width:700px;height:500px;">
+            <iframe
+                width="600"
+                height="400"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDcB95HkSFBj3Pwy0aGCORccmNPqSSGCZU
+                &q=<%=@store.name%>+<%=@store.address%>" allowfullscreen>
+            </iframe>
         </section>
 
         <section>

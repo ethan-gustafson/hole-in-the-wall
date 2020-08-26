@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
     validates :username, :email, uniqueness: true
     
     has_many :reviews
-    has_many :user_stores # These are the stores the user has liked
-    has_many :stores, through: :user_stores
+    has_many :favorites # These are the stores the user has liked
+    has_many :stores, through: :favorites
 end

@@ -3,9 +3,9 @@ class CreateStores < ActiveRecord::Migration[5.2]
     create_table :stores do |c|
       c.string :name
       c.string :address
-      c.string :url
       c.string :description
-      c.string :image
+      c.string :website
+      c.integer :user_id
     end
   end
 end

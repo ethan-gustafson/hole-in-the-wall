@@ -1,14 +1,12 @@
-<header>
-    <h2>Here are all your Stores!</h1>
-</header>
-
 <main>
+    <h2>Here are all your Favorites!</h1>
     <article>
-        <%@my_stores.all.each do |userstore|%>
+        <%@favorites.all.each do |favorite|%>
             <section>
-                <p><a href="/my-stores/<%=userstore.id%>"><%= userstore.store.name %></a></p>
-                <form action="/my-stores/<%=userstore.id%>" method="POST">
+                <p><a href="/stores/<%=favorite.store.id%>"><%= favorite.store.name %></a></p>
+                <form action="/my-stores" method="POST">
                     <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="favorite_id" value="<%=favorite.id%>">
                     <input id="submit" type="submit" value="delete">                
                 </form>
             </section>
