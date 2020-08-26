@@ -4,13 +4,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"> <!-- Font -->
-
-    <% if logged_in? %>
-        <link rel="stylesheet" href="stylesheets/loggedin_banner.css" type="text/css">
-    <% else %>
-        <link rel="stylesheet" href="stylesheets/loggedout.css" type="text/css">
-    <% end %>
-
+<!-- https://stackoverflow.com/questions/24153013/stylesheet-not-applying-to-sinatra-erb-views#answer-24153145 -->
+<!-- Your stylesheets will not load with dynamic pages unless your href has a "/" forward slash at the front of the url -->
+<%=@banner%>
+<%=@css%>
 </head>
 
 <body>
