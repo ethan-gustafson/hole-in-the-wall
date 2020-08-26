@@ -4,7 +4,7 @@
         <%@favorites.all.each do |favorite|%>
             <section>
                 <p><a href="/stores/<%=favorite.store.id%>"><%= favorite.store.name %></a></p>
-                <form action="/my-stores" method="POST">
+                <form action="/favorites" method="POST">
                     <input type="hidden" name="_method" value="delete">
                     <input type="hidden" name="favorite_id" value="<%=favorite.id%>">
                     <input id="submit" type="submit" value="delete">                

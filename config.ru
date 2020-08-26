@@ -4,6 +4,7 @@ use Rack::MethodOverride
 use UsersController
 use ReviewsController
 use StoresController
+use FavoritesController
 run ApplicationController
 
 # The final step in creating a controller is mounting it in config.ru. 

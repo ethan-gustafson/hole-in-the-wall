@@ -25,22 +25,16 @@ class StoresController < ApplicationController
         end
     end
 
-    get '/my-stores' do
-        loggedin_banner
-        @favorites = Favorite.all
-        erb :'/stores/my_stores'
+    get "/most-favorited-stores" do
+        
     end
 
-    post '/my-stores' do 
-        @store = Store.find_by_id(params[:store_id])
-        @favorited_store = Favorite.create(:user_id => current_user.id, :store_id => @store.id)
-        redirect "/my-stores"
+    get "/most-reviewed-stores" do
+        
     end
 
-    delete '/my-stores' do
-        @favorite = Favorite.find_by_id(params[:favorite_id]) 
-        @favorite.delete
-        redirect "/my-stores" 
+    get "/search-stores" do
+        
     end
 
 end

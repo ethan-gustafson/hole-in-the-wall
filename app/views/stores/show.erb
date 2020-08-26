@@ -3,7 +3,7 @@
     <article>
 
         <section>
-            <form action="/my-stores" method="POST">
+            <form action="/favorites" method="POST">
                 <input type="hidden" name="store_id" value="<%=@store.id%>">
                 <input type="submit" value="Favorite?">
             </form>
@@ -21,6 +21,7 @@
 
         <section>
             <h3><%=@store.address%></h3>
+            <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
             <p><%=@store.description%></p>
         </section>
 
