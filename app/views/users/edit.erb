@@ -1,0 +1,29 @@
+<main>
+    <h2>Update Account Details:</h2>
+    <article>
+        <div id="form-wrap">
+            <div id="grid-container">
+                <form action="/user/edit" method="POST">
+                    <input type="hidden" name="_method" value="patch">
+                    <div>
+                        <label for="username">New Username: </label>
+                        <input id="username" type="text" name="user[username]" value="<%=@user.username%>">
+                    </div>
+
+                    <div>
+                        <label for="name">New Name:</label>
+                        <input id="name" type="text" name="user[name]" value="<%=@user.name%>">
+                    </div>
+
+                    <div>
+                        <label for="email">New Email:</label>
+                        <input id="email" type="email" name="user[email]" value="<%=@user.email%>">
+                    </div>
+                    
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+        <h3>Usernames and emails may already be taken.</h3>
+    </article>
+</main>

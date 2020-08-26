@@ -1,12 +1,12 @@
 require 'pry'
 class UsersController < ApplicationController
 
-    get '/' do 
+    get "/" do 
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       erb :'/users/new'
     end
 
-    post '/' do
+    post "/" do
         if @user_signup = User.create(params) # If it is a valid user and the password is authenticated.
             session[:user_id] = @user_signup.id
             redirect '/home' # redirects leave the current method - loses the instance variable
@@ -15,12 +15,12 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/login' do  
+    get "/login" do  
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       erb :'/users/login' 
     end
 
-    post '/login' do # posts to login and redirects to the home if successful.
+    post "/login" do # posts to login and redirects to the home if successful.
     @user = User.find_by(username: params[:username])
         
         if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
@@ -31,14 +31,14 @@ class UsersController < ApplicationController
         end
     end
 
-    get '/home' do 
+    get "/home" do 
         redirect_if_not_logged_in?
         reviews_count = Review.all.count - 10 # The count will always be 10 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent
         erb :'/users/show_home'
     end
 
-    get '/users/collection/:id' do
+    get "/users/collection/:id" do
         redirect_if_not_logged_in?
 
         page = params[:id]
@@ -65,19 +65,46 @@ class UsersController < ApplicationController
         elsif @current_page_number == @last
             @users = User.all[(@user_count - 10)..(@user_count - 1)]
         end
-        erb :'users/show_all_users'
+        erb :'users/index'
     end 
 
-    get '/users/:id' do
+    get "/users/:id" do
         redirect_if_not_logged_in?
-        @find_user = User.find_by_id(params[:id])
-        erb :'/users/show_individual_user'
+        if logged_in? && current_user.id == params[:id].to_i
+            @current_user = current_user
+        else
+            @user = User.find_by_id(params[:id])
+        end
+        erb :'/users/show'
     end
 
-    get '/account' do # Shows the users reviews, favorite stores and the logout button.
-        redirect_if_not_logged_in?
-        @session_user = User.find_by(id: session[:user_id]) # gives you the correct user
-        erb :'/users/show_account'
+    get "/user/edit" do
+        @user = current_user
+        erb :'users/edit'
+    end
+
+    patch "/user/edit" do
+        if current_user.update(
+            username: params[:user][:username], 
+            name: params[:user][:name], 
+            email: params[:user][:email], 
+            password: current_user.password_digest
+        )
+            redirect "/users/#{current_user.id}"
+        else
+            redirect '/user/edit'
+        end
+    end
+
+    get "/user/delete" do
+        erb :'users/delete'
+    end
+
+    delete "/user/delete" do
+        @current_user = current_user
+        session.clear
+        @current_user.destroy
+        redirect "/login"
     end
 
     get "/logout" do# logs out the user.
