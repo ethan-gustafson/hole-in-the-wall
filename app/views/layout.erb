@@ -16,19 +16,19 @@
 <body>
 
     <% if logged_in? %>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/home">Hole in the Wall</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/stores">Stores</a></li>
-                <li><a href="/account">Account</a></li>
-                <li><a href="/my-reviews">My Reviews</a></li>
-                <li><a href="/my-stores">Favorites</a></li>
-                <li><a href="/logout">Log out</a></li>
-            </ul>
-        </nav>
-    </header>
+        <header id="logo-container">
+            <h1 id="logo"><a href="/home">Hole in the Wall</a></h1>
+        </header>
+            <nav>
+                <ul>
+                    <li><a href="/users">Users</a></li>
+                    <li><a href="/stores">Stores</a></li>
+                    <li><a href="/account">Account</a></li>
+                    <li><a href="/my-reviews">My Reviews</a></li>
+                    <li><a href="/my-stores">Favorites</a></li>
+                    <li><a href="/logout">Log out</a></li>
+                </ul>
+            </nav>
     <% end %>
 
     <%= yield %>
