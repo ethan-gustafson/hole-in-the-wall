@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
         reviews_count = Review.all.count - 10 # The count will always be 10 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent
-        erb :'/users/show_home'
+        erb :'/users/home'
     end
 
     get "/users/collection/:id" do

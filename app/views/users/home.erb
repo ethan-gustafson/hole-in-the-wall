@@ -2,7 +2,11 @@
     <article>
         <%@home_feed_reviews.each do |review|%>
             <section>
+                <% if !review.user.nil? %>
                 <h2><%=review.user.username%> reviewed: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2> 
+                <% else %>
+                <h2>[deleted] reviewed: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2> 
+                <% end %>
                 <h3>Title: <%= review.title %></h3>
                 <p><%= review.content%></p>
             </section>
