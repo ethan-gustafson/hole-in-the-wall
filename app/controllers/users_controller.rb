@@ -58,7 +58,7 @@ class UsersController < ApplicationController
         page_number_to_user_end_i = (page.to_i * 10) - 1 
         # user_start_i is the starting point of the range. 9 - 9 == 0.
         user_start_i = page_number_to_user_end_i - 9 
-        # For example: User.all[users_to_show..page_number] == User.all[0..9], which will show ten records.
+        # For example: User.all[user_start_i..page_number_to_user_end_i] == User.all[0..9], which will show ten records.
         @first = 1
         @current_page_number = page.to_i
         @previous = @current_page_number.to_i - 1
