@@ -1,6 +1,6 @@
 <main>
     <article>
-        <% if @current_user_page %>
+        <% if @current_user_page == true %>
             <section>
                 <h2><%= current_user.username %></h2>
                 <h3><%= current_user.name %></h3>
@@ -9,7 +9,7 @@
                 <h4><a href="/user/edit">Edit Account</a></h4>
                 <h4><a href="/user/delete">Delete Account</a></h4>
             </section>
-        <% elsif !!@user %>
+        <% else %>
             <section>
                 <h2><%= @user.username %></h2>
                 <h3><%= @user.name %></h3>

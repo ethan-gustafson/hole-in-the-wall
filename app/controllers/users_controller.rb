@@ -83,13 +83,10 @@ class UsersController < ApplicationController
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
         css('<link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">')
+        # current user page is set to a true or false value
         @current_user_page = current_user.id == params[:id].to_i
-        
-        if @current_user_page
-            current_user
-        else
-            @user = User.find_by_id(params[:id])
-        end
+        # if the current user page is true, return current_user, or return the correct user show page
+        @current_user_page == true ? current_user :  @user = User.find_by_id(params[:id])
         erb :'/users/show'
     end
 
