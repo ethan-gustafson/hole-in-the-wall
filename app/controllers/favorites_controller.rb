@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
 
+    before { redirect_if_not_logged_in? }
+
     get '/favorites' do
         loggedin_banner
         @favorites = current_user.favorites

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     get "/" do 
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       loggedout_banner
-      css('<link rel="stylesheet" href="stylesheets/users/new.css" type="text/css">')
+      css("stylesheets/users/new.css")
 
       erb :'/users/new'
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     get "/login" do  
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       loggedout_banner
-      css('<link rel="stylesheet" href="stylesheets/users/login.css" type="text/css">')
+      css("stylesheets/users/login.css")
 
       erb :'/users/login' 
     end
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     get "/home" do 
         redirect_if_not_logged_in?
         loggedin_banner
-        css('<link rel="stylesheet" href="stylesheets/users/home.css" type="text/css">')
+        css("stylesheets/users/home.css")
 
         reviews_count = Review.all.count - 10 # The count will always be 10 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     get "/users/collection/:id" do
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
-        css('<link rel="stylesheet" href="/stylesheets/users/users.css" type="text/css">')
+        css("/stylesheets/users/users.css")
 
         page = params[:id]
         @user_count = User.all.count
@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     get "/users/:id" do
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
-        css('<link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">')
+        css("/stylesheets/users/show.css")
         # current user page is set to a true or false value
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page

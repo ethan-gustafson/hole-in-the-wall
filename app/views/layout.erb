@@ -6,8 +6,9 @@
 <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet"> <!-- Font -->
 <!-- https://stackoverflow.com/questions/24153013/stylesheet-not-applying-to-sinatra-erb-views#answer-24153145 -->
 <!-- Your stylesheets will not load with dynamic pages unless your href has a "/" forward slash at the front of the url -->
-<%=@banner%>
-<%=@css%>
+<link rel="stylesheet" href="<%=@banner_filepath%>" type="text/css">
+<link rel="stylesheet" href="<%=@css_filepath%>" type="text/css">
+
 </head>
 
 <body>

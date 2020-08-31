@@ -10,15 +10,15 @@ class ApplicationController < Sinatra::Base
       helpers do
 
         def loggedin_banner
-            @banner = '<link rel="stylesheet" href="stylesheets/loggedin_banner.css" type="text/css">'
+            @banner = "stylesheets/loggedin_banner.css"
         end
 
         def loggedin_banner_dynamic
-            @banner = '<link rel="stylesheet" href="/stylesheets/loggedin_banner.css" type="text/css">'
+            @banner = "/stylesheets/loggedin_banner.css"
         end
 
         def loggedout_banner
-            @banner = '<link rel="stylesheet" href="stylesheets/loggedout.css" type="text/css">'
+            @banner = "stylesheets/loggedout.css"
         end
 
         def css(file)
