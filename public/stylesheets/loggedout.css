@@ -75,21 +75,21 @@ input:hover{
 
 label{
     display: block;
-    margin-top: 5%;
+    margin-top: 3%;
 }
 
-input[type="submit"]{
+#submit{
     background-color: salmon;
     font-weight: bold;
 }
 
-input[type="submit"]:hover{
+#submit:hover{
     background-color: rgb(214, 49, 49);
     transition-duration: 0.4s;
     cursor: pointer;
 }
 
-@media screen and (max-width: 320px) { /* When the screen is thinner than 320px */ 
+@media screen and (max-width: 320px) { /* Mobile: When the screen is thinner than 320px */ 
 
     #logo{
         text-align: center;
@@ -119,7 +119,7 @@ input[type="submit"]:hover{
 
 }
 
-@media screen and (min-width: 321px) { /* When the screen is wider than 321px */ 
+@media screen and (min-width: 321px) { /* Desktop: When the screen is wider than 321px */ 
 
     #logo{
         padding-left: 100px;
@@ -132,11 +132,11 @@ input[type="submit"]:hover{
 
     input:-webkit-autofill::first-line {font-size: 24px}
 
-    input[type="text"], input[type="password"]{
+    .input-box{
         font-size: 24px;
     }
 
-    input[type="submit"]{
+    #submit{
         padding: 5% 0 5% 0;
     }
 
