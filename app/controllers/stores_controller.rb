@@ -9,6 +9,8 @@ class StoresController < ApplicationController
 
     get '/stores/:id' do # show
         loggedin_banner_dynamic
+        api_k
+        
         @store = Store.find_by_id(params[:id])
         erb :'/stores/show'
     end

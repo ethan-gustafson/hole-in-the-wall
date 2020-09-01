@@ -1,3 +1,4 @@
+require 'pry'
 class ApplicationController < Sinatra::Base
 
     configure do
@@ -8,6 +9,11 @@ class ApplicationController < Sinatra::Base
       end
 
       helpers do
+
+        def api_k
+            filepath = "config/API_KEY.txt"
+            @api_key = File.read(filepath)
+        end
 
         def loggedin_banner
             @banner_filepath = "stylesheets/loggedin_banner.css"

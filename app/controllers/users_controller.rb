@@ -40,6 +40,7 @@ class UsersController < ApplicationController
     get "/home" do 
         redirect_if_not_logged_in?
         loggedin_banner
+        api_k
         css("stylesheets/users/home.css")
 
         reviews_count = Review.all.count - 10 # The count will always be 10 less than the count of all reviews
