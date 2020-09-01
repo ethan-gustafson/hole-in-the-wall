@@ -130,4 +130,14 @@ input[type="submit"]:hover{
         width: 35%;
     }
 
+    input:-webkit-autofill::first-line {font-size: 24px}
+
+    input[type="text"], input[type="password"]{
+        font-size: 24px;
+    }
+
+    input[type="submit"]{
+        padding: 5% 0 5% 0;
+    }
+
 }
