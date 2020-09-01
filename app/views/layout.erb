@@ -14,16 +14,17 @@
 <body>
 
     <% if logged_in? %>
-        <header id="logo-container">
-            <h1 id="logo"><a href="/home">Hole in the Wall</a></h1>
-            <nav>
+        <header id="banner">
+            <nav role="navigation" aria-label="Main">
                 <ul id="flex-container">
-                    <li><a href="/users/collection/1">Users</a></li>
-                    <li><a href="/stores">Stores</a></li>
-                    <li><a href="/users/<%=current_user.id%>">Account</a></li>
-                    <li><a href="/my-reviews">My Reviews</a></li>
-                    <li><a href="/favorites">Favorites</a></li>
-                    <li><a href="/logout">Log out</a></li>
+                    <li id="logo"><a href="/home">Hole in the Wall</a></li>
+                    <li class="left"><a href="/users/collection/1">Users</a></li>
+                    <li class="left"><a href="/stores">Stores</a></li>
+                    <div id="right-push"></div>
+                    <li class="right"><a href="/users/<%=current_user.id%>">Account</a></li>
+                    <li class="right"><a href="/my-reviews">My Reviews</a></li>
+                    <li class="right"><a href="/favorites">Favorites</a></li>
+                    <li class="right"><a href="/logout">Log out</a></li>
                 </ul>
             </nav>
         </header>

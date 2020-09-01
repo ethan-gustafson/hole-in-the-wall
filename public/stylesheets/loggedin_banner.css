@@ -27,33 +27,43 @@ body {
     padding: 0;
 }
 
-#logo-container { 
+#banner { 
     background-color: black;
     overflow: hidden;
 }
 
-#logo{
-    color: #FA8072;
-    padding-left: 100px;
-}
-
 #flex-container{
+    color: #FA8072;
     display: flex;
+    align-items: center;
     width: 100%;
 }
 
-#flex-container li{
-    flex: 1 1 25%;
+#logo{
+    font-size: 32px;
+    flex: 0 1 20%;
 }
 
-li{
+#logo, .left, .right{
     list-style: none;
-    /* border: solid white 2px; */
+}
+
+.left{
+    font-size: 28px;
+    padding: 1%;
+}
+
+.right{
+    font-size: 20px;
+    padding: 2%;
+}
+
+#right-push{
+    margin: auto;
 }
 
 a {
     color: salmon;
-    text-decoration: none;
 }
 
 a:hover{
