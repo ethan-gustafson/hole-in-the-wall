@@ -5,13 +5,13 @@ class ApplicationController < Sinatra::Base
         set :public_folder, 'public'
         set :views, 'app/views'
         enable :sessions
-        set :session_secret, "no_hack"
+        set :session_secret, File.read("config/keys/session_secret.txt")
       end
 
       helpers do
 
         def api_k
-            filepath = "config/API_KEY.txt"
+            filepath = "config/keys/API_KEY.txt"
             @api_key = File.read(filepath)
         end
 

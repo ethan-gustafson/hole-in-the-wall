@@ -43,7 +43,7 @@ class UsersController < ApplicationController
         api_k
         css("stylesheets/users/home.css")
 
-        reviews_count = Review.all.count - 10 # The count will always be 10 less than the count of all reviews
+        reviews_count = Review.all.count - 5 # The count will always be 5 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent
         erb :'/users/home'
     end
