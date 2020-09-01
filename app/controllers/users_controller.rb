@@ -55,10 +55,10 @@ class UsersController < ApplicationController
 
         page = params[:id]
         @user_count = User.all.count
-        # page_number_to_user_end_i is the ending point of the range. page.to_i multiplied by 10, minus 1. (1*10) - 1 = 9.
-        page_number_to_user_end_i = (page.to_i * 10) - 1 
-        # user_start_i is the starting point of the range. 9 - 9 == 0.
-        user_start_i = page_number_to_user_end_i - 9 
+        # page_number_to_user_end_i is the ending point of the range. page.to_i multiplied by 10, minus 1. (2*10) - 1 = 19.
+        user_end_i = (page.to_i * 10) - 1 
+        # user_start_i is the starting point of the range. 19 - 19 == 0.
+        user_end_i >= 19 ? user_start_i = user_end_i - 19 : user_start_i = user_end_i - 9 
         # For example: User.all[user_start_i..page_number_to_user_end_i] == User.all[0..9], which will show ten records.
         @first = 1
         @current_page_number = page.to_i
@@ -67,7 +67,7 @@ class UsersController < ApplicationController
         # To calculate the last page, you divide the number of users by 10. This will always give you a whole number.
         # If you are on page 9, you are seeing users with an index of 80-89. page_number = (9 * 10) - 1 which equals 89.
         @last = (@user_count / 10) + 1
-        @users = User.all[user_start_i..page_number_to_user_end_i]
+        @users = User.all[user_start_i..user_end_i]
 
         # if the current_page_number is less than first page OR current_page_number is greater than the last page, redirect.
         # else if the current page is the last page, change the last users shown to be the last ten.
@@ -75,7 +75,10 @@ class UsersController < ApplicationController
         if @current_page_number < @first || @current_page_number > @last
             redirect "/users/collection/1"
         elsif @current_page_number == @last
-            @users = User.all[(@user_count - 10)..(@user_count - 1)]
+            @users = User.all[(@user_count - 20)..(@user_count - 1)]
+        elsif @user_count <= 20
+            @users = User.all[0..@user_count]
+            redirect "/users/collection/1"
         end
         erb :'users/index'
     end 

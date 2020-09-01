@@ -1,23 +1,47 @@
-/* section{
-    overflow-x: auto;
+main{
+    background-color: rgb(252, 245, 235);
+    padding: 1%;
+}
+
+#users-grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 21%);
+    grid-template-rows: repeat(4, 26%);
+    gap: 1%;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    width: 800px;
-    height: 570px;
-    margin: 100px auto 0px auto;
-    padding: 10px;
-    border: solid 2px black;
-    border-radius: 4px;
-    background-color: white;
 }
 
-
-h1#users a{
-    font-size: 40;
-    color: rgb(44, 44, 44);
-    text-decoration: none;
+.user-grid-item{
+    font-size: 22px;
+    background-color: rgb(36, 36, 36);
+    padding: 10%;
+    border: solid red 2px;
 }
 
-h1#users a:hover{
-    color: rgb(255, 107, 107);
-    transition-duration: 0.4s;
-} */
+#users-flex-container{
+    display: flex;
+}
+
+.user-flex-item{
+    flex: 1 1 20%;
+}
+
+.user-flex-item a {
+    font-size: 28px;
+    color: black;
+}
+
+.user-flex-item, .user-grid-item{
+    list-style: none;
+}
+
+footer{
+    width: 100%;
+}
+
+#bottom{
+    padding: 2%;
+    background-color: darkgray;
+}
