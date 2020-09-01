@@ -22,11 +22,12 @@ main{
 
 #users-flex-container{
     display: flex;
+    justify-content: space-evenly;
 }
 
-.user-flex-item{
+/* .user-flex-item{
     flex: 1 1 20%;
-}
+} */
 
 .user-flex-item a {
     font-size: 28px;

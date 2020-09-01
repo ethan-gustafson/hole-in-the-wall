@@ -12,11 +12,11 @@
             <h2>Number of Users: <%=@user_count%></h2>
             <nav role="navigation" aria-label="User pages indexes">
                 <ul id="users-flex-container">
-                    <li class="user-flex-item"><a href="/users/collection/<%=@first%>">First</a></li>
-                    <li class="user-flex-item"><a href="/users/collection/<%=@previous%>">Previous</a></li>
-                    <li class="user-flex-item"><a href="/users/collection/<%=@current_page_number%>"><%=@current_page_number%></a></li>
-                    <li class="user-flex-item"><a href="/users/collection/<%=@next%>">Next</a></li>
-                    <li class="user-flex-item"><a href="/users/collection/<%=@last%>">Last</a></li>
+                    <li class="user-flex-item"><a href="/users/index/1">First</a></li>
+                    <li class="user-flex-item"><a href="/users/index/<%=(@current_page - 1)%>">Previous</a></li>
+                    <li class="user-flex-item"><a href="/users/index/<%=@current_page%>"><%=@current_page%></a></li>
+                    <li class="user-flex-item"><a href="/users/index/<%=(@current_page + 1)%>">Next</a></li>
+                    <li class="user-flex-item"><a href="/users/index/<%=@last_page%>">Last</a></li>
                 </ul>
             </nav>
         </div>

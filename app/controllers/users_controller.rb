@@ -48,37 +48,38 @@ class UsersController < ApplicationController
         erb :'/users/home'
     end
 
-    get "/users/collection/:id" do
+    get "/users/index/:id" do
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
         css("/stylesheets/users/users.css")
 
-        page = params[:id]
+        @current_page = params[:id].to_i
         @user_count = User.all.count
-        # page_number_to_user_end_i is the ending point of the range. page.to_i multiplied by 10, minus 1. (2*10) - 1 = 19.
-        user_end_i = (page.to_i * 10) - 1 
-        # user_start_i is the starting point of the range. 19 - 19 == 0.
-        user_end_i >= 19 ? user_start_i = user_end_i - 19 : user_start_i = user_end_i - 9 
-        # For example: User.all[user_start_i..page_number_to_user_end_i] == User.all[0..9], which will show ten records.
-        @first = 1
-        @current_page_number = page.to_i
-        @previous = @current_page_number.to_i - 1
-        @next = @current_page_number.to_i + 1
-        # To calculate the last page, you divide the number of users by 10. This will always give you a whole number.
-        # If you are on page 9, you are seeing users with an index of 80-89. page_number = (9 * 10) - 1 which equals 89.
-        @last = (@user_count / 10) + 1
-        @users = User.all[user_start_i..user_end_i]
 
-        # if the current_page_number is less than first page OR current_page_number is greater than the last page, redirect.
-        # else if the current page is the last page, change the last users shown to be the last ten.
+        end_i = (@current_page * 20) - 1
+        start_i = end_i - 19
+        @users = User.all[start_i..end_i]
 
-        if @current_page_number < @first || @current_page_number > @last
-            redirect "/users/collection/1"
-        elsif @current_page_number == @last
-            @users = User.all[(@user_count - 20)..(@user_count - 1)]
-        elsif @user_count <= 20
-            @users = User.all[0..@user_count]
-            redirect "/users/collection/1"
+        # We have 20 users per page. Each page will have a group of 20 people. Every following page needs to show the next 20 users.
+        # So we know that (1 * 20) is equal to 20. 20 users. For the array index, we minus 1 to set the ending index to 19.
+
+        # To get the starting index (start_i), we subtract 19 from the end_i. Say we are on page 5. (5 * 20) is equal to 100.
+        # 100 - 1 is equal to 99(end_i). 99 - 19 is equal to 80(start_i). User.all[start_i..end_i] will show twenty records, of 80 to 99.
+
+        # But what if the user count goes over an even number? What if we have 106 users? 118 users?
+        # In Ruby, 119 divided by 20 is still equal to 5. Dividing whole numbers returns whole numbers.
+        # Any remainder will be from 1 to 19. So if there are no remainders (User.all.count % 20 == 0),
+        # This means the number of users are divisible by 20, so there are no remainders. 
+
+        # So if there are no remainders, we are on a page in the exact number of pages defined. If there are ANY remainders,
+        # the last page is only one page ahead. So if we only had a remainder of four, there are four users above the number divisible by 20.
+        # So if you used User.all[101..119], it will show any records in that range, regardless if index 119 is there or not.
+        # User.all[101..119].count would return a count of 4. Only four users are in that range.
+
+        @user_count % 20 == 0 ? @last_page = (@user_count / 20) : @last_page = (@user_count / 20) + 1
+
+        if @current_page > @last_page || @current_page < 1
+            redirect "/users/index/#{@last_page}"
         end
         erb :'users/index'
     end 
