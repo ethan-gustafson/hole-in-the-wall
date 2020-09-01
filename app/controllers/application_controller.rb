@@ -10,19 +10,19 @@ class ApplicationController < Sinatra::Base
       helpers do
 
         def loggedin_banner
-            @banner = "stylesheets/loggedin_banner.css"
+            @banner_filepath = "stylesheets/loggedin_banner.css"
         end
 
         def loggedin_banner_dynamic
-            @banner = "/stylesheets/loggedin_banner.css"
+            @banner_filepath = "/stylesheets/loggedin_banner.css"
         end
 
         def loggedout_banner
-            @banner = "stylesheets/loggedout.css"
+            @banner_filepath = "stylesheets/loggedout.css"
         end
 
         def css(file)
-            @css = file
+            @css_filepath = file
         end
 
         def logged_in? # verifies that the session is true.

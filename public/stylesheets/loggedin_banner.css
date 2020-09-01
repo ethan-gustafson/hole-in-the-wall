@@ -37,6 +37,20 @@ body {
     padding-left: 100px;
 }
 
+#flex-container{
+    display: flex;
+    width: 100%;
+}
+
+#flex-container li{
+    flex: 1 1 25%;
+}
+
+li{
+    list-style: none;
+    /* border: solid white 2px; */
+}
+
 a {
     color: salmon;
     text-decoration: none;
@@ -45,22 +59,4 @@ a {
 a:hover{
     color: firebrick;
     transition-duration: 0.4s;
-}
-
-nav{
-    background-color: black;
-    overflow: hidden;
-    border: solid white 1px;
-
-}
-
-ul{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-li{
-    font-size: 22px;
-    flex: 1 0 30%;
-    list-style-type: none;
 }

@@ -16,9 +16,8 @@
     <% if logged_in? %>
         <header id="logo-container">
             <h1 id="logo"><a href="/home">Hole in the Wall</a></h1>
-        </header>
             <nav>
-                <ul>
+                <ul id="flex-container">
                     <li><a href="/users/collection/1">Users</a></li>
                     <li><a href="/stores">Stores</a></li>
                     <li><a href="/users/<%=current_user.id%>">Account</a></li>
@@ -27,6 +26,7 @@
                     <li><a href="/logout">Log out</a></li>
                 </ul>
             </nav>
+        </header>
     <% end %>
 
     <%= yield %>

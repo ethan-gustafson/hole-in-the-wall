@@ -1,37 +1,20 @@
-/* main.feed {
-    overflow-x: auto;
+main article{
+    margin: 2% auto;
+    width: 60%;
+}
+
+#grid-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100%;
+    grid-auto-rows: 100%;
+    border: solid rgb(197, 197, 197) 2px;
+    margin-bottom: 1%;
+    padding: 2% 2% 1% 2%;
+}
+
+.user-info{
+    margin: 0 auto;
     text-align: center;
-    width: 56%;
-    height: 600px;
-    margin: 100px auto 0px auto;
-    border: solid 2px black;
-    border-radius: 4px;
-    background-color: white;
-} */
-/* 
-div.inside-feed{
-    width: 80%;
-    display: inline-block;
-    font-size: 18;
-    text-align: center;
+    width: 75%;
 }
-
-div.inside-feed a{
-    font-size: 20;
-    color: rgb(255, 107, 107);
-    text-decoration-color: rgb(127, 219, 255);
-}
-
-div.inside-feed a:hover{
-    color: rgb(253, 72, 72);
-    text-decoration-color: rgb(98, 211, 255);
-    transition-duration: 0.4s;
-}
-
-div.inside-feed p{
-    width: 90%;
-    display: inline-block;
-    font-size: 18;
-} */
-
-
