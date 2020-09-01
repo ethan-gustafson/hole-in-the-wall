@@ -34,24 +34,21 @@ body {
 
 #logo{
     color: #FA8072;
-    padding-left: 100px;
+}
+
+#form-wrap {
+    padding: 10px;
+}
+
+#flex-container{
+    display: flex;
+    flex-direction: column;
+    border: solid black 2px;
+    border-radius: 2px;
 }
 
 article {
     text-align: center;
-}
-
-#form-wrap {
-    margin: 0 auto;
-    max-width: 400px;
-    width: 85%;
-    padding: 10px;
-}
-
-#grid-container{
-    display: grid;
-    border: solid black 2px;
-    border-radius: 2px;
 }
 
 a {
@@ -68,6 +65,12 @@ input {
     padding: 10px;
     border: solid black 2px;
     border-radius: 4px;
+    width: 80%;
+}
+
+input:hover{
+    background-color: rgb(255, 228, 217);
+    transition-duration: 0.4s;
 }
 
 label{
@@ -77,10 +80,54 @@ label{
 
 input[type="submit"]{
     background-color: salmon;
+    font-weight: bold;
 }
 
 input[type="submit"]:hover{
-    background-color: firebrick;
+    background-color: rgb(214, 49, 49);
     transition-duration: 0.4s;
     cursor: pointer;
+}
+
+@media screen and (max-width: 320px) { /* When the screen is thinner than 320px */ 
+
+    #logo{
+        text-align: center;
+    }
+
+    #login-greeting{
+        font-size: 18px;
+        width: 95%;
+        margin: 6% auto 0 auto;
+    }
+
+    #signup-greeting{
+        font-size: 18px;
+        width: 95%;
+        margin: 4% auto 0 auto;
+    }
+
+    #form-wrap {
+        width: 85%;
+        margin: 5% auto;
+    }
+
+    #signup{
+        margin: 6% auto;
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (min-width: 321px) { /* When the screen is wider than 321px */ 
+
+    #logo{
+        padding-left: 100px;
+    }
+
+    #form-wrap {
+        margin: 0 auto;
+        width: 35%;
+    }
+
 }
