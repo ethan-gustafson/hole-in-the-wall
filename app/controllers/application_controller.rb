@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
             @banner_filepath = "stylesheets/loggedout.css"
         end
 
-        def css(file)
+        def css_file(file)
             @css_filepath = file
         end
 

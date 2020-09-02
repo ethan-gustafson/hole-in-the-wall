@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     get "/" do 
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       loggedout_banner
-      css("stylesheets/users/new.css")
+      css_file("stylesheets/users/new.css")
 
       erb :'/users/new'
     end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     get "/login" do  
       redirect_if_logged_in_user_accesses_a_not_logged_in_page?
       loggedout_banner
-      css("stylesheets/users/login.css")
+      css_file("stylesheets/users/login.css")
 
       erb :'/users/login' 
     end
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
         redirect_if_not_logged_in?
         loggedin_banner
         api_k
-        css("stylesheets/users/home.css")
+        css_file("stylesheets/users/home.css")
 
         reviews_count = Review.all.count - 5 # The count will always be 5 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     get "/users/index/:id" do
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
-        css("/stylesheets/users/users.css")
+        css_file("/stylesheets/users/users.css")
 
         @current_page = params[:id].to_i
         @user_count = User.all.count
@@ -87,7 +87,7 @@ class UsersController < ApplicationController
     get "/users/:id" do
         redirect_if_not_logged_in?
         loggedin_banner_dynamic
-        css("/stylesheets/users/show.css")
+        css_file("/stylesheets/users/show.css")
         # current user page is set to a true or false value
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page

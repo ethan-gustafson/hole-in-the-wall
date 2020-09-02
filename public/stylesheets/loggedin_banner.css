@@ -32,36 +32,6 @@ body {
     overflow: hidden;
 }
 
-#flex-container{
-    color: #FA8072;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-#logo{
-    font-size: 32px;
-    flex: 0 1 20%;
-}
-
-#logo, .left, .right{
-    list-style: none;
-}
-
-.left{
-    font-size: 28px;
-    padding: 1%;
-}
-
-.right{
-    font-size: 20px;
-    padding: 2%;
-}
-
-#right-push{
-    margin: auto;
-}
-
 a {
     color: salmon;
 }
@@ -69,4 +39,60 @@ a {
 a:hover{
     color: firebrick;
     transition-duration: 0.4s;
+}
+
+@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        text-align: center;
+    }
+
+    #flex-container li{
+        list-style: none;
+        flex: 1 0 50%;
+        margin-bottom: 1%;
+        padding: 3%;
+        border: solid black 2px;
+    } 
+}
+
+@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
+
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    li{
+        white-space: nowrap;
+    }
+    
+    #logo{
+        font-size: 32px;
+        flex: 0 1 20%;
+    }
+    
+    #logo, .left, .right{
+        list-style: none;
+    }
+    
+    .left{
+        font-size: 28px;
+        padding: 1%;
+    }
+    
+    .right{
+        font-size: 20px;
+        padding: 2%;
+    }
+    
+    #right-push{
+        margin: auto;
+    }
 }
