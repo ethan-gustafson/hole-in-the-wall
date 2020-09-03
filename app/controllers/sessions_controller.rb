@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
         erb :'/sessions/root'
     end
 
-    delete "/" do # sessions#destroy
+    get "/logout" do # sessions#destroy
 		session.clear
 		redirect "/login"
     end

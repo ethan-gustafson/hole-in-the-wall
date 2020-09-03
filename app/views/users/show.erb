@@ -10,16 +10,22 @@
 
                 <div>
                     <h3>Number of reviews: <%=current_user.reviews.count%></h3>
-                    <ol>
-                        <% @reviews.each do |review| %>
-                            <li><a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%></li>
+                    <% @reviews.each.with_index(1) do |review, index| %>
+                        <div id="review-title-container">
+                            <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
+                            <p id="review-title"><%=review.title%></p>
+                        </div>
+
+                        <div id="review-content-container">
+                            <p id="review-content"><%=review.content%></p>
+                        </div>
                         <% end %>
                     </ol>
                 </div>
 
                 <div>
-                    <h4><a href="/user/edit">Edit Account</a></h4>
-                    <h4><a href="/user/delete">Delete Account</a></h4>
+                    <h4><a href="/users/edit">Edit Account</a></h4>
+                    <h4><a href="/users/delete">Delete Account</a></h4>
                 </div>
             </section>
         <% else %>
