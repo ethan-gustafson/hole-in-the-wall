@@ -27,19 +27,9 @@ class StoresController < ApplicationController
         end
     end
 
-    get "/most-favorited-stores" do
-        loggedin_banner
-        # @most_favorited = Store.select("stores.name, count(favorites.store_id").joins(:favorite).group("stores.name").order("count(favorites.store_id").limit(5)
-    end
-
-    get "/most-reviewed-stores" do
-        loggedin_banner
-         # ActiveRecord query goes here.
-    end
-
-    get "/search-stores" do
-        loggedin_banner
+    # get "/search-stores" do
+    #     loggedin_banner
         
-    end
+    # end
 
 end
