@@ -10,9 +10,9 @@ class UsersController < ApplicationController
         end
       
         post "/" do # users#create == post "/users"
-            if @user_signup = User.create(params) # If it is a valid user and the password is authenticated.
+            if @user_signup = User.create(params) 
                 session[:user_id] = @user_signup.id
-                redirect '/' # redirects leave the current method - loses the instance variable
+                redirect '/' 
             else
                 redirect '/users/new'
             end

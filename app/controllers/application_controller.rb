@@ -1,11 +1,12 @@
 require 'pry'
 require 'sinatra/base'
 require "sinatra/namespace"
+#http://sinatrarb.com/contrib/namespace
 class ApplicationController < Sinatra::Base
     register Sinatra::Namespace
 
     configure do
-        set :public_folder, 'public'
+        set :public_folder, 'public/stylesheets'
         set :views, 'app/views'
         enable :sessions
         set :session_secret, File.read("config/keys/session_secret.txt")

@@ -1,82 +1,55 @@
-/* section#signup {
-    position: absolute;
-    top: 52%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 25px;
-    margin-bottom: auto;
-    text-align: center;
-    border: 2px solid #000;
-    border-radius: 8px;
-    background-color: white;
+@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        text-align: center;
+    }
+
+    #flex-container li{
+        list-style: none;
+        flex: 1 0 50%;
+        margin-bottom: 1%;
+        padding: 3%;
+        border: solid black 2px;
+    } 
 }
 
-h3.signup{
-    margin: 0 auto;
-    width: 80%;
-    font-size: 25;
-    text-emphasis: 1em;
-}
+@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
 
-form {
-    margin-top: 30px
-}
-input {
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(245, 245, 245);
-    outline:none;
-}
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
 
-input:hover {
-    background-color: rgb(255, 208, 208);
-    transition-duration: 0.4s;
+    li{
+        white-space: nowrap;
+    }
+    
+    #logo{
+        font-size: 32px;
+        flex: 0 1 20%;
+    }
+    
+    #logo, .left, .right{
+        list-style: none;
+    }
+    
+    .left{
+        font-size: 28px;
+        padding: 1%;
+    }
+    
+    .right{
+        font-size: 20px;
+        padding: 2%;
+    }
+    
+    #right-push{
+        margin: auto;
+    }
 }
-
-::placeholder {
-    color: rgb(150, 150, 150);
-}
-
-input[type=text] {
-    border: 2px solid rgb(70, 70, 70);
-    border-radius: 4px;
-}
-
-input[type=email] {
-    border: 2px solid rgb(70, 70, 70);
-    border-radius: 4px;
-}
-
-input[type=password] {
-    border: 2px solid rgb(70, 70, 70);
-    border-radius: 4px;
-}
-
-input.button{
-    margin-top: 15px;
-    background-color: white;
-    border: 2px solid rgb(82, 82, 82);
-    border-radius: 4px;
-}
-
-input.button:hover {
-    background-color: rgb(255, 123, 123);
-    border: 2px solid rgb(82, 82, 82);
-    border-radius: 4px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-}
-
-h2.login a {
-    color: rgb(104, 104, 104);
-}
-
-h2.login a:hover {
-    color: rgb(255, 107, 107);
-    text-decoration: underline;
-    transition-duration: 0.4s;
-} */
