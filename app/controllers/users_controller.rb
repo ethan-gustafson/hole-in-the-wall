@@ -1,7 +1,7 @@
 require 'pry'
 class UsersController < ApplicationController
 
-    namespace '/users' do
+    namespace "/users" do
 
         get "/new" do # users#new == get "/users/new"
             redirect_if_logged_in_user_accesses_a_not_logged_in_page?
