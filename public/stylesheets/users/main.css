@@ -1,3 +1,5 @@
+/*-----------Home----------------*/
+
 main{
     height: 578px;
     overflow: scroll;
@@ -105,3 +107,122 @@ main{
         border: solid rgb(223, 223, 223) 2px;
     }
 }
+
+/*-----------Home----------------*/
+
+
+
+/*-----------users#new----------------*/
+
+@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        text-align: center;
+    }
+
+    #flex-container li{
+        list-style: none;
+        flex: 1 0 50%;
+        margin-bottom: 1%;
+        padding: 3%;
+        border: solid black 2px;
+    } 
+}
+
+@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
+
+    #flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    li{
+        white-space: nowrap;
+    }
+    
+    #logo{
+        font-size: 32px;
+        flex: 0 1 20%;
+    }
+    
+    #logo, .left, .right{
+        list-style: none;
+    }
+    
+    .left{
+        font-size: 28px;
+        padding: 1%;
+    }
+    
+    .right{
+        font-size: 20px;
+        padding: 2%;
+    }
+    
+    #right-push{
+        margin: auto;
+    }
+}
+
+/*-----------users#new----------------*/
+
+
+
+/*-----------users#index----------------*/
+
+main{
+    background-color: rgb(252, 245, 235);
+    padding: 1%;
+}
+
+#users-grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 21%);
+    grid-template-rows: repeat(4, 26%);
+    gap: 1%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.user-grid-item{
+    font-size: 22px;
+    background-color: rgb(36, 36, 36);
+    padding: 10%;
+    border: solid red 2px;
+}
+
+#users-flex-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* .user-flex-item{
+    flex: 1 1 20%;
+} */
+
+.user-flex-item a {
+    font-size: 28px;
+    color: black;
+}
+
+.user-flex-item, .user-grid-item{
+    list-style: none;
+}
+
+footer{
+    width: 100%;
+}
+
+#bottom{
+    padding: 2%;
+    background-color: darkgray;
+}
+
+/*-----------users#index----------------*/
