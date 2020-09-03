@@ -2,6 +2,7 @@ require './config/environment'
 
 use Rack::MethodOverride
 use UsersController
+use SessionsController
 use ReviewsController
 use StoresController
 use FavoritesController
