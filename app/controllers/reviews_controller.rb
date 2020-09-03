@@ -16,10 +16,9 @@ class ReviewsController < ApplicationController
 
         patch "/:id" do # reviews#update == patch "/reviews/:id"
             @user_review = Review.find_by_id(params[:id]) # finds the right id to patch
-            validreview? 
+            # validreview? 
     
-            if valid_params?
-                @user_review.update(params[:review])
+            if @user_review.update(params[:review])
                 redirect to "/reviews/#{@user_review.id}"
             else
                 redirect to '/reviews'
@@ -29,7 +28,7 @@ class ReviewsController < ApplicationController
         delete "/:id" do # reviews#destroy == delete "/reviews/:id"
             @user_review = Review.find_by_id(params[:id]) 
     
-            validreview?  # if the current user is equal to the review user id
+            # validreview?  # if the current user is equal to the review user id
             @user_review.destroy # then we will delete the post. 
             redirect "/users/#{current_user.id}" # Redirected to their account.
         end

@@ -5,17 +5,14 @@ class StoresController < ApplicationController
     namespace "/stores" do
 
         get "/" do # stores#index == get "/stores"
-            loggedin_banner
             erb :'/stores/index'
         end
 
         get "/new" do # stores#new == get "/stores/new"
-            loggedin_banner_dynamic
             erb :'/stores/new'
         end
     
         get "/:id" do # stores#show == get "/stores/:id"
-            loggedin_banner_dynamic
             api_k
             
             @store = Store.find_by_id(params[:id])
@@ -30,7 +27,6 @@ class StoresController < ApplicationController
         end
 
         get "/:id/edit" do # stores#edit == get "/stores/:id/edit"
-            loggedin_banner_dynamic
             api_k
             
             @store = Store.find_by_id(params[:id])
@@ -48,9 +44,8 @@ class StoresController < ApplicationController
         
     end
 
-    get "/search-stores" do
-        loggedin_banner
+    # get "/search-stores" do
         
-    end
+    # end
 
 end
