@@ -13,10 +13,10 @@
             <nav>
                 <ul id="users-flex-container">
                     <li class="user-flex-item"><a href="/users/index/1">First</a></li>
-                    <li class="user-flex-item"><a href="/users/index/<%=(@current_page - 1)%>">Previous</a></li>
-                    <li class="user-flex-item"><a href="/users/index/<%=@current_page%>"><%=@current_page%></a></li>
-                    <li class="user-flex-item"><a href="/users/index/<%=(@current_page + 1)%>">Next</a></li>
-                    <li class="user-flex-item"><a href="/users/index/<%=@last_page%>">Last</a></li>
+                    <li class="user-flex-item"><a href="/users/<%=(@current_page - 1)%>/accounts">Previous</a></li>
+                    <li class="user-flex-item"><a href="/users/<%=@current_page%>/accounts"><%=@current_page%></a></li>
+                    <li class="user-flex-item"><a href="/users/<%=(@current_page + 1)%>/accounts">Next</a></li>
+                    <li class="user-flex-item"><a href="/users/<%=@last_page%>/accounts">Last</a></li>
                 </ul>
             </nav>
         </div>
