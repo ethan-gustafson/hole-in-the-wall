@@ -8,15 +8,16 @@
 <!-- Your stylesheets will not load with dynamic pages unless your href has a "/" forward slash at the front of the url -->
 
 <!-- http://sinatrarb.com/configuration.html#public_folder---static-files-directory -->
-
+<!--
 <% if logged_in? %>
-    <link rel="stylesheet" href="users/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="users/main.css" type="text/css">
+    <link rel="stylesheet" href="loggedin.css" type="text/css">
+    <link rel="stylesheet" href="main.css" type="text/css">
 <% elsif request.url != "http://localhost:9393/login" %>
     <link rel="stylesheet" href="loggedout.css" type="text/css">
 <% else %>
     <link rel="stylesheet" href="users/loggedout.css" type="text/css">
 <% end %>
+-->
 
 </head>
 
@@ -26,7 +27,7 @@
         <header role="banner" id="banner">
             <nav>
                 <ul id="banner-flex-container">
-                    <li id="banner-logo"><a href="/home">Hole in the Wall</a></li>
+                    <li id="banner-logo"><a href="/">Hole in the Wall</a></li>
                     <li class="banner-left"><a href="/users/index/1">Users</a></li>
                     <li class="banner-left"><a href="/stores">Stores</a></li>
                     <div id="banner-right-push"></div>

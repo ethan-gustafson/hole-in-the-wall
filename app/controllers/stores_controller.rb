@@ -2,11 +2,19 @@ class StoresController < ApplicationController
 
     before { redirect_if_not_logged_in? }
 
-    namespace "/stores" do
+    get "/stores" do # stores#index == get "/stores"
+        @stores = Store.all
+        erb :'/stores/index'
+    end
 
-        get "/" do # stores#index == get "/stores"
-            erb :'/stores/index'
+    post "/stores" do # stores#create == post "/stores"
+        @store = Store.new(params)
+        if @store.save
+            redirect "/stores/#{@store.id}"
         end
+    end
+
+    namespace "/stores" do
 
         get "/new" do # stores#new == get "/stores/new"
             erb :'/stores/new'
@@ -17,13 +25,6 @@ class StoresController < ApplicationController
             
             @store = Store.find_by_id(params[:id])
             erb :'/stores/show'
-        end
-    
-        post "/" do # stores#create == post "/stores"
-            @store = Store.new(params)
-            if @store.save
-                redirect "/stores/#{@store.id}"
-            end
         end
 
         get "/:id/edit" do # stores#edit == get "/stores/:id/edit"

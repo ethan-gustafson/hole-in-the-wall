@@ -2,6 +2,10 @@ class ReviewsController < ApplicationController
 
     namespace "/reviews" do
 
+        get "" do
+            @reviews = current_user.reviews
+        end
+
         post "/:id" do # reviews#create == post "/reviews/:id"
             @user_review = Review.new(params[:review])
             if @user_review.valid?

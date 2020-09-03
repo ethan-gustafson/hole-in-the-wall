@@ -1,16 +1,15 @@
 <main>
-    <h2>Create A Store <a href="/store/new">Here</a>.</h2>
+    <h2>Create A Store <a href="/stores/new">Here</a>.</h2>
     <section>
         <ul>
-            <li><a href="/store/new">Create a Store</a></li>
-            <li><a href="/most-favorited-stores">Most Favorited Stores</a></li>
-            <li><a href="/most-reviewed-stores">Most Reviewed Stores</a></li>
-            <li><a href="/search-stores">Search for a store</a></li>
+            <li>Most Favorited Stores</a></li>
+            <li>Most Reviewed Stores</a></li>
+            <li>Search for a store</a></li>
         </ul>
     </section>
     <article>
         <ol>
-            <% Store.all.each do |store| %>
+            <% @stores.each do |store| %>
                 <li><a href="/stores/<%=store.id%>"><%=store.id%>. <%= store.name %></a></li>
             <% end %>
         </ol>

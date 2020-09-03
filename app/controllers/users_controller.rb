@@ -57,7 +57,13 @@ class UsersController < ApplicationController
             # current user page is set to a true or false value
             @current_user_page = current_user.id == params[:id].to_i
             # if the current user page is true, return current_user, or return the correct user show page
-            @current_user_page == true ? current_user :  @user = User.find_by_id(params[:id])
+            if @current_user_page == true 
+                current_user
+                @reviews = current_user.reviews[0..4]
+            else
+                @user = User.find_by_id(params[:id])
+                @reviews = @user.reviews[0..4]
+            end
             erb :'/users/show'
         end
 
