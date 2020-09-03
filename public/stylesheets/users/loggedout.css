@@ -27,27 +27,27 @@ body {
     padding: 0;
 }
 
-#logo-container { 
+#ls-logo-container { 
     background-color: rgb(36, 36, 36);
     overflow: hidden;
 }
 
-#logo{
+#ls-logo{
     color: #FA8072;
 }
 
-#users-new-form-wrap {
+#ls-form-wrap {
     padding: 10px;
 }
 
-#users-new-flex-container{
+#ls-flex-container{
     display: flex;
     flex-direction: column;
     border: solid black 2px;
     border-radius: 2px;
 }
 
-#signup-article {
+article {
     text-align: center;
 }
 
@@ -78,12 +78,12 @@ label{
     margin-top: 3%;
 }
 
-#signup-submit{
+#ls-submit{
     background-color: salmon;
     font-weight: bold;
 }
 
-#signup-submit:hover{
+#ls-submit:hover{
     background-color: rgb(214, 49, 49);
     transition-duration: 0.4s;
     cursor: pointer;
@@ -91,28 +91,28 @@ label{
 
 @media screen and (max-width: 320px) { /* Mobile: When the screen is thinner than 320px */ 
 
-    #logo{
+    #ls-logo{
         text-align: center;
     }
 
-    #login-greeting{
+    #ls-greeting{
         font-size: 18px;
         width: 95%;
         margin: 6% auto 0 auto;
     }
 
-    #signup-greeting{
+    #ls-greeting{
         font-size: 18px;
         width: 95%;
         margin: 4% auto 0 auto;
     }
 
-    #users-new-form-wrap {
+    #ls-form-wrap {
         width: 85%;
         margin: 5% auto;
     }
 
-    #signup{
+    #ls-signup{
         margin: 6% auto;
         font-size: 16px;
     }
@@ -121,22 +121,22 @@ label{
 
 @media screen and (min-width: 321px) { /* Desktop: When the screen is wider than 321px */ 
 
-    #logo{
+    #ls-logo{
         padding-left: 100px;
     }
 
-    #users-new-form-wrap {
+    #ls-form-wrap {
         margin: 0 auto;
         width: 35%;
     }
 
     input:-webkit-autofill::first-line {font-size: 24px}
 
-    .signup-input-box{
+    .ls-input-box{
         font-size: 24px;
     }
 
-    #signup-submit{
+    #ls-submit{
         padding: 5% 0 5% 0;
     }
 
