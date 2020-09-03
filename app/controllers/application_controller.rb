@@ -1,4 +1,6 @@
 require 'pry'
+require 'sinatra/base'
+require "sinatra/namespace"
 class ApplicationController < Sinatra::Base
     register Sinatra::Namespace
 
@@ -16,35 +18,19 @@ class ApplicationController < Sinatra::Base
             @api_key = File.read(filepath)
         end
 
-        def loggedin_banner
-            @banner_filepath = "stylesheets/loggedin_banner.css"
-        end
-
-        def loggedin_banner_dynamic
-            @banner_filepath = "/stylesheets/loggedin_banner.css"
-        end
-
-        def loggedout_banner
-            @banner_filepath = "stylesheets/loggedout.css"
-        end
-
-        def css_file(file)
-            @css_filepath = file
-        end
-
         def logged_in? # verifies that the session is true.
 			!!current_user
         end
         
         def redirect_if_not_logged_in?
             if !logged_in?
-                redirect to '/'
+                redirect '/login'
             end
         end
 
         def redirect_if_logged_in_user_accesses_a_not_logged_in_page?
             if logged_in? 
-                redirect '/home'
+                redirect '/login'
             end
         end
 

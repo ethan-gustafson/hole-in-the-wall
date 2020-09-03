@@ -48,9 +48,9 @@ class StoresController < ApplicationController
         
     end
 
-    # get "/search-stores" do
-    #     loggedin_banner
+    get "/search-stores" do
+        loggedin_banner
         
-    # end
+    end
 
 end

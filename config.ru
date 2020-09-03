@@ -1,8 +1,8 @@
 require './config/environment'
 
 use Rack::MethodOverride
-use UsersController
 use SessionsController
+use UsersController
 use ReviewsController
 use StoresController
 use FavoritesController

@@ -5,25 +5,21 @@ class UsersController < ApplicationController
 
         get "/new" do # users#new == get "/users/new"
             redirect_if_logged_in_user_accesses_a_not_logged_in_page?
-            loggedout_banner
-            css_file("stylesheets/users/new.css")
-      
+            
             erb :'/users/new'
-          end
+        end
       
         post "/" do # users#create == post "/users"
             if @user_signup = User.create(params) # If it is a valid user and the password is authenticated.
                 session[:user_id] = @user_signup.id
-                redirect '/home' # redirects leave the current method - loses the instance variable
+                redirect '/' # redirects leave the current method - loses the instance variable
             else
-                redirect '/'
+                redirect '/users/new'
             end
         end
 
         get "/:id/accounts" do # index == get "/users/:id/accounts"
             redirect_if_not_logged_in?
-            loggedin_banner_dynamic
-            css_file("/stylesheets/users/users.css")
     
             @current_page = params[:id].to_i
             @user_count = User.all.count
@@ -51,15 +47,13 @@ class UsersController < ApplicationController
             @user_count % 20 == 0 ? @last_page = (@user_count / 20) : @last_page = (@user_count / 20) + 1
     
             if @current_page > @last_page || @current_page < 1
-                redirect "/users/index/#{@last_page}"
+                redirect "/users/#{@last_page}/accounts"
             end
             erb :'users/index'
         end 
 
         get "/:id" do # users#show == get "/users/:id"
             redirect_if_not_logged_in?
-            loggedin_banner_dynamic
-            css_file("/stylesheets/users/show.css")
             # current user page is set to a true or false value
             @current_user_page = current_user.id == params[:id].to_i
             # if the current user page is true, return current_user, or return the correct user show page
@@ -75,7 +69,7 @@ class UsersController < ApplicationController
             )
                 redirect "/users/#{current_user.id}"
             else
-                redirect '/user/edit'
+                redirect "/users/#{current_user.id}"
             end
         end
 
