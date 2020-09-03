@@ -1,5 +1,5 @@
-<main>
-    <aside role="region" aria-label="Sinatra">
+<main id="home-main">
+    <aside id="home-aside" role="region" aria-label="Sinatra">
         <iframe
               width="500" 
               height="500"
@@ -7,11 +7,11 @@
               src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
         </iframe>
     </aside>
-    <article role="feed" aria-label="Recent reviews feed featuring google maps">
+    <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
         <%@home_feed_reviews.each do |review|%>
-            <section id="grid-container">
+            <section id="home-grid-container">
 
-                <div class="google-map">
+                <div class="home-google-map">
                     <iframe
                         width="350"
                         height="250"
@@ -21,7 +21,7 @@
                     </iframe>
                 </div>
 
-                <div class="user-info">
+                <div class="home-user-info">
                 <% if !review.user.nil? %>
                     <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
                     <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a>: <u><%= review.title %></u></h3>

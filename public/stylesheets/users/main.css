@@ -1,19 +1,18 @@
 /*-----------Home----------------*/
 
-main{
+#home-main{
     height: 578px;
     overflow: scroll;
 }
 
-
 @media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
-    main article{
+    #home-article{
         margin: 0 auto;
         width: 100%;
         height: 80%;
     }
     
-    #grid-container{
+    #home-grid-container{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: 50% 50%;
@@ -24,14 +23,14 @@ main{
         padding: 2% 2% 1% 2%;
     }
 
-    .google-map{
+    .home-google-map{
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
         border: solid black 2px;
     }
     
-    .google-map iframe{
+    .home-google-map iframe{
         left: 0;
         top: 0;
         height: 100%;
@@ -39,30 +38,30 @@ main{
         position: absolute;
     }
 
-    .user-info{
+    .home-user-info{
         margin: 0 auto;
         text-align: center;
         width: 75%;
         line-height: 1.0;
     }
     
-    .user-info a{
+    .home-user-info a{
         text-decoration: none;
     }
 
-    aside{
+    #home-aside{
         visibility: hidden;
     }
 }
 
 @media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
-    main article{
+    #home-article{
         margin: 2% 40% 2% 1%;
         width: 60%;
         height: 80%;
     }
     
-    #grid-container{
+    #home-grid-container{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 100%;
@@ -73,24 +72,24 @@ main{
         padding: 2% 2% 1% 2%;
     }
     
-    .user-info{
+    .home-user-info{
         margin: 0 auto;
         text-align: center;
         width: 75%;
     }
     
-    .user-info a{
+    .home-user-info a{
         text-decoration: none;
     }
     
-    .google-map{
+    .home-google-map{
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
         border: solid black 2px;
     }
     
-    .google-map iframe{
+    .home-google-map iframe{
         left: 0;
         top: 0;
         height: 100%;
@@ -98,7 +97,7 @@ main{
         position: absolute;
     }
     
-    aside{
+    #home-aside{
         position: fixed;
         right: 2%;
         margin-top: 2%;
