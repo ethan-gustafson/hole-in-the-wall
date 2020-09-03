@@ -4,39 +4,35 @@ class ReviewsController < ApplicationController
         @reviews = current_user.reviews
     end
 
-    namespace "/reviews" do
+    post "/reviews/:id" do # reviews#create == post "/reviews/:id"
+        @user_review = Review.new(params[:review])
+        if @user_review.valid?
+            @user_review.store_id = params[:store_id]
+            @user_review.user_id = session[:user_id]
+            @user_review.save
+            redirect "/reviews/#{@user_review.id}" # it is redirected to that specific review from @review
+        else
+            redirect "/reviews"
+        end
+    end
 
-        post "/:id" do # reviews#create == post "/reviews/:id"
-            @user_review = Review.new(params[:review])
-            if @user_review.valid?
-                @user_review.store_id = params[:store_id]
-                @user_review.user_id = session[:user_id]
-                @user_review.save
-                redirect "/reviews/#{@user_review.id}" # it is redirected to that specific review from @review
-            else
-                redirect "/reviews"
-            end
-        end
+    patch "/reviews/:id" do # reviews#update == patch "/reviews/:id"
+        @user_review = Review.find_by_id(params[:id]) # finds the right id to patch
+        # validreview? 
 
-        patch "/:id" do # reviews#update == patch "/reviews/:id"
-            @user_review = Review.find_by_id(params[:id]) # finds the right id to patch
-            # validreview? 
-    
-            if @user_review.update(params[:review])
-                redirect to "/reviews/#{@user_review.id}"
-            else
-                redirect to '/reviews'
-            end
+        if @user_review.update(params[:review])
+            redirect to "/reviews/#{@user_review.id}"
+        else
+            redirect to '/reviews'
         end
-    
-        delete "/:id" do # reviews#destroy == delete "/reviews/:id"
-            @user_review = Review.find_by_id(params[:id]) 
-    
-            # validreview?  # if the current user is equal to the review user id
-            @user_review.destroy # then we will delete the post. 
-            redirect "/users/#{current_user.id}" # Redirected to their account.
-        end
-        
+    end
+
+    delete "/reviews/:id" do # reviews#destroy == delete "/reviews/:id"
+        @user_review = Review.find_by_id(params[:id]) 
+
+        # validreview?  # if the current user is equal to the review user id
+        @user_review.destroy # then we will delete the post. 
+        redirect "/users/#{current_user.id}" # Redirected to their account.
     end
 
 end

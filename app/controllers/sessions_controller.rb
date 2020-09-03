@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_if_logged_in_user_accesses_a_not_logged_in_page?
-        
+        binding.pry
         erb :'/sessions/login' 
     end
 
@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 
     get "/" do # root#home
         redirect_if_not_logged_in?
-        api_k
 
         reviews_count = Review.all.count - 5 # The count will always be 5 less than the count of all reviews
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse # This will only show ten reviews from the most recent

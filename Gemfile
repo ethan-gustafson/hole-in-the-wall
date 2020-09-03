@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 ruby '2.7.1'
 
 gem 'sinatra'
-gem "sinatra-contrib"
 gem 'thin'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'activerecord', '~> 6.0', '>= 6.0.3.2', :require => 'active_record'

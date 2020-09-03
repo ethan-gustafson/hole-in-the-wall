@@ -14,7 +14,6 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    backports (3.18.2)
     bcrypt (3.1.15)
     bond (0.5.1)
     capybara (3.33.0)
@@ -39,7 +38,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
-    multi_json (1.15.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.10.10)
@@ -89,13 +87,6 @@ GEM
     sinatra-activerecord (2.0.18)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
-    sinatra-contrib (2.0.8.1)
-      backports (>= 2.8.2)
-      multi_json
-      mustermann (~> 1.0)
-      rack-protection (= 2.0.8.1)
-      sinatra (= 2.0.8.1)
-      tilt (~> 2.0)
     sqlite3 (1.4.2)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
@@ -132,7 +123,6 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
-  sinatra-contrib
   sqlite3
   thin
   tux
