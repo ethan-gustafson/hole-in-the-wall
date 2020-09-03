@@ -36,18 +36,18 @@ body {
     color: #FA8072;
 }
 
-#form-wrap {
+#users-new-form-wrap {
     padding: 10px;
 }
 
-#flex-container{
+#users-new-flex-container{
     display: flex;
     flex-direction: column;
     border: solid black 2px;
     border-radius: 2px;
 }
 
-article {
+#signup-article {
     text-align: center;
 }
 
@@ -78,12 +78,12 @@ label{
     margin-top: 3%;
 }
 
-#submit{
+#signup-submit{
     background-color: salmon;
     font-weight: bold;
 }
 
-#submit:hover{
+#signup-submit:hover{
     background-color: rgb(214, 49, 49);
     transition-duration: 0.4s;
     cursor: pointer;
@@ -107,7 +107,7 @@ label{
         margin: 4% auto 0 auto;
     }
 
-    #form-wrap {
+    #users-new-form-wrap {
         width: 85%;
         margin: 5% auto;
     }
@@ -125,18 +125,18 @@ label{
         padding-left: 100px;
     }
 
-    #form-wrap {
+    #users-new-form-wrap {
         margin: 0 auto;
         width: 35%;
     }
 
     input:-webkit-autofill::first-line {font-size: 24px}
 
-    .input-box{
+    .signup-input-box{
         font-size: 24px;
     }
 
-    #submit{
+    #signup-submit{
         padding: 5% 0 5% 0;
     }
 

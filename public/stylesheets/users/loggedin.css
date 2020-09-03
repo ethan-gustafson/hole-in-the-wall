@@ -41,3 +41,58 @@ a:hover{
     transition-duration: 0.4s;
 }
 
+@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+    #banner-flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        text-align: center;
+    }
+
+    #banner-flex-container li{
+        list-style: none;
+        flex: 1 0 50%;
+        margin-bottom: 1%;
+        padding: 3%;
+        border: solid black 2px;
+    } 
+}
+
+@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
+
+    #banner-flex-container{
+        color: #FA8072;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        width: 100%;
+    }
+
+    #banner-flex-container li{
+        white-space: nowrap;
+    }
+    
+    #banner-logo{
+        font-size: 32px;
+        flex: 0 1 20%;
+    }
+    
+    #banner-logo, .banner-left, .banner-right{
+        list-style: none;
+    }
+    
+    .banner-left{
+        font-size: 28px;
+        padding: 1%;
+    }
+    
+    .banner-right{
+        font-size: 20px;
+        padding: 2%;
+    }
+    
+    #banner-right-push{
+        margin: auto;
+    }
+}

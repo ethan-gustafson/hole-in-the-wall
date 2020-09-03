@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="loggedin.css" type="text/css">
     <link rel="stylesheet" href="main.css" type="text/css">
 <% else %>
-    <link rel="stylesheet" href="users/loggedout.css" type="text/css">
+    <link rel="stylesheet" href="loggedout.css" type="text/css">
 <% end %>
 </head>
 
@@ -22,15 +22,15 @@
     <% if logged_in? %>
         <header role="banner" id="banner">
             <nav>
-                <ul id="flex-container">
-                    <li id="logo"><a href="/home">Hole in the Wall</a></li>
-                    <li class="left"><a href="/users/index/1">Users</a></li>
-                    <li class="left"><a href="/stores">Stores</a></li>
-                    <div id="right-push"></div>
-                    <li class="right"><a href="/users/<%=current_user.id%>">Account</a></li>
-                    <li class="right"><a href="/my-reviews">My Reviews</a></li>
-                    <li class="right"><a href="/favorites">Favorites</a></li>
-                    <li class="right"><a href="/logout">Log out</a></li>
+                <ul id="banner-flex-container">
+                    <li id="banner-logo"><a href="/home">Hole in the Wall</a></li>
+                    <li class="banner-left"><a href="/users/index/1">Users</a></li>
+                    <li class="banner-left"><a href="/stores">Stores</a></li>
+                    <div id="banner-right-push"></div>
+                    <li class="banner-right"><a href="/users/<%=current_user.id%>">Account</a></li>
+                    <li class="banner-right"><a href="/my-reviews">My Reviews</a></li>
+                    <li class="banner-right"><a href="/favorites">Favorites</a></li>
+                    <li class="banner-right"><a href="/logout">Log out</a></li>
                 </ul>
             </nav>
         </header>
