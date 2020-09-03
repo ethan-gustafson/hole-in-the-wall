@@ -1,21 +1,21 @@
 require 'pry'
 class UsersController < ApplicationController
 
+    post "/users" do # users#create == post "/users"
+        if @user_signup = User.create(params) 
+            session[:user_id] = @user_signup.id
+            redirect '/' 
+        else
+            redirect '/users/new'
+        end
+    end
+
     namespace "/users" do
 
         get "/new" do # users#new == get "/users/new"
             redirect_if_logged_in_user_accesses_a_not_logged_in_page?
             
             erb :'/users/new'
-        end
-      
-        post "/" do # users#create == post "/users"
-            if @user_signup = User.create(params) 
-                session[:user_id] = @user_signup.id
-                redirect '/' 
-            else
-                redirect '/users/new'
-            end
         end
 
         get "/:id/accounts" do # index == get "/users/:id/accounts"

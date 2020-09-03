@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
 
-    namespace "/reviews" do
+    get "/reviews" do
+        @reviews = current_user.reviews
+    end
 
-        get "" do
-            @reviews = current_user.reviews
-        end
+    namespace "/reviews" do
 
         post "/:id" do # reviews#create == post "/reviews/:id"
             @user_review = Review.new(params[:review])
