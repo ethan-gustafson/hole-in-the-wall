@@ -113,7 +113,7 @@
 
 /*-----------users#index----------------*/
 
-main{
+/* main{
     background-color: rgb(252, 245, 235);
     padding: 1%;
 }
@@ -138,13 +138,13 @@ main{
 #users-flex-container{
     display: flex;
     justify-content: space-evenly;
-}
+} */
 
 /* .user-flex-item{
     flex: 1 1 20%;
 } */
 
-.user-flex-item a {
+/* .user-flex-item a {
     font-size: 28px;
     color: black;
 }
@@ -160,6 +160,6 @@ footer{
 #bottom{
     padding: 2%;
     background-color: darkgray;
-}
+} */
 
 /*-----------users#index----------------*/

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_if_logged_in_user_accesses_a_not_logged_in_page?
-  
+        
         erb :'/sessions/login' 
     end
 
