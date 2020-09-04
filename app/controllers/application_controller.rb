@@ -20,6 +20,19 @@ class ApplicationController < Sinatra::Base
             @google_api_key ||= File.read("config/keys/API_KEY.txt")
         end
 
+        # banner is exactly like css_file. Same functionality.
+
+        def banner(banner)
+            @banner = banner
+        end
+
+        # css_file allows you to set the file name for the layout linked tags for stylesheets in the route.
+        # This will let you keep css files separate instead of having a few big clunky css files.
+
+        def css_file(css)
+            @css = css
+        end
+
         def logged_in? 
 			!!current_user # will return true if a record is present, will return false if the current_user is nil.
         end
