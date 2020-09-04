@@ -2,15 +2,15 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_if_logged_in_user_accesses_a_not_logged_in_page?
-        binding.pry
         erb :'/sessions/login' 
     end
 
     post "/" do # sessions#create
-        @user = User.find_by(username: params[:username])
-            
-        if !!@user && @user.authenticate(params[:password]) # If it is a valid user and the password is authenticated.
-            session[:user_id] = @user.id # we set the sessions user_id to equal the @user.id.
+        @user = User.find_by(username: params[:user][:username])
+        password = params[:user][:password]
+
+        if !!@user && @user.authenticate(password) 
+            session[:user_id] = @user.id 
             redirect '/'
         else
             redirect '/login'
@@ -28,6 +28,12 @@ class SessionsController < ApplicationController
     get "/logout" do # sessions#destroy
 		session.clear
 		redirect "/login"
+    end
+
+    private
+
+    def session_params
+
     end
 
 end

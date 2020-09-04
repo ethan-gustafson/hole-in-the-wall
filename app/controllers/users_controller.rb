@@ -6,8 +6,10 @@ class UsersController < ApplicationController
         erb :'/users/new'
     end
 
-    post "/users" do # users#create == post "/users"
-        if @user_signup = User.create(params) 
+    post "/users" do # users#create == post "/users" 
+        # Sinatra creates a new instance of this application class on every incoming request.
+        # We have access to params, which is a method returning an IndifferentHash.
+        if @user_signup = User.create(user_params) 
             session[:user_id] = @user_signup.id
             redirect '/' 
         else
@@ -65,11 +67,7 @@ class UsersController < ApplicationController
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
-        if current_user.update!(
-            username: params[:user][:username], 
-            name: params[:user][:name], 
-            email: params[:user][:email]
-        )
+        if current_user.update!(user_params)
             redirect "/users/#{current_user.id}"
         else
             redirect "/users/#{current_user.id}"
@@ -81,6 +79,21 @@ class UsersController < ApplicationController
         session.clear
         
         redirect "/login"
+    end
+
+    private
+
+    def user_params
+        key = require_param(:user)
+    
+        hash = permit_params(
+            key,
+            :name, 
+            :username, 
+            :email
+        )
+        hash[:user].store(:password, params[:user][:password]) if params[:user][:password]
+        hash[:user]
     end
 
 end

@@ -1,4 +1,5 @@
 require 'pry'
+require 'ostruct'
 require 'sinatra/base'
 class ApplicationController < Sinatra::Base
 
@@ -34,18 +35,45 @@ class ApplicationController < Sinatra::Base
 		def current_user # identifies the current user.
 			@current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
         end
-        
-        # def valid_params?
-        #     params[:review].none? do |key,value|
-        #         value == ""
-        #     end
-        # end
 
-        # def validreview?
-        #     if !logged_in? && current_user.id  != @user_review.user_id
-        #         erb :'/reviews/error_no_access'
-        #     end
-        # end
+        def class_name
+            @class_name = self.class.to_s.split("C")[0].downcase
+        end
+
+        def singular_class_name
+            class_name
+            @singular = @class_name.slice(0..-2)
+
+            if @singular == "session"
+                @singular = "user"
+            end
+            @singular
+        end
+        
+        # Sinatra uses Indifferent Hashes with params. This means it regards string and key symbols the same.
+        # https://www.rubydoc.info/gems/sinatra/Sinatra/IndifferentHash
+
+        def require_param(key)
+            if singular_class_name == key.to_s
+                if params.has_key?(singular_class_name)
+                    hash = Hash.new
+                    hash.store(key, {})
+                    hash
+                end
+            else
+                return false
+            end
+        end
+
+        def permit_params(hash, *attributes) # needs to be
+                attributes.each do |key| 
+                    if Class.const_get(singular_class_name.capitalize).attribute_names.include?(key.to_s) 
+                        hash[singular_class_name.to_sym].store(key, params[singular_class_name][key])
+                        hash
+                    end
+                end
+            hash
+        end
 
     end
 
