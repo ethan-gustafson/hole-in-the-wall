@@ -1,38 +1,47 @@
 class ReviewsController < ApplicationController
 
-    get "/reviews" do
-        @reviews = current_user.reviews
-    end
-
     post "/reviews/:id" do # reviews#create == post "/reviews/:id"
-        @user_review = Review.new(params[:review])
-        if @user_review.valid?
-            @user_review.store_id = params[:store_id]
-            @user_review.user_id = session[:user_id]
-            @user_review.save
-            redirect "/reviews/#{@user_review.id}" # it is redirected to that specific review from @review
+        if @review = Review.create(review_params)
+            redirect "/stores/#{@review.store_id}"
         else
-            redirect "/reviews"
+            redirect "/stores"
         end
     end
 
     patch "/reviews/:id" do # reviews#update == patch "/reviews/:id"
-        @user_review = Review.find_by_id(params[:id]) # finds the right id to patch
-        # validreview? 
+        find_review 
 
-        if @user_review.update(params[:review])
-            redirect to "/reviews/#{@user_review.id}"
+        if @review.update(review_params)
+            redirect "/stores/#{@review.store_id}"
         else
-            redirect to '/reviews'
+            redirect '/stores'
         end
     end
 
     delete "/reviews/:id" do # reviews#destroy == delete "/reviews/:id"
-        @user_review = Review.find_by_id(params[:id]) 
+        find_review
 
-        # validreview?  # if the current user is equal to the review user id
-        @user_review.destroy # then we will delete the post. 
-        redirect "/users/#{current_user.id}" # Redirected to their account.
+        @review.destroy 
+        redirect "/users/#{current_user.id}"
+    end
+
+    private
+
+    def review_params
+        key = require_param(:review)
+    
+        hash = permit_params(
+            key,
+            :title, 
+            :content
+        )
+        hash[:review].store(:user_id, params[:review][:user_id]) if params[:review][:user_id]
+        hash[:review].store(:store_id, params[:review][:store_id]) if params[:review][:store_id]
+        hash[:review]
+    end
+
+    def find_review
+        @review = Review.find_by_id(params[:id]) 
     end
 
 end
