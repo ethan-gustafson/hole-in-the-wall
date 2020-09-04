@@ -1,5 +1,4 @@
 require 'pry'
-require 'ostruct'
 require 'sinatra/base'
 class ApplicationController < Sinatra::Base
 
