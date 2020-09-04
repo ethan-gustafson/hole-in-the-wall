@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     get "/users/new" do # users#new == get "/users/new" (Signup)
         redirect_inside?
-        erb :'/users/new', locals: {title: "Signup"}
+        erb :'/users/new', locals: {title: "Signup", javascript: "javascript/session/Signup.js"}
     end
 
     post "/users" do # users#create == post "/users" 
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
             @user = User.find_by_id(params[:id])
             @reviews = @user.reviews[0..4]
         end
-        erb :'/users/show', locals: {title: "#{ @user.name }'s Profile"}
+        erb :'/users/show', locals: {title: "#{ @user.name }'s Profile", javascript: ["javascript/users/Account.js", "javascript/users/ReviewOptions.js"]}
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"

@@ -21,7 +21,7 @@ class StoresController < ApplicationController
 
     get "/stores/:id" do # stores#show == get "/stores/:id"
         set_store
-        erb :'/stores/show', locals: {title: "#{@store.name}"}
+        erb :'/stores/show', locals: {title: "#{@store.name}", javascript: "javascript/stores/Show.js"}
     end
 
     get "/stores/:id/edit" do # stores#edit == get "/stores/:id/edit"

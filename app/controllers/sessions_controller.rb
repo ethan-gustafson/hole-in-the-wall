@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_inside?
-        erb :'/sessions/login', locals: {title: "Login"}
+        erb :'/sessions/login', locals: {title: "Login", javascript: "javascript/session/Login.js"}
     end
 
     post "/" do # sessions#create
