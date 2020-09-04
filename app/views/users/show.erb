@@ -1,15 +1,11 @@
 <main>
     <article>
-        <% if @current_user_page == true %>
+        <% if !!@current_user_page  %>
             <section>
-                <div>
-                    <h2><%= current_user.username %></h2>
-                    <h3><%= current_user.name %></h3>
-                    <h3><%= current_user.email %></h3>
-                </div>
+                <%= erb :'/partials/users/_show' %>
 
                 <div>
-                    <h3>Number of reviews: <%=current_user.reviews.count%></h3>
+                    <h3>Number of reviews: <%=@user.reviews.count%></h3>
                     <% @reviews.each.with_index(1) do |review, index| %>
                         <div id="review-title-container">
                             <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
@@ -30,11 +26,7 @@
             </section>
         <% else %>
             <section>
-                <div>
-                    <h2><%= @user.username %></h2>
-                    <h3><%= @user.name %></h3>
-                    <h3><%= @user.email %></h3>
-                </div>
+                <%= erb :'/partials/users/_show' %>
 
                 <div>
                     <h3>Number of reviews: <%=@user.reviews.count%></h3>

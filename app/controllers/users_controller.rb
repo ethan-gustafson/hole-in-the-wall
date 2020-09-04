@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
 
     get "/users/new" do # users#new == get "/users/new" (Signup)
-        redirect_if_logged_in_user_accesses_a_not_logged_in_page?
-        
-        erb :'/users/new'
+        redirect_inside?
+        erb :'/users/new', locals: {title: "Signup"}
     end
 
     post "/users" do # users#create == post "/users" 
         # Sinatra creates a new instance of this application class on every incoming request.
         # We have access to params, which is a method returning an IndifferentHash.
-        if @user_signup = User.create(user_params) 
-            session[:user_id] = @user_signup.id
+        if @user = User.create(user_params) 
+            session[:user_id] = @user.id
             redirect '/' 
         else
             redirect '/users/new'
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id/accounts" do # index == get "/users/:id/accounts"
-        redirect_if_not_logged_in?
+        redirect_outside?
 
         @current_page = params[:id].to_i
         @user_count = User.all.count
@@ -48,22 +47,22 @@ class UsersController < ApplicationController
         if @current_page > @last_page || @current_page < 1
             redirect "/users/#{@last_page}/accounts"
         end
-        erb :'users/index'
+        erb :'users/index', locals: {title: "User Index #{@current_page}"}
     end 
 
     get "/users/:id" do # users#show == get "/users/:id"
-        redirect_if_not_logged_in?
+        redirect_outside?
         # current user page is set to a true or false value
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page
-        if @current_user_page == true 
-            current_user
+        if !!@current_user_page
+            @user = current_user
             @reviews = current_user.reviews[0..4]
         else
             @user = User.find_by_id(params[:id])
             @reviews = @user.reviews[0..4]
         end
-        erb :'/users/show'
+        erb :'/users/show', locals: {title: "#{ @user.name }'s Profile"}
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
