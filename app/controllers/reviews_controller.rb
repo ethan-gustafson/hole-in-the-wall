@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     private
 
     def review_params
-        key = require_param(:review)
+        key  = require_param(:review)
     
         hash = permit_params(
             key,

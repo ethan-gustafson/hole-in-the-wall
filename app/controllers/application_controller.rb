@@ -45,7 +45,7 @@ class ApplicationController < Sinatra::Base
 
         def singular_class_name
             class_name = self.class.to_s.split("C")[0].downcase 
-            @singular = class_name.slice(0..-2)
+            @singular  = class_name.slice(0..-2)
 
             if @singular == "session"
                 @singular = "user"

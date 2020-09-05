@@ -22,8 +22,11 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect '/'
         else
-            flash[:invalid] = "Authentication Failed."
-            flash[:credentials] = {username: params[:user][:username], password: params[:user][:password]}
+            flash[:invalid]     = "Authentication Failed."
+            flash[:credentials] = {
+                username: params[:user][:username], 
+                password: params[:user][:password]
+            }
             redirect '/login'
         end
     end

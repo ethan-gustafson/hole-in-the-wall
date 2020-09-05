@@ -4,7 +4,9 @@ class StoresController < ApplicationController
 
     get "/stores" do # stores#index == get "/stores"
         @stores = Store.all
-        erb :'/stores/index', locals: {title: "Store's index"}
+        erb :'/stores/index', locals: {
+            title: "Store's index"
+        }
     end
 
     post "/stores" do # stores#create == post "/stores"
@@ -16,17 +18,24 @@ class StoresController < ApplicationController
     end
 
     get "/stores/new" do # stores#new == get "/stores/new"
-        erb :'/stores/new', locals: {title: "Create a Store"}
+        erb :'/stores/new', locals: {
+            title: "Create a Store"
+        }
     end
 
     get "/stores/:id" do # stores#show == get "/stores/:id"
         set_store
-        erb :'/stores/show', locals: {title: "#{@store.name}", javascript: "javascript/stores/Show.js"}
+        erb :'/stores/show', locals: {
+            title: "#{@store.name}", 
+            javascript: "javascript/stores/Show.js"
+        }
     end
 
     get "/stores/:id/edit" do # stores#edit == get "/stores/:id/edit"
         set_store
-        erb :'/stores/edit', locals: {title: "Edit: #{@store.name}"}
+        erb :'/stores/edit', locals: {
+            title: "Edit: #{@store.name}"
+        }
     end
 
     patch "/stores/:id" do # stores#update == patch "/stores/:id"

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/' 
         else
-            flash[:invalid] = "Invalid Signup"
+            flash[:invalid]     = "Invalid Signup"
             flash[:credentials] = user_params
             redirect '/users/new'
         end
@@ -31,9 +31,9 @@ class UsersController < ApplicationController
         @current_page = params[:id].to_i
         @user_count = User.all.count
 
-        end_i = (@current_page * 20) - 1
+        end_i   = (@current_page * 20) - 1
         start_i = end_i - 19
-        @users = User.all[start_i..end_i]
+        @users  = User.all[start_i..end_i]
 
         # We have 20 users per page. Each page will have a group of 20 people. Every following page needs to show the next 20 users.
         # So we know that (1 * 20) is equal to 20. 20 users. For the array index, we minus 1 to set the ending index to 19.
@@ -56,7 +56,9 @@ class UsersController < ApplicationController
         if @current_page > @last_page || @current_page < 1
             redirect "/users/#{@last_page}/accounts"
         end
-        erb :'users/index', locals: {title: "User Index #{@current_page}"}
+        erb :'users/index', locals: {
+            title: "User Index #{@current_page}"
+        }
     end 
 
     get "/users/:id" do # users#show == get "/users/:id"
@@ -65,13 +67,19 @@ class UsersController < ApplicationController
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page
         if !!@current_user_page
-            @user = current_user
+            @user    = current_user
             @reviews = current_user.reviews[0..4]
         else
-            @user = User.find_by_id(params[:id])
+            @user    = User.find_by_id(params[:id])
             @reviews = @user.reviews[0..4]
         end
-        erb :'/users/show', locals: {title: "#{ @user.name }'s Profile", javascript: ["javascript/users/Account.js", "javascript/users/ReviewOptions.js"]}
+        erb :'/users/show', locals: {
+            title: "#{ @user.name }'s Profile", 
+            javascript: [
+                "javascript/users/Account.js", 
+                "javascript/users/ReviewOptions.js"
+            ]
+        }
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
@@ -92,8 +100,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        key = require_param(:user)
-    
+        key  = require_param(:user)
         hash = permit_params(
             key,
             :name, 
