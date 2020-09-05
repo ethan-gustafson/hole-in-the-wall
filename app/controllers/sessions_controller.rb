@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_inside?
-        flash if flash[:invalid]
 
         erb :'/sessions/login', locals: {
             title: "Login", 

@@ -15,8 +15,8 @@
                         type="text" 
                         name="user[username]" 
                         placeholder="Username:"
-                        value="<%=flash[:credentials][:username] if flash[:credentials]%>"
-                        >
+                        <%="value='#{flash[:credentials][:username]}'" if flash[:credentials]%>
+                        autocomplete="on">
                     </div>
 
                     <div>
@@ -26,8 +26,8 @@
                         type="password" 
                         name="user[password]" 
                         placeholder="Password:"
-                        value="<%=flash[:credentials][:password] if flash[:credentials]%>"
-                        >
+                        <%="value='#{flash[:credentials][:password]}'" if flash[:credentials]%>
+                        autocomplete="on">
                     </div>
 
                     <div id="login-submit-container">

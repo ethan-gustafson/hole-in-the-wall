@@ -8,11 +8,17 @@
 <!-- Your stylesheets will not load with dynamic pages unless your href has a "/" forward slash at the front of the url -->
 
 <!-- http://sinatrarb.com/configuration.html#public_folder---static-files-directory -->
+<% if banner %>
+<link rel="stylesheet" href="<%= banner %>" type="text/css">
+<% end %>
 
-<link rel="stylesheet" href="<%= banner if banner %>" type="text/css">
-<link rel="stylesheet" href="<%= css if css %>" type="text/css">
-<script type="application/javascript" src="<%= javascript if javascript %>" charset="UTF-8" defer></script>
+<% if css %>
+<link rel="stylesheet" href="<%= css %>" type="text/css">
+<% end %>
 
+<% if javascript %>
+<script type="application/javascript" src="<%= javascript %>" charset="UTF-8" defer></script>
+<% end %>
 </head>
 
 <body>

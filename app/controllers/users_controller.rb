@@ -2,7 +2,13 @@ class UsersController < ApplicationController
 
     get "/users/new" do # users#new == get "/users/new" (Signup)
         redirect_inside?
-        erb :'/users/new', locals: {title: "Signup", javascript: "javascript/session/Signup.js"}
+
+        erb :'/users/new', locals: {
+            title: "Signup", 
+            css: false,
+            banner: "/stylesheets/banners/loggedout.css",
+            javascript: "/javascript/session/Signup.js"
+        }
     end
 
     post "/users" do # users#create == post "/users" 
@@ -12,6 +18,8 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect '/' 
         else
+            flash[:invalid] = "Authentication Failed."
+            flash[:credentials] = {username: params[:user][:username], password: params[:user][:password]}
             redirect '/users/new'
         end
     end
