@@ -7,7 +7,7 @@
         <h2 id="ls-greeting">Log in to review stores considered to be a "Hole in the Wall."</h2>
         <div id="ls-form-wrap">
             <div id="ls-flex-container">
-                <form action="/" method="POST">
+                <form id="login-form" action="/" method="POST">
                     <div>
                         <label for="username">Username:</label>
                         <input class="ls-input-box" id="username" type="text" name="user[username]" placeholder="Username:">
@@ -18,7 +18,7 @@
                         <input class="ls-input-box" id="password" type="password" name="user[password]" placeholder="Password:">
                     </div>
 
-                    <div>
+                    <div id="login-submit-container">
                         <input id="ls-submit" type="submit" value="Log In">
                     </div>
                 </form>

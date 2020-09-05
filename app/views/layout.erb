@@ -9,9 +9,9 @@
 
 <!-- http://sinatrarb.com/configuration.html#public_folder---static-files-directory -->
 
-<link rel="stylesheet" href="<%@banner%>" type="text/css">
-<link rel="stylesheet" href="<%@css%>" type="text/css">
-<script type="application/javascript" src="<%= javascript %>" charset="UTF-8"></script>
+<link rel="stylesheet" href="<%= banner if banner %>" type="text/css">
+<link rel="stylesheet" href="<%= css if css %>" type="text/css">
+<script type="application/javascript" src="<%= javascript if javascript %>" charset="UTF-8" defer></script>
 
 </head>
 

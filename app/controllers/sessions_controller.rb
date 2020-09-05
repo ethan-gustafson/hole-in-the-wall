@@ -2,7 +2,13 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_inside?
-        erb :'/sessions/login', locals: {title: "Login", javascript: "javascript/session/Login.js"}
+        
+        erb :'/sessions/login', locals: {
+            title: "Login", 
+            css: false,
+            banner: "stylesheets/banners/loggedout.css",
+            javascript: "javascript/session/Login.js"
+        }
     end
 
     post "/" do # sessions#create
@@ -28,7 +34,12 @@ class SessionsController < ApplicationController
         # @home_feed_reviews will only show ten reviews from the most recent
         @home_feed_reviews = Review.all[reviews_count..Review.all.count].reverse 
 
-        erb :'/sessions/root', locals: {title: "Hole in the Wall"}
+        erb :'/sessions/root', locals: {
+            title: "Hole in the Wall", 
+            css: false,
+            banner: "stylesheets/banners/loggedin.css",
+            javascript: false
+        }
     end
 
     get "/logout" do # sessions#destroy
