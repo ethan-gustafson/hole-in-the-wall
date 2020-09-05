@@ -30,6 +30,7 @@ class ApplicationController < Sinatra::Base
         end
 
         def redirect_outside?
+            flash[:invalid]  = "You have to sign up to come inside. ;)"
             redirect '/login' if !logged_in? # if a non-user tries to access pages where they need to be logged in, they will be redirected 
         end
 

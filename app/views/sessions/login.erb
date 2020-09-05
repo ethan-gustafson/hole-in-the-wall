@@ -15,7 +15,7 @@
                         type="text" 
                         name="user[username]" 
                         placeholder="Username:"
-                        value="<%=flash[:credentials][:username] if flash[:invalid]%>"
+                        value="<%=flash[:credentials][:username] if flash[:credentials]%>"
                         >
                     </div>
 
@@ -26,7 +26,7 @@
                         type="password" 
                         name="user[password]" 
                         placeholder="Password:"
-                        value="<%=flash[:credentials][:password] if flash[:invalid]%>"
+                        value="<%=flash[:credentials][:password] if flash[:credentials]%>"
                         >
                     </div>
 
