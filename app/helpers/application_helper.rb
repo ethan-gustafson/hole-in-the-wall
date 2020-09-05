@@ -1,16 +1,21 @@
 module ApplicationHelper
 
+    # The states method is reading from the ./app/assets/files/states.txt file which is a list of all states & their abbreviations.
+    # It will read the file and then split it where there is a line break("\n"). Once it has been turned into an array of values,
+    # it will iterate through each array item and slice the state name as a key, and slice off the ending abbreviation as the value.
+    # The resulting @states instance variable will now hold a hash of key/value pairs of {state: abbreviation}. This method is
+    # only set to run once, when the application is initiated, so that it won't set the @states instance variable again.
+
     def states
-        filepath         = File.join(".", "app", "assets", "files")
-        states_file_path = File.join(filepath, "states.txt")
-        read_file   = File.read(states_file_path)
-        array       = read_file.split("\n")
+        filepath                = File.join(".", "app", "assets", "files", "states.txt")
+        file                    = File.read(filepath)
+        states_array            = file.split("\n")
 
         states = {}
 
-        array.each do |state|
-            key           = state.slice(0, state.index("-") - 1)
-            value         = state.slice((state.length - 2), state.length)
+        states_array.each do |state|
+            key                = state.slice(0, state.index("-") - 1)
+            value              = state.slice((state.length - 2), state.length)
             states[key.to_sym] = value
         end
         @states ||= states
