@@ -1,5 +1,3 @@
-// Will display misc items on Login page
-
 var form = document.getElementById("login-form");
 var invalidMessage = document.getElementById("invalid-login");
 

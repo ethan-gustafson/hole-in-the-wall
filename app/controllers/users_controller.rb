@@ -14,12 +14,13 @@ class UsersController < ApplicationController
     post "/users" do # users#create == post "/users" 
         # Sinatra creates a new instance of this application class on every incoming request.
         # We have access to params, which is a method returning an IndifferentHash.
-        if @user = User.create(user_params) 
+        @user = User.new(user_params)
+        if @user.save
             session[:user_id] = @user.id
             redirect '/' 
         else
-            flash[:invalid] = "Authentication Failed."
-            flash[:credentials] = {username: params[:user][:username], password: params[:user][:password]}
+            flash[:invalid] = "Invalid Signup"
+            flash[:credentials] = user_params
             redirect '/users/new'
         end
     end
