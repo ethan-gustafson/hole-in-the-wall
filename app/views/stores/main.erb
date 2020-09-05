@@ -1,0 +1,17 @@
+<main>
+    <h2>Create A Store <a href="/stores/new">Here</a>.</h2>
+    <section>
+        <ul>
+            <li>Most Favorited Stores</a></li>
+            <li>Most Reviewed Stores</a></li>
+            <li>Search for a store</a></li>
+        </ul>
+    </section>
+    <article>
+        <ol>
+            <% @stores.each do |store| %>
+                <li><a href="/stores/<%=store.id%>"><%=store.id%>. <%= store.name %></a></li>
+            <% end %>
+        </ol>
+    </article>
+</main>

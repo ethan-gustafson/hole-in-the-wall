@@ -4,6 +4,19 @@ class StoresController < ApplicationController
 
     get "/stores" do # stores#index == get "/stores"
         @stores = Store.all
+        erb :'/stores/main', locals: {
+            title: "Store's index",
+            css: false,
+            banner: "/stylesheets/banners/loggedin.css",
+            javascript: false
+        }
+    end
+
+    # Sinatra allows named parameters, splat(wildcard (*)) paramaters, block parameters, regular expression matcher patterns,
+    # query parameters and conditional paramaters.
+
+    get "/stores/:id/index/:state?" do # stores#index == get "/stores"
+        valid_state?
         erb :'/stores/index', locals: {
             title: "Store's index",
             css: false,
@@ -24,7 +37,7 @@ class StoresController < ApplicationController
     post "/stores" do # stores#create == post "/stores"
         @store = Store.new(store_params)
         valid_user_store?
-        
+
         if  @store.save
             redirect "/stores/#{@store.id}"
         else
@@ -77,26 +90,6 @@ class StoresController < ApplicationController
         )
         hash[:store].store(:user_id, params[:store][:user_id]) if params[:store][:user_id]
         hash[:store]
-    end
-
-    def set_store
-        @store = Store.find_by_id(params[:id]) 
-    end
-
-    def invalid_resource?
-        if current_user.id == set_store.user_id 
-             @store 
-        else
-             redirect "/stores/#{@store.id}"
-        end
-    end
-
-    def valid_user_store?
-        if current_user.id == @store.id 
-            @store
-        else
-            @store = false
-        end
     end
 
 end

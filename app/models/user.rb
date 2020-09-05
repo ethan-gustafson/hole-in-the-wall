@@ -4,12 +4,12 @@ class User < ActiveRecord::Base
     before_validation :white_space
 
     validates :name, :email, :username, presence: true
-    validates :password, presence: :true, :on => :create
+    validates :password, presence: :true, on: :create
     validates :username, :email, uniqueness: true
 
-    validates :name, :username, length: { in: 2..30 }
-    validates :email, length: { maximum: 60 }
-    validates :password, length: { in: 2..26 }
+    validates :username, length: { in: 2..64 }
+    validates :email, length: { maximum: 254 }
+    validates :password, length: { in: 2..128 }
     
     has_many :reviews
     has_many :favorites # These are the stores the user has liked
@@ -24,5 +24,6 @@ class User < ActiveRecord::Base
                 end
             end
         end
+        self
     end
 end
