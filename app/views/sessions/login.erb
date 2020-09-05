@@ -1,6 +1,6 @@
-<div id="ls-logo-container">
+<header id="ls-logo-container" aria-labelledby="ls-logo">
     <h1 id="ls-logo">Hole in the Wall</h1>
-</div>
+</header>
 
 <main>
     <article>
@@ -10,16 +10,29 @@
                 <form id="login-form" action="/" method="POST">
                     <div>
                         <label for="username">Username:</label>
-                        <input class="ls-input-box" id="username" type="text" name="user[username]" placeholder="Username:">
+                        <input class="ls-input-box" 
+                        id="username" 
+                        type="text" 
+                        name="user[username]" 
+                        placeholder="Username:"
+                        value="<%=flash[:credentials][:username] if flash[:invalid]%>"
+                        >
                     </div>
 
                     <div>
                         <label for="password">Password:</label>
-                        <input class="ls-input-box" id="password" type="password" name="user[password]" placeholder="Password:">
+                        <input class="ls-input-box" 
+                        id="password" 
+                        type="password" 
+                        name="user[password]" 
+                        placeholder="Password:"
+                        value="<%=flash[:credentials][:password] if flash[:invalid]%>"
+                        >
                     </div>
 
                     <div id="login-submit-container">
                         <input id="ls-submit" type="submit" value="Log In">
+                        <%= "<h3 style='color:#e76f62;text-decoration:black underline;' id='invalid-login'>#{flash[:invalid]}</h3>" if flash[:invalid] %>
                     </div>
                 </form>
                 <div>

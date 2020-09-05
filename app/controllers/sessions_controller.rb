@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 
     get "/login" do  # sessions#new
         redirect_inside?
-        
+        flash if flash[:invalid]
+
         erb :'/sessions/login', locals: {
             title: "Login", 
             css: false,
@@ -22,6 +23,8 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id 
             redirect '/'
         else
+            flash[:invalid] = "Authentication Failed."
+            flash[:credentials] = {username: params[:user][:username], password: params[:user][:password]}
             redirect '/login'
         end
     end

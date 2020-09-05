@@ -6,7 +6,7 @@ https://colours.neilorangepeel.com/category/red/
 #FF0000 - red
 #CD5C5C - indianred
 #F08080 - lightcoral
-#FA8072 - salmon
+#e76f62- salmon
 #E9967A - darksalmon
 #FFA07A - lightsalmon
 #DC143C - crimson
@@ -33,7 +33,7 @@ body {
 }
 
 a {
-    color: salmon;
+    color: #e76f62;
 }
 
 a:hover{
@@ -43,7 +43,7 @@ a:hover{
 
 @media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
     #banner-flex-container{
-        color: #FA8072;
+        color: #e76f62;
         display: flex;
         flex-wrap: wrap;
         width: 90%;
@@ -62,7 +62,7 @@ a:hover{
 @media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
 
     #banner-flex-container{
-        color: #FA8072;
+        color: #e76f62;
         display: flex;
         flex-wrap: wrap;
         align-items: center;

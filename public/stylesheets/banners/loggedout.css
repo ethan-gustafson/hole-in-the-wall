@@ -6,7 +6,7 @@ https://colours.neilorangepeel.com/category/red/
 #FF0000 - red
 #CD5C5C - indianred
 #F08080 - lightcoral
-#FA8072 - salmon
+#e76f62 - salmon
 #E9967A - darksalmon
 #FFA07A - lightsalmon
 #DC143C - crimson
@@ -33,7 +33,7 @@ body {
 }
 
 #ls-logo{
-    color: #FA8072;
+    color: #e76f62;
 }
 
 #ls-form-wrap {
@@ -52,7 +52,7 @@ article {
 }
 
 a {
-    color: salmon;
+    color: #e76f62;
 }
 
 a:hover{
@@ -79,7 +79,7 @@ label{
 }
 
 #ls-submit{
-    background-color: salmon;
+    background-color: #e76f62;
     font-weight: bold;
 }
 

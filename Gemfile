@@ -11,12 +11,14 @@ ruby '2.7.1'
 
 gem 'sinatra', '~> 2.1'
 gem 'thin', '~> 1.7', '>= 1.7.2'
+gem 'sinatra-flash', '~> 0.3.0'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'activerecord', '~> 6.0', '>= 6.0.3.2', :require => 'active_record'
 gem 'rake', '~> 13.0', '>= 13.0.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'require_all', '~> 3.0'
 gem 'faker', '~> 2.13'
+
 
 # Each gem MAY specify membership in one or more groups. Any gem that does not specify membership in any group
 # is placed in the default group.
