@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-    validates :name, :address, :description, :website, presence: true
+    validates :name, :street, :city, :state, :zip_code, :description, :website, presence: true
 
     has_many :reviews
     has_many :favorites

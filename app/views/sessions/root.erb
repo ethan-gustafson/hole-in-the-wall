@@ -17,7 +17,7 @@
                         height="250"
                         frameborder="0" style="border:0"
                         src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>
-                        &q=<%=review.store.name%>+<%=review.store.address%>" allowfullscreen>
+                        &q=<%=@store.name%>+<%=@store.street%>+<%=@store.city%>+<%=@store.state%>+<%=@store.zip_code%>" allowfullscreen>
                     </iframe>
                 </div>
 

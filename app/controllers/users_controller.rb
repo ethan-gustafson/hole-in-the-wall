@@ -57,7 +57,10 @@ class UsersController < ApplicationController
             redirect "/users/#{@last_page}/accounts"
         end
         erb :'users/index', locals: {
-            title: "User Index #{@current_page}"
+            title: "User Index #{@current_page}",
+            css: false,
+            banner: "/stylesheets/banners/loggedin.css",
+            javascript: false
         }
     end 
 
@@ -75,6 +78,8 @@ class UsersController < ApplicationController
         end
         erb :'/users/show', locals: {
             title: "#{ @user.name }'s Profile", 
+            css: false,
+            banner: "/stylesheets/banners/loggedin.css",
             javascript: [
                 "javascript/users/Account.js", 
                 "javascript/users/ReviewOptions.js"
