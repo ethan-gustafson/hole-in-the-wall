@@ -29,9 +29,8 @@ module StoreHelper
     def stores_search(array, search_param)
         @search_results = []
         array.each do |store|
-            if store[0].respond_to?(:downcase)
-                binding.pry
-                store[0].downcase.include?(search_param) ? @search_results << {id: store[0], name: store[1], state: store[2]} : next
+            if store[1].respond_to?(:downcase)
+                store[1].downcase.include?(search_param) ? @search_results << {id: store[0], name: store[1], state: store[2]} : next
             end
         end
 
