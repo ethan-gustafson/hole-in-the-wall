@@ -3,7 +3,9 @@ class StoresController < ApplicationController
     before { redirect_outside? }
 
     get "/stores" do # stores#index == get "/stores"
-        @stores = Store.all
+        popular_stores
+        most_reviewed_stores
+
         erb :'/stores/main', locals: {
             title: "Store's index",
             css: false,
@@ -18,7 +20,7 @@ class StoresController < ApplicationController
     get "/stores/:id/index/:state?" do # stores#index == get "/stores"
         valid_state?
         erb :'/stores/index', locals: {
-            title: "Store's index",
+            title: "Store's index #{params[:id]}",
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
             javascript: false
@@ -33,6 +35,19 @@ class StoresController < ApplicationController
             javascript: false
         }
     end
+
+    get "/stores/search" do
+        erb :'/stores/search', locals: {
+            title: "Search Stores",
+            css: false,
+            banner: "/stylesheets/banners/loggedin.css",
+            javascript: false
+        }
+    end
+
+    # get "/stores/results" do
+    #     params[:name]
+    # end
 
     post "/stores" do # stores#create == post "/stores"
         @store = Store.new(store_params)
@@ -79,7 +94,7 @@ class StoresController < ApplicationController
     private
 
     def store_params
-        key = require_param(:store)
+        key  = require_param(:store)
     
         hash = permit_params(
             key,

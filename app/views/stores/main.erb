@@ -1,17 +1,26 @@
+<aside>
+    <h2><a href="/stores/new">Create A Store </a></h2>
+    <h2><a href="/stores/search">Search Stores</a></h2>
+    <h2><a href="/stores/:id/index/">Stores Index</a></h2>
+</aside>
 <main>
-    <h2>Create A Store <a href="/stores/new">Here</a>.</h2>
-    <section>
-        <ul>
-            <li>Most Favorited Stores</a></li>
-            <li>Most Reviewed Stores</a></li>
-            <li>Search for a store</a></li>
-        </ul>
-    </section>
     <article>
-        <ol>
-            <% @stores.each do |store| %>
-                <li><a href="/stores/<%=store.id%>"><%=store.id%>. <%= store.name %></a></li>
+        <h2>Most Popular Stores</h2>
+        <section>
+            <% popular_stores.each do |store_name, favorites_count|%>
+                <h3><%= store_name %></h3>
+                <p>Number of user favorites: <%= favorites_count %></p>
             <% end %>
-        </ol>
+        </section>
+    </article>
+
+    <article>
+        <h2>Most Reviewed Stores</h2>
+        <section>
+            <% most_reviewed_stores.each do |store_name, reviews_count|%>
+                <h3><%= store_name %></h3>
+                <p>Number of user favorites: <%= reviews_count %></p>
+            <% end %>
+        </section>
     </article>
 </main>

@@ -7,18 +7,22 @@ module ApplicationHelper
     # only set to run once, when the application is initiated, so that it won't set the @states instance variable again.
 
     def states
-        filepath                = File.join(".", "app", "assets", "files", "states.txt")
-        file                    = File.read(filepath)
-        states_array            = file.split("\n")
+        if @states.nil?
+            filepath                = File.join(".", "app", "assets", "files", "states.txt")
+            file                    = File.read(filepath)
+            states_array            = file.split("\n")
 
-        states = {}
+            states = {}
 
-        states_array.each do |state|
-            key                = state.slice(0, state.index("-") - 1)
-            value              = state.slice((state.length - 2), state.length)
-            states[key.to_sym] = value
+            states_array.each do |state|
+                key                = state.slice(0, state.index("-") - 1)
+                value              = state.slice((state.length - 2), state.length)
+                states[key.to_sym] = value
+                @states = states
+            end
+        else
+            @states
         end
-        @states ||= states
     end
 
     # Google will send you emails about your exposed API key for google maps on github.
