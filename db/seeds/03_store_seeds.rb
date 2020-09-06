@@ -1,3 +1,14 @@
+# store = Store.create(
+#     name: "", 
+#     street: "",
+#     city: "",
+#     state: "",
+#     zip_code: "", 
+#     website: "", 
+#     description: "",
+#     user_id: integer
+# )
+
 # 1
 saigon_bistro = Store.create(
     name: "Saigon Bistro", 
@@ -68,4 +79,16 @@ hollerbachs_willow_tree_cafe = Store.create(
     website: "https://www.hollerbachs.com/", 
     description: "Bright, friendly spot offering schnitzel, wurst & other German classics, plus beer & live music.",
     user_id: 3
+)
+
+#7
+store = Store.create(
+    name: "Happy Bento", 
+    street: "8407 Haven Ave",
+    city: "Rancho Cucamonga",
+    state: "CA",
+    zip_code: "91730", 
+    website: "myhappybento.com", 
+    description: "Busy Japanese nook turning out bento boxes, sushi rolls & noodle soups in a small, low-key space.",
+    user_id: 1
 )

@@ -4,6 +4,40 @@ module StoreHelper
         @store = Store.find_by_id(params[:id]) 
     end
 
+    # store_names_by_state is used when the user just searches for all states by state.
+
+    def store_names_by_state(state_param)
+        # Store.where(:state => "FL").pluck(:name)
+        state = state_param.to_sym
+        results = Store.where("state = ?", states[state]).pluck(:id, :name, :state).sort
+        results
+    end
+
+    # The store_names method is used when the user decides to search without a state param.
+
+    def store_names(name)
+        # Store.order(name: :asc).pluck(:name) will return an array of all of the store names in order from a-z.
+
+        stores = Store.order(name: :asc).pluck(:id, :name, :state)
+        search_param = name.downcase
+
+        stores_search(stores, search_param)
+    end
+
+    # Both store_names_by_state(state_param) && store_names(name) return an array.
+
+    def stores_search(array, search_param)
+        @search_results = []
+        array.each do |store|
+            if store[0].respond_to?(:downcase)
+                binding.pry
+                store[0].downcase.include?(search_param) ? @search_results << {id: store[0], name: store[1], state: store[2]} : next
+            end
+        end
+
+        @search_results
+    end
+
     # Popular stores means most favorited stores. It will grab the last 5 popular stores out of the bunch based on where
     # the store is located. The MAX() function returns the largest value of the selected column.
 

@@ -41,13 +41,52 @@ class StoresController < ApplicationController
             title: "Search Stores",
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
+            javascript: "/javascript/stores/Search.js"
         }
     end
 
-    # get "/stores/results" do
-    #     params[:name]
-    # end
+    # if there is a state param AND a store name param,
+    # AND if the states has the key, 
+
+    post "/stores/results" do
+        request_recieved = request.body.read
+        parameters = JSON.parse(request_recieved, {symbolize_names: true})
+
+        empty_stores = {stores: "Sorry, we couldn't find any stores"}.to_json
+        # if there is a :state param AND a :name param,
+        if parameters[:state] && parameters[:name]
+            # and if the states hash has the key, return both results
+            if states.has_key?(parameters[:state].to_sym) 
+                # method goes here
+                state_stores = store_names_by_state(parameters[:state])
+                if state_stores.empty?
+                    empty_stores
+                else
+                    searched = stores_search(state_stores, parameters[:name])
+                    {stores: searched}.to_json
+                end
+                # If the states hash does not have a key of the :state params, search for the store name.
+                # If the search comes up empty, redirect. Otherwise return the results.
+            else
+                if store_names(parameters[:name]).empty?
+                    empty_stores
+                else
+                    {stores: @search_results}.to_json
+                end
+            end  
+            # Else if there is no state param, check the name param. If it is empty, redirect, else show the results.
+        elsif parameters[:state] == "" || parameters[:name] == ""
+            if store_names(parameters[:name]).empty?
+                empty_stores
+            else
+                {stores: @search_results}.to_json
+            end
+        else
+            empty_stores
+        end
+    end
+
+    # store = Store.find_by(name: params[:name])
 
     post "/stores" do # stores#create == post "/stores"
         @store = Store.new(store_params)

@@ -1,14 +1,16 @@
-<main>
-    <section>
-        <form action="/stores/results" method="GET">
-            <select>
-                <% states.values.each do |abbr|%>
-                    <option value="<%= abbr %>"><%= abbr %></option>
+<main id="search-main">
+    <section id="search-form-container">
+        <h2>Search stores by name: </h2>
+        <form id="search-form" action="/stores/results" method="GET">
+            <select id="search-form-state-select">
+                <option value=""></option>
+                <% states.keys.each do |state|%>
+                    <option value="<%= state %>"><%= state %></option>
                 <% end %>
             </select>
             <div>
-                <label for="search-input">Search Stores:</label>
-                <input id="search-input" type="text" name="name" autocomplete="on">
+                <label for="search-input">Name:</label>
+                <input id="search-input" type="text" name="name" autocomplete="on" size="50">
             </div>
 
             <div>
