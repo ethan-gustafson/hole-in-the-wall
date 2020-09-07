@@ -69,7 +69,7 @@ class UsersController < ApplicationController
         # current user page is set to a true or false value
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page
-        if !!@current_user_page
+        if @current_user_page
             @user    = current_user
             @reviews = current_user.reviews[0..4]
         else
@@ -80,22 +80,22 @@ class UsersController < ApplicationController
             title: "#{ @user.name }'s Profile", 
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
-            javascript: [
-                "javascript/users/Account.js", 
-                "javascript/users/ReviewOptions.js"
-            ]
+            javascript: "/javascript/users/AccountEdit.js"
         }
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
-        if current_user.update!(user_params)
-            redirect "/users/#{current_user.id}"
-        else
-            redirect "/users/#{current_user.id}"
-        end
+        request_recieved = request.body.read
+        parameters = JSON.parse(request_recieved, {symbolize_names: true})
+        invalid_update = {user: "Sorry, we couldn't update your account"}.to_json
+        # if current_user.update!(user_params)
+        #     redirect "/users/#{current_user.id}"
+        # else
+        #     redirect "/users/#{current_user.id}"
+        # end
     end
 
-    delete "/users/:id/delete" do # users#destroy == delete "/users/:id/delete"
+    get "/users/:id/delete" do # users#destroy == delete "/users/:id/delete"
         current_user.destroy
         session.clear
         

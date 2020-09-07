@@ -1,10 +1,16 @@
 <main>
     <article>
         <% if !!@current_user_page  %>
-            <section>
+            <section id="account">
                 <%= erb :'/partials/users/_show' %>
-
+                <div id="account-buttons-container">
+                    <button id="user-edit-button">Edit Account</button>
+                    <button id="user-delete-button">Delete Account</button>
                 <div>
+            </section>
+
+            <section id="user-reviews-list">
+                <div id="user-reviews-container">
                     <h3>Number of reviews: <%=@user.reviews.count%></h3>
                     <% @reviews.each.with_index(1) do |review, index| %>
                         <div id="review-title-container">
@@ -18,17 +24,14 @@
                         <% end %>
                     </ol>
                 </div>
-
-                <div>
-                    <h4><a href="/users/edit">Edit Account</a></h4>
-                    <h4><a href="/users/delete">Delete Account</a></h4>
-                </div>
             </section>
         <% else %>
-            <section>
+            <section id="account">
                 <%= erb :'/partials/users/_show' %>
+            </section>
 
-                <div>
+            <section id="user-reviews-list">
+                <div id="user-reviews-container">
                     <h3>Number of reviews: <%=@user.reviews.count%></h3>
                     <ol>
                         <% @reviews.each do |review| %>
