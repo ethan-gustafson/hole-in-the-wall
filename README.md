@@ -21,7 +21,7 @@ This Sinatra App is currently in development as of September 2020.
 https://github.com/GoodGuyGuf/hole-in-the-wall/blob/master/LICENSE
 
 # Contributing
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hole-in-the-wall This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/GoodGuyGuf/hole-in-the-wall This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
 # Code of Conduct
 Everyone interacting in the hole-in-the-wall project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
