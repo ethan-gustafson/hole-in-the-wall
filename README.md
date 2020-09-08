@@ -2,15 +2,15 @@
 
 ![Imgur](https://i.imgur.com/wcyvm15.jpg)
 
-Hole in the wall is a web application for providing awareness towards "Hole in the wall" types of stores. When Users create
-new stores, they are linked to Google Maps. Other users can find stores sorted by state and by name. They can leave reviews
+**Hole in the wall** is a web application for providing awareness towards "Hole in the wall" types of stores. When Users create
+new stores, they are linked to **Google Maps**. Other users can find stores sorted by state and by name. They can leave reviews
 on the business or reach out to other users via email.
 
 # Installation
-If you would like to run this application, you will have to:
+If you would like to **run this application**, you will have to:
 
-1. Make sure Ruby and Sinatra is installed on your system
-2. Clone this repository into your terminal
+1. Make sure **Ruby and Sinatra are installed** on your system
+2. **Clone this repository** into your terminal
 3. Run `bundle install`
 4. Run `shotgun`
 
