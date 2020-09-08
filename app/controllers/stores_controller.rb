@@ -17,16 +17,6 @@ class StoresController < ApplicationController
     # Sinatra allows named parameters, splat(wildcard (*)) paramaters, block parameters, regular expression matcher patterns,
     # query parameters and conditional paramaters.
 
-    get "/stores/:id/index/:state?" do # stores#index == get "/stores"
-        valid_state?
-        erb :'/stores/index', locals: {
-            title: "Store's index #{params[:id]}",
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
-        }
-    end
-
     get "/stores/new" do # stores#new == get "/stores/new"
         erb :'/stores/new', locals: {
             title: "Create a Store",

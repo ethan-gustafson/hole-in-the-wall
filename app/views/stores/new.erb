@@ -8,8 +8,21 @@
             </div>
 
             <div>
-                <label for="address">Address:</label>
-                <input id="address" type="text" name="address" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174">
+                <label for="street">Street:</label>
+                <input id="street" type="text" name="store[street]" placeholder="600 S Yonge St # 16B">
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input id="city" type="text" name="store[city]" placeholder="Ormond Beach">
+            </div>
+            <select id="search-form-state-select">
+                <% states.keys.each do |state|%>
+                    <option value="<%= state %>"><%= state %></option>
+                <% end %>
+            </select>
+            <div>
+                <label for="zip_code">Zip Code:</label>
+                <input id="zip_code" type="text" name="store[zip_code]" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174">
             </div>
 
             <div>

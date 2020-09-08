@@ -1,17 +1,21 @@
 # Welcome to Hole in the Wall!
 
-Hole in the wall is a Sinatra CRUD - MVC app that allows users to review hole in the wall types of stores. 
+Hole in the wall is a web application for providing awareness towards "Hole in the wall" types of stores. When Users create
+new stores, they are linked to Google Maps. Other users can find stores sorted by state and by name. They can leave reviews
+on the business or reach out to other users via email.
 
 # Installation
-NOTE: If you would like to run this application, you will have to clone this repository into your terminal, make sure all gems included are installed and then you can run shotgun.
+If you would like to run this application, you will have to:
 
-Or if you would just like to watch the YouTube presentation, watch here: (Video currently in development)
+1. Make sure Ruby and Sinatra is installed on your system
+2. Clone this repository into your terminal
+3. Run `bundle install`
+4. Run `shotgun`
 
-# Usage
-Users can sign up, review a store, save a store to their profile, access all of their stores and can access their list of reviews.
+Or if you would just like to watch the YouTube presentation for the previous version of the application, watch here: https://youtu.be/rVMPswz_L5Y
 
 # Development
-This Sinatra App is currently in development as of January 2020.
+This Sinatra App is currently in development as of September 2020.
 
 # LICENSE
 https://github.com/GoodGuyGuf/hole-in-the-wall/blob/master/LICENSE
