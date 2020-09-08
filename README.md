@@ -1,5 +1,7 @@
 # Welcome to Hole in the Wall!
 
+![Logo]("./public/images/Logo.png")
+
 Hole in the wall is a web application for providing awareness towards "Hole in the wall" types of stores. When Users create
 new stores, they are linked to Google Maps. Other users can find stores sorted by state and by name. They can leave reviews
 on the business or reach out to other users via email.
