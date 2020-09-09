@@ -84,7 +84,7 @@ module StoreHelper
     end
 
     def valid_user_store?
-        if current_user.id == @store.id 
+        if current_user.id == @store.user_id 
             @store
         else
             @store = false

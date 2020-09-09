@@ -1,25 +1,28 @@
 <main>
     <article>
-        <form action='/stores' method="POST">
-        <input type="hidden" name="user_id" value="<%=current_user.id%>">
+        <form id="store-form" action='/stores' method="POST">
+        <input type="hidden" name="store[user_id]" value="<%=current_user.id%>">
             <div>   
                 <label for="name">Name:</label>
-                <input id="name" type="text" name="name" placeholder="Saigon Bistro">
+                <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro">
             </div>
 
             <div>
                 <label for="street">Street:</label>
                 <input id="street" type="text" name="store[street]" placeholder="600 S Yonge St # 16B">
             </div>
+
             <div>
                 <label for="city">City:</label>
                 <input id="city" type="text" name="store[city]" placeholder="Ormond Beach">
             </div>
-            <select id="search-form-state-select">
+
+            <select name="store[state]" id="search-form-state-select">
                 <% states.keys.each do |state|%>
                     <option value="<%= state %>"><%= state %></option>
                 <% end %>
             </select>
+
             <div>
                 <label for="zip_code">Zip Code:</label>
                 <input id="zip_code" type="text" name="store[zip_code]" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174">
@@ -27,13 +30,14 @@
 
             <div>
                 <label for="website">Website URL:</label>
-                <input id="website" type="text" name="website" placeholder="http://www.saigon-bistro.com/">
+                <input id="website" type="text" name="store[website]" placeholder="http://www.saigon-bistro.com/">
             </div>
 
             <div>
                 <label for="description">Store Description:</label>
-                <input id="description" type="text" name="description" placeholder="Description" >
+                <input id="description" type="text" name="store[description]" placeholder="Description" >
             </div>
+
             <input type="submit" value="Submit">
         </form>
     </article>

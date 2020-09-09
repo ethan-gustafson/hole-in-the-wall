@@ -26,6 +26,19 @@ class StoresController < ApplicationController
         }
     end
 
+     # store = Store.find_by(name: params[:name])
+
+     post "/stores" do # stores#create == post "/stores"
+        @store = Store.new(store_params)
+        valid_user_store?
+
+        if  @store.save
+            redirect "/stores/#{@store.id}"
+        else
+            redirect "/stores/new"
+        end
+    end
+
     get "/stores/search" do
         erb :'/stores/search', locals: {
             title: "Search Stores",
@@ -76,19 +89,6 @@ class StoresController < ApplicationController
         end
     end
 
-    # store = Store.find_by(name: params[:name])
-
-    post "/stores" do # stores#create == post "/stores"
-        @store = Store.new(store_params)
-        valid_user_store?
-
-        if  @store.save
-            redirect "/stores/#{@store.id}"
-        else
-            redirect "/stores/new"
-        end
-    end
-
     get "/stores/:id" do # stores#show == get "/stores/:id"
         set_store
         erb :'/stores/show', locals: {
@@ -128,11 +128,14 @@ class StoresController < ApplicationController
         hash = permit_params(
             key,
             :name, 
-            :address,
+            :street,
+            :city,
+            :zip_code,
             :description,
             :website
         )
         hash[:store].store(:user_id, params[:store][:user_id]) if params[:store][:user_id]
+        hash[:store].store(:state, states[params[:store][:state].to_sym])
         hash[:store]
     end
 
