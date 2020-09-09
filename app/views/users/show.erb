@@ -13,17 +13,7 @@
             <section id="user-reviews-list">
                 <div id="user-reviews-container">
                     <h2>Number of reviews: <%=@user.reviews.count%></h2>
-                    <% @reviews.each.with_index(1) do |review, index| %>
-                        <div class="review-title-container">
-                            <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
-                            <p id="review-title"><a href="/stores/<%=review.store.id%>#<%=review.title%>"><%=review.title%></a></p>
-                        </div>
-
-                        <div class="review-content-container">
-                            <p class="review-content"><%=review.content%></p>
-                        </div>
-                        <% end %>
-                    </ol>
+                    <button id="reviews-button">Reviews</button>
                 </div>
             </section>
             <!-- This is the end of the current user account page -->
