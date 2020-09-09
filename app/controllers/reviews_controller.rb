@@ -1,5 +1,21 @@
 class ReviewsController < ApplicationController
 
+    # post "/reviews/:id" do
+        # page = params[:id].to_i
+        # reviews_count = current_user.reviews.count
+
+        # end_i = (page * 20) - 1
+        # start_i = end_i - 19
+
+        # reviews_count % 20 == 0 ? @last_page = (reviews_count / 20) : @last_page = (reviews_count / 20) + 1
+
+        # if page > @last_page || page < 1
+        #     {message: "invalid"}.to_json
+        # else
+        #     current_user.reviews[start_i..end_i].to_json
+        # end
+    # end
+
     post "/reviews" do # reviews#create == post "/reviews/:id"
         request_recieved = request.body.read
         parameters = JSON.parse(request_recieved, {symbolize_names: true})

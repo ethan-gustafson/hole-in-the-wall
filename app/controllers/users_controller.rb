@@ -81,7 +81,8 @@ class UsersController < ApplicationController
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
             javascript: "/javascript/users/AccountEdit.js",
-            delete: "/javascript/users/AccountDelete.js"
+            delete: "/javascript/users/AccountDelete.js",
+            reviews: "/javascript/users/ReviewOptions.js"
         }
     end
 
