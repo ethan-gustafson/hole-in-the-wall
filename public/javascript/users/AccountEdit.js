@@ -42,6 +42,7 @@ function accountEdit(){
                 <input id="submit" type="submit" value="Submit Changes"> 
             </div>
         </form>
+        <p><a href="${window.location["pathname"]}">Cancel</a></p>
         `;
         let form = document.getElementById("user-edit");
         accountSubmit(form)

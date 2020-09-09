@@ -80,7 +80,8 @@ class UsersController < ApplicationController
             title: "#{ @user.name }'s Profile", 
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
-            javascript: "/javascript/users/AccountEdit.js"
+            javascript: "/javascript/users/AccountEdit.js",
+            delete: "/javascript/users/AccountDelete.js"
         }
     end
 
