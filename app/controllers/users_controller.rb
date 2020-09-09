@@ -88,11 +88,19 @@ class UsersController < ApplicationController
         request_recieved = request.body.read
         parameters = JSON.parse(request_recieved, {symbolize_names: true})
         invalid_update = {user: "Sorry, we couldn't update your account"}.to_json
-        # if current_user.update!(user_params)
-        #     redirect "/users/#{current_user.id}"
-        # else
-        #     redirect "/users/#{current_user.id}"
-        # end
+        is_current_user = current_user.id == params[:id].to_i
+
+        if is_current_user
+            if current_user.update(
+                name: parameters[:name],
+                username: parameters[:username],
+                email: parameters[:email]
+            )
+                {message: "Success"}.to_json
+            end
+        else
+            invalid_update
+        end
     end
 
     get "/users/:id/delete" do # users#destroy == delete "/users/:id/delete"

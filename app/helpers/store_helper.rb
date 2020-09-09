@@ -43,7 +43,7 @@ module StoreHelper
     # Both popular_stores and most_reviewed_stores return a hash. Makes sense, as we want the name and its corresponding
     # value for the highest number of favorites and reviews of 5 stores.
 
-    def popular_stores
+    def popular_stores # you could turn this into a linked list
         # Store.select(:name).joins(:favorites).group(:name).order(favorites: :asc).maximum(:store_id)
         @popular_stores = Store.limit(5).select(
             :name

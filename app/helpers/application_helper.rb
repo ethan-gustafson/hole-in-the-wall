@@ -70,15 +70,16 @@ module ApplicationHelper
     # https://www.rubydoc.info/gems/sinatra/Sinatra/IndifferentHash
 
     def require_param(key) # This method requires an argument of the main key of each class.
+        hash = Hash.new # create a new hash
         if singular_class_name == key.to_s # if the controller class name is equal to the key argument passed in
             if params.has_key?(singular_class_name) # and if the params has that key of the class
-                hash = Hash.new # create a new hash
                 hash.store(key, {}) # store the "main" key into the hash
                 hash # return the hash
             end
         else
             return false # otherwise return false and validations will fail.
         end
+        hash
     end
 
     # A parameter with the splat(*) operator allows a method to work with an undefined number of arguments

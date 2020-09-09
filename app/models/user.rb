@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
     validates :username, length: { in: 2..64 }
     validates :email, length: { maximum: 254 }
-    validates :password, length: { in: 2..128 }
+    validates :password, length: { in: 2..128 }, on: :create
     
     has_many :reviews
     has_many :favorites # These are the stores the user has liked
