@@ -39,10 +39,11 @@
             <article>
                 <h3>Create a New Review:</h3>
 
-                <form action="/my-reviews/:id" method="POST">
-                    <input type="text" name="review[title]" placeholder="Title">
-                    <input type="text" name="review[content]" placeholder="Content"></input>
-                    <input type="hidden" name='store_id' value='<%=@store.id%>''>
+                <form id="new-review-form" action="/my-reviews/:id" method="POST">
+                    <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
+                    <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
+                    <input id="review-title" type="text" name="review[title]" placeholder="Title">
+                    <input id="review-content" type="text" name="review[content]" placeholder="Content"></input>
                     <input type="submit" value="Submit">
                 </form>
             </article>
