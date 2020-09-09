@@ -1,7 +1,7 @@
 <main>
     <h2><%=@store.name%></h2>
     <article>
-
+        <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
         <section>
             <form action="/favorites" method="POST">
                 <input type="hidden" name="store_id" value="<%=@store.id%>">
