@@ -31,6 +31,19 @@ function submitReview(){
         .then(resp => resp.json())
         .then(json => {
             console.log(json)
+
+            let storeReviewContainer = document.getElementById("store-reviews");
+
+            let article = document.createElement("article");
+            let heading = document.createElement("h4");
+            let p = document.createElement("p");
+
+            heading.innerHTML = `<a href='/users/${reviewUserId}'>${json.user}: ${reviewTitle}</a>`;
+            p.innerHTML = `${reviewContent}`;
+
+            article.appendChild(heading);
+            article.appendChild(p);
+            storeReviewContainer.appendChild(article);
         })
     })
 }

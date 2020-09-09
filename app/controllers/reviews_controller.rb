@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
             store_id: parameters[:store_id]
             )
         if @review.save
-            {message: "Success"}.to_json
+            {message: "Success", user: current_user.username}.to_json
         else
             invalid
         end
