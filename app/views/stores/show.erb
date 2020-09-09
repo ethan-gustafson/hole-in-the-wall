@@ -29,8 +29,21 @@
             <h3>Reviews:</h3>
             <%@store.reviews.each do |review|%>
                 <article>
-                    <h4><a href="/users/<%=review.user_id%>"><%=review.user.username%>:</a> <%= review.title %></h4>
-                    <p><%=review.content%></p>
+                    <h4 id="<%=review.title.gsub(' ', '-')%>" ><a href="/users/<%=review.user_id%>"><%=review.user.username%>:</a> <%= review.title %></h4>
+                    <% if review.user_id == current_user.id%>
+                        <div>
+                            <form id="review-update-form" action="/reviews/<%=review.id%>" method="post">
+                                <input type="hidden" name="_method" value="patch">
+                                <p id="user-review-content"><%=review.content%></p>
+                            </form>
+                            <form id="review-delete-form" action="/reviews/<%=review.id%>" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="submit" value="Delete Review?">
+                            </form>
+                        </div>
+                    <% else %>
+                        <p><%=review.content%></p>
+                    <% end %>
                 </article>
             <% end %>
         </section>

@@ -12,15 +12,15 @@
 
             <section id="user-reviews-list">
                 <div id="user-reviews-container">
-                    <h3>Number of reviews: <%=@user.reviews.count%></h3>
+                    <h2>Number of reviews: <%=@user.reviews.count%></h2>
                     <% @reviews.each.with_index(1) do |review, index| %>
-                        <div id="review-title-container">
+                        <div class="review-title-container">
                             <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
-                            <p id="review-title"><%=review.title%></p>
+                            <p id="review-title"><a href="/stores/<%=review.store.id%>#<%=review.title%>"><%=review.title%></a></p>
                         </div>
 
-                        <div id="review-content-container">
-                            <p id="review-content"><%=review.content%></p>
+                        <div class="review-content-container">
+                            <p class="review-content"><%=review.content%></p>
                         </div>
                         <% end %>
                     </ol>
@@ -35,12 +35,17 @@
 
             <section id="user-reviews-list">
                 <div id="user-reviews-container">
-                    <h3>Number of reviews: <%=@user.reviews.count%></h3>
-                    <ol>
-                        <% @reviews.each do |review| %>
-                            <li><a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%></li>
+                    <h2>Number of reviews: <%=@user.reviews.count%></h2>
+                        <% @reviews.each.with_index(1) do |review| %>
+                        <div>
+                            <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
+                            <p class="review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
+                        </div>
+
+                        <div id="review-content-container">
+                            <p class="review-content"><%=review.content%></p>
+                        </div>
                         <% end %>
-                    </ol>
                 </div>
             </section>
             <!-- This is the end of the random user show page -->
