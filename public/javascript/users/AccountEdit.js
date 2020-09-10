@@ -91,7 +91,9 @@ function accountSubmit(form){
                         <div id="account-info">
                             <h3 id="account-name">${name}</h3>
                             <h2 id="account-username">${username}</h2>
-                            <h3 id="account-email">${email}</h3>
+                            <address>
+                                <p id="account-email"><a href="mailto:${email}" subject='Hole in the Wall'>${email}</a></p>
+                            </address>
                             <p style="color:red;">Success :)</p>
                         </div>
                     `;
