@@ -48,13 +48,14 @@ class ReviewsController < ApplicationController
     end
 
     delete "/reviews/:id" do # reviews#destroy == delete "/reviews/:id"
-        binding.pry
         parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
         review = Review.find_by_id(parameters[:id])
 
-        if review.destroy 
-            success
+        if review.user_id == current_user.id
+            if review.destroy 
+                success
+            end
         else
             failure
         end

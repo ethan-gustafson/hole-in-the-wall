@@ -34,6 +34,11 @@ function reviewDelete(){
             .then(resp => resp.json())
             .then(json => {
                 console.log(json)
+
+                if (json.message == "Success"){
+                    buttonContainer.remove();
+                    userData.remove();
+                }
             })
         })
     })
