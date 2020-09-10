@@ -28,7 +28,7 @@ function fetchFavorites(){
                 renderFavorites.appendChild(article);
                 counter += 1;
             });
-            hideFavorites(reviewsButton);
+            hideFavorites(favoritesButton);
         })
     })
 
