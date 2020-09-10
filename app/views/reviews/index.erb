@@ -1,0 +1,11 @@
+<main>
+    <h2>Here are all your Reviews!</h1>
+    <article>
+        <%@reviews.each.with_index(1) do |review, index|%>
+            <section>
+                <h3><%= index %>.) <a href="/stores/<%=review.store.id%>"><%= review.store.name %></a> ~ <%= review.title %></h3>
+                <p><%= review.content %></p>
+            </section>
+            <% end %>
+    </article>
+</main>

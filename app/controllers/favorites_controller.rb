@@ -38,7 +38,7 @@ class FavoritesController < ApplicationController
             redirect "users/#{current_user.id}/favorites/1"
         end
         erb :'/favorites/index', locals: {
-            title: "Signup", 
+            title: "Favorites #{@current_page}", 
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
             javascript: false

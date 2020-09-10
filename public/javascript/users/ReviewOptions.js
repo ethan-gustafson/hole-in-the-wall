@@ -30,6 +30,22 @@ function fetchReviews(){
                 renderReviews.appendChild(article);
                 counter += 1;
             });
+
+            if (json.reviews_exceeded_count == true){
+
+                var path = window.location["pathname"];
+                var userId = path.slice(path.length - 1, path.length);
+
+                var navigation = document.createElement("p");
+                var a = document.createElement("a");
+                a.href = `/users/${userId}/reviews/1`;
+                a.innerHTML = "See all Reviews?";
+
+                navigation.appendChild(a);
+
+                renderReviews.appendChild(navigation);
+                counter += 1;
+            }
             hideReviews(reviewsButton);
         })
     })
