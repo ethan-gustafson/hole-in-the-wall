@@ -26,7 +26,7 @@
             <section id="user-reviews-list">
                 <div id="user-reviews-container">
                     <h2>Number of reviews: <%=@user.reviews.count%></h2>
-                        <% @reviews.each.with_index(1) do |review| %>
+                        <% @reviews.each.with_index(1) do |review, index| %>
                         <div>
                             <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
                             <p class="review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>

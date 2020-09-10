@@ -35,14 +35,25 @@ function submitReview(){
             let storeReviewContainer = document.getElementById("store-reviews");
 
             let article = document.createElement("article");
-            let heading = document.createElement("h4");
-            let p = document.createElement("p");
+            article.innerHTML = `
+            <div> 
+                <div id="user-review-data-${json.review_id}" class="review-${json.review_id}">
+                    <div id="${review.title.replace(' ', '-')}">
+                        <h4 id="user-review-title-${json.review_id}">${review.title}</h4>
+                        <p>By <a id="review-user-id-${json.review_id}" href="/users/${review.user_id}">${json.username}</a>:</p>
+                    </div>
+                    
+                    <div>
+                        <p id="user-review-content-${json.review_id}">${review.content}</p>
+                    </div>
+                </div>
 
-            heading.innerHTML = `<p><a href='/users/${reviewUserId}'>${json.user}</a>: ${reviewTitle}</p>`;
-            p.innerHTML = `${reviewContent}`;
-
-            article.appendChild(heading);
-            article.appendChild(p);
+                <div id="button-container-${json.review_id}">
+                    <button id="edit-review-${json.review_id}">Edit</button>
+                    <button id="delete-review-${json.review_id}">Delete</button>
+                </div>
+            </div>
+            `
             storeReviewContainer.appendChild(article);
         })
     })

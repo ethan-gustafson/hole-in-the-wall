@@ -30,26 +30,32 @@
             <%@store.reviews.each do |review|%>
                 <article>
                     <% if review.user_id == current_user.id%>
-                            <div> 
-                                <div id="user-review-data" class="review-<%=review.id%>">
-                                    <div id="<%=review.title.gsub(' ', '-')%>">
-                                        <h4 id="user-review-title"><%= review.title %></h4>
-                                        <p>By: <a id="review-user-id" href="/users/<%=review.user_id%>"><%=review.user.username%>:</a></p>
-                                    </div>
-                                    <div>
-                                        <p id="user-review-content"><%=review.content%></p>
-                                    </div>
+                        <div> 
+                            <div id="user-review-data-<%=review.id%>" class="review-<%=review.id%>">
+                                <div id="<%=review.title.gsub(' ', '-')%>">
+                                    <h4 id="user-review-title-<%=review.id%>"><%= review.title %></h4>
+                                    <p>By <a id="review-user-id-<%=review.id%>" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
                                 </div>
-
-                                <div id="button-container">
-                                    <button id="edit-review">Edit</button>
-                                    <button id="delete-review">Delete</button>
+                                
+                                <div>
+                                    <p id="user-review-content-<%=review.id%>"><%=review.content%></p>
                                 </div>
                             </div>
 
+                            <div id="button-container-<%=review.id%>">
+                                <button id="edit-review-<%=review.id%>">Edit</button>
+                                <button id="delete-review-<%=review.id%>">Delete</button>
+                            </div>
+                        </div>
                     <% else %>
-                        <h4 id="<%=review.title.gsub(' ', '-')%>" ><a href="/users/<%=review.user_id%>"><%=review.user.username%>:</a> <%= review.title %></h4>
-                        <p><%=review.content%></p>
+                        <div>
+                            <h4 id="<%=review.title.gsub(' ', '-')%>" ><%= review.title %></h4>
+                            <p>By <a class="random-user-review" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
+                        </div>
+
+                        <div>
+                            <p><%=review.content%></p>
+                        </div>
                     <% end %>
                 </article>
             <% end %>
