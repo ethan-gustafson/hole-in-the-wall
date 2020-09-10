@@ -5,8 +5,9 @@
         <section>
             <form action="/favorites" method="POST">
                 <input type="hidden" name="store_id" value="<%=@store.id%>">
-                <input type="submit" value="Favorite?">
+                <input type="submit" value="Favorite">
             </form>
+            <p style='color:#F25F5C;text-decoration:black underline;'><%=flash[:favorite_error] if flash[:favorite_error]%></p>
         </section>
     
         <section>

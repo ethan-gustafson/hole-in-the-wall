@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
     has_secure_password
-    
+
+    has_many :reviews
+    has_many :favorites
+    has_many :stores, through: :favorites
+
     before_validation :white_space
 
     validates :name, :email, :username, presence: true
@@ -10,10 +14,6 @@ class User < ActiveRecord::Base
     validates :username, length: { in: 2..64 }
     validates :email, length: { maximum: 254 }
     validates :password, length: { in: 2..128 }, on: :create
-    
-    has_many :reviews
-    has_many :favorites # These are the stores the user has liked
-    has_many :stores, through: :favorites
 
     def white_space 
         self.attribute_names.each do |key|

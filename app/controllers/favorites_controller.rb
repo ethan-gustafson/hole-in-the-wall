@@ -16,6 +16,9 @@ class FavoritesController < ApplicationController
         )
         if favorited_store.save 
             redirect "/stores/#{favorited_store.store_id}"
+        else
+            flash[:favorite_error] = "This store is already in your favorites"
+            redirect "/stores/#{favorited_store.store_id}"
         end
     end
 
