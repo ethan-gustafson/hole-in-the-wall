@@ -1,5 +1,3 @@
-// Will be used to adjust html for review deletion
-
 function fetchReviews(){
     var reviewsButton = document.getElementById("reviews-button");
 

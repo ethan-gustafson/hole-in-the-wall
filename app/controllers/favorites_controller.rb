@@ -1,17 +1,28 @@
 class FavoritesController < ApplicationController
 
+    get '/favorites' do 
+        favorites = []
+        favorites_objects = current_user.favorites
+        favorites_objects.reverse.each do |fav|
+            favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
+        end
+        {data: favorites}.to_json
+    end
+
     post '/favorites' do 
-        @favorited_store = Favorite.create(
+        favorited_store = Favorite.new(
             user_id: current_user.id, 
             store_id: params[:store_id]
         )
-        redirect "/users/#{current_user.id}"
+        if favorited_store.save 
+            redirect "/users/#{current_user.id}"
+        end
     end
 
-    delete '/favorites' do
-        @favorite = Favorite.find_by_id(params[:favorite_id]) 
-        @favorite.delete
-        redirect "/users/#{current_user.id}" 
+    get '/favorites/:id' do
+        favorite = Favorite.find_by_id(params[:id]) 
+        favorite.delete
+        redirect "/users/#{current_user.id}"
     end
 
 end

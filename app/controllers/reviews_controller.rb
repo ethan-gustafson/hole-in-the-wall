@@ -63,10 +63,6 @@ class ReviewsController < ApplicationController
 
     private
 
-    def request_parameters
-        request_recieved = request.body.read
-    end
-
     def find_review
         @review = Review.find_by_id(params[:id]) 
     end

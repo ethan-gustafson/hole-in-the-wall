@@ -70,8 +70,9 @@ class UsersController < ApplicationController
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page
         if @current_user_page
-            @user    = current_user
-            @reviews = current_user.reviews[0..4]
+            @user      = current_user
+            @reviews   = current_user.reviews[0..4]
+            @favorites = current_user.favorites
         else
             @user    = User.find_by_id(params[:id])
             @reviews = @user.reviews[0..4]
@@ -82,7 +83,8 @@ class UsersController < ApplicationController
             banner: "/stylesheets/banners/loggedin.css",
             javascript: "/javascript/users/AccountEdit.js",
             delete: "/javascript/users/AccountDelete.js",
-            reviews: "/javascript/users/ReviewOptions.js"
+            reviews: "/javascript/users/ReviewOptions.js",
+            favorites: "/javascript/users/Favorites.js"
         }
     end
 

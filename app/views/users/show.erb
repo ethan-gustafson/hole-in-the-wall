@@ -16,6 +16,13 @@
                     <button id="reviews-button">Reviews</button>
                 </div>
             </section>
+
+            <section id="user-favorites-list">
+                <div id="user-favorites-container">
+                    <h2>Number of favorites: <%=@user.favorites.count%></h2>
+                    <button id="favorites-button">Favorites</button>
+                </div>
+            </section>
             <!-- This is the end of the current user account page -->
         <% else %>
         <!-- This is the random user show page -->
@@ -43,4 +50,5 @@
     </article>
 </main>
 <script type="application/javascript" src="<%= reviews %>" charset="UTF-8"></script>
+<script type="application/javascript" src="<%= favorites %>" charset="UTF-8"></script>
 <script type="application/javascript" src="<%= delete %>" charset="UTF-8"></script>

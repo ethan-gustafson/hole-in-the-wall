@@ -100,4 +100,8 @@ module ApplicationHelper
         hash
     end
 
+    def request_parameters
+        request_recieved = request.body.read
+    end
+
 end
