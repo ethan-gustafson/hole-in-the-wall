@@ -18,7 +18,7 @@ function submitReview(){
             store_id: reviewStoreId
         }
 
-        post = { 
+        let post = { 
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

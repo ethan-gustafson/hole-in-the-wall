@@ -56,7 +56,7 @@ function changeReviewToForm(){
 function sendReviewUpdatesFetch(editButton, submitButton, object){
     var userData = document.getElementById("user-review-data");
 
-    patch = { 
+    let patch = { 
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

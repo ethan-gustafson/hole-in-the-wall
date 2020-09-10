@@ -12,7 +12,7 @@ form.addEventListener("submit", event => {
                 name: name
             }
 
-    post = { 
+    let post = { 
     method: "POST",
     headers: {
         "Content-Type": "application/json",

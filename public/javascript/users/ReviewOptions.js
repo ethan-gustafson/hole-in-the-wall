@@ -5,7 +5,7 @@ function fetchReviews(){
 
     reviewsButton.addEventListener("click", event => {
         event.preventDefault();
-        get = { 
+        let get = { 
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

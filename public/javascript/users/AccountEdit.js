@@ -77,7 +77,7 @@ function accountSubmit(form){
                 email: email
             }
 
-            post = { 
+            let post = { 
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
