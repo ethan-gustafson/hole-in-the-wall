@@ -86,7 +86,9 @@ class StoresController < ApplicationController
             title: "#{@store.name}", 
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
-            javascript: "/javascript/stores/Show.js"
+            javascript: "/javascript/stores/Show.js",
+            review_edit: "/javascript/stores/ReviewEdit.js",
+            review_delete: "/javascript/stores/ReviewDelete.js"
         }
     end
 

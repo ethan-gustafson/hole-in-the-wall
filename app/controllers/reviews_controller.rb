@@ -18,9 +18,7 @@ class ReviewsController < ApplicationController
     end
 
     post "/reviews/:id" do # reviews#create == post "/reviews/:id"
-        request_recieved = request.body.read
-        parameters = JSON.parse(request_recieved, {symbolize_names: true})
-        invalid = {reviews: "Sorry, we couldn't process that request"}.to_json
+        parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
         @review = Review.new(
             title: parameters[:title],
@@ -31,42 +29,52 @@ class ReviewsController < ApplicationController
         if @review.save
             {message: "Success", user: current_user.username}.to_json
         else
-            invalid
+            failure
         end
     end
 
     patch "/reviews/:id" do # reviews#update == patch "/reviews/:id"
-        find_review 
+        parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
-        request_recieved = request.body.read
-        parameters = JSON.parse(request_recieved, {symbolize_names: true})
-        invalid = {reviews: "Sorry, we couldn't process that request"}.to_json
+        review = Review.find_by_id(parameters[:id])
 
-        if @review.update(review_params)
-            {message: "Success"}.to_json
+        if review.user_id == current_user.id
+            if review.update(title: parameters[:title], content: parameters[:content])
+                {message: "Success", user_id: current_user.id, username: current_user.username}.to_json
+            end
         else
-            invalid
+            failure
         end
     end
 
     delete "/reviews/:id" do # reviews#destroy == delete "/reviews/:id"
-        find_review
+        parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
-        request_recieved = request.body.read
-        parameters = JSON.parse(request_recieved, {symbolize_names: true})
-        invalid = {reviews: "Sorry, we couldn't process that request"}.to_json
+        review = Review.find_by_id(parameters[:id])
 
         if @review.destroy 
-            {message: "Success"}.to_json
+            success
         else
-            {message: "Failure"}.to_json
+            failure
         end
     end
 
     private
 
+    def request_parameters
+        request_recieved = request.body.read
+    end
+
     def find_review
         @review = Review.find_by_id(params[:id]) 
+    end
+
+    def success
+        {message: "Success"}.to_json
+    end
+
+    def failure
+        {message: "Failure"}.to_json
     end
 
     def current_user_reviews_array # returns an array with the [review.id, review.title, review.content, review.user_id, review.store_id, store.name]

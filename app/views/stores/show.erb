@@ -29,19 +29,26 @@
             <h3>Reviews:</h3>
             <%@store.reviews.each do |review|%>
                 <article>
-                    <h4 id="<%=review.title.gsub(' ', '-')%>" ><a href="/users/<%=review.user_id%>"><%=review.user.username%>:</a> <%= review.title %></h4>
                     <% if review.user_id == current_user.id%>
-                        <div>
-                            <form id="review-update-form" action="/reviews/<%=review.id%>" method="post">
-                                <input type="hidden" name="_method" value="patch">
-                                <p id="user-review-content"><%=review.content%></p>
-                            </form>
-                            <form id="review-delete-form" action="/reviews/<%=review.id%>" method="post">
-                                <input type="hidden" name="_method" value="delete">
-                                <input type="submit" value="Delete Review?">
-                            </form>
-                        </div>
+                            <div> 
+                                <div id="user-review-data" class="review-<%=review.id%>">
+                                    <div id="<%=review.title.gsub(' ', '-')%>">
+                                        <h4 id="user-review-title"><%= review.title %></h4>
+                                        <p>By: <a id="review-user-id" href="/users/<%=review.user_id%>"><%=review.user.username%>:</a></p>
+                                    </div>
+                                    <div>
+                                        <p id="user-review-content"><%=review.content%></p>
+                                    </div>
+                                </div>
+
+                                <div id="button-container">
+                                    <button id="edit-review">Edit</button>
+                                    <button id="delete-review">Delete</button>
+                                </div>
+                            </div>
+
                     <% else %>
+                        <h4 id="<%=review.title.gsub(' ', '-')%>" ><a href="/users/<%=review.user_id%>"><%=review.user.username%>:</a> <%= review.title %></h4>
                         <p><%=review.content%></p>
                     <% end %>
                 </article>
@@ -55,11 +62,23 @@
                 <form id="new-review-form" action="/my-reviews/:id" method="POST">
                     <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
                     <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
-                    <input id="review-title" type="text" name="review[title]" placeholder="Title">
-                    <input id="review-content" type="text" name="review[content]" placeholder="Content"></input>
+
+                    <div>
+                        <label for="review-title">Title: </label>
+                        <input id="review-title" type="text" name="review[title]" placeholder="Title">
+                    </div>
+
+                    <div>
+                        <label for="review-content">Content: </label>
+                        <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
+                    </div>
+
                     <input type="submit" value="Submit">
                 </form>
             </article>
         </section>
     </article>
 </main>
+
+<script type="application/javascript" src="<%= review_edit %>" charset="UTF-8"></script>
+<script type="application/javascript" src="<%= review_delete %>" charset="UTF-8"></script>
