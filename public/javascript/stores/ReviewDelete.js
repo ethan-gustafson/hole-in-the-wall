@@ -17,7 +17,7 @@ function reviewDelete(){
             event.preventDefault()
 
             var reviewIdContainer = userData.className;
-            var reviewId = reviewIdContainer.slice(reviewIdContainer.length - 2, reviewIdContainer.length);
+            var reviewId = reviewIdContainer.slice(reviewIdContainer.length - 1, reviewIdContainer.length);
 
             let review = {id: reviewId};
 

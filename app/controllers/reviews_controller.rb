@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
         {data: current_user_reviews}.to_json
     end
 
-    post "/reviews/:id" do # reviews#create == post "/reviews/:id"
+    post "/reviews" do # reviews#create == post "/reviews/:id"
         parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
         @review = Review.new(

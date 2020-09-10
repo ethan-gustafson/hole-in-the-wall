@@ -38,7 +38,7 @@ function submitReview(){
             let heading = document.createElement("h4");
             let p = document.createElement("p");
 
-            heading.innerHTML = `<a href='/users/${reviewUserId}'>${json.user}: ${reviewTitle}</a>`;
+            heading.innerHTML = `<p><a href='/users/${reviewUserId}'>${json.user}</a>: ${reviewTitle}</p>`;
             p.innerHTML = `${reviewContent}`;
 
             article.appendChild(heading);
