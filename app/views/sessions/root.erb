@@ -8,31 +8,34 @@
                 src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
             </iframe>
         </aside>
-        <%@home_feed_reviews.each do |review|%>
-            <section id="home-grid-container">
+        <h2>Most Recent Reviews</h2>
+            <div>
+            <%@home_feed_reviews.each do |review|%>
+                <section class="home-grid-container">
 
-                <div class="home-google-map">
-                    <iframe
-                        width="350"
-                        height="250"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>
-                        &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
-                    </iframe>
-                </div>
+                    <div class="home-google-map">
+                        <iframe
+                            width="350"
+                            height="250"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>
+                            &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
+                        </iframe>
+                    </div>
 
-                <div class="home-user-info">
-                <% if !review.user.nil? %>
-                    <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                    <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a>: <u><%= review.title %></u></h3>
-                <% else %>
-                    <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                    <h3>[deleted]: <u><%= review.title %></u></h3> 
-                <% end %>
-                    <p><%= review.content%></p>
-                </div>
+                    <div class="home-user-info">
+                    <% if !review.user.nil? %>
+                        <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+                        <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a>: <u><%= review.title %></u></h3>
+                    <% else %>
+                        <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+                        <h3>[deleted]: <u><%= review.title %></u></h3> 
+                    <% end %>
+                        <p><%= review.content%></p>
+                    </div>
 
-            </section>
-        <%end%>
+                </section>
+            </div>
+            <%end%>
     </article>
 </main>
