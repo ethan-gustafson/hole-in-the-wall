@@ -5,7 +5,7 @@ class StoresController < ApplicationController
     get "/stores" do # stores#index == get "/stores"
         popular_stores
         most_reviewed_stores
-
+        @stores_count = Store.all.count
         erb :'/stores/main', locals: {
             title: "Store's index",
             css: false,
