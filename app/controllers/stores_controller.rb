@@ -82,6 +82,7 @@ class StoresController < ApplicationController
 
     get "/stores/:id" do # stores#show == get "/stores/:id"
         set_store
+        @favorited = Favorite.find_by(user_id: current_user.id, store_id: params[:id])
         erb :'/stores/show', locals: {
             title: "#{@store.name}", 
             css: false,

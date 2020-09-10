@@ -2,13 +2,14 @@
     <h2><%=@store.name%></h2>
     <article>
         <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
+        <% if @favorited.nil? %>
         <section>
             <form action="/favorites" method="POST">
                 <input type="hidden" name="store_id" value="<%=@store.id%>">
                 <input type="submit" value="Favorite">
             </form>
-            <p style='color:#F25F5C;text-decoration:black underline;'><%=flash[:favorite_error] if flash[:favorite_error]%></p>
         </section>
+        <% end %>
     
         <section>
             <iframe
