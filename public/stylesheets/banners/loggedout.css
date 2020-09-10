@@ -26,12 +26,14 @@ body {
 }
 
 #ls-logo-container { 
-    background-color: rgb(36, 36, 36);
+    background-color: #50514F;
     overflow: hidden;
+    border: solid black 2px;
+    border-radius: 0 0 10px 10px;
 }
 
 #ls-logo{
-    color: #e76f62;
+    color: #F25F5C;
 }
 
 #ls-form-wrap {
@@ -50,7 +52,7 @@ article {
 }
 
 a {
-    color: #e76f62;
+    color: #F25F5C;
 }
 
 a:hover{
@@ -77,7 +79,7 @@ label{
 }
 
 #ls-submit{
-    background-color: #e76f62;
+    background-color: #F25F5C;
     font-weight: bold;
 }
 
