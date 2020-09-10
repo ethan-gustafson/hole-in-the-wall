@@ -51,18 +51,13 @@ function accountEdit(){
 }
 
 function accountSubmit(form){
-    // when the user submits, 
-    // replace the submit button with the original buttons,
-    // take the values from the inputs, 
-    // delete the form,
-    // put values back inside original tags,
-    // update DOM.
     var accountInfo = document.getElementById("account-info");
     var buttonsContainer = document.getElementById("account-buttons-container");
 
     if (!!form){
         form.addEventListener("submit", event => {
             event.preventDefault();
+
             let submitting = document.createElement("p");
             submitting.innerHTML = "Submitting..";
             accountInfo.appendChild(submitting);
@@ -104,6 +99,11 @@ function accountSubmit(form){
                     editButton.id = "user-edit-button";
                     editButton.innerHTML = "Edit Account"
                     buttonsContainer.appendChild(editButton);
+
+                    editButton.addEventListener("click", event => {
+                        event.preventDefault();
+                        accountEdit();
+                    })
                 } else {
                     let invalid = "<p>Something Went Wrong</p>"
                     accountInfo.appendChild(invalid);
