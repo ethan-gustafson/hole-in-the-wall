@@ -28,13 +28,14 @@ form.addEventListener("submit", event => {
         json.stores.forEach(element => {
             var section = document.createElement("section");
             section.setAttribute("class", "result-container")
+
             var result = document.createElement("h3");
             var link = document.createElement("a");
             link.href =`/stores/${element.id}`;
+
             var resultText = document.createTextNode(`${element.name}`);
             var stateText = document.createTextNode(`${element.state}: `);
-            link.appendChild(resultText);
-        
+
             link.appendChild(resultText);
             result.appendChild(stateText);
             result.appendChild(link);
