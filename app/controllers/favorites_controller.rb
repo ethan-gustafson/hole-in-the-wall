@@ -30,7 +30,7 @@ class FavoritesController < ApplicationController
 
         end_i   = (@current_page * 20) - 1
         start_i = end_i - 19
-        @favs  = current_user.favorites[start_i..end_i]
+        @favs   = current_user.favorites[start_i..end_i]
         
         @favs_count % 20 == 0 ? @last_page = (@favs_count / 20) : @last_page = (@favs_count / 20) + 1
 

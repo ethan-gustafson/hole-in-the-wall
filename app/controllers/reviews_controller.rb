@@ -45,9 +45,9 @@ class ReviewsController < ApplicationController
         @current_page = params[:review_index_id].to_i
         @reviews_count = current_user.reviews.count
 
-        end_i   = (@current_page * 20) - 1
-        start_i = end_i - 19
-        @reviews   = current_user.reviews[start_i..end_i]
+        end_i    = (@current_page * 20) - 1
+        start_i  = end_i - 19
+        @reviews = current_user.reviews[start_i..end_i]
         
         @reviews_count % 20 == 0 ? @last_page = (@reviews_count / 20) : @last_page = (@reviews_count / 20) + 1
 
