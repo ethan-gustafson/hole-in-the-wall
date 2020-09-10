@@ -15,7 +15,7 @@ class FavoritesController < ApplicationController
             store_id: params[:store_id]
         )
         if favorited_store.save 
-            redirect "/users/#{current_user.id}"
+            redirect "/stores/#{favorited_store.store_id}"
         end
     end
 
