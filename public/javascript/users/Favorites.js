@@ -23,7 +23,7 @@ function fetchFavorites(){
                 article.className = "favorite-section";
                 article.innerHTML = `
                     <h3>${counter}.) <a href="/stores/${element.store_id}">${element.store}</a></h3>
-                    <p><a href="/favorites/${element.id}">Delete Favorite?</a></p>
+                    <p><a href="/favorites/${element.id}/delete">Delete Favorite?</a></p>
                 `;
                 renderFavorites.appendChild(article);
                 counter += 1;

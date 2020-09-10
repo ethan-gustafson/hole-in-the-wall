@@ -22,7 +22,7 @@ class FavoritesController < ApplicationController
         end
     end
 
-    get '/favorites/:id' do
+    get '/favorites/:id/delete' do
         favorite = Favorite.find_by_id(params[:id]) 
         favorite.delete
         redirect "/users/#{current_user.id}"
