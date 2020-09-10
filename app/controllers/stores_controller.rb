@@ -10,7 +10,7 @@ class StoresController < ApplicationController
             title: "Store's index",
             css: false,
             banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
+            javascript: "/javascript/stores/Search.js"
         }
     end
 
@@ -37,15 +37,6 @@ class StoresController < ApplicationController
         else
             redirect "/stores/new"
         end
-    end
-
-    get "/stores/search" do
-        erb :'/stores/search', locals: {
-            title: "Search Stores",
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: "/javascript/stores/Search.js"
-        }
     end
 
     # if there is a state param AND a store name param,
