@@ -1,9 +1,9 @@
 <main>
     <h2>Here are all your Favorites!</h1>
     <article>
-        <%@favorites.all.each do |favorite|%>
+        <%@favs.each.with_index(1) do |favorite, index|%>
             <section>
-                <p><a href="/stores/<%=favorite.store.id%>"><%= favorite.store.name %></a></p>
+                <p><%= index %>.) <a href="/stores/<%=favorite.store.id%>"><%= favorite.store.name %></a></p>
                 <form action="/favorites" method="POST">
                     <input type="hidden" name="_method" value="delete">
                     <input type="hidden" name="favorite_id" value="<%=favorite.id%>">

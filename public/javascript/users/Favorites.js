@@ -19,15 +19,33 @@ function fetchFavorites(){
             var counter = 1;
 
             json.data.forEach(element => {
+
                 var article = document.createElement("article");
                 article.className = "favorite-section";
+
                 article.innerHTML = `
-                    <h3>${counter}.) <a href="/stores/${element.store_id}">${element.store}</a></h3>
-                    <p><a href="/favorites/${element.id}/delete">Delete Favorite?</a></p>
-                `;
+                        <h3>${counter}.) <a href="/stores/${element.store_id}">${element.store}</a></h3>
+                        <p><a href="/favorites/${element.id}/delete">Delete Favorite?</a></p>
+                    `;
+
                 renderFavorites.appendChild(article);
-                counter += 1;
             });
+            
+            if (json.favorites_exceeded_count == true){
+
+                var path = window.location["pathname"];
+                var userId = path.slice(path.length - 1, path.length);
+
+                var navigation = document.createElement("p");
+                var a = document.createElement("a");
+                a.href = `/users/${userId}/favorites/1`;
+                a.innerHTML = "See all favorites?";
+
+                navigation.appendChild(a);
+
+                renderFavorites.appendChild(navigation);
+                counter += 1;
+            }
             hideFavorites(favoritesButton);
         })
     })

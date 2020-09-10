@@ -2,17 +2,26 @@ class FavoritesController < ApplicationController
 
     get '/favorites' do 
         favorites = []
-        favorites_objects = current_user.favorites
-        favorites_objects.reverse.each do |fav|
-            favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
+        favs_count = current_user.favorites.count
+        if favs_count > 10
+            favorites_objects = current_user.favorites[0..9]
+            favorites_objects.reverse.each do |fav|
+                favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
+            end
+            {data: favorites, favorites_exceeded_count: true}.to_json
+        else
+            favorites_objects = current_user.favorites
+            favorites_objects.reverse.each do |fav|
+                favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
+            end
+            {data: favorites}.to_json
         end
-        {data: favorites}.to_json
     end
 
     get "/users/:id/favorites/:fav_index_id" do
         redirect_outside?
 
-        if params[:id] != current_user.id
+        if params[:id].to_i != current_user.id
             redirect "/users/#{current_user.id}"
         end
 
@@ -28,6 +37,12 @@ class FavoritesController < ApplicationController
         if @current_page > @last_page || @current_page < 1
             redirect "users/#{current_user.id}/favorites/1"
         end
+        erb :'/favorites/index', locals: {
+            title: "Signup", 
+            css: false,
+            banner: "/stylesheets/banners/loggedin.css",
+            javascript: false
+        }
     end
 
     post '/favorites' do 
