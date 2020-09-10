@@ -3,7 +3,16 @@ class ReviewsController < ApplicationController
     get "/reviews" do
         current_user_reviews = []
         current_user_reviews_array.reverse.each do |e|
-            current_user_reviews << {id: e[0], title: e[1], content: e[2], user_id: e[3], store_id: e[4], created_at: Time.parse(e[5].to_s), updated_at: Time.parse(e[6].to_s), store: e[7]}
+            current_user_reviews << {
+                id: e[0], 
+                title: e[1], 
+                content: e[2], 
+                user_id: e[3], 
+                store_id: e[4], 
+                created_at: Time.parse(e[5].to_s), 
+                updated_at: Time.parse(e[6].to_s), 
+                store: e[7]
+            }
         end
         {data: current_user_reviews}.to_json
     end
@@ -64,7 +73,7 @@ class ReviewsController < ApplicationController
         Review.includes(
             :store
         ).where(
-            reviews: {user_id: 3}).pluck(
+            reviews: {user_id: current_user.id}).pluck(
                 "reviews.id, 
                 reviews.title, 
                 reviews.content, 
