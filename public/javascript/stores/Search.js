@@ -12,7 +12,7 @@ form.addEventListener("submit", event => {
                 name: name
             }
 
-    get = { 
+    post = { 
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ form.addEventListener("submit", event => {
     body: JSON.stringify(value)
 }
 
-    fetch(`http://localhost:9393/stores/results`, get)
+    fetch(`http://localhost:9393/stores/results`, post)
     .then(resp => resp.json())
     .then(json => {
         console.log(json)

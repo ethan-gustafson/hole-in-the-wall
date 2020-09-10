@@ -1,5 +1,10 @@
 /*-----------Home----------------*/
 
+body{
+    background-color: white;
+    height: 726px;
+}
+
 #home-main{
     height: 578px;
     overflow: scroll;
@@ -17,10 +22,11 @@
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: 50% 50%;
         grid-auto-rows: 100%;
-        background-color: rgb(235, 235, 235);
-        border: solid rgb(223, 223, 223) 2px;
+        background-color: #50514F;
+        border: solid white 2px;
+        border-radius: 20px;
         margin-bottom: 1%;
-        padding: 2% 2% 1% 2%;
+        padding: 1% 2% 1% 2%;
     }
 
     .home-google-map{
@@ -44,10 +50,6 @@
         width: 75%;
         line-height: 1.0;
     }
-    
-    .home-user-info a{
-        text-decoration: none;
-    }
 
     #home-aside{
         visibility: hidden;
@@ -66,10 +68,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 100%;
         grid-auto-rows: 100%;
-        background-color: rgb(235, 235, 235);
-        border: solid rgb(223, 223, 223) 2px;
+        background-color: #50514F;
+        border: solid black 2px;
+        border-radius: 20px;
         margin-bottom: 1%;
-        padding: 2% 2% 1% 2%;
+        padding: 1% 2% 1% 2%;
     }
     
     .home-user-info{
@@ -78,15 +81,13 @@
         width: 75%;
     }
     
-    .home-user-info a{
-        text-decoration: none;
-    }
     
     .home-google-map{
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
         border: solid black 2px;
+        border-radius: 20px;
     }
     
     .home-google-map iframe{
@@ -100,10 +101,12 @@
     #home-aside{
         position: fixed;
         right: 2%;
-        margin-top: 2%;
+        margin-top: 0;
         width: 35%;
-        height: 74.5%;
-        border: solid rgb(223, 223, 223) 2px;
+        height: 76%;
+        border: solid #50514F 2px;
+        border-radius: 20px;
+        background-color: #50514F;
     }
 }
 

@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
 
         erb :'/sessions/root', locals: {
             title: "Hole in the Wall", 
-            css: false,
+            css: "stylesheets/users/main.css",
             banner: "stylesheets/banners/loggedin.css",
             javascript: false
         }
