@@ -11,8 +11,9 @@ If you would like to **run this application**, you will have to:
 
 1. Make sure **Ruby and Sinatra are installed** on your system
 2. **Clone this repository** into your terminal
-3. Run `bundle install`
-4. Run `shotgun`
+3. **You need to create two keys**: One for the Google Maps API, and one for your session secret. Both go in a `config/keys` directory. The ApplicationController will find these two files for you and use them.
+4. Run `bundle install`
+5. Run `shotgun`
 
 Or if you would just like to watch the YouTube presentation for the previous version of the application, watch here: https://youtu.be/rVMPswz_L5Y
 
