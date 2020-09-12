@@ -178,9 +178,10 @@ the flex layout
 .result-container{
     flex: 1 1 35%;
     border: solid black 2px;
+    border-radius: 10px;
     margin: 5px;
     height: 100px;
-    padding: 20px 5px;
+    padding: 15px 5px;
 }
 
 /*-----------------Search-End------------------------*/
