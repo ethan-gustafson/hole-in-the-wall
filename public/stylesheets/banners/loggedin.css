@@ -28,8 +28,10 @@ body {
 #banner { 
     background-color: #50514F;
     overflow: hidden;
-    border: solid black 2px;
+    border: solid black 3px;
+    border-top: 0;
     border-radius: 0 0 10px 10px;
+    text-shadow: 1px 1px 1px black;
 }
 
 a {

@@ -146,8 +146,11 @@ the flex layout
 }
 
 #search-submit{
-    cursor: pointer;
     padding: 20px 0 20px 0;
+}
+
+#search-submit, #search-form-state-select{
+    cursor: pointer;
 }
 
 #search-form-state-select, #search-input, #search-submit{
@@ -156,6 +159,11 @@ the flex layout
     padding: 10px;
     color: black;
     text-shadow: 0 0 black;
+}
+
+#search-form-state-select:hover, #search-input:hover, #search-submit:hover{
+    background-color: #bffff4;
+    transition-duration: 0.4s;
 }
 
 #results-flex{

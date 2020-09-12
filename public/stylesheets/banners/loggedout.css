@@ -33,6 +33,7 @@ body {
 }
 
 #ls-logo{
+    text-shadow: 1px 1px 1px black;
     color: #F25F5C;
 }
 
