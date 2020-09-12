@@ -26,7 +26,7 @@ class FavoritesController < ApplicationController
         end
 
         @current_page = params[:fav_index_id].to_i
-        @favs_count = current_user.favorites.count
+        @favs_count   = current_user.favorites.count
 
         end_i   = (@current_page * 20) - 1
         start_i = end_i - 19

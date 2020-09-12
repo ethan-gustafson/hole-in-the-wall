@@ -43,8 +43,7 @@ class StoresController < ApplicationController
     # AND if the states has the key, 
 
     post "/stores/results" do
-        request_recieved = request.body.read
-        parameters = JSON.parse(request_recieved, {symbolize_names: true})
+        parameters = JSON.parse(request_parameters, {symbolize_names: true})
 
         empty_stores = {stores: "Sorry, we couldn't find any stores"}.to_json
         # if there is a :state param AND a :name param,

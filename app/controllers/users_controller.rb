@@ -89,9 +89,7 @@ class UsersController < ApplicationController
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
-        request_recieved = request.body.read
         parameters = JSON.parse(request_recieved, {symbolize_names: true})
-        invalid_update = {user: "Sorry, we couldn't update your account"}.to_json
         is_current_user = current_user.id == params[:id].to_i
 
         if is_current_user
@@ -103,7 +101,7 @@ class UsersController < ApplicationController
                 {message: "Success"}.to_json
             end
         else
-            invalid_update
+            {user: "Sorry, we couldn't update your account"}.to_json
         end
     end
 
