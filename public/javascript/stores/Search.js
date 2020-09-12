@@ -1,4 +1,4 @@
-var main = document.getElementById("search-main");
+var main = document.getElementById("results-container");
 var form = document.getElementById("search-form");
 var input = document.getElementById("search-input");
 var state = document.getElementById("search-form-state-select");
@@ -25,6 +25,7 @@ form.addEventListener("submit", event => {
     .then(resp => resp.json())
     .then(json => {
         console.log(json)
+        var counter = 1;
         json.stores.forEach(element => {
             var section = document.createElement("section");
             section.setAttribute("class", "result-container")
@@ -34,13 +35,14 @@ form.addEventListener("submit", event => {
             link.href =`/stores/${element.id}`;
 
             var resultText = document.createTextNode(`${element.name}`);
-            var stateText = document.createTextNode(`${element.state}: `);
+            var stateText = document.createTextNode(`${counter}.) ${element.state}: `);
 
             link.appendChild(resultText);
             result.appendChild(stateText);
             result.appendChild(link);
             section.appendChild(result);
             main.appendChild(section);
+            counter += 1
         });
     })
 })

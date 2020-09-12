@@ -8,7 +8,7 @@ class StoresController < ApplicationController
         @stores_count = Store.all.count
         erb :'/stores/main', locals: {
             title: "Store's index",
-            css: false,
+            css: "/stylesheets/stores/main.css",
             banner: "/stylesheets/banners/loggedin.css",
             javascript: "/javascript/stores/Search.js"
         }

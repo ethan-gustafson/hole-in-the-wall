@@ -1,26 +1,46 @@
 <main>
-    <section>
-        <h2><a href="/stores/new">Create A Store </a></h2>
-        <%= erb :'/stores/search' %>
-    </section>
-    
-    <article>
-        <h2>Most Popular Stores</h2>
-        <section>
-            <% popular_stores.each do |store_name, favorites_count|%>
-                <h3><%= store_name %></h3>
-                <p>Number of user favorites: <%= favorites_count %></p>
-            <% end %>
+    <article id="search-create">
+        <section id="search-create-headings">
+            <h2><a href="/stores/new">Create A Store </a></h2>
+            <h3>Number of stores in our database: <%=@stores_count%></h3>
         </section>
-    </article>
 
-    <article>
-        <h2>Most Reviewed Stores</h2>
-        <section>
-            <% most_reviewed_stores.each do |store_name, reviews_count|%>
-                <h3><%= store_name %></h3>
-                <p>Number of user favorites: <%= reviews_count %></p>
+        <section id="search-options">
+            <div id="align-options">
+                <ul>
+                    <li>To see all stores, hit "submit"</li>
+                    <li>To see all stores in a certain state, change state & hit "submit"</li>
+                    <li>To find specific stores in a certain state, type a name, set the state & hit "submit"</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="search-flex">
+            <%= erb :'/stores/search' %>
+        </div>
+    </article>
+    
+    <aside id="aggregated">
+        <section class="store">
+            <div class="header-color">
+                <h2 class="aggregate-heading">Most Popular Stores</h2>
+            </div>
+            <% popular_stores.each do |store_name, favorites_count|%>
+                <div id="store-container-<%= store_name %>">
+                    <h3><%= store_name %>: Number of user favorites: <%= favorites_count %></h3>
+                </div>
             <% end %>
         </section>
-    </article>
+
+        <section class="store">
+            <div class="header-color">
+                <h2 class="aggregate-heading">Most Reviewed Stores</h2>
+            </div>
+            <% most_reviewed_stores.each do |store_name, reviews_count|%>
+                <div id="store-container-<%= store_name %>">
+                    <h3><%= store_name %>: Number of user favorites: <%= reviews_count %></h3>
+                </div>
+            <% end %>
+        </section>
+    </aside>
 </main>
