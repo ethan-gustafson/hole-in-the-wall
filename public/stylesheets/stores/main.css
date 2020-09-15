@@ -90,7 +90,6 @@ div[id^="store-container-"]{
 /*-----------------Search-------------------------*/
 
 .search-flex{
-    display: flex;
     width: 100%;
     height: 56%;
     background-color: white;
@@ -103,10 +102,9 @@ div[id^="store-container-"]{
 /* When the layout is thinner than 1015 px, change 
 the flex layout
 */
+
 #form-container{
-    flex: 0 1 25%;
-    width: 46%;
-    margin: 1px;
+    margin-top: 1px;
 }
 
 #search-form{
@@ -115,12 +113,15 @@ the flex layout
     border: solid black 2px;
     border-radius: 10px;
     height: 100%;
+    width: 100%;
     background-color: #247BA0;
 }
 
 .flex{
-    flex: 0 1 27.33%;
-    margin: 2% 1% 2% 1%;
+    flex: 1 1 33%;
+    margin: 1px;
+    width: 75%;
+    margin: 1px auto;
 }
 
 .inside-flex{
@@ -147,6 +148,11 @@ the flex layout
 
 #search-submit{
     padding: 20px 0 20px 0;
+}
+
+#search-form-state-select{
+    width: 50%;
+    margin: 0 auto;
 }
 
 #search-submit, #search-form-state-select{

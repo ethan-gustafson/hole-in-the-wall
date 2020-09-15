@@ -1,9 +1,9 @@
 <section id="form-container">
-    <form id="search-form" action="/stores/results" method="GET">
+    <form id="search-form" action="/stores/results" method="POST">
             <div class="flex">
                 <div class="inside-flex">
                     <label class="el-inside-flex" for="search-form-state-select">State: </label>
-                    <select class="el-inside-flex" id="search-form-state-select">
+                    <select name="state" class="el-inside-flex" id="search-form-state-select">
                         <option value=""></option>
                         <% states.keys.each do |state|%>
                             <option value="<%= state %>"><%= state %></option>
@@ -25,8 +25,4 @@
                 </div>
             </div>
     </form>
-</section>
-
-<section id="results-flex">
-    <article id="results-container"></article>
 </section>

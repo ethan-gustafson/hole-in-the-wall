@@ -1,0 +1,21 @@
+<head>
+    <title>Results</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+</head>
+
+<body>
+    <%= erb :'/partials/banner/_loggedin_banner'%>
+    <main>
+        <article id="results-container">
+            <% flash[:search_results].each.with_index(1) do |store, index|%>
+                <section class="result-container">
+                    <div id="store-container-<%=store[:id]%>">
+                        <h3><%=index%>.) <%=store[:state]%>: <a href="/stores/<%=store[:id]%>"><%=store[:name]%></a></h3>
+                    </div>
+                </section>
+            <% end %>
+        </article>
+    </main>
+</body>

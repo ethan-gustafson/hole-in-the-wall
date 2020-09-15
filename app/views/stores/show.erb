@@ -38,13 +38,43 @@
 
             <section id="store-reviews">
                 <h3>Reviews:</h3>
+                <%@store.reviews.each do |review|%>
+                    <article>
+                       <div> 
+                            <div id="review-<%=review.id%>">
+                                <div id="<%=review.title.gsub(' ', '-')%>">
+                                    <h4 id="user-review-title-<%=review.id%>"><%=review.title%></h4>
+                                    <p>By <a id="review-user-id-<%=review.id%>" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
+                                </div>
+                                
+                                <div>
+                                    <p id="user-review-content-<%=review.id%>"><%=review.content%></p>
+                                </div>
+                            </div>
+
+                            <% if current_user.id == review.user_id%>
+                            <div id="button-container-<%=review.id%>">
+
+                                <p><a href="/reviews/<%=review.id%>/edit">Edit</a></p>
+
+                                <form action="/reviews/<%=review.id%>" method="POST">
+                                    <input id="hidden" type="hidden" name="_method" value="delete">
+                                    <input type="submit" value="Delete">
+                                </form>
+
+                            </div>
+                            <% end %>
+
+                        </div>
+                    </article>
+                <% end %>
             </section>
 
             <section>
                 <article>
                     <h3>Create a New Review:</h3>
 
-                    <form id="new-review-form" action="/my-reviews/:id" method="POST">
+                    <form id="new-review-form" action="/reviews" method="POST">
                         <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
                         <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
 

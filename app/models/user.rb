@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
     has_secure_password
 
     has_many :reviews
+    has_many :stores
+
     has_many :favorites
-    has_many :stores, through: :favorites
+    has_many :favorited_stores, through: :favorites, source: :store
 
     before_validation :white_space
 

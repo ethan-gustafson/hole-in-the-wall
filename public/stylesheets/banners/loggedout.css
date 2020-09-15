@@ -63,6 +63,7 @@ form{
     background-color: #247BA0;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    border-bottom: solid black 3px;
     padding-bottom: 10px;
 }
 
