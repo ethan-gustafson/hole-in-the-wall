@@ -15,7 +15,7 @@ function fetchFavorites(){
         .then(resp => resp.json())
         .then(json => {
             console.log(json);
-            var renderFavorites = document.getElementById("user-favorites-list");
+            var renderFavorites = document.getElementById("user-favorites-container");
             var counter = 1;
 
             json.data.forEach(element => {

@@ -1,43 +1,55 @@
-<main id="home-main">
-    <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
-        <!-- <aside id="home-aside">
-            <iframe
-                width="500" 
-                height="500"
-                rameborder="0" style="border:0;border-radius:20px;"
-                src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
-            </iframe>
-        </aside> -->
+<head>
+    <title>Hole in the Wall</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 
-        <section class="home-flex-container">
-            <%@home_feed_reviews.each do |review|%>
-                <article class="inner-flex">
-                    <div class="google-flex">
-                        <div class="home-google-map">
-                            <iframe
-                                width="250"
-                                height="350"
-                                frameborder="0" style="border:0"
-                                src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>
-                                &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
+    <link rel="stylesheet" href="stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/users/main.css" type="text/css">
+</head>
 
-                    <div class="user-info-flex">
-                        <div class="home-user-info">
-                            <% if !review.user.nil? %>
-                                <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                                <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a>: <u><%= review.title %></u></h3>
-                            <% else %>
-                                <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                                <h3>[deleted]: <u><%= review.title %></u></h3> 
-                                <p><%= review.content%></p>
-                            <% end %>
+<body>
+    <%= erb :'/partials/banner/_loggedin_banner'%>
+    <main id="home-main">
+        <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
+            <!-- <aside id="home-aside">
+                <iframe
+                    width="500" 
+                    height="500"
+                    rameborder="0" style="border:0;border-radius:20px;"
+                    src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
+                </iframe>
+            </aside> -->
+
+            <section class="home-flex-container">
+                <%@home_feed_reviews.each do |review|%>
+                    <article class="inner-flex">
+                        <div class="google-flex">
+                            <div class="home-google-map">
+                                <iframe
+                                    width="250"
+                                    height="350"
+                                    frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>
+                                    &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
+                                </iframe>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            <%end%>
-        </section>
-    </article>
-</main>
+
+                        <div class="user-info-flex">
+                            <div class="home-user-info">
+                                <% if !review.user.nil? %>
+                                    <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+                                    <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a>: <u><%= review.title %></u></h3>
+                                <% else %>
+                                    <h2><a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+                                    <h3>[deleted]: <u><%= review.title %></u></h3> 
+                                    <p><%= review.content%></p>
+                                <% end %>
+                            </div>
+                        </div>
+                    </article>
+                <%end%>
+            </section>
+        </article>
+    </main>
+</body>

@@ -177,7 +177,7 @@ the flex layout
 #results-container{
     height: 100%;
     overflow: scroll;
-    text-shadow: 1px 1px 1px black;
+    /* text-shadow: 1px 1px 1px black; */
     display: flex;
     flex-wrap: wrap;
     text-align: center;
@@ -190,6 +190,7 @@ the flex layout
     margin: 5px;
     height: 100px;
     padding: 15px 5px;
+    background-color: white;
 }
 
 /*-----------------Search-End------------------------*/

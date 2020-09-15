@@ -15,7 +15,7 @@ function fetchReviews(){
         .then(resp => resp.json())
         .then(json => {
             console.log(json);
-            var renderReviews = document.getElementById("user-reviews-list");
+            var renderReviews = document.getElementById("user-reviews-container");
             var counter = 1;
 
             json.data.forEach(element => {

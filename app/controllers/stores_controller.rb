@@ -6,24 +6,14 @@ class StoresController < ApplicationController
         popular_stores
         most_reviewed_stores
         @stores_count = Store.all.count
-        erb :'/stores/main', locals: {
-            title: "Store's index",
-            css: "/stylesheets/stores/main.css",
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: "/javascript/stores/Search.js"
-        }
+        erb :'/stores/main'
     end
 
     # Sinatra allows named parameters, splat(wildcard (*)) paramaters, block parameters, regular expression matcher patterns,
     # query parameters and conditional paramaters.
 
     get "/stores/new" do # stores#new == get "/stores/new"
-        erb :'/stores/new', locals: {
-            title: "Create a Store",
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
-        }
+        erb :'/stores/new'
     end
 
      # store = Store.find_by(name: params[:name])
@@ -37,6 +27,26 @@ class StoresController < ApplicationController
         else
             redirect "/stores/new"
         end
+    end
+
+    get "/stores/:id/fetch" do
+        set_store
+        reviews = []
+
+        @store.reviews[0..9].each do |rev|
+            reviews.push({
+                id: rev.id,
+                title: rev.title,
+                content: rev.content,
+                user_id: rev.user_id,
+                store_id: rev.store_id,
+                created_at: rev.created_at,
+                updated_at: rev.updated_at,
+                username: rev.user.username,
+                current_user: current_user.id
+            })
+        end
+        {reviews: reviews}.to_json
     end
 
     # if there is a state param AND a store name param,
@@ -82,25 +92,13 @@ class StoresController < ApplicationController
     get "/stores/:id" do # stores#show == get "/stores/:id"
         set_store
         @favorited = Favorite.find_by(user_id: current_user.id, store_id: params[:id])
-        erb :'/stores/show', locals: {
-            title: "#{@store.name}", 
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: "/javascript/stores/Show.js",
-            review_edit: "/javascript/stores/ReviewEdit.js",
-            review_delete: "/javascript/stores/ReviewDelete.js"
-        }
+        erb :'/stores/show'
     end
 
     get "/stores/:id/edit" do # stores#edit == get "/stores/:id/edit"
         invalid_resource?
         
-        erb :'/stores/edit', locals: {
-            title: "Edit: #{@store.name}", 
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
-        }
+        erb :'/stores/edit'
     end
 
     patch "/stores/:id" do # stores#update == patch "/stores/:id"

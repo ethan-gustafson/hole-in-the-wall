@@ -54,12 +54,7 @@ class ReviewsController < ApplicationController
         if @current_page > @last_page || @current_page < 1
             redirect "users/#{current_user.id}/favorites/1"
         end
-        erb :'/reviews/index', locals: {
-            title: "Reviews #{@current_page}", 
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
-        }
+        erb :'/reviews/index'
     end
 
     post "/reviews" do # reviews#create == post "/reviews/:id"

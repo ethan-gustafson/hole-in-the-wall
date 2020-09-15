@@ -25,6 +25,10 @@ body {
     padding: 0;
 }
 
+button{
+    cursor: pointer;
+}
+
 #banner { 
     background-color: #50514F;
     overflow: hidden;

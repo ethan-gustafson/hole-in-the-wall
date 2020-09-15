@@ -37,12 +37,7 @@ class FavoritesController < ApplicationController
         if @current_page > @last_page || @current_page < 1
             redirect "users/#{current_user.id}/favorites/1"
         end
-        erb :'/favorites/index', locals: {
-            title: "Favorites #{@current_page}", 
-            css: false,
-            banner: "/stylesheets/banners/loggedin.css",
-            javascript: false
-        }
+        erb :'/favorites/index'
     end
 
     post '/favorites' do 

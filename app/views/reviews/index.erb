@@ -1,11 +1,20 @@
-<main>
-    <h2>Here are all your Reviews!</h1>
-    <article>
-        <%@reviews.each.with_index(1) do |review, index|%>
-            <section>
-                <h3><%= index %>.) <a href="/stores/<%=review.store.id%>"><%= review.store.name %></a> ~ <%= review.title %></h3>
-                <p><%= review.content %></p>
-            </section>
-            <% end %>
-    </article>
-</main>
+<head>
+    <title>Reviews <%=@current_page%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+</head>
+
+<body>
+    <main>
+        <h2>Here are all your Reviews!</h1>
+        <article>
+            <%@reviews.each.with_index(1) do |review, index|%>
+                <section>
+                    <h3><%= index %>.) <a href="/stores/<%=review.store.id%>"><%= review.store.name %></a> ~ <%= review.title %></h3>
+                    <p><%= review.content %></p>
+                </section>
+                <% end %>
+        </article>
+    </main>
+</body>

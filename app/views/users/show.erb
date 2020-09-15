@@ -1,54 +1,79 @@
-<main>
-    <article>
-    <!-- This is the current user account page -->
-        <% if !!@current_user_page  %>
-            <section id="account">
+<head>
+    <title><%=@user.name%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">
+
+    <script type="application/javascript" src="/javascript/users/AccountEdit.js" charset="UTF-8"></script>
+    <script type="application/javascript" src="/javascript/users/AccountDelete.js" charset="UTF-8"></script>
+    <script type="application/javascript" src="/javascript/users/ReviewOptions.js" charset="UTF-8"></script>
+    <script type="application/javascript" src="/javascript/users/Favorites.js" charset="UTF-8"></script>
+</head>
+
+<body>
+    <%= erb :'/partials/banner/_loggedin_banner'%>
+    <main>
+        <!-- This is the current user account page -->
+        <article id="user-info">
+            <% if !!@current_user_page  %>
                 <%= erb :'/partials/users/_show' %>
-                <div id="account-buttons-container">
-                    <button id="user-edit-button">Edit Account</button>
-                    <button id="user-delete-button">Delete Account</button>
-                </div>
-            </section>
 
-            <section id="user-reviews-list">
-                <div id="user-reviews-container">
-                    <h2>Number of reviews: <%=@user.reviews.count%></h2>
-                    <button id="reviews-button">Reviews</button>
-                </div>
-            </section>
+                <section class="user-flex" id="account">
+                    <div id="account-container">
+                        <button class="account-button" id="user-edit-button">Edit Account</button>
+                        <button class="account-button" id="user-delete-button">Delete Account</button>
+                    </div>
+                </section>
 
-            <section id="user-favorites-list">
-                <div id="user-favorites-container">
-                    <h2>Number of favorites: <%=@user.favorites.count%></h2>
-                    <button id="favorites-button">Favorites</button>
-                </div>
-            </section>
-            <!-- This is the end of the current user account page -->
-        <% else %>
-        <!-- This is the random user show page -->
-            <section id="account">
-                <%= erb :'/partials/users/_show' %>
-            </section>
+                <section id="timestamp">
+                    <div>
+                        <p>Signed up on: <%=@user.created_at%></p>
+                        <p>Updated Account up on: <%=@user.updated_at%></p>
+                    </div>
+                </section>
+        </article>
 
-            <section id="user-reviews-list">
-                <div id="user-reviews-container">
-                    <h2>Number of reviews: <%=@user.reviews.count%></h2>
-                        <% @reviews.each.with_index(1) do |review, index| %>
-                        <div>
-                            <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
-                            <p class="review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
-                        </div>
+            <article id="user-data">
+                <section id="user-reviews-list">
+                    <div id="user-reviews-container">
+                        <h2>Number of reviews: <%=@user.reviews.count%></h2>
+                        <button id="reviews-button">Reviews</button>
+                    </div>
+                </section>
 
-                        <div class="review-content-container">
-                            <p class="review-content"><%=review.content%></p>
-                        </div>
-                        <% end %>
-                </div>
-            </section>
-            <!-- This is the end of the random user show page -->
-        <% end %>
-    </article>
-</main>
-<script type="application/javascript" src="<%= reviews %>" charset="UTF-8"></script>
-<script type="application/javascript" src="<%= favorites %>" charset="UTF-8"></script>
-<script type="application/javascript" src="<%= delete %>" charset="UTF-8"></script>
+                <section  id="user-favorites-list">
+                    <div id="user-favorites-container">
+                        <h2>Number of favorites: <%=@user.favorites.count%></h2>
+                        <button id="favorites-button">Favorites</button>
+                    </div>
+                </section>
+            </article>
+                <!-- This is the end of the current user account page -->
+            <% else %>
+            <!-- This is the random user show page -->
+            <article>
+                <section id="account">
+                    <%= erb :'/partials/users/_show' %>
+                </section>
+
+                <section id="user-reviews-list">
+                    <div id="user-reviews-container">
+                        <h2>Number of reviews: <%=@user.reviews.count%></h2>
+                            <% @reviews.each.with_index(1) do |review, index| %>
+                            <div>
+                                <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
+                                <p class="review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
+                            </div>
+
+                            <div class="review-content-container">
+                                <p class="review-content"><%=review.content%></p>
+                            </div>
+                            <% end %>
+                    </div>
+                </section>
+                <!-- This is the end of the random user show page -->
+            <% end %>
+        </article>
+    </main>
+</body>
