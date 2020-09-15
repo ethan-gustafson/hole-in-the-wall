@@ -1,5 +1,6 @@
 function accountDelete(){
     var deleteButton = document.getElementById("user-delete-button");
+
     deleteButton.addEventListener("click", event => {
         event.preventDefault();
 
@@ -9,7 +10,7 @@ function accountDelete(){
             event.preventDefault();
 
             deleteButton.remove();
-            let buttonsContainer = document.getElementById("account-buttons-container");
+            let buttonsContainer = document.getElementById("account-container");
 
             let form = document.createElement("form");
             form.action = `${window.location['pathname']}/delete`;

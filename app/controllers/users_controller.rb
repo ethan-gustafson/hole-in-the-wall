@@ -71,19 +71,19 @@ class UsersController < ApplicationController
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
-        parameters = JSON.parse(request_recieved, {symbolize_names: true})
         is_current_user = current_user.id == params[:id].to_i
 
         if is_current_user
             if current_user.update(
-                name: parameters[:name],
-                username: parameters[:username],
-                email: parameters[:email]
+                name: params[:user][:name],
+                username: params[:user][:username],
+                email: params[:user][:email]
             )
-                {message: "Success"}.to_json
+                redirect "/users/#{current_user.id}"
             end
         else
-            {user: "Sorry, we couldn't update your account"}.to_json
+            flash[:invalid_update] = "Invalid Edit"
+            redirect "/users/#{current_user.id}"
         end
     end
 
