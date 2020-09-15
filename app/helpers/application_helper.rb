@@ -7,9 +7,9 @@ module ApplicationHelper
     # only set to run once, when the application is initiated, so that it won't set the @states instance variable again.
 
     def get_states
-        filepath                = File.join(".", "app", "assets", "files", "states.txt")
-        file                    = File.read(filepath)
-        states_array            = file.split("\n")
+        filepath     = File.join(".", "app", "assets", "files", "states.txt")
+        file         = File.read(filepath)
+        states_array = file.split("\n")
 
         states = {}
 
