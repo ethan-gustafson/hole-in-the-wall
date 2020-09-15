@@ -9,12 +9,7 @@ class StoresController < ApplicationController
         erb :'/stores/main'
     end
 
-    # Sinatra allows named parameters, splat(wildcard (*)) paramaters, block parameters, regular expression matcher patterns,
-    # query parameters and conditional paramaters.
-
-    get "/stores/new" do # stores#new == get "/stores/new"
-        erb :'/stores/new'
-    end
+    get ("/stores/new"){ erb :'/stores/new' } # stores#new == get "/stores/new"
 
      # store = Store.find_by(name: params[:name])
 
@@ -22,7 +17,7 @@ class StoresController < ApplicationController
         @store = Store.new(store_params)
         valid_user_store?
 
-        if  @store.save
+        if @store.save
             redirect "/stores/#{@store.id}"
         else
             redirect "/stores/new"
@@ -97,14 +92,13 @@ class StoresController < ApplicationController
 
     get "/stores/:id/edit" do # stores#edit == get "/stores/:id/edit"
         invalid_resource?
-        
         erb :'/stores/edit'
     end
 
     patch "/stores/:id" do # stores#update == patch "/stores/:id"
         invalid_resource?
 
-        if  @store.update(store_params)
+        if @store.update(store_params)
             redirect "/stores/#{@store.id}"
         else
             redirect "/stores/#{@store.id}"
