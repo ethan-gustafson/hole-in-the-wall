@@ -29,7 +29,7 @@ body{
         border: solid black 2px;
         border-radius: 20px;
         margin-bottom: 1%;
-        background-color: #247BA0;
+        background-color: #50514f;
         height: 280px;
     }
 
@@ -56,12 +56,12 @@ body{
     }  */
  
     .home-user-info  a{
-        color: #70C1B3;
+        color: #f25f5c;
         text-shadow: 1px 1px 1px black;
     }
 
     .home-user-info  a:hover{
-        color: #4d837a;
+        color: #d62828;
         transition-duration: 0.4s;
         cursor: pointer;
     }
