@@ -42,13 +42,12 @@ group :development do
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
   gem 'pry', '~> 0.13.1'
   gem 'tux', '~> 0.3.0'
+end
+
+group :development, :production do
   gem 'shotgun', '~> 0.9.2'
 end
 
-# group :development, :production do
-#   gem 'shotgun', '~> 0.9.2'
-# end
-
-# group :production do
-#   gem 'pg', '~> 1.2', '>= 1.2.3'
-# end
+group :production do
+  gem 'pg', '~> 1.2', '>= 1.2.3'
+end
