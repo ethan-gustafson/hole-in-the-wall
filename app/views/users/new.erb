@@ -8,79 +8,81 @@
 </head>
 
 <body>
-    <header id="ls-logo-container" aria-labelledby="ls-logo">
-        <h1 id="ls-logo">Hole in the Wall</h1>
-    </header>
+    <div id="login-page-container">
+        <div id="site-logo-container">
+            <img id="site-logo" src= "/images/Logo.png" alt="Hole in the Wall Logo">
+        </div>
+        
+        <main>
+            <article>
+                <h2 id="ls-greeting">Sign up to review stores considered to be a "Hole in the Wall."</h2>
+                <div id="ls-form-wrap">
+                    <div id="ls-flex-container">
+                        <form id="signup-form" action="/users" method="POST">
 
-    <main>
-        <article>
-            <h2 id="ls-greeting">Sign up to review stores considered to be a "Hole in the Wall."</h2>
-            <div id="ls-form-wrap">
-                <div id="ls-flex-container">
-                    <form id="signup-form" action="/users" method="POST">
+                            <div>
+                                <label for="name">Name:</label>
+                                <input 
+                                class="ls-input-box" 
+                                id="name" 
+                                type="text" 
+                                name="user[name]" 
+                                size="35" 
+                                placeholder="Bob Smith"
+                                <%="value='#{flash[:credentials][:name]}'" if flash[:credentials]%>
+                                autocomplete="on">
+                            </div>
 
+                            <div>
+                                <label for="username">Username:</label>
+                                <input 
+                                class="ls-input-box" 
+                                id="username" 
+                                type="text" 
+                                name="user[username]" 
+                                size="35" 
+                                placeholder="BatmanBeyond"
+                                <%="value='#{flash[:credentials][:username]}'" if flash[:credentials]%>
+                                autocomplete="on">
+                            </div>
+
+                            <div>
+                                <label for="email">Email:</label>
+                                <input 
+                                class="ls-input-box" 
+                                id="email" 
+                                type="email" 
+                                name="user[email]" 
+                                size="35" 
+                                placeholder="name@email.com"
+                                <%="value='#{flash[:credentials][:email]}'" if flash[:credentials]%>
+                                autocomplete="on">
+                            </div>
+
+                            <div>
+                                <label for="password">Password:</label>
+                                <input 
+                                class="ls-input-box" 
+                                id="password" 
+                                type="password" 
+                                name="user[password]" 
+                                size="35" 
+                                placeholder="Password" 
+                                <%="value='#{flash[:credentials][:password]}'" if flash[:credentials]%>
+                                autocomplete="on">
+                            </div>
+
+                            <div id="signup-submit-container">
+                                <input id="ls-submit" type="submit" value="Sign Up">
+                                <%= "<h3 style='color:#e76f62;text-decoration:black underline;' id='invalid-signup'>#{flash[:invalid]}</h3>" if flash[:invalid] %>
+                            </div>
+                        </form>
                         <div>
-                            <label for="name">Name:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="name" 
-                            type="text" 
-                            name="user[name]" 
-                            size="35" 
-                            placeholder="Bob Smith"
-                            <%="value='#{flash[:credentials][:name]}'" if flash[:credentials]%>
-                            autocomplete="on">
+                            <h3 id="ls-login">Have an account? <a href="/login">Log In</a></h3> 
                         </div>
-
-                        <div>
-                            <label for="username">Username:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="username" 
-                            type="text" 
-                            name="user[username]" 
-                            size="35" 
-                            placeholder="BatmanBeyond"
-                            <%="value='#{flash[:credentials][:username]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
-
-                        <div>
-                            <label for="email">Email:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="email" 
-                            type="email" 
-                            name="user[email]" 
-                            size="35" 
-                            placeholder="name@email.com"
-                            <%="value='#{flash[:credentials][:email]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
-
-                        <div>
-                            <label for="password">Password:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="password" 
-                            type="password" 
-                            name="user[password]" 
-                            size="35" 
-                            placeholder="Password" 
-                            <%="value='#{flash[:credentials][:password]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
-
-                        <div id="signup-submit-container">
-                            <input id="ls-submit" type="submit" value="Sign Up">
-                            <%= "<h3 style='color:#e76f62;text-decoration:black underline;' id='invalid-signup'>#{flash[:invalid]}</h3>" if flash[:invalid] %>
-                        </div>
-                    </form>
-                    <div>
-                        <h3 id="ls-login">Have an account? <a href="/login">Log In</a></h3> 
                     </div>
                 </div>
-            </div>
-        </article>
-    </main>
+            </article>
+        </main>
+    </div>
 </body>

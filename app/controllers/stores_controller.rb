@@ -48,15 +48,12 @@ class StoresController < ApplicationController
     # AND if the states has the key, 
 
     post "/stores/results" do
-        parameters = JSON.parse(request_parameters, {symbolize_names: true})
-
-        empty_stores = {stores: "Sorry, we couldn't find any stores"}.to_json
         # if there is a :state param AND a :name param,
-        if parameters[:state] && parameters[:name]
+        if params[:state] && params[:name]
             # and if the states hash has the key, return both results
-            if states.has_key?(parameters[:state].to_sym) 
+            if states.has_key?(params[:state].to_sym) 
                 # method goes here
-                state_stores = store_names_by_state(parameters[:state])
+                state_stores = store_names_by_state(params[:state])
                 if state_stores.empty?
                     empty_stores
                 else

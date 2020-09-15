@@ -44,75 +44,8 @@ function accountEdit(){
         </form>
         <p><a href="${window.location["pathname"]}">Cancel</a></p>
         `;
-        // let form = document.getElementById("user-edit");
-        // accountSubmit(form)
     })
 
 }
-
-// function accountSubmit(form){
-//     var accountInfo = document.getElementById("account-info");
-//     var buttonsContainer = document.getElementById("account-buttons-container");
-
-//     if (!!form){
-//         form.addEventListener("submit", event => {
-//             event.preventDefault();
-
-//             let submitting = document.createElement("p");
-//             submitting.innerHTML = "Submitting..";
-//             accountInfo.appendChild(submitting);
-
-//             let name = document.getElementById("name").value;
-//             let username = document.getElementById("username").value;
-//             let email = document.getElementById("email").value;
-
-//             let updatedUser = {
-//                 name: name,
-//                 username: username,
-//                 email: email
-//             }
-
-//             let post = { 
-//                 method: "PATCH",
-//                 headers: {
-//                     "Content-Type": "application/json",
-//                     "Accept": "application/json"
-//                 },
-//                 body: JSON.stringify(updatedUser)
-//             }
-
-//             fetch(`${window.location["pathname"]}`, post)
-//             .then(resp => resp.json())
-//             .then(json => {
-//                 console.log(json);
-
-//                 if (json.message === "Success"){
-//                     accountInfo.innerHTML = `
-//                         <div id="account-info">
-//                             <h3 id="account-name">${name}</h3>
-//                             <h2 id="account-username">${username}</h2>
-//                             <address>
-//                                 <p id="account-email"><a href="mailto:${email}" subject='Hole in the Wall'>${email}</a></p>
-//                             </address>
-//                             <p style="color:red;">Success :)</p>
-//                         </div>
-//                     `;
-//                     let editButton = document.createElement("button");
-//                     editButton.id = "user-edit-button";
-//                     editButton.innerHTML = "Edit Account"
-//                     buttonsContainer.appendChild(editButton);
-
-//                     editButton.addEventListener("click", event => {
-//                         event.preventDefault();
-//                         accountEdit();
-//                     })
-//                 } else {
-//                     let invalid = "<p>Something Went Wrong</p>"
-//                     accountInfo.appendChild(invalid);
-//                 }
-//             })
-//         })
-//     }
-// }
 
 accountEdit()
