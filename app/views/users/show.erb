@@ -37,7 +37,7 @@
                     <div id="user-reviews-container">
                         <h2>Number of reviews: <%=@user.reviews.count%></h2>
                         <%@user.reviews.each.with_index(1) do |review, index|%>
-                            <h3><%=index%>.) <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%><h3>
+                            <h3><%=index%>.) <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%></h3>
                         <% end %>
                     </div>
                 </section>
@@ -46,7 +46,7 @@
                     <div id="user-favorites-container">
                         <h2>Number of favorites: <%=@user.favorites.count%></h2>
                         <%@favorites.each.with_index(1) do |fav, index|%>
-                            <h3><%=index%>.) <a href="/stores/<%=fav[:store_id]%>"><%=fav[:store_name]%></a>: <a href="/favorites/<%=fav[:id]%>/delete">Delete</a><h3>
+                            <h3><%=index%>.) <a href="/stores/<%=fav[:store_id]%>"><%=fav[:store_name]%></a>: <a href="/favorites/<%=fav[:id]%>/delete">Delete</a></h3>
                         <% end %>
                     </div>
                 </section>
@@ -55,8 +55,8 @@
                     <div id="user-stores-container">
                         <h2>Number of stores you have created: <%=@user.stores.count%></h2>
                         <%@user.stores.each.with_index(1) do |store, index|%>
-                            <h3><%=index%>.) <a href="/stores/<%=store.id%>"><%=store.name%></a><h3>
-                            <p><a href="/stores/<%=store.id%>/edit">Edit</a><p>
+                            <h3><%=index%>.) <a href="/stores/<%=store.id%>"><%=store.name%></a></h3>
+                            <p><a href="/stores/<%=store.id%>/edit">Edit</a></p>
                         <% end %>
                     </div>
                 </section>

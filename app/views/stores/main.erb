@@ -35,9 +35,10 @@
                 <div class="header-color">
                     <h2 class="aggregate-heading">Most Popular Stores</h2>
                 </div>
-                <% popular_stores.each do |store_name, favorites_count|%>
-                    <div id="store-container-<%= store_name %>">
-                        <h3><%= store_name %>: Number of user favorites: <%= favorites_count %></h3>
+                <% @popular_stores.each do |store|%>
+                    <div id="store-container-<%= store[:id] %>">
+                        <h3><a href="/stores/<%= store[:id] %>"><%= store[:name] %></a>:</h3>
+                        <p>Number of user favorites: <%= store[:favorites_count] %></p>
                     </div>
                 <% end %>
             </section>
@@ -46,9 +47,10 @@
                 <div class="header-color">
                     <h2 class="aggregate-heading">Most Reviewed Stores</h2>
                 </div>
-                <% most_reviewed_stores.each do |store_name, reviews_count|%>
-                    <div id="store-container-<%= store_name %>">
-                        <h3><%= store_name %>: Number of user favorites: <%= reviews_count %></h3>
+                <% @most_reviewed_stores.each do |store|%>
+                    <div id="store-container-<%= store[:id] %>">
+                        <h3><a href="/stores/<%= store[:id] %>"><%= store[:name] %></a>:</h3>
+                        <p>Number of user reviews: <%= store[:reviews_count] %></p>
                     </div>
                 <% end %>
             </section>

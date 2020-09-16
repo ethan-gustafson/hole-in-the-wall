@@ -45,34 +45,32 @@ module StoreHelper
 
     def popular_stores # you could turn this into a linked list
         # Store.select(:name).joins(:favorites).group(:name).order(favorites: :asc).maximum(:store_id)
-        @popular_stores = Store.limit(5).select(
-            :name
-        ).joins(
-            :favorites
-        ).group(
-            :name
-        ).order(
-            favorites: :asc
-        ).maximum(
-            :store_id
+        @popular_stores = []
+
+        stores_query = Store.includes(:favorites).limit(5).group(:name).order("MAX(favorites.store_id) DESC").pluck(
+            "stores.id, 
+            stores.name,
+            MAX(favorites.store_id)"
         )
+        stores_query.each do |store|
+            @popular_stores.push({id: store[0], name: store[1], favorites_count: store[2]})
+        end
     end
 
     # most_reviewed_stores will grab the last 5 most reviewed stores out of the bunch based on where the store is located.
 
     def most_reviewed_stores
         # Store.select(:name).joins(:reviews).group(:name).order(reviews: :asc).maximum(:store_id)
-        @most_reviewed_stores = Store.limit(5).select(
-            :name
-        ).joins(
-            :reviews
-        ).group(
-            :name
-        ).order(
-            reviews: :asc
-        ).maximum(
-            :store_id
+        @most_reviewed_stores = []
+        stores_query = Store.includes(:reviews).limit(5).group(:name).order("MAX(reviews.store_id) DESC").pluck(
+            "stores.id, 
+            stores.name,
+            MAX(reviews.store_id)"
         )
+
+        stores_query.each do |store|
+            @most_reviewed_stores.push({id: store[0], name: store[1], reviews_count: store[2]})
+        end
     end
 
     def invalid_resource?

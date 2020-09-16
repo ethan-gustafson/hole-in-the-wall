@@ -5,6 +5,7 @@ class StoresController < ApplicationController
     get "/stores" do # stores#index == get "/stores"
         popular_stores
         most_reviewed_stores
+        
         @state ||= ""
         @stores = Store.pluck(:id, :name, :state)
         @stores_count = Store.all.count
