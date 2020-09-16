@@ -67,7 +67,11 @@ class StoresController < ApplicationController
     end
 
     get '/stores/search-results' do
-        @results = flash[:search_results]
+        if flash[:search_results]
+            @results = flash[:search_results]
+        else
+            @results = []
+        end
         erb :'/stores/results'
     end
 
