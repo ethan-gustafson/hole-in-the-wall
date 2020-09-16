@@ -25,24 +25,22 @@
         border-radius: 2px;
         margin-bottom: 1%;
         background-color: white;
-        height: 280px;
-        border: solid black 1px;
-        box-shadow: 1px 1px 3px #888888;
+        height: 284px;
     }
 
     .google-flex{
         flex: 1 1 40%;
-        margin: 1%;
+        margin: 0% 1% 1% 1%;
     }
 
     .user-info-flex{
         flex: 1 1 60%;
-        margin: 1%;
-        border: solid black 1px;
-        border-radius: 2px;
+        margin: 0% 1% 1% 1%;
         text-align: center;
         background-color: white;
-        box-shadow: 1px 1px 3px #888888;
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
     }
     
     .home-user-info{
@@ -64,11 +62,13 @@
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
-        border: solid black 1px;
-        border-radius: 2px;
         height: 100%;
         width: 100%;
-        box-shadow: 1px 1px 3px #888888;
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        -moz-box-shadow: 1px 1px 4px #EBEBEB;
+        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+        border: 1px solid #C2C2C2;
     }
     
     .home-google-map iframe{
@@ -85,10 +85,13 @@
         margin-top: 0;
         width: 35%;
         height: 78%;
-        border: solid #50514F 2px;
-        border-radius: 2px;
         background-color: white;
         overflow: hidden;
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        -moz-box-shadow: 1px 1px 4px #EBEBEB;
+        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+        border: 1px solid #C2C2C2;
     }
 }
 

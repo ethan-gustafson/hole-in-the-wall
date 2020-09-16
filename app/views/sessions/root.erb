@@ -11,14 +11,14 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main id="home-main">
         <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
-            <!-- <aside id="home-aside">
+            <aside id="home-aside">
                 <iframe
                     width="500" 
                     height="500"
                     rameborder="0" style="border:0;border-radius:20px;"
                     src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
                 </iframe>
-            </aside> -->
+            </aside>
 
             <section class="home-flex-container">
                 <%@home_feed_reviews.each do |review|%>

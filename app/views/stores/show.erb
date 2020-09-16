@@ -10,6 +10,7 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <article id="store-article">
+
             <div id="store-info-container">
                 <section class="google-map">
                     <iframe
@@ -41,8 +42,35 @@
             </div>
 
             <section id="store-reviews">
+
+                <div id="create-review">
+                    <form id="new-review-form" action="/reviews" method="POST">
+                        <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
+                        <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
+
+                        <h3 class="new-review-flex">Create a New Review:</h3>
+
+                        <div class="new-review-flex">
+                            <label for="review-title">Title: </label>
+                            <input id="review-title" type="text" name="review[title]" placeholder="Title">
+                        </div>
+
+                        <div class="new-review-flex">
+                            <label for="review-content">Content: </label>
+                            <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
+                        </div>
+                        
+                        <div class="new-review-flex">
+                            <input id="submit" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
+
+                <div id="top-review-heading">
+                    <h4>Reviews:</h4>
+                </div>
+                
                 <div id="store-reviews-container">
-                <p id="reviews-p"><strong>Reviews:</strong></p>
                     <%@store.reviews.each do |review|%>
                         <article id="review-container-<%=review.id%>">
                             <div id="review-info-<%=review.id%>">
@@ -71,28 +99,6 @@
                         </article>
                     <% end %>
                 </div>
-                <section id="create-review">
-                    <form id="new-review-form" action="/reviews" method="POST">
-                        <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
-                        <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
-
-                        <h3 class="new-review-flex">Create a New Review:</h3>
-
-                        <div class="new-review-flex">
-                            <label for="review-title">Title: </label>
-                            <input id="review-title" type="text" name="review[title]" placeholder="Title">
-                        </div>
-
-                        <div class="new-review-flex">
-                            <label for="review-content">Content: </label>
-                            <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
-                        </div>
-                        
-                        <div class="new-review-flex">
-                            <input id="submit" type="submit" value="Submit">
-                        </div>
-                    </form>
-                </section>
             </section>
         </article>
     </main>

@@ -2,7 +2,7 @@
 
 main {
     display: flex;
-    height: 600px;
+    height: 630px;
     width: 100%;
     margin: 1% auto;
 }
@@ -10,20 +10,19 @@ main {
 #search-create{
     flex: 1 1 60%;
     height: 95%;
-    border: solid black 2px;
-    border-radius: 20px;
-    margin: 1%;
+    border-radius: 2px;
+    border: solid grey 1px;
+    margin: 0% 1% 1% 1%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    background-color: #F25F5C;
+    background-color: white;
+    box-shadow: 1px 2px 5px #888888;
 }
 
 #search-create-headings{
     text-align: center;
-    background-color: #247BA0;
-    border-radius: 10px;
-    border: solid black 1px;
+    background-color: white;
     border-top: 0;
     border-left: 0;
     border-right: 0;
@@ -34,8 +33,11 @@ main {
 }
 
 #search-options{
-    border-radius: 10px;
     width: 100%;
+    border-top: solid grey 1px;
+    border-bottom: solid grey 1px;
+    border-left: 0;
+    border-right: 0;
 }
 
 #align-options{
@@ -46,32 +48,38 @@ main {
 #aggregated{
     flex: 1 1 40%;
     height: 95%;
-    border-radius: 18px;
+    border-radius: 2px;
     overflow: scroll;
-    margin: 1%;
+    margin: 0% 1% 1% 1%;
     text-align: center;
+    box-shadow: 1px 2px 5px #888888;
 }
   
 .store{
-    border: solid black 2px;
-    border-radius: 20px;
-    margin: 1%;
-    background-color: #F25F5C;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.aggregate-heading{
+    color: #F25F5C;
+    text-shadow: 1px 1px 1px black;
 }
 
 .header-color{
-    border-radius: 18px;
-    background-color: #247BA0;
+    background-color: #003049;
+    border-radius: 2px;
     overflow: hidden;
+    border: solid black 2px;
+    box-shadow: 1px 2px 5px #888888;
 }
 
 div[id^="store-container-"]{
-    border: solid black 2px;
-    border-radius: 18px;
+    border-radius: 1px;
     overflow: hidden;
     border-top: 0;
-    border-left: 0;
-    border-right: 0;
+    border-left: solid grey 1px;
+    border-right: solid grey 1px;
+    border-bottom: solid grey 1px;
 }
 /*-----------------Main-End-------------------------*/
 
@@ -79,12 +87,11 @@ div[id^="store-container-"]{
 
 .search-flex{
     width: 100%;
-    height: 56%;
+    height: 100%;
     background-color: white;
-    border: solid black 1px;
     border-left: 0;
     border-right: 0;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
 /* When the layout is thinner than 1015 px, change 
@@ -92,22 +99,23 @@ the flex layout
 */
 
 #form-container{
-    margin-top: 1px;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
 }
 
 #search-form{
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
-    border: solid black 2px;
-    border-radius: 10px;
+    border-radius: 2px;
     height: 100%;
     width: 100%;
-    background-color: #247BA0;
+    background-color: white;
+    box-shadow: 1px 1px 3px grey;
 }
 
 .flex{
     flex: 1 1 33%;
-    margin: 1px;
     width: 75%;
     margin: 1px auto;
 }
@@ -132,6 +140,7 @@ the flex layout
     margin-right: 1%;
     color: #F25F5C;
     text-shadow: 1px 1px 1px black;
+    font-size: 20px;
 }
 
 #search-submit{
@@ -148,43 +157,15 @@ the flex layout
 }
 
 #search-form-state-select, #search-input, #search-submit{
-    border: solid black 2px;
-    border-radius: 10px;
+    border: solid grey 1px;
+    border-radius: 2px;
     padding: 10px;
     color: black;
     text-shadow: 0 0 black;
 }
 
 #search-form-state-select:hover, #search-input:hover, #search-submit:hover{
-    background-color: #bffff4;
+    background-color: rgb(255, 228, 217);
     transition-duration: 0.4s;
 }
-
-#results-flex{
-    flex: 0 1 75%;
-    margin: 1px;
-    border: solid black 2px;
-    border-radius: 10px;
-    background-color: #70C1B3;
-}
-
-#results-container{
-    height: 100%;
-    overflow: scroll;
-    /* text-shadow: 1px 1px 1px black; */
-    display: flex;
-    flex-wrap: wrap;
-    text-align: center;
-}
-
-.result-container{
-    flex: 1 1 35%;
-    border: solid black 2px;
-    border-radius: 10px;
-    margin: 5px;
-    height: 100px;
-    padding: 15px 5px;
-    background-color: white;
-}
-
 /*-----------------Search-End------------------------*/

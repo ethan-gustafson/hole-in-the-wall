@@ -1,6 +1,6 @@
 #store-article{
     width: 100%;
-    height: 620px;
+    height: 628px;
     display: flex;
     margin: 0 auto;
 }
@@ -11,24 +11,21 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    margin: 1% 5% 1% 2%;
+    margin: 1% 2% 1% 2%;
     flex: 1 1 40%;
+    box-shadow: 1px 1px 5px #888888;
 }
 
 #store-description{
-    margin-top: 1%;
-    margin-bottom: 1%;
-    box-shadow: 1px 1px 5px #888888;
     background-color: white;
-    border: solid grey 1px;
-    border-radius: 2px;
+    overflow: scroll;
+    height: 100%;
 }
 
 #description-adjust{
     width: 85%;
     height: 100%;
     margin: 0 auto;
-    overflow: scroll;
 }
 
 #store-reviews{
@@ -36,29 +33,34 @@
     flex-direction: column;
     flex: 1 1 54%;
     text-align: center;
-    height: 650px;
-    margin-right: 1%;
+    margin-top: 1%;
+    margin-right: 2%;
     border-radius: 2px;
+    width: 100%;
+    height: 100%;
 }
 
 #favorite-button{
-    padding-bottom: 3%;
+    margin-bottom: 2%;
 }
 
 #store-reviews-container{
     overflow: scroll;
     background-color: white;
     height: 50%;
+    text-align: left;
+    box-shadow: 0px 1px 3px #888888
+}
+
+#top-review-heading{
     text-align: center;
-    margin: 2% 0;
-    box-shadow: 1px 1px 5px #888888;
-    border-top: solid grey 1px;
+    box-shadow: 0px 1px 3px #888888;
 }
 
 article[id^="review-container-"]{
     width: 100%;
     margin: 0 auto;
-    border: solid grey 1px;
+    border-bottom: 1px solid #C2C2C2;
 }
 
 div[id^="review-info-"]{
@@ -67,22 +69,23 @@ div[id^="review-info-"]{
 }
 
 div[id^="button-container-"]{
-    margin-bottom: 1%;
+    margin: 1%;
+    text-align: center;
 }
 
 .buttons-inline{
     display: inline;
-    margin: 1%;
+    margin: 1% auto;
 }
 
 #create-review{
-    border: solid black 1px;
     border-radius: 2px;
     background-color: white;
-    height: 45%;
+    height: 50%;
     width: 100%;
     text-align: center;
     box-shadow: 1px 1px 5px #888888;
+    margin: 0 0 1% 0;
 }
 
 #new-review-form{
@@ -94,13 +97,16 @@ div[id^="button-container-"]{
 }
 
 #review-title{
-    width: 50%;
+    width: 75%;
     height: 40px;
-    border: 1px solid grey;
-    box-shadow: 1px 1px 3px #888888;
     border-radius: 2px;
     font-size: 18px;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border: 1px solid #C2C2C2;
 }
 
 #review-title:-webkit-autofill::first-line {font-size: 18px}
@@ -109,9 +115,12 @@ div[id^="button-container-"]{
     resize: none;
     width: 75%;
     height: 80px;
-    border: 1px solid grey;
+    /* border: solid grey 1px; */
     border-radius: 2px;
-    box-shadow: 1px 1px 3px #888888;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border: 1px solid #C2C2C2;
     padding: 10px;
 }
 
@@ -120,8 +129,23 @@ div[id^="button-container-"]{
 }
 
 #submit{
-    width: 25%;
+    width: 10%;
+    padding: 10px 0;
     margin: 0 auto;
+    background-color: #F25F5C;
+    color: white;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+
+    cursor: pointer;
+}
+
+#submit:hover{
+    background-color: #D62828;
+    transition-duration: 0.4s;
 }
 
 .new-review-flex{
@@ -134,11 +158,9 @@ div[id^="button-container-"]{
     overflow: hidden;
     padding-bottom: 56.25%;
     position: relative;
-    border-radius: 2px;
-    border: solid grey 1px;
+    border-bottom: solid grey 1px;
     height: 100%;
     width: 100%;
-    box-shadow: 0px 1px 3px #888888;
 }
 
 .google-map iframe{
