@@ -1,6 +1,7 @@
 default: &default
   adapter: sqlite3
   pool: 5 
+  encoding: unicode
   timeout: 5000
 
 development:
@@ -10,3 +11,8 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+
+production:
+  <<: *default
+  adapter: pg
+  database: hole-in-the-wall-production

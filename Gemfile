@@ -17,7 +17,6 @@ gem 'activerecord', '~> 6.0', '>= 6.0.3.2', :require => 'active_record'
 gem 'rake', '~> 13.0', '>= 13.0.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'require_all', '~> 3.0'
-gem 'faker', '~> 2.13'
 
 
 # Each gem MAY specify membership in one or more groups. Any gem that does not specify membership in any group
@@ -42,6 +41,7 @@ group :development do
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
   gem 'pry', '~> 0.13.1'
   gem 'tux', '~> 0.3.0'
+  gem 'faker', '~> 2.13'
 end
 
 group :development, :production do
