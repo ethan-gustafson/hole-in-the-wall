@@ -17,17 +17,17 @@
             <% if !!@current_user_page  %>
                 <%= erb :'/partials/users/_show' %>
 
+                <section class="user-flex">
+                    <div>
+                        <p>Signed up on: <%=@user.created_at%></p>
+                        <p>Updated Account up on: <%=@user.updated_at%></p>
+                    </div>
+                </section>
+
                 <section class="user-flex" id="account">
                     <div id="account-container">
                         <button class="account-button" id="user-edit-button">Edit Account</button>
                         <button class="account-button" id="user-delete-button">Delete Account</button>
-                    </div>
-                </section>
-
-                <section id="timestamp">
-                    <div>
-                        <p>Signed up on: <%=@user.created_at%></p>
-                        <p>Updated Account up on: <%=@user.updated_at%></p>
                     </div>
                 </section>
         </article>

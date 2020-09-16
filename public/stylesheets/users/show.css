@@ -1,7 +1,7 @@
 main{
     width: 80%;
     height: 600px;
-    margin: 0 auto;
+    margin: 2% auto;
 }
 
 #user-info{
@@ -9,52 +9,45 @@ main{
     width: 100%;
     height: 30%;
     border: solid black 2px;
-    border-radius: 10px;
+    border-radius: 4px;
     margin: 1%;
+    padding: 1%;
+    text-align: center;
+    background-color: white;
+    align-items: center;
 }
 
 .user-flex{
     flex: 1 1 25%;
 }
 
-#timestamp{
-    flex: 1 1 25%;
-}
-
 #account-container{
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
-    border-radius: 10px;
-    margin: 1%;
-    height: 98%;
 }
 
 .account-button{
-    flex: 0 1 50%;
+    margin: 1% auto;
+    width: 60%;
+    height: 50px;
 }
 
 #user-data{
     height: 70%;
-    width: 100%;
+    width: 102%;
     display: flex;
+    margin: 1% auto;
+}
+
+#user-reviews-list, #user-favorites-list, #user-stores-list{
+    text-align: center;
+    flex: 1 1 50%;
+    border: solid black 2px;
+    border-radius: 4px;
+    overflow: scroll;
+    background-color: white;
     margin: 1%;
-}
-
-#user-reviews-list{
-    text-align: center;
-    flex: 1 1 50%;
-    border: solid black 2px;
-    border-radius: 10px;
-    overflow: scroll;
-}
-
-#user-favorites-list{
-    text-align: center;
-    flex: 1 1 50%;
-    border: solid black 2px;
-    border-radius: 10px;
-    overflow: scroll;
+    box-shadow: 1px 1px 3px #888888;
 }
 
 #user-favorites-container, #user-reviews-container{

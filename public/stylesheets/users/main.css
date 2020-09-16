@@ -3,6 +3,7 @@
 #home-main{
     height: 600px;
     width: 100%;
+    margin-top: 3%;
 }
 
 @media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
@@ -11,7 +12,7 @@
         width: 60%;
         height: 576px;
         overflow: scroll;
-        border-radius: 4px;
+        border-radius: 2px;
     }
     
     .home-flex-container{
@@ -21,40 +22,37 @@
 
     .inner-flex{
         display: flex;
-        border-radius: 4px;
+        border-radius: 2px;
         margin-bottom: 1%;
-        background-color: #50514F;
+        background-color: white;
         height: 280px;
-        border: solid black 2px;
+        border: solid black 1px;
         box-shadow: 1px 1px 3px #888888;
     }
 
     .google-flex{
-        flex: 1 1 36%;
+        flex: 1 1 40%;
         margin: 1%;
     }
 
     .user-info-flex{
-        flex: 1 1 56%;
+        flex: 1 1 60%;
         margin: 1%;
-        border: solid black 2px;
-        border-radius: 4px;
+        border: solid black 1px;
+        border-radius: 2px;
         text-align: center;
-        background-color: #247BA0;
+        background-color: white;
+        box-shadow: 1px 1px 3px #888888;
     }
     
-    /* .home-user-info{
-        margin: 0 auto;
-        text-align: center;
-        width: 75%;
-        border: solid black 2px;
-        border-radius: 20px;
-    }  */
- 
-    .home-user-info  a{
-        color: #f25f5c;
-        text-shadow: 1px 1px 1px black;
-    }
+    .home-user-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        margin: 1%;
+    } 
 
     .home-user-info  a:hover{
         color: #d62828;
@@ -66,10 +64,11 @@
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
-        border: solid black 2px;
-        border-radius: 4px;
+        border: solid black 1px;
+        border-radius: 2px;
         height: 100%;
         width: 100%;
+        box-shadow: 1px 1px 3px #888888;
     }
     
     .home-google-map iframe{
@@ -87,8 +86,8 @@
         width: 35%;
         height: 78%;
         border: solid #50514F 2px;
-        border-radius: 20px;
-        background-color: #50514F;
+        border-radius: 2px;
+        background-color: white;
         overflow: hidden;
     }
 }

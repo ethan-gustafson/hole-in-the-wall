@@ -11,17 +11,6 @@
     <main>
         <article id="store-article">
             <div id="store-info-container">
-                <h3><%=@store.name%></h3>
-                <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
-                <% if @favorited.nil? %>
-                <section>
-                    <form action="/favorites" method="POST">
-                        <input type="hidden" name="store_id" value="<%=@store.id%>">
-                        <input type="submit" value="Favorite">
-                    </form>
-                </section>
-                <% end %>
-            
                 <section class="google-map">
                     <iframe
                         width="600"
@@ -34,16 +23,26 @@
 
                 <section id="store-description">
                     <div id="description-adjust">
-                        <h3><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h3>
+                        <h3><%=@store.name%></h3>
+                        <%= @store.user_id == current_user.id ? "<p><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></p>" : ""  %>
+                        <h4><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h4>
                         <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
                         <p><%=@store.description%></p>
+                        <% if @favorited.nil? %>
+                        <div id="favorite-button">
+                            <form action="/favorites" method="POST">
+                                <input type="hidden" name="store_id" value="<%=@store.id%>">
+                                <input type="submit" value="Favorite">
+                            </form>
+                        </div>
+                    <% end %>
                     </div>
                 </section>
             </div>
 
             <section id="store-reviews">
-                <h3>Reviews:</h3>
                 <div id="store-reviews-container">
+                <p id="reviews-p"><strong>Reviews:</strong></p>
                     <%@store.reviews.each do |review|%>
                         <article id="review-container-<%=review.id%>">
                             <div id="review-info-<%=review.id%>">

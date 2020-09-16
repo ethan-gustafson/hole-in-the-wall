@@ -88,6 +88,8 @@ a:hover{
         align-items: center;
         justify-content: center;
         width: 100%;
+        margin-block-start: 0;
+        margin-block-end: 0;
     }
 
     #banner-flex-container li{

@@ -44,6 +44,8 @@ body {
     text-shadow: 1px 1px 1px black;
     text-align: center;
     color: #F25F5C;
+    margin-block-start: 0;
+    margin-block-end: 0;
 }
 
 #ls-flex-container{

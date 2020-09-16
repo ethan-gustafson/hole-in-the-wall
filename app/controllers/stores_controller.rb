@@ -26,26 +26,6 @@ class StoresController < ApplicationController
         end
     end
 
-    get "/stores/:id/fetch" do
-        set_store
-        reviews = []
-
-        @store.reviews[0..9].each do |rev|
-            reviews.push({
-                id: rev.id,
-                title: rev.title,
-                content: rev.content,
-                user_id: rev.user_id,
-                store_id: rev.store_id,
-                created_at: rev.created_at,
-                updated_at: rev.updated_at,
-                username: rev.user.username,
-                current_user: current_user.id
-            })
-        end
-        {reviews: reviews}.to_json
-    end
-
     # if there is a state param AND a store name param,
     # AND if the states has the key, 
 
@@ -87,6 +67,7 @@ class StoresController < ApplicationController
     end
 
     get '/stores/search-results' do
+        @results = flash[:search_results]
         erb :'/stores/results'
     end
 
