@@ -126,7 +126,7 @@ class StoresController < ApplicationController
             :website
         )
         hash[:store].store(:user_id, params[:store][:user_id]) if params[:store][:user_id]
-        hash[:store].store(:state, states[params[:store][:state].to_sym])
+        hash[:store].store(:state, params[:store][:state].to_sym)
         hash[:store]
     end
 

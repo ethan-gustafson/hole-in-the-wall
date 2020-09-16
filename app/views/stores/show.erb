@@ -3,45 +3,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/stores/show.css" type="text/css">
 </head>
 
 <body>
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
-        <h2><%=@store.name%></h2>
-        <article>
-            <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
-            <% if @favorited.nil? %>
-            <section>
-                <form action="/favorites" method="POST">
-                    <input type="hidden" name="store_id" value="<%=@store.id%>">
-                    <input type="submit" value="Favorite">
-                </form>
-            </section>
-            <% end %>
-        
-            <section>
-                <iframe
-                    width="600"
-                    height="400"
-                    frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>&q=
-                    <%=@store.name%>+<%=@store.street%>+<%=@store.city%>+<%=@store.state%>+<%=@store.zip_code%>" allowfullscreen>
-                </iframe>
-            </section>
+        <article id="store-article">
+            <div id="store-info-container">
+                <h3><%=@store.name%></h3>
+                <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
+                <% if @favorited.nil? %>
+                <section>
+                    <form action="/favorites" method="POST">
+                        <input type="hidden" name="store_id" value="<%=@store.id%>">
+                        <input type="submit" value="Favorite">
+                    </form>
+                </section>
+                <% end %>
+            
+                <section class="google-map">
+                    <iframe
+                        width="600"
+                        height="400"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=<%=google_api%>&q=
+                        <%=@store.name%>+<%=@store.street%>+<%=@store.city%>+<%=@store.state%>+<%=@store.zip_code%>" allowfullscreen>
+                    </iframe>
+                </section>
 
-            <section>
-                <h3><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h3>
-                <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
-                <p><%=@store.description%></p>
-            </section>
+                <section id="store-description">
+                    <div id="description-adjust">
+                        <h3><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h3>
+                        <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
+                        <p><%=@store.description%></p>
+                    </div>
+                </section>
+            </div>
 
             <section id="store-reviews">
                 <h3>Reviews:</h3>
-                <%@store.reviews.each do |review|%>
-                    <article>
-                       <div> 
-                            <div id="review-<%=review.id%>">
+                <div id="store-reviews-container">
+                    <%@store.reviews.each do |review|%>
+                        <article id="review-container-<%=review.id%>">
+                            <div id="review-info-<%=review.id%>">
                                 <div id="<%=review.title.gsub(' ', '-')%>">
                                     <h4 id="user-review-title-<%=review.id%>"><%=review.title%></h4>
                                     <p>By <a id="review-user-id-<%=review.id%>" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
@@ -55,42 +60,40 @@
                             <% if current_user.id == review.user_id%>
                             <div id="button-container-<%=review.id%>">
 
-                                <p><a href="/reviews/<%=review.id%>/edit">Edit</a></p>
+                                <p class="buttons-inline"><a href="/reviews/<%=review.id%>/edit">Edit</a></p>
 
-                                <form action="/reviews/<%=review.id%>" method="POST">
+                                <form class="buttons-inline" action="/reviews/<%=review.id%>" method="POST">
                                     <input id="hidden" type="hidden" name="_method" value="delete">
                                     <input type="submit" value="Delete">
                                 </form>
 
                             </div>
                             <% end %>
-
-                        </div>
-                    </article>
-                <% end %>
-            </section>
-
-            <section>
-                <article>
-                    <h3>Create a New Review:</h3>
-
+                        </article>
+                    <% end %>
+                </div>
+                <section id="create-review">
                     <form id="new-review-form" action="/reviews" method="POST">
                         <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
                         <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
 
-                        <div>
+                        <h3 class="new-review-flex">Create a New Review:</h3>
+
+                        <div class="new-review-flex">
                             <label for="review-title">Title: </label>
                             <input id="review-title" type="text" name="review[title]" placeholder="Title">
                         </div>
 
-                        <div>
+                        <div class="new-review-flex">
                             <label for="review-content">Content: </label>
                             <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
                         </div>
-
-                        <input type="submit" value="Submit">
+                        
+                        <div class="new-review-flex">
+                            <input id="submit" type="submit" value="Submit">
+                        </div>
                     </form>
-                </article>
+                </section>
             </section>
         </article>
     </main>

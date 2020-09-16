@@ -23,6 +23,8 @@ html {
 body {
     margin: 0;
     padding: 0;
+    background-color: #eae2b7;
+    height: 728px;
 }
 
 button{

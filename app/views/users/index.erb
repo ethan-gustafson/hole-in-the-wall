@@ -3,15 +3,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/users/index.css" type="text/css">
 </head>
 
 <body>
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <article>
-                <ul id="users-grid-container">
+                <ul id="users-flex-container">
                     <%@users.each do |user|%>
-                        <li class="user-grid-item"><a href="/users/<%=user.id%>"><%=user.id%>. <%= user.username %></a></li>
+                        <li class="user-grid-item"><%=user.id%>. <a href="/users/<%=user.id%>"> <%= user.username %></a></li>
                     <%end%>
                 </ul>
         </article>
@@ -20,12 +21,12 @@
             <div id="bottom">
                 <h2>Number of Users: <%=@user_count%></h2>
                 <nav>
-                    <ul id="users-flex-container">
-                        <li class="user-flex-item"><a href="/users/1/accounts">First</a></li>
-                        <li class="user-flex-item"><a href="/users/<%=(@current_page - 1)%>/accounts">Previous</a></li>
-                        <li class="user-flex-item"><a href="/users/<%=@current_page%>/accounts"><%=@current_page%></a></li>
-                        <li class="user-flex-item"><a href="/users/<%=(@current_page + 1)%>/accounts">Next</a></li>
-                        <li class="user-flex-item"><a href="/users/<%=@last_page%>/accounts">Last</a></li>
+                    <ul id="bottom-nav-flex-container">
+                        <li><a href="/users/1/accounts">First</a></li>
+                        <li><a href="/users/<%=(@current_page - 1)%>/accounts">Previous</a></li>
+                        <li><a href="/users/<%=@current_page%>/accounts"><%=@current_page%></a></li>
+                        <li><a href="/users/<%=(@current_page + 1)%>/accounts">Next</a></li>
+                        <li><a href="/users/<%=@last_page%>/accounts">Last</a></li>
                     </ul>
                 </nav>
             </div>

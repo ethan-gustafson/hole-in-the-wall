@@ -45,8 +45,8 @@
                 <section  id="user-favorites-list">
                     <div id="user-favorites-container">
                         <h2>Number of favorites: <%=@user.favorites.count%></h2>
-                        <%@user.favorited_stores.each.with_index(1) do |store, index|%>
-                            <h3><%=index%>.) <a href="/stores/<%=store.id%>"><%=store.name%></a><h3>
+                        <%@favorites.each.with_index(1) do |fav, index|%>
+                            <h3><%=index%>.) <a href="/stores/<%=fav[:store_id]%>"><%=fav[:store_name]%></a>: <a href="/favorites/<%=fav[:id]%>/delete">Delete</a><h3>
                         <% end %>
                     </div>
                 </section>

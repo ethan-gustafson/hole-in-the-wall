@@ -60,9 +60,15 @@ class UsersController < ApplicationController
         @current_user_page = current_user.id == params[:id].to_i
         # if the current user page is true, return current_user, or return the correct user show page
         if @current_user_page
+            @favorites = []
+            favs_query = Favorite.includes(:store).where(favorites: {user_id: current_user.id}).pluck("favorites.id, stores.name, stores.id")
+
+            favs_query.each do |fav|
+                @favorites << {id: fav[0], store_name: fav[1], store_id: fav[2]}
+            end
+
             @user      = current_user
             @reviews   = current_user.reviews[0..4]
-            @favorites = current_user.favorites
         else
             @user    = User.find_by_id(params[:id])
             @reviews = @user.reviews[0..4]

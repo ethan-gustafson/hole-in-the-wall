@@ -9,6 +9,5 @@ class Store < ActiveRecord::Base
 
     # Zip codes in the United States are exactly 5 digits in length
     validates :zip_code, length: { is: 5 }
-    validates :state, length: { is: 2 }
 
 end

@@ -1,45 +1,5 @@
 class FavoritesController < ApplicationController
 
-    get '/favorites' do 
-        favorites = []
-        favs_count = current_user.favorites.count
-        if favs_count > 10
-            favorites_objects = current_user.favorites[0..9]
-            favorites_objects.reverse.each do |fav|
-                favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
-            end
-            {data: favorites, favorites_exceeded_count: true}.to_json
-        else
-            favorites_objects = current_user.favorites
-            favorites_objects.reverse.each do |fav|
-                favorites <<  {id: fav.id, store: fav.store.name, store_id: fav.store_id}
-            end
-            {data: favorites}.to_json
-        end
-    end
-
-    get "/users/:id/favorites/:fav_index_id" do
-        redirect_outside?
-
-        if params[:id].to_i != current_user.id
-            redirect "/users/#{current_user.id}"
-        end
-
-        @current_page = params[:fav_index_id].to_i
-        @favs_count   = current_user.favorites.count
-
-        end_i   = (@current_page * 20) - 1
-        start_i = end_i - 19
-        @favs   = current_user.favorites[start_i..end_i]
-        
-        @favs_count % 20 == 0 ? @last_page = (@favs_count / 20) : @last_page = (@favs_count / 20) + 1
-
-        if @current_page > @last_page || @current_page < 1
-            redirect "users/#{current_user.id}/favorites/1"
-        end
-        erb :'/favorites/index'
-    end
-
     post '/favorites' do 
         already_favorited?
 

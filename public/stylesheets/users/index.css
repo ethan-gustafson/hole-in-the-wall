@@ -1,0 +1,29 @@
+#users-flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user-grid-item{
+    flex: 1 1 20%;
+    margin: 1%;
+}
+
+li{
+    list-style-type: none;
+}
+
+#bottom{
+    text-align: center;
+}
+
+#bottom-nav-flex-container{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#bottom-nav-flex-container li{
+    flex: 1 1 21%;
+    margin: 1%;
+}

@@ -11,7 +11,6 @@
         <article>
             <form id="store-form" action="/stores/<%=@store.id%>" method="POST">
             <input type="hidden" name="_method" value="patch">
-            <input type="hidden" name="store[user_id]" value="<%=current_user.id%>">
                 <div>   
                     <label for="name">Name:</label>
                     <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro" value="<%=@store.name%>">
