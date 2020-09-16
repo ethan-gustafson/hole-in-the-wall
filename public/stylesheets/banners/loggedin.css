@@ -43,8 +43,6 @@ button{
     background-color: #003049;
     overflow: hidden;
     box-shadow: 1px 1px 3px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
     border-bottom: 1px solid #C2C2C2;
 }
 
@@ -90,12 +88,13 @@ a:hover{
     #banner-flex-container{
         color: #e76f62;
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         width: 100%;
         margin-block-start: 0;
         margin-block-end: 0;
+        padding-inline-start: 40px;
+        padding-inline-end: 40px;
     }
 
     #banner-flex-container li{
