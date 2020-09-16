@@ -32,20 +32,29 @@ html {
 body {
     margin: 0 0;
     padding: 0;
-    background-color: #eae2b7;
     height: 728px;
 }
 
-#banner { 
+#banner{ 
     background-color: #003049;
     overflow: hidden;
-    border: solid black 3px;
-    border-radius: 0 0 10px 10px;
-    text-shadow: 1px 1px 1px black;
+
+    box-shadow: 1px 1px 3px #EBEBEB;
+    border-bottom: 1px solid #C2C2C2;
+
     text-align: center;
-    color: #F25F5C;
-    margin-block-start: 0;
-    margin-block-end: 0;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+#banner h1{
+    margin-block-start: 10px;
+    margin-block-end: 10px;
 }
 
 #ls-flex-container{
@@ -53,17 +62,16 @@ body {
     width: 50%;
     display: flex;
     flex-direction: column;
-    border: solid black 2px;
+    background-color: white;
+
     border-radius: 2px;
-    background-color: #50514f;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    border: 1px solid #C2C2C2;
 }
 
 form{
-    background-color: #247BA0;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom: solid black 3px;
     padding-bottom: 10px;
+    border-bottom: 1px solid #C2C2C2;
 }
 
 article {
@@ -82,8 +90,8 @@ a:hover{
 input {
     margin-top: 10px;
     padding: 10px;
-    border: solid black 2px;
-    border-radius: 4px;
+    border: 1px solid #C2C2C2;
+    border-radius: 2px;
     width: 80%;
 }
 
@@ -172,7 +180,11 @@ label{
     }
 
     #ls-submit{
-        padding: 5% 0 5% 0;
+        color: white;
+        width: 15%;
+        padding: 2% 0;
+        border: 0;
+        box-shadow: 1px 1px 3px #EBEBEB;
     }
 
 }

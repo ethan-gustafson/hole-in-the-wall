@@ -2,22 +2,22 @@
 
 main {
     display: flex;
-    height: 630px;
+    height: 628px;
     width: 100%;
     margin: 1% auto;
 }
 
 #search-create{
     flex: 1 1 60%;
-    height: 95%;
-    border-radius: 2px;
-    border: solid grey 1px;
-    margin: 0% 1% 1% 1%;
+    height: 100%;
+    border-radius: 1px;
+    margin: 0% 1% 1% 2%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     background-color: white;
-    box-shadow: 1px 2px 5px #888888;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    border: 1px solid #C2C2C2;
 }
 
 #search-create-headings{
@@ -28,14 +28,10 @@ main {
     border-right: 0;
 }
 
-#search-create-headings h2{
-    text-shadow: 1px 1px 1px black;
-}
-
 #search-options{
     width: 100%;
-    border-top: solid grey 1px;
-    border-bottom: solid grey 1px;
+    border-top: 1px solid #C2C2C2;
+    border-bottom: 1px solid #C2C2C2;
     border-left: 0;
     border-right: 0;
 }
@@ -47,12 +43,13 @@ main {
 
 #aggregated{
     flex: 1 1 40%;
-    height: 95%;
+    height: 100%;
     border-radius: 2px;
     overflow: scroll;
-    margin: 0% 1% 1% 1%;
+    margin: 0% 2% 1% 1%;
     text-align: center;
-    box-shadow: 1px 2px 5px #888888;
+    box-shadow: 1px 1px 3px #EBEBEB;
+    border: 1px solid #C2C2C2;
 }
   
 .store{
@@ -61,7 +58,7 @@ main {
 }
 
 .aggregate-heading{
-    color: #F25F5C;
+    color: white;
     text-shadow: 1px 1px 1px black;
 }
 
@@ -76,10 +73,7 @@ main {
 div[id^="store-container-"]{
     border-radius: 1px;
     overflow: hidden;
-    border-top: 0;
-    border-left: solid grey 1px;
-    border-right: solid grey 1px;
-    border-bottom: solid grey 1px;
+    border-bottom: 1px solid #C2C2C2;
 }
 /*-----------------Main-End-------------------------*/
 
@@ -115,7 +109,7 @@ the flex layout
 }
 
 .flex{
-    flex: 1 1 33%;
+    flex: 0 1 30%;
     width: 75%;
     margin: 1px auto;
 }
@@ -136,19 +130,16 @@ the flex layout
 .el-inside-flex{
     text-align: center;
     flex: 0 1 48%;
-    margin-left: 1%;
-    margin-right: 1%;
-    color: #F25F5C;
-    text-shadow: 1px 1px 1px black;
     font-size: 20px;
 }
 
 #search-submit{
-    padding: 20px 0 20px 0;
+    width: 30%;
+    margin: 0 auto;
 }
 
-#search-form-state-select{
-    width: 50%;
+#search-form-state-select, #search-input{
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -157,7 +148,7 @@ the flex layout
 }
 
 #search-form-state-select, #search-input, #search-submit{
-    border: solid grey 1px;
+    border: 1px solid #C2C2C2;
     border-radius: 2px;
     padding: 10px;
     color: black;

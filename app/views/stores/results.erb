@@ -9,6 +9,7 @@
 <body>
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
+        <h2 id="results-header">Results</h2>
         <article id="results-container">
             <% @results.each.with_index(1) do |store, index|%>
                 <section class="result-container">

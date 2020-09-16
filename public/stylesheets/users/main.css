@@ -3,14 +3,14 @@
 #home-main{
     height: 600px;
     width: 100%;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 @media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
     #home-article{
         margin: 1% 1%;
         width: 60%;
-        height: 576px;
+        height: 628px;
         overflow: scroll;
         border-radius: 2px;
     }
@@ -50,9 +50,14 @@
         width: 100%;
         height: 100%;
         margin: 1%;
+        color: black;
     } 
 
-    .home-user-info  a:hover{
+    .home-user-info a{
+        color: black;
+    }
+
+    .home-user-info a:hover{
         color: #d62828;
         transition-duration: 0.4s;
         cursor: pointer;
@@ -66,8 +71,6 @@
         width: 100%;
         border-radius: 2px;
         box-shadow: 1px 1px 3px #EBEBEB;
-        -moz-box-shadow: 1px 1px 4px #EBEBEB;
-        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
         border: 1px solid #C2C2C2;
     }
     
@@ -89,8 +92,6 @@
         overflow: hidden;
         border-radius: 2px;
         box-shadow: 1px 1px 3px #EBEBEB;
-        -moz-box-shadow: 1px 1px 4px #EBEBEB;
-        -webkit-box-shadow: 1px 1px 4px #EBEBEB;
         border: 1px solid #C2C2C2;
     }
 }
