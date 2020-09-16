@@ -10,7 +10,7 @@
     #home-article{
         margin: 1% 1%;
         width: 60%;
-        height: 628px;
+        height: 626px;
         overflow: scroll;
         border-radius: 2px;
     }
@@ -87,7 +87,7 @@
         right: 2%;
         margin-top: 0;
         width: 35%;
-        height: 78%;
+        height: 86%;
         background-color: white;
         overflow: hidden;
         border-radius: 2px;
@@ -122,63 +122,5 @@
         width: 100%;
         position: absolute;
     }
-    /* #home-aside{
-        visibility: hidden;
-    } */
 }
 /*-----------Home----------------*/
-
-
-
-/*-----------users#index----------------*/
-
-/* main{
-    background-color: rgb(252, 245, 235);
-    padding: 1%;
-}
-
-#users-grid-container{
-    display: grid;
-    grid-template-columns: repeat(5, 21%);
-    grid-template-rows: repeat(4, 26%);
-    gap: 1%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.user-grid-item{
-    font-size: 22px;
-    background-color: rgb(36, 36, 36);
-    padding: 10%;
-    border: solid red 2px;
-}
-
-#users-flex-container{
-    display: flex;
-    justify-content: space-evenly;
-} */
-
-/* .user-flex-item{
-    flex: 1 1 20%;
-} */
-
-/* .user-flex-item a {
-    font-size: 28px;
-    color: black;
-}
-
-.user-flex-item, .user-grid-item{
-    list-style: none;
-}
-
-footer{
-    width: 100%;
-}
-
-#bottom{
-    padding: 2%;
-    background-color: darkgray;
-} */
-
-/*-----------users#index----------------*/

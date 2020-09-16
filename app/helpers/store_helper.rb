@@ -50,10 +50,11 @@ module StoreHelper
         stores_query = Store.includes(:favorites).limit(5).group(:name).order("MAX(favorites.store_id) DESC").pluck(
             "stores.id, 
             stores.name,
+            stores.state,
             MAX(favorites.store_id)"
         )
         stores_query.each do |store|
-            @popular_stores.push({id: store[0], name: store[1], favorites_count: store[2]})
+            @popular_stores.push({id: store[0], name: store[1], state: store[2], favorites_count: store[3]})
         end
     end
 
@@ -65,11 +66,12 @@ module StoreHelper
         stores_query = Store.includes(:reviews).limit(5).group(:name).order("MAX(reviews.store_id) DESC").pluck(
             "stores.id, 
             stores.name,
+            stores.state,
             MAX(reviews.store_id)"
         )
 
         stores_query.each do |store|
-            @most_reviewed_stores.push({id: store[0], name: store[1], reviews_count: store[2]})
+            @most_reviewed_stores.push({id: store[0], name: store[1], state: store[2], reviews_count: store[3]})
         end
     end
 

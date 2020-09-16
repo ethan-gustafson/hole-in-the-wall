@@ -37,7 +37,7 @@
                 </div>
                 <% @popular_stores.each do |store|%>
                     <div id="store-container-<%= store[:id] %>">
-                        <h3><a href="/stores/<%= store[:id] %>"><%= store[:name] %></a>:</h3>
+                        <h3><%= store[:state] %>: <a href="/stores/<%= store[:id] %>"><%= store[:name] %></a></h3>
                         <p>Number of user favorites: <%= store[:favorites_count] %></p>
                     </div>
                 <% end %>
@@ -49,7 +49,7 @@
                 </div>
                 <% @most_reviewed_stores.each do |store|%>
                     <div id="store-container-<%= store[:id] %>">
-                        <h3><a href="/stores/<%= store[:id] %>"><%= store[:name] %></a>:</h3>
+                        <h3><%= store[:state] %>: <a href="/stores/<%= store[:id] %>"><%= store[:name] %></a></h3>
                         <p>Number of user reviews: <%= store[:reviews_count] %></p>
                     </div>
                 <% end %>
