@@ -11,7 +11,7 @@
         width: 60%;
         height: 576px;
         overflow: scroll;
-        border-radius: 10px;
+        border-radius: 4px;
     }
     
     .home-flex-container{
@@ -21,11 +21,12 @@
 
     .inner-flex{
         display: flex;
-        border: solid black 2px;
-        border-radius: 20px;
+        border-radius: 4px;
         margin-bottom: 1%;
-        background-color: #50514f;
+        background-color: #50514F;
         height: 280px;
+        border: solid black 2px;
+        box-shadow: 1px 1px 3px #888888;
     }
 
     .google-flex{
@@ -37,7 +38,7 @@
         flex: 1 1 56%;
         margin: 1%;
         border: solid black 2px;
-        border-radius: 20px;
+        border-radius: 4px;
         text-align: center;
         background-color: #247BA0;
     }
@@ -66,7 +67,7 @@
         padding-bottom: 56.25%;
         position: relative;
         border: solid black 2px;
-        border-radius: 20px;
+        border-radius: 4px;
         height: 100%;
         width: 100%;
     }
