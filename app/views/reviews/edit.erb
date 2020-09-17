@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/reviews/edit.css" type="text/css">
 </head>
 
 <body>
@@ -12,7 +13,7 @@
         <article>
             <%= @store.user_id == current_user.id ? "<h3><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></h3>" : ""  %>
             <% if @favorited.nil? %>
-            <section>
+            <section id="favorites-form">
                 <form action="/favorites" method="POST">
                     <input type="hidden" name="store_id" value="<%=@store.id%>">
                     <input type="submit" value="Favorite">
@@ -20,7 +21,7 @@
             </section>
             <% end %>
         
-            <section>
+            <section class="google-map">
                 <iframe
                     width="600"
                     height="400"
@@ -30,20 +31,30 @@
                 </iframe>
             </section>
 
-            <section>
+            <section id="store-description">
                 <h3><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h3>
                 <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
                 <p><%=@store.description%></p>
             </section>
 
-            <h2>Edit Review</h1>
-            <article>
+            <article id="form-container">
+                <h2>Edit Review</h1>
                 <form action="/reviews/<%=@review.id%>" method="POST">
-                    <input id="hidden" type="hidden" name="_method" value="patch">
-                    <input type="text" name="review[title]" value="<%=@review.title%>">
-                    <textarea name="review[content]"><%=@review.content%></textarea>
+                    <div class="edit-div">
+                        <input id="hidden" type="hidden" name="_method" value="patch">
+                        <label for="review-title">Title:</label>
+                        <input id="review-title" type="text" name="review[title]" value="<%=@review.title%>">
+                    </div>
 
-                    <input type="submit" value="Submit">
+                    <div class="edit-div">
+                        <label for="review-content">Content:</label>
+                        <textarea id="review-content" name="review[content]"><%=@review.content%></textarea>
+                    </div>
+
+                    <div class="edit-div">
+                        <input id="edit-submit" type="submit" value="Submit">
+                    </div>
+
                 </form>
             </article>
         </article>

@@ -6,7 +6,7 @@
     margin-top: 1%;
 }
 
-@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 321px */ 
     #home-article{
         margin: 1% 1%;
         width: 60%;
@@ -97,22 +97,24 @@
 }
 
 
-@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 320px */ 
     #home-article{
         margin: 0 auto;
         width: 100%;
         height: 80%;
+        text-align: center;
     }
     
-    .home-grid-container{
+    .home-flex-container{
         display: flex;
+        flex-direction: column;
     }
 
     .home-google-map{
         overflow: hidden;
         padding-bottom: 56.25%;
         position: relative;
-        border: solid black 2px;
+        border: 1px solid #C2C2C2;
     }
     
     .home-google-map iframe{
@@ -121,6 +123,10 @@
         height: 100%;
         width: 100%;
         position: absolute;
+    }
+
+    #home-aside{
+        display: none;
     }
 }
 /*-----------Home----------------*/

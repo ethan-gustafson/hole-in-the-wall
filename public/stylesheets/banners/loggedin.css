@@ -65,9 +65,9 @@ a:hover{
     transition-duration: 0.4s;
 }
 
-@media screen and (max-width: 320px){ /* Mobile: When the screen is thinner than 320px */ 
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 375px */ 
     #banner-flex-container{
-        color: #e76f62;
+        color: white;
         display: flex;
         flex-wrap: wrap;
         width: 90%;
@@ -76,14 +76,22 @@ a:hover{
 
     #banner-flex-container li{
         list-style: none;
-        flex: 1 0 50%;
+        flex: 1 1 30%;
         margin-bottom: 1%;
-        padding: 3%;
-        border: solid black 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: solid white 1px;
+        padding: 1%;
     } 
+
+    #banner-flex-container a:focus{
+        color: #F25F5C;
+        transition-duration: 0.4s;
+    }
 }
 
-@media screen and (min-width: 321px){ /* Desktop: When the screen is wider than 321px */ 
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 376px */ 
 
     #banner-flex-container{
         color: #e76f62;

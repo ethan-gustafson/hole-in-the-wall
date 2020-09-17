@@ -1,0 +1,29 @@
+main{
+    height: 100%;
+}
+
+#form-container{
+    width: 85%;
+    height: 100%;
+    margin: 1% auto;
+}
+
+form, .store-edit-inputs{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.store-edit-inputs{
+    flex: 0 1 10%;
+    width: 100%;
+    height: 100%;
+}
+
+label{
+    text-align: center;
+}
+
+input[type="text"]{
+    font-size: 18px;
+}

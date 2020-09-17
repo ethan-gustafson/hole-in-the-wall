@@ -1,6 +1,4 @@
 #store-article{
-    width: 100%;
-    height: 628px;
     display: flex;
     margin: 0 auto;
 }
@@ -8,8 +6,6 @@
 #store-info-container{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 100%;
     text-align: center;
     margin: 1% 2% 1% 2%;
     flex: 1 1 40%;
@@ -18,7 +14,6 @@
 
 #store-description{
     background-color: white;
-    overflow: scroll;
     height: 100%;
 }
 
@@ -33,11 +28,7 @@
     flex-direction: column;
     flex: 1 1 54%;
     text-align: center;
-    margin-top: 1%;
-    margin-right: 2%;
     border-radius: 2px;
-    width: 100%;
-    height: 100%;
 }
 
 #favorite-button{
@@ -81,11 +72,8 @@ div[id^="button-container-"]{
 #create-review{
     border-radius: 2px;
     background-color: white;
-    height: 50%;
-    width: 100%;
     text-align: center;
     box-shadow: 1px 1px 5px #888888;
-    margin: 0 0 1% 0;
 }
 
 #new-review-form{
@@ -128,8 +116,11 @@ div[id^="button-container-"]{
     margin: 0 auto;
 }
 
-#submit{
-    width: 10%;
+button, input[type="submit"]{
+    -webkit-appearance:none;
+}
+
+#review-submit{
     padding: 10px 0;
     margin: 0 auto;
     background-color: #F25F5C;
@@ -137,13 +128,10 @@ div[id^="button-container-"]{
     border: 0;
     border-radius: 2px;
     box-shadow: 1px 1px 3px #EBEBEB;
-    -moz-box-shadow: 1px 1px 4px #EBEBEB;
-	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
-
     cursor: pointer;
 }
 
-#submit:hover{
+#review-submit:hover{
     background-color: #D62828;
     transition-duration: 0.4s;
 }
@@ -159,8 +147,6 @@ div[id^="button-container-"]{
     padding-bottom: 56.25%;
     position: relative;
     border-bottom: solid grey 1px;
-    height: 100%;
-    width: 100%;
 }
 
 .google-map iframe{
@@ -169,4 +155,83 @@ div[id^="button-container-"]{
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */
+
+    #store-article{
+        width: 100%;
+        height: 628px;
+    }
+
+    #store-info-container{
+        width: 100%;
+        height: 100%;
+    }
+
+    .google-map{
+        width: 100%;
+        height: 100%;
+    }
+
+    #store-description{
+        overflow: scroll;
+    }
+
+    #create-review{
+        height: 50%;
+        width: 100%;
+        margin: 0 0 1% 0;
+    }
+
+    #store-reviews{
+        width: 100%;
+        height: 100%;
+        margin-top: 1%;
+        margin-right: 2%;
+    }
+
+}
+
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */ 
+
+    #store-info-container{
+        width: 95%;
+        height: 95%;
+        margin: 1% auto;
+    }
+    #store-article{
+        flex-direction: column;
+        height: 100%;
+    }    
+
+    .google-map{
+        width: 100%;
+        height: 50%;
+    }
+
+    #store-description{
+        width: 100%;
+    }
+
+    #create-review{
+        height: 50%;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #store-reviews{
+        margin: 0 auto;
+        width: 95%;
+        height: 100%;
+    }
+
+    #store-reviews-container{
+        margin-bottom: 10%;
+    }
+
+    #review-submit{
+        width: 20%;
+    }
+
 }

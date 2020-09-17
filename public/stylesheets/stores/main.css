@@ -1,5 +1,3 @@
-/*-----------------Main-------------------------*/
-
 main {
     display: flex;
     height: 628px;
@@ -51,24 +49,20 @@ main {
     box-shadow: 1px 1px 3px #EBEBEB;
     border: 1px solid #C2C2C2;
 }
-  
+
 .store{
     border-radius: 2px;
     background-color: white;
 }
 
-.aggregate-heading{
-    color: white;
-    text-shadow: 1px 1px 1px black;
-}
-
 .header-color{
-    background-color: #003049;
     border-radius: 2px;
     overflow: hidden;
     border: solid black 2px;
     box-shadow: 1px 2px 5px #888888;
 }
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 321px */
+/*-----------------Main-------------------------*/
 
 div[id^="store-container-"]{
     border-radius: 1px;
@@ -160,3 +154,16 @@ the flex layout
     transition-duration: 0.4s;
 }
 /*-----------------Search-End------------------------*/
+
+}
+
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 321px */ 
+
+    main{
+        flex-direction: column;
+    }
+
+    #form-container{
+        text-align: center;
+    }
+}

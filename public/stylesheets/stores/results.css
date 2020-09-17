@@ -1,11 +1,9 @@
 #results-container{
     display: flex;
-    flex-wrap: wrap;
 }
 
 .result-container{
     text-align: center;
-    margin: 1%;
     border: solid grey 1px;
     border-radius: 2px;
     box-shadow: 1px 1px 3px grey;
@@ -16,4 +14,36 @@
 
 #results-header{
     text-align: center;
+}
+
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */
+    #results-container{
+        flex-wrap: wrap;
+    }
+
+    .result-container{
+        margin: 1%;
+    }
+}
+
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */ 
+
+    main{
+        height: 90%;
+    }
+
+    article{
+        height: 75%;
+    }
+
+    #results-container{
+        overflow: scroll;
+        flex-direction: column;
+    }
+
+    .result-container{
+        height: 80%;
+        width: 95%;
+        margin: 1% auto;
+    }
 }

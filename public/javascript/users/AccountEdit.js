@@ -22,33 +22,33 @@ function accountEdit(){
         accountInfo.innerHTML = `
         <form id="user-edit" action="${window.location["pathname"]}" method="POST">
 
-            <div class="user-info-info-flex">
+            <div class="user-info-flex">
                 <label for="name">Name:</label>
             </div>
 
-            <div class="user-info-info-flex">
+            <div class="user-info-flex">
                 <input id="hidden" type="hidden" name="_method" value="patch">
-                <input id="name" type="text" name="user[name]" value="${nameInnerText}" autcomplete="on">
+                <input class="input-size" id="name" type="text" name="user[name]" value="${nameInnerText}" autcomplete="on">
             </div>
 
-            <div class="user-info-info-flex">
+            <div class="user-info-flex">
                 <label for="username">Username:</label>
             </div>
 
-            <div class="user-info-info-flex">
-                <input id="username" type="text" name="user[username]" value="${usernameInnerText}" autcomplete="on">
+            <div class="user-info-flex">
+                <input class="input-size" id="username" type="text" name="user[username]" value="${usernameInnerText}" autcomplete="on">
             </div>
 
-            <div class="user-info-info-flex">
+            <div class="user-info-flex">
                 <label for="email">Email:</label>
             </div>
 
-            <div class="user-info-info-flex">
-                <input id="email" type="email" name="user[email]" value="${emailInnerText}" autcomplete="on">
+            <div class="user-info-flex">
+                <input class="input-size" id="email" type="email" name="user[email]" value="${emailInnerText}" autcomplete="on">
             </div>
 
-            <div class="user-info-info-flex">
-                <input id="submit" type="submit" value="Submit Changes"> 
+            <div class="user-info-flex">
+                <input class="submit-edit-button" id="submit" type="submit" value="Submit Changes"> 
             </div>
 
             <p><a href="${window.location["pathname"]}">Cancel</a></p>

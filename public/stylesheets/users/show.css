@@ -1,71 +1,152 @@
-main{
-    width: 80%;
-    height: 600px;
-    margin: 2% auto;
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */
+    main{
+        width: 80%;
+        height: 600px;
+        margin: 2% auto;
+    }
+    
+    input{
+        width: 75%;
+    }
+    
+    #user-info{
+        display: flex;
+        width: 100%;
+        height: 40%;
+    
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+    
+        margin: 1%;
+        padding: 1%;
+        text-align: center;
+        background-color: white;
+        align-items: center;
+    }
+    
+    .first-user-flex, .middle-user-flex, .last-user-flex{
+        flex: 1 1 25%;
+    }
+    
+    #account-container{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .account-button{
+        margin: 1% auto;
+        width: 60%;
+        height: 50px;
+    }
+    
+    #user-data{
+        height: 60%;
+        width: 102%;
+        display: flex;
+        margin: 1% auto;
+    }
+    
+    #user-reviews-list, #user-favorites-list, #user-stores-list{
+        text-align: center;
+        flex: 1 1 50%;
+    
+        overflow: scroll;
+        background-color: white;
+        margin: 1%;
+    
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+    }
+    
+    #user-favorites-container, #user-reviews-container{
+        width: 70%;
+        margin: 0 auto;
+    }
+    
+    #user-edit{
+        display: flex;
+        flex-direction: column;
+        margin: 1% auto;
+    }
+   
 }
 
-input{
-    width: 75%;
-}
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */
 
-#user-info{
-    display: flex;
-    width: 100%;
-    height: 40%;
+    #user-info, #user-data{
+        width: 95%;
+        margin: 1% auto;
+        height: 50%;
+    }
+    
+    #user-info{
+        padding: 1%;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
 
-    border-radius: 2px;
-    box-shadow: 1px 1px 3px #EBEBEB;
-    border: 1px solid #C2C2C2;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-    margin: 1%;
-    padding: 1%;
-    text-align: center;
-    background-color: white;
-    align-items: center;
-}
+    .user-data-box{
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+        border-radius: 2px;
+        margin-bottom: 1%;
+        height: 200px;
+        width: 100%;
+        overflow: scroll;
+    }
 
-.user-flex{
-    flex: 1 1 25%;
-}
+    .input-size{
+        width: 80%;
+    }
 
-#account-container{
-    display: flex;
-    flex-direction: column;
-}
+    .data-container{
+        padding: 1%;
+        width: 95%;
+        margin: 1% auto;
+    }
 
-.account-button{
-    margin: 1% auto;
-    width: 60%;
-    height: 50px;
-}
+    .data{
+        border-bottom: 1px solid #C2C2C2;
+    }
 
-#user-data{
-    height: 60%;
-    width: 102%;
-    display: flex;
-    margin: 1% auto;
-}
+    .first-user-flex{
+        width: 60%;
+        text-align: center;
+    }
 
-#user-reviews-list, #user-favorites-list, #user-stores-list{
-    text-align: center;
-    flex: 1 1 50%;
+    .middle-user-flex{
+        width: 40%;
+        align-self: center;
+        justify-self: center;
+    }
 
-    overflow: scroll;
-    background-color: white;
-    margin: 1%;
+    .last-user-flex{
+        width: 100%;
+        text-align: center;
+    }
 
-    border-radius: 2px;
-    box-shadow: 1px 1px 3px #EBEBEB;
-    border: 1px solid #C2C2C2;
-}
+    #user-edit{
+        margin: 1% auto;
+    }
 
-#user-favorites-container, #user-reviews-container{
-    width: 70%;
-    margin: 0 auto;
-}
+    .account-button{
+        -webkit-appearance:none;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+        border-radius: 2px;
+        width: 90%;
+    }
 
-#user-edit{
-    display: flex;
-    flex-direction: column;
-    margin: 1% auto;
+    .submit-edit-button{
+        -webkit-appearance:none;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+        border-radius: 2px;
+    }
+
 }

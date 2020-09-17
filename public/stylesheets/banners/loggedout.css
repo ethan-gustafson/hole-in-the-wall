@@ -59,7 +59,7 @@ body {
 
 #ls-flex-container{
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -116,7 +116,7 @@ label{
     cursor: pointer;
 }
 
-@media screen and (max-width: 320px) { /* Mobile: When the screen is thinner than 320px */ 
+@media screen and (max-width: 545px) { /* Mobile: When the screen is thinner than 320px */ 
 
     body {
         height: 641px;
@@ -150,13 +150,22 @@ label{
         font-size: 16px;
     }
 
+    #ls-submit{
+        color: white;
+        width: 20%;
+        padding: 2% 0;
+        border: 0;
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+    }
+
 }
 
-@media screen and (min-width: 321px) { /* Desktop: When the screen is wider than 321px */ 
+@media screen and (min-width: 546px) { /* Desktop: When the screen is wider than 321px */ 
 
     #ls-form-wrap {
         margin: 0 auto;
-        width: 75%;
+        width: 50%;
     }
 
     #signup-form-wrap{
@@ -181,9 +190,10 @@ label{
 
     #ls-submit{
         color: white;
-        width: 15%;
+        width: 20%;
         padding: 2% 0;
         border: 0;
+        border-radius: 2px;
         box-shadow: 1px 1px 3px #EBEBEB;
     }
 
