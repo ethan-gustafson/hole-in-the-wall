@@ -67,11 +67,15 @@ class UsersController < ApplicationController
                 @favorites << {id: fav[0], store_name: fav[1], store_id: fav[2]}
             end
 
-            @user      = current_user
-            @reviews   = current_user.reviews[0..4]
+            @user            = current_user
+            @reviews_count   = Review.where(user_id: current_user.id).count
+            @favorites_count = Favorite.where(user_id: current_user.id).count
+            @stores_count    = Store.where(user_id: current_user.id).count
+            @reviews         = current_user.reviews[0..4]
         else
-            @user    = User.find_by_id(params[:id])
-            @reviews = @user.reviews[0..4]
+            @user               = User.find_by_id(params[:id])
+            @user_reviews_count = Review.where(user_id: @user.id).count
+            @reviews            = @user.reviews[0..4]
         end
         erb :'/users/show'
     end

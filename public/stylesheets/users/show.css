@@ -24,6 +24,38 @@
         background-color: white;
         align-items: center;
     }
+
+    #rand-user-info{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    
+        margin: 1%;
+        padding: 1%;
+        text-align: center;
+        background-color: white;
+        align-items: center;
+    }
+
+    .rand-user-data-box{
+        width: 100%;
+        overflow: scroll;
+    }
+
+    #rand-user-reviews-container{
+        width: 100%;
+        margin: 0 auto;
+
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+        padding: 1%;
+    }
+
+    .rand-user-review-content{
+        text-align: left;
+    }
     
     .first-user-flex, .middle-user-flex, .last-user-flex{
         flex: 1 1 25%;
@@ -147,6 +179,53 @@
         box-shadow: 1px 1px 3px #EBEBEB;
         border: 1px solid #C2C2C2;
         border-radius: 2px;
+    }
+
+    #rand-account{
+        text-align: center;
+        margin: 0 auto;
+        width: 95%;
+    }
+
+    .rand-first-user-flex{
+        width: 95%;
+    }
+
+    #rand-user-info{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    
+        margin: 1%;
+        padding: 1%;
+        text-align: center;
+        background-color: white;
+        align-items: center;
+    }
+
+    .rand-user-data-box{
+        width: 100%;
+        overflow: scroll;
+    }
+
+    #rand-user-reviews-container{
+        width: 95%;
+        margin: 0 auto;
+
+        border-radius: 2px;
+        box-shadow: 1px 1px 3px #EBEBEB;
+        border: 1px solid #C2C2C2;
+        padding: 1%;
+        height: 350px;
+    }
+
+    .rand-user-review-content{
+        text-align: left;
+    }
+
+    .rand-border{
+        border-bottom: 1px solid #C2C2C2;
     }
 
 }

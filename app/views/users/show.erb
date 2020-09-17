@@ -13,8 +13,8 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <!-- This is the current user account page -->
-        <article id="user-info">
             <% if !!@current_user_page  %>
+            <article id="user-info">
                 <%= erb :'/partials/users/_show' %>
 
                 <section class="middle-user-flex" id="account-options">
@@ -30,12 +30,12 @@
                         <p>Updated Account up on: <%=@user.updated_at%></p>
                     </div>
                 </section>
-        </article>
+            </article>
 
             <article id="user-data">
                 <section class="user-data-box" id="user-reviews-list">
                     <div class="data-container" id="user-reviews-container">
-                        <h2>Number of reviews: <%=@user.reviews.count%></h2>
+                        <h2>Number of reviews: <%=@reviews_count%></h2>
                         <%@user.reviews.each.with_index(1) do |review, index|%>
                             <div class="data">
                                 <h3><%=index%>.) <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%></h3>
@@ -46,7 +46,7 @@
 
                 <section class="user-data-box" id="user-favorites-list">
                     <div class="data-container" id="user-favorites-container">
-                        <h2>Number of favorites: <%=@user.favorites.count%></h2>
+                        <h2>Number of favorites: <%=@favorites_count%></h2>
                         <%@favorites.each.with_index(1) do |fav, index|%>
                             <div class="data">
                                 <h3><%=index%>.) <a href="/stores/<%=fav[:store_id]%>"><%=fav[:store_name]%></a>: <a href="/favorites/<%=fav[:id]%>/delete">Delete</a></h3>
@@ -57,7 +57,7 @@
 
                 <section class="user-data-box" id="user-stores-list">
                     <div class="data-container" id="user-stores-container">
-                        <h2>Number of stores you have created: <%=@user.stores.count%></h2>
+                        <h2>Number of stores you have created: <%=@stores_count%></h2>
                         <%@user.stores.each.with_index(1) do |store, index|%>
                             <div class="data">
                                 <h3><%=index%>.) <a href="/stores/<%=store.id%>"><%=store.name%></a></h3>
@@ -70,28 +70,28 @@
                 <!-- This is the end of the current user account page -->
             <% else %>
             <!-- This is the random user show page -->
-            <article id="user-info">
-                <section id="account">
-                    <%= erb :'/partials/users/_show' %>
+            <article id="rand-user-info">
+                <section id="rand-account">
+                    <%= erb :'/partials/users/_rand_show' %>
                 </section>
 
-                <section class="user-data-box" id="user-reviews-list">
-                    <div id="user-reviews-container">
-                        <h2>Number of reviews: <%=@user.reviews.count%></h2>
+                <section class="rand-user-data-box" id="rand-user-reviews-list">
+                    <div id="rand-user-reviews-container">
+                        <h2>Number of reviews: <%=@user_reviews_count%></h2>
                             <% @reviews.each.with_index(1) do |review, index| %>
-                            <div>
+                            <div class="rand-border">
                                 <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
-                                <p class="review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
+                                <p class="rand-user-review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
                             </div>
 
-                            <div class="review-content-container">
-                                <p class="review-content"><%=review.content%></p>
+                            <div class="rand-user-review-content-container">
+                                <p class="rand-user-review-content"><%=review.content%></p>
                             </div>
                             <% end %>
                     </div>
                 </section>
                 <!-- This is the end of the random user show page -->
             <% end %>
-        </article>
+            </article>
     </main>
 </body>

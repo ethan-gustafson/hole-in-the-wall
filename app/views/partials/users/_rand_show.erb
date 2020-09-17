@@ -1,0 +1,10 @@
+<section class="rand-first-user-flex">
+    <div id="account-info">
+        <h2 id="account-name"><%= @user.name %></h2>
+        <p id="account-username"><%= @user.username %></p>
+        <p>User id: <%=@user.id%></p>
+        <address>
+            <p id="account-email"><a href="mailto:<%= @user.email %>" subject='Hole in the Wall'><%= @user.email %></a></p>
+        </address>
+    </div>
+</section>
