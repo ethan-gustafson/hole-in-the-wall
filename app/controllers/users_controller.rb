@@ -1,15 +1,18 @@
 class UsersController < ApplicationController
 
-    get "/users/new" do # users#new == get "/users/new" (Signup)
+    get "/users/new" do
         redirect_inside?
-
         erb :'/users/new'
     end
 
-    post "/users" do # users#create == post "/users" 
-        # Sinatra creates a new instance of this application class on every incoming request.
-        # We have access to params, which is a method returning an IndifferentHash.
-        @user = User.new(user_params)
+    post "/users" do
+        @user = User.new(
+            name: params[:user][:name], 
+            username: params[:user][:username], 
+            email: params[:user][:email], 
+            password: params[:user][:password]
+        )
+
         if @user.save
             session[:user_id] = @user.id
             redirect '/' 
@@ -20,11 +23,11 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/users/:id/accounts" do # index == get "/users/:id/accounts"
+    get "/users/:id/accounts" do
         redirect_outside?
 
         @current_page = params[:id].to_i
-        @user_count = User.all.count
+        @user_count = User.count
 
         # We have 20 users per page. Each page will have a group of 20 people. Every following page needs to show the next 20 users.
         # So we know that (1 * 20) is equal to 20. 20 users. For the array index, we minus 1 to set the ending index to 19.
@@ -83,14 +86,12 @@ class UsersController < ApplicationController
     patch "/users/:id" do # users#update == patch "/users/:id"
         is_current_user = current_user.id == params[:id].to_i
 
-        if is_current_user
-            if current_user.update(
+        if is_current_user && current_user.update(
                 name: params[:user][:name],
                 username: params[:user][:username],
                 email: params[:user][:email]
             )
-                redirect "/users/#{current_user.id}"
-            end
+            redirect "/users/#{current_user.id}"
         else
             flash[:invalid_update] = "Invalid Edit"
             redirect "/users/#{current_user.id}"
@@ -102,20 +103,6 @@ class UsersController < ApplicationController
         session.clear
         
         redirect "/login"
-    end
-
-    private
-
-    def user_params
-        key  = require_param(:user)
-        hash = permit_params(
-            key,
-            :name, 
-            :username, 
-            :email
-        )
-        hash[:user].store(:password, params[:user][:password]) if params[:user][:password]
-        hash[:user]
     end
 
 end
