@@ -9,7 +9,7 @@ module StoreHelper
     def store_names_by_state(state_param)
         # Store.where(:state => "FL").pluck(:name)
         state = state_param.to_sym
-        results = Store.where("state = ?", states[state]).pluck(:id, :name, :state).sort
+        results = Store.where("state = ?", state).pluck(:id, :name, :state).sort
         results
     end
 
