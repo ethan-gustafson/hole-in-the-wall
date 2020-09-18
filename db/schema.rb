@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_08_26_205359) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "store_id"

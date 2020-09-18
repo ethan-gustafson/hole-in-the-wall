@@ -1,21 +1,19 @@
 default: &default
+  adapter: postgresql
   pool: 5 
   encoding: unicode
   timeout: 5000
 
 development:
   <<: *default
-  adapter: sqlite3
-  database: db/development.sqlite3
+  database: hitw-development
 
 test:
   <<: *default
-  adapter: sqlite3
-  database: db/test.sqlite3
+  database: hitw-test
 
 production:
   <<: *default
-  adapter: postgresql
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] %>

@@ -47,13 +47,16 @@ module StoreHelper
     # Both popular_stores and most_reviewed_stores return a hash. Makes sense, as we want the name and its corresponding
     # value for the highest number of favorites and reviews of 5 stores.
 
+    # PostgreSQL initially presented an issue with these two queries below. PostgreSQL wouldn't accept them unless I had grouped together
+    # all columns outside of the aggregate in the .group method.
+
     def popular_stores 
         @popular_stores = Store.select(
             "stores.id, 
             stores.name, 
             stores.state, 
             count(favorites.store_id) AS favorites_count"
-        ).joins(:favorites).limit(5).group(:name).order("favorites_count DESC").as_json
+        ).joins(:favorites).limit(5).group("stores.id, stores.name, stores.state").order("favorites_count DESC").as_json
     end
 
     def most_reviewed_stores
@@ -62,7 +65,7 @@ module StoreHelper
             stores.name,
             stores.state, 
             count(reviews.store_id) AS reviews_count"
-        ).joins(:reviews).limit(5).group(:name).order("reviews_count DESC").as_json
+        ).joins(:reviews).limit(5).group("stores.id, stores.name, stores.state").order("reviews_count DESC").as_json
     end
 
     def invalid_resource?

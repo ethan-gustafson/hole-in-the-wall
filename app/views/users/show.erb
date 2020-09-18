@@ -36,9 +36,9 @@
                 <section class="user-data-box" id="user-reviews-list">
                     <div class="data-container" id="user-reviews-container">
                         <h2>Number of reviews: <%=@reviews_count%></h2>
-                        <%@user.reviews.each.with_index(1) do |review, index|%>
+                        <%@reviews.each.with_index(1) do |review, index|%>
                             <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a>: <%=review.title%></h3>
+                                <h3><%=index%>.) <a href="/stores/<%=review['store_id']%>"><%=review['store_name']%></a>: <%=review['title']%></h3>
                             </div>
                         <% end %>
                     </div>
@@ -49,7 +49,7 @@
                         <h2>Number of favorites: <%=@favorites_count%></h2>
                         <%@favorites.each.with_index(1) do |fav, index|%>
                             <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=fav[:store_id]%>"><%=fav[:store_name]%></a>: <a href="/favorites/<%=fav[:id]%>/delete">Delete</a></h3>
+                                <h3><%=index%>.) <a href="/stores/<%=fav['store_id']%>"><%=fav['store_name']%></a>: <a href="/favorites/<%=fav['id']%>/delete">Delete</a></h3>
                             </div>
                         <% end %>
                     </div>
@@ -58,10 +58,10 @@
                 <section class="user-data-box" id="user-stores-list">
                     <div class="data-container" id="user-stores-container">
                         <h2>Number of stores you have created: <%=@stores_count%></h2>
-                        <%@user.stores.each.with_index(1) do |store, index|%>
+                        <%@stores.each.with_index(1) do |store, index|%>
                             <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=store.id%>"><%=store.name%></a></h3>
-                                <p><a href="/stores/<%=store.id%>/edit">Edit</a></p>
+                                <h3><%=index%>.) <a href="/stores/<%=store['id']%>"><%=store['name']%></a></h3>
+                                <p><a href="/stores/<%=store['id']%>/edit">Edit</a></p>
                             </div>
                         <% end %>
                     </div>

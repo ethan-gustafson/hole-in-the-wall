@@ -68,16 +68,11 @@ class UsersController < ApplicationController
         is_current_user
         # if the current user page is true, return current_user, or return the correct user show page
         if @is_current_user
-            @favorites = []
-            favs_query = Favorite.includes(:store).where(favorites: {user_id: current_user.id}).pluck("favorites.id, stores.name, stores.id")
-
-            favs_query.each do |fav|
-                @favorites << {id: fav[0], store_name: fav[1], store_id: fav[2]}
-            end
+            current_user_reviews
+            current_user_favorites
+            current_user_stores
 
             @user            = current_user
-            @reviews         = Review.limit(5).where(user_id: @user.id)
-            
             @reviews_count   = Review.where(user_id: @user.id).count
             @favorites_count = Favorite.where(user_id: @user.id).count
             @stores_count    = Store.where(user_id: @user.id).count
@@ -109,12 +104,6 @@ class UsersController < ApplicationController
         session.clear
         
         redirect "/login"
-    end
-
-    private
-
-    def is_current_user
-        @is_current_user = current_user.id == params[:id].to_i
     end
 
 end
