@@ -29,7 +29,7 @@
                         <h4><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h4>
                         <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
                         <p><%=@store.description%></p>
-                        <% if @favorited %>
+                        <% if !@favorited %>
                         <div id="favorite-button">
                             <form action="/favorites" method="POST">
                                 <input type="hidden" name="store_id" value="<%=@store.id%>">

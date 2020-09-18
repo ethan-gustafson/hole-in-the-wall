@@ -69,7 +69,7 @@ class StoresController < ApplicationController
 
     get "/stores/:id" do # stores#show
         set_store
-        @favorited = !!Favorite.find_by_user_id_and_store_id(current_user.id, params[:id])
+        @favorited = Favorite.find_by_user_id_and_store_id(current_user.id, params[:id])
         erb :'/stores/show'
     end
 
