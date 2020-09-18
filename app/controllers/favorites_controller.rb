@@ -24,7 +24,7 @@ class FavoritesController < ApplicationController
     private
 
     def already_favorited?
-        if Favorite.find_by(user_id: current_user.id, store_id: params[:store_id])
+        if !Favorite.find_by_user_id_and_store_id(current_user.id, params[:store_id]).nil?
             flash[:favorite_error] = "This store is already in your favorites"
             redirect "/stores/#{params[:store_id]}"
         end

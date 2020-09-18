@@ -102,7 +102,12 @@ input:hover{
 
 label{
     display: block;
-    margin-top: 2%;
+    margin-top: 3%;
+}
+
+.signup-label{
+    display: block;
+    margin-top: 1%;
 }
 
 #ls-submit{

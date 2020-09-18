@@ -18,7 +18,12 @@ class UsersController < ApplicationController
             redirect '/' 
         else
             flash[:invalid]     = "Invalid Signup"
-            flash[:credentials] = user_params
+            flash[:credentials] = {
+                name: params[:user][:name], 
+                username: params[:user][:username], 
+                email: params[:user][:email], 
+                password: params[:user][:password]
+            }
             redirect '/users/new'
         end
     end
@@ -60,9 +65,9 @@ class UsersController < ApplicationController
     get "/users/:id" do # users#show == get "/users/:id"
         redirect_outside?
         # current user page is set to a true or false value
-        @current_user_page = current_user.id == params[:id].to_i
+        is_current_user
         # if the current user page is true, return current_user, or return the correct user show page
-        if @current_user_page
+        if @is_current_user
             @favorites = []
             favs_query = Favorite.includes(:store).where(favorites: {user_id: current_user.id}).pluck("favorites.id, stores.name, stores.id")
 
@@ -71,22 +76,23 @@ class UsersController < ApplicationController
             end
 
             @user            = current_user
-            @reviews_count   = Review.where(user_id: current_user.id).count
-            @favorites_count = Favorite.where(user_id: current_user.id).count
-            @stores_count    = Store.where(user_id: current_user.id).count
-            @reviews         = current_user.reviews[0..4]
+            @reviews         = Review.limit(5).where(user_id: @user.id)
+            
+            @reviews_count   = Review.where(user_id: @user.id).count
+            @favorites_count = Favorite.where(user_id: @user.id).count
+            @stores_count    = Store.where(user_id: @user.id).count
         else
             @user               = User.find_by_id(params[:id])
             @user_reviews_count = Review.where(user_id: @user.id).count
-            @reviews            = @user.reviews[0..4]
+            @reviews            = Review.limit(5).where(user_id: @user.id)
         end
         erb :'/users/show'
     end
 
     patch "/users/:id" do # users#update == patch "/users/:id"
-        is_current_user = current_user.id == params[:id].to_i
+        is_current_user
 
-        if is_current_user && current_user.update(
+        if @is_current_user && current_user.update(
                 name: params[:user][:name],
                 username: params[:user][:username],
                 email: params[:user][:email]
@@ -103,6 +109,12 @@ class UsersController < ApplicationController
         session.clear
         
         redirect "/login"
+    end
+
+    private
+
+    def is_current_user
+        @is_current_user = current_user.id == params[:id].to_i
     end
 
 end

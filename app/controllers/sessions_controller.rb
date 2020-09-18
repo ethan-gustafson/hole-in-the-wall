@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     end
 
     post "/" do
-        @user = User.find_by(username: params[:user][:username])
+        @user = User.find_by_username(params[:user][:username])
 
         if !@user.nil? && !!@user.authenticate(params[:user][:password]) 
             session[:user_id] = @user.id 

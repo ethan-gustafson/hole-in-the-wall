@@ -13,8 +13,8 @@
         <article id="results-container">
             <% @results.each.with_index(1) do |store, index|%>
                 <section class="result-container">
-                    <div id="store-container-<%=store[:id]%>">
-                        <h3><%=index%>.) <%=store[:state]%>: <a href="/stores/<%=store[:id]%>"><%=store[:name]%></a></h3>
+                    <div id="store-container-<%=store['id']%>">
+                        <h3><%=index%>.) <%=store['state']%>: <a href="/stores/<%=store['id']%>"><%=store['name']%></a></h3>
                     </div>
                 </section>
             <% end %>

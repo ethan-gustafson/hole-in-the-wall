@@ -13,7 +13,7 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <!-- This is the current user account page -->
-            <% if !!@current_user_page  %>
+            <% if @is_current_user  %>
             <article id="user-info">
                 <%= erb :'/partials/users/_show' %>
 
