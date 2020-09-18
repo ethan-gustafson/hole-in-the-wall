@@ -24,7 +24,6 @@ class StoresController < ApplicationController
             website: params[:store][:website],
             user_id: current_user.id
         )
-        valid_user_store?
 
         if @store.save
             redirect "/stores/#{@store.id}"

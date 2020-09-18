@@ -30,10 +30,6 @@ module ApplicationHelper
     # Putting the api key in the gitignore will hide the key
     # Reading from the file directly will hide the api_key
 
-    def google_api
-        @google_api_key ||= File.read("config/keys/API_KEY.txt")
-    end
-
     def logged_in? 
         !!current_user # will return true if a record is present, will return false if the current_user is nil.
     end

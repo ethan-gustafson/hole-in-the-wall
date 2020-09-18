@@ -76,14 +76,6 @@ module StoreHelper
         end
     end
 
-    def valid_user_store?
-        if current_user.id == @store.user_id 
-            @store
-        else
-            @store = false
-        end
-    end
-
     def valid_state?
        if states.any?{|k, v| v == params[:state]}
         @stores = Store.where(state: params[:state])
