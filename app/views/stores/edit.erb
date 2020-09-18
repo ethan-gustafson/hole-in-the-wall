@@ -10,7 +10,8 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <article id="form-container">
-            <form id="store-form" action="/stores/<%=@store.id%>" method="POST">
+            <h2 id="edit-store">Edit "<%=@store.name%>"</h2>
+            <form role="form" id="store-form" action="/stores/<%=@store.id%>" method="POST" aria-labelledby="edit-store">
             <input type="hidden" name="_method" value="patch">
                 <div class="store-edit-inputs">   
                     <label for="name">Name:</label>
@@ -28,6 +29,7 @@
                 </div>
 
                 <div class="store-edit-inputs">
+                    <label for="search-form-state-select">State:</label>
                     <select name="store[state]" id="search-form-state-select">
                         <option value="<%=@store.state%>"><%=@store.state%></option>
                         <% states.keys.each do |state|%>
@@ -48,7 +50,7 @@
 
                 <div class="store-edit-inputs">
                     <label for="description">Store Description:</label>
-                    <input id="description" type="text" name="store[description]" placeholder="Description" value="<%=@store.description%>">
+                    <textarea id="description" name="store[description]" placeholder="Description" value="<%=@store.description%>"></textarea>
                 </div>
 
                 <div class="store-edit-inputs">

@@ -1,9 +1,12 @@
-
 #store-form{
     width: 75%;
     display: flex;
     flex-direction: column;
     margin: 1% auto;
+}
+
+#create-store{
+    text-align: center;
 }
 
 .form-div{

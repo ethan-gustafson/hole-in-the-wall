@@ -1,5 +1,12 @@
-main{
-    height: 100%;
+#store-form{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    margin: 1% auto;
+}
+
+#edit-store{
+    text-align: center;
 }
 
 #form-container{
@@ -8,8 +15,7 @@ main{
     margin: 1% auto;
 }
 
-form, .store-edit-inputs{
-    height: 100%;
+.store-edit-inputs{
     display: flex;
     flex-direction: column;
 }
@@ -24,6 +30,17 @@ label{
     text-align: center;
 }
 
-input[type="text"]{
-    font-size: 18px;
+input, select{
+    font-size: 16px;
+    padding: 1%;
+    margin: 1%;
+}
+
+textarea{
+    font-size: 16px;
+    margin: 1%;
+    resize: none;
+    width: 98%;
+    height: 150px;
+    padding: 1%;
 }

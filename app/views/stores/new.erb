@@ -10,7 +10,8 @@
     <%= erb :'/partials/banner/_loggedin_banner'%>
     <main>
         <article>
-            <form id="store-form" action='/stores' method="POST">
+            <h2 id="create-store">Create a Store</h2>
+            <form role="form" id="store-form" action='/stores' method="POST" aria-labelledby="create-store">
                 <div class="form-div">   
                     <label for="name">Name:</label>
                     <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro">

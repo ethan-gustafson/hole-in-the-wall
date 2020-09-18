@@ -1,5 +1,5 @@
 <section id="form-container">
-    <form id="search-form" action="/stores/results" method="POST">
+    <form id="search-form" action="/stores/results" method="POST" role="search" aria-label="Search through stores in our database" aria-labelledby="search-options-list">
         <div class="flex">
 
             <div class="inside-flex">
@@ -10,7 +10,6 @@
                         <option value="<%= state %>"><%= state %></option>
                     <% end %>
                 </select>
-                
             </div>
         </div>
 
