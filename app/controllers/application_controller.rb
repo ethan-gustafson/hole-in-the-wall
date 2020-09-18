@@ -21,6 +21,10 @@ class ApplicationController < Sinatra::Base
         enable :sessions
     end
 
+    # Google will send you emails about your exposed API key for google maps on github.
+    # Putting the api key in the gitignore will hide the key
+    # Reading from the file directly will hide the api_key
+
     configure :test, :development do
         set :session_secret, File.read("config/keys/session_secret.txt")
         set :google_api, File.read("config/keys/API_KEY.txt")

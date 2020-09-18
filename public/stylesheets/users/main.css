@@ -6,7 +6,7 @@
     margin-top: 1%;
 }
 
-@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 321px */ 
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */ 
     #home-article{
         margin: 1% 1%;
         width: 60%;
@@ -97,7 +97,7 @@
 }
 
 
-@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 320px */ 
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */ 
     #home-article{
         margin: 0 auto;
         width: 100%;

@@ -6,11 +6,11 @@ module StoreHelper
 
     # Scoping will also return ActiveRecord::Relations.
 
-    # The as_json method, converts an ActiveRecord::Relation into an Array of Associative Arrays(Hashes)
+    # The `as_json` method, converts an ActiveRecord::Relation into an Array of Associative Arrays(Hashes)
     # If your query doesn't return a match, it will return an empty ActiveRecord::Relation array. 
 
     # If you call it on a method like find_by, it will return a hash only, because find_by doesn't return an 
-    # ActiveRecord::Relation. It returns an object of the class.
+    # ActiveRecord::Relation. It returns an instance of the class.
 
     # The difference between select and pluck is that pluck converts a database result into an array, without constructing
     # ActiveRecord Objects.

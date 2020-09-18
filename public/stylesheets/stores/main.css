@@ -61,7 +61,7 @@ main {
     border: solid black 2px;
     box-shadow: 1px 2px 5px #888888;
 }
-@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 321px */
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */
 /*-----------------Main-------------------------*/
 
 div[id^="store-container-"]{
@@ -157,7 +157,7 @@ the flex layout
 
 }
 
-@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 321px */ 
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */ 
 
     main{
         flex-direction: column;

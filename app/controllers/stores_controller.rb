@@ -35,6 +35,7 @@ class StoresController < ApplicationController
     post "/stores/results" do # stores#create-search-results
         popular_stores
         most_reviewed_stores
+        
         if !params[:state].blank? && !params[:name].blank?
             if states.has_key?(params[:state].to_sym) 
                 flash[:search_results] = stores_search(store_names_by_state(params[:state]), params[:name])

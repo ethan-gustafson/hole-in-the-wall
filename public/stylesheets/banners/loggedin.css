@@ -65,7 +65,7 @@ a:hover{
     transition-duration: 0.4s;
 }
 
-@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 375px */ 
+@media screen and (max-width: 545px){ /* Mobile: When the screen is thinner than 545px */ 
     #banner-flex-container{
         color: white;
         display: flex;
@@ -91,7 +91,7 @@ a:hover{
     }
 }
 
-@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 376px */ 
+@media screen and (min-width: 546px){ /* Desktop: When the screen is wider than 546px */ 
 
     #banner-flex-container{
         color: #e76f62;

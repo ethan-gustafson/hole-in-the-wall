@@ -26,9 +26,9 @@ module ApplicationHelper
         @states ||= get_states
     end
 
-    # Google will send you emails about your exposed API key for google maps on github.
-    # Putting the api key in the gitignore will hide the key
-    # Reading from the file directly will hide the api_key
+    def current_user # If there is a session, then a user is logged in. Don't set @current_user again if already set.
+        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
+    end
 
     def logged_in? 
         !!current_user # will return true if a record is present, will return false if the current_user is nil.
@@ -40,10 +40,6 @@ module ApplicationHelper
 
     def redirect_outside?
         redirect '/login' if !logged_in? # if a non-user tries to access pages where they need to be logged in, they will be redirected 
-    end
-
-    def current_user # If there is a session, then a user is logged in. Don't set @current_user again if already set.
-        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
 
 end

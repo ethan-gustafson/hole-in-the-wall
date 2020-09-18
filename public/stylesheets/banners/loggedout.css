@@ -121,7 +121,7 @@ label{
     cursor: pointer;
 }
 
-@media screen and (max-width: 545px) { /* Mobile: When the screen is thinner than 320px */ 
+@media screen and (max-width: 545px) { /* Mobile: When the screen is thinner than 545px */ 
 
     body {
         height: 641px;
@@ -166,7 +166,7 @@ label{
 
 }
 
-@media screen and (min-width: 546px) { /* Desktop: When the screen is wider than 321px */ 
+@media screen and (min-width: 546px) { /* Desktop: When the screen is wider than 546px */ 
 
     #ls-form-wrap {
         margin: 0 auto;
