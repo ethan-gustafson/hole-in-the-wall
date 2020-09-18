@@ -2,7 +2,7 @@ class StoresController < ApplicationController
 
     before { redirect_outside? }
 
-    get "/stores" do
+    get "/stores" do # stores#main
         popular_stores
         most_reviewed_stores
         
@@ -11,9 +11,9 @@ class StoresController < ApplicationController
         erb :'/stores/main'
     end
 
-    get ("/stores/new"){ erb :'/stores/new' } 
+    get ("/stores/new"){ erb :'/stores/new' } # stores#new
 
-     post "/stores" do 
+     post "/stores" do # stores#create
         @store = Store.new(
             name: params[:store][:name],
             street: params[:store][:street],
@@ -33,7 +33,7 @@ class StoresController < ApplicationController
         end
     end
 
-    post "/stores/results" do
+    post "/stores/results" do # stores#create-search-results
         popular_stores
         most_reviewed_stores
         if !params[:state].blank? && !params[:name].blank?
@@ -63,23 +63,23 @@ class StoresController < ApplicationController
         redirect '/stores/search-results'
     end
 
-    get '/stores/search-results' do
+    get '/stores/search-results' do # stores#search-results
         !!flash[:search_results] ? @results = flash[:search_results] : @results = []
         erb :'/stores/results'
     end
 
-    get "/stores/:id" do
+    get "/stores/:id" do # stores#show
         set_store
         @favorited = !!Favorite.find_by_user_id_and_store_id(current_user.id, params[:id])
         erb :'/stores/show'
     end
 
-    get "/stores/:id/edit" do # stores#edit == get "/stores/:id/edit"
+    get "/stores/:id/edit" do # stores#edit
         invalid_resource?
         erb :'/stores/edit'
     end
 
-    patch "/stores/:id" do # stores#update == patch "/stores/:id"
+    patch "/stores/:id" do # stores#update
         invalid_resource?
 
         if @store.update(

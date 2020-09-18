@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 
-    get "/login" do
+    get "/login" do # sessions#new
         redirect_inside?
         erb :'/sessions/login'
     end
 
-    post "/" do
+    post "/" do # sessions#create
         @user = User.find_by_username(params[:user][:username])
 
         if !@user.nil? && !!@user.authenticate(params[:user][:password]) 
@@ -18,13 +18,13 @@ class SessionsController < ApplicationController
         end
     end
 
-    get "/" do
+    get "/" do # root
         redirect_outside?
         @home_feed_reviews = Review.last(5).reverse 
         erb :'/sessions/root'
     end
 
-    get "/logout" do
+    get "/logout" do # sessions#destroy
 		session.clear
 		redirect "/login"
     end

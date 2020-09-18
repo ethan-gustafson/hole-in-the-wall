@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-    get "/users/new" do
+    get "/users/new" do # users#new
         redirect_inside?
         erb :'/users/new'
     end
 
-    post "/users" do
+    post "/users" do # users#create
         @user = User.new(
             name: params[:user][:name], 
             username: params[:user][:username], 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/users/:id/accounts" do
+    get "/users/:id/accounts" do # users#index
         redirect_outside?
 
         @current_page = params[:id].to_i
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
         erb :'users/index'
     end 
 
-    get "/users/:id" do # users#show == get "/users/:id"
+    get "/users/:id" do # users#show
         redirect_outside?
         # current user page is set to a true or false value
         is_current_user
@@ -89,7 +89,7 @@ class UsersController < ApplicationController
         erb :'/users/show'
     end
 
-    patch "/users/:id" do # users#update == patch "/users/:id"
+    patch "/users/:id" do # users#update
         is_current_user
 
         if @is_current_user && current_user.update(
@@ -104,7 +104,7 @@ class UsersController < ApplicationController
         end
     end
 
-    get "/users/:id/delete" do # users#destroy == delete "/users/:id/delete"
+    get "/users/:id/delete" do # users#destroy
         current_user.destroy
         session.clear
         

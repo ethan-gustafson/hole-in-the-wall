@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
 
-    post "/reviews" do # reviews#create == post "/reviews/:id"
+    post "/reviews" do
         @review = Review.new(
             title: params[:review][:title],
             content: params[:review][:content],
@@ -20,10 +20,10 @@ class ReviewsController < ApplicationController
         erb :'/reviews/edit'
     end
 
-    patch "/reviews/:id" do # reviews#update == patch "/reviews/:id"
+    patch "/reviews/:id" do
         find_review
 
-        if @review.user_id == current_user.id
+        if user_is_review_owner
             if @review.update(title: params[:review][:title], content: params[:review][:content])
                 redirect "/stores/#{@review.store_id}"
             end
@@ -32,11 +32,11 @@ class ReviewsController < ApplicationController
         end
     end
 
-    delete "/reviews/:id" do # reviews#destroy == delete "/reviews/:id"
+    delete "/reviews/:id" do 
         find_review
         store_id = @review.store_id
 
-        if @review.user_id == current_user.id
+        if user_is_review_owner
             if @review.destroy 
                 redirect "/stores/#{store_id}"
             end
@@ -51,22 +51,8 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id]) 
     end
 
-    def current_user_reviews_array # returns an array with the [review.id, review.title, review.content, review.user_id, review.store_id, store.name]
-        Review.includes(
-            :store
-        ).where(
-            reviews: {user_id: current_user.id}).pluck(
-                "reviews.id, 
-                reviews.title, 
-                reviews.content, 
-                reviews.user_id, 
-                reviews.store_id, 
-                reviews.created_at,
-                reviews.updated_at,
-                stores.name"
-            )
+    def user_is_review_owner
+        @review.user_id == current_user.id
     end
-
-
 
 end
