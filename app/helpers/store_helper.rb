@@ -53,7 +53,7 @@ module StoreHelper
             stores.name, 
             stores.state, 
             count(favorites.store_id) AS favorites_count"
-        ).joins(:favorites).limit(5).group("stores.name").order("favorites_count DESC").as_json
+        ).joins(:favorites).limit(5).group(:name).order("favorites_count DESC").as_json
     end
 
     def most_reviewed_stores
@@ -62,7 +62,7 @@ module StoreHelper
             stores.name,
             stores.state, 
             count(reviews.store_id) AS reviews_count"
-        ).joins(:reviews).limit(5).group("stores.name").order("reviews_count DESC").as_json
+        ).joins(:reviews).limit(5).group(:name).order("reviews_count DESC").as_json
     end
 
     def invalid_resource?
