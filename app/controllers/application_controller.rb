@@ -2,7 +2,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require 'json'
 require 'time'
-require 'pry'
 require_all 'app/helpers'
 class ApplicationController < Sinatra::Base
     register Sinatra::Flash
