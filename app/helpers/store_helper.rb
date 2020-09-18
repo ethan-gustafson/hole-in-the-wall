@@ -56,8 +56,6 @@ module StoreHelper
         ).joins(:favorites).limit(5).group("stores.name").order("favorites_count DESC").as_json
     end
 
-    # most_reviewed_stores will grab the last 5 most reviewed stores out of the bunch based on where the store is located.
-
     def most_reviewed_stores
         @most_reviewed_stores = Store.select(
             "stores.id, 
