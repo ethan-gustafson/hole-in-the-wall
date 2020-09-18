@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/stores/new.css" type="text/css">
 </head>
 
 <body>
@@ -10,40 +11,42 @@
     <main>
         <article>
             <form id="store-form" action='/stores' method="POST">
-                <div>   
+                <div class="form-div">   
                     <label for="name">Name:</label>
                     <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro">
                 </div>
 
-                <div>
+                <div class="form-div">
                     <label for="street">Street:</label>
                     <input id="street" type="text" name="store[street]" placeholder="600 S Yonge St # 16B">
                 </div>
 
-                <div>
+                <div class="form-div">
                     <label for="city">City:</label>
                     <input id="city" type="text" name="store[city]" placeholder="Ormond Beach">
                 </div>
 
-                <select name="store[state]" id="search-form-state-select">
-                    <% states.keys.each do |state|%>
-                        <option value="<%= state %>"><%= state %></option>
-                    <% end %>
-                </select>
+                <div class="form-div">
+                    <select name="store[state]" id="search-form-state-select">
+                        <% states.keys.each do |state|%>
+                            <option value="<%= state %>"><%= state %></option>
+                        <% end %>
+                    </select>
+                </div>
 
-                <div>
+                <div class="form-div">
                     <label for="zip_code">Zip Code:</label>
                     <input id="zip_code" type="text" name="store[zip_code]" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174">
                 </div>
 
-                <div>
+                <div class="form-div">
                     <label for="website">Website URL:</label>
                     <input id="website" type="text" name="store[website]" placeholder="http://www.saigon-bistro.com/">
                 </div>
 
-                <div>
+                <div class="form-div">
                     <label for="description">Store Description:</label>
-                    <input id="description" type="text" name="store[description]" placeholder="Description" >
+                    <textarea id="description" name="store[description]" placeholder="Description" ></textarea>
                 </div>
 
                 <input type="submit" value="Submit">
