@@ -64,9 +64,9 @@ class UsersController < ApplicationController
 
     get "/users/:id" do # users#show
         redirect_outside?
-        # current user page is set to a true or false value
+        # is_current_user is set to a true or false value
         is_current_user
-        # if the current user page is true, return current_user, or return the correct user show page
+        # if the user is the current user,return current_user, or return the correct user show page
         if @is_current_user
             current_user_reviews
             current_user_favorites
@@ -100,6 +100,7 @@ class UsersController < ApplicationController
     end
 
     get "/users/:id/delete" do # users#destroy
+        redirect_outside?
         current_user.destroy
         session.clear
         
