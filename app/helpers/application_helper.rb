@@ -33,9 +33,9 @@ module ApplicationHelper
     class_name.new(parameters)
   end
 
-  def update_strong_params(params, class_name, *permitted_params)
+  def update_strong_params(params, class_name, object, *permitted_params)
     parameters = add_attributes(params, class_name, *permitted_params)
-    class_name.update(parameters)
+    object.update(parameters)
   end
 
   def get_states
