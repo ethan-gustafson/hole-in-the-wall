@@ -1,97 +1,96 @@
 <head>
-    <title><%=@user.name%></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">
+  <title><%=@user.name%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/users/show.css" type="text/css">
 
-    <script type="application/javascript" src="/javascript/users/AccountEdit.js" charset="UTF-8" defer></script>
-    <script type="application/javascript" src="/javascript/users/AccountDelete.js" charset="UTF-8" defer></script>
+  <script type="application/javascript" src="/javascript/users/AccountEdit.js" charset="UTF-8" defer></script>
+  <script type="application/javascript" src="/javascript/users/AccountDelete.js" charset="UTF-8" defer></script>
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <!-- This is the current user account page -->
-            <% if @is_current_user  %>
-            <article id="user-info">
-                <%= erb :'/partials/users/_show' %>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+  <!-- This is the current user account page -->
+  <% if is_current_user  %>
+    <article id="user-info">
+      <%= erb :'/partials/users/_show' %>
 
-                <section class="middle-user-flex" id="account-options">
-                    <div id="account-container">
-                        <button class="account-button" id="user-edit-button">Edit Account</button>
-                        <button class="account-button" id="user-delete-button">Delete Account</button>
-                    </div>
-                </section>
+      <section class="middle-user-flex" id="account-options">
+        <div id="account-container">
+          <button class="account-button" id="user-edit-button">Edit Account</button>
+          <button class="account-button" id="user-delete-button">Delete Account</button>
+        </div>
+      </section>
 
-                <section class="last-user-flex">
-                    <div>
-                        <p>Signed up on: <%=@user.created_at%></p>
-                        <p>Updated Account up on: <%=@user.updated_at%></p>
-                    </div>
-                </section>
-            </article>
+      <section class="last-user-flex">
+        <div>
+          <p>Signed up on: <%=@user.created_at%></p>
+          <p>Updated Account up on: <%=@user.updated_at%></p>
+        </div>
+      </section>
+    </article>
 
-            <article id="user-data">
-                <section class="user-data-box" id="user-reviews-list">
-                    <div class="data-container" id="user-reviews-container">
-                        <h2>Number of reviews: <%=@reviews_count%></h2>
-                        <%@reviews.each.with_index(1) do |review, index|%>
-                            <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=review['store_id']%>"><%=review['store_name']%></a>: <%=review['title']%></h3>
-                            </div>
-                        <% end %>
-                    </div>
-                </section>
+    <article id="user-data">
+      <section class="user-data-box" id="user-reviews-list">
+        <div class="data-container" id="user-reviews-container">
+          <h2>Number of reviews: <%=@reviews_count%></h2>
+          <%@reviews.each.with_index(1) do |review, index|%>
+            <div class="data">
+              <h3><%=index%>.) <a href="/stores/<%=review.store_id%>"><%=review.store_name%></a>: <%=review.title%></h3>
+            </div>
+          <% end %>
+        </div>
+      </section>
 
-                <section class="user-data-box" id="user-favorites-list">
-                    <div class="data-container" id="user-favorites-container">
-                        <h2>Number of favorites: <%=@favorites_count%></h2>
-                        <%@favorites.each.with_index(1) do |fav, index|%>
-                            <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=fav['store_id']%>"><%=fav['store_name']%></a>: <a href="/favorites/<%=fav['id']%>/delete">Delete</a></h3>
-                            </div>
-                        <% end %>
-                    </div>
-                </section>
+      <section class="user-data-box" id="user-favorites-list">
+        <div class="data-container" id="user-favorites-container">
+          <h2>Number of favorites: <%=@favorites_count%></h2>
+          <%@favorites.each.with_index(1) do |fav, index|%>
+            <div class="data">
+              <h3><%=index%>.) <a href="/stores/<%=fav.store_id%>"><%=fav.store_name%></a>: <a href=<%=delete_favorite_path(fav.id)%>>Delete</a></h3>
+            </div>
+          <% end %>
+        </div>
+      </section>
 
-                <section class="user-data-box" id="user-stores-list">
-                    <div class="data-container" id="user-stores-container">
-                        <h2>Number of stores you have created: <%=@stores_count%></h2>
-                        <%@stores.each.with_index(1) do |store, index|%>
-                            <div class="data">
-                                <h3><%=index%>.) <a href="/stores/<%=store['id']%>"><%=store['name']%></a></h3>
-                                <p><a href="/stores/<%=store['id']%>/edit">Edit</a></p>
-                            </div>
-                        <% end %>
-                    </div>
-                </section>
-            </article>
-                <!-- This is the end of the current user account page -->
-            <% else %>
-            <!-- This is the random user show page -->
-            <article id="rand-user-info">
-                <section id="rand-account">
-                    <%= erb :'/partials/users/_rand_show' %>
-                </section>
+      <section class="user-data-box" id="user-stores-list">
+        <div class="data-container" id="user-stores-container">
+          <h2>Number of stores you have created: <%=@stores_count%></h2>
+          <%@stores.each.with_index(1) do |store, index|%>
+            <div class="data">
+              <h3><%=index%>.) <a href=<%=store_path(store.id)%>><%=store.name%></a></h3>
+              <p><a href=<%=edit_store_path(store.id)%>>Edit</a></p>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </article>
+    <!-- This is the end of the current user account page -->
+  <% else %>
+    <!-- This is the random user show page -->
+    <article id="rand-user-info">
+      <section id="rand-account">
+        <%= erb :'/partials/users/_rand_show' %>
+      </section>
 
-                <section class="rand-user-data-box" id="rand-user-reviews-list">
-                    <div id="rand-user-reviews-container">
-                        <h2>Number of reviews: <%=@user_reviews_count%></h2>
-                            <% @reviews.each.with_index(1) do |review, index| %>
-                            <div class="rand-border">
-                                <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
-                                <p class="rand-user-review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
-                            </div>
-
-                            <div class="rand-user-review-content-container">
-                                <p class="rand-user-review-content"><%=review.content%></p>
-                            </div>
-                            <% end %>
-                    </div>
-                </section>
-                <!-- This is the end of the random user show page -->
-            <% end %>
-            </article>
-    </main>
+      <section class="rand-user-data-box" id="rand-user-reviews-list">
+        <div id="rand-user-reviews-container">
+          <h2>Number of reviews: <%=@user_reviews_count%></h2>
+          <% @reviews.each.with_index(1) do |review, index| %>
+            <div class="rand-border">
+              <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
+              <p class="rand-user-review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>
+            </div>
+            <div class="rand-user-review-content-container">
+              <p class="rand-user-review-content"><%=review.content%></p>
+            </div>
+          <% end %>
+        </div>
+      </section>
+      <!-- This is the end of the random user show page -->
+      <% end %>
+    </article>
+  </main>
 </body>
