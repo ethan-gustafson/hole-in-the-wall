@@ -7,6 +7,6 @@ Bundler.require
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'time'
-require 'pry'
+# require 'pry'
 
 require_all 'app'
