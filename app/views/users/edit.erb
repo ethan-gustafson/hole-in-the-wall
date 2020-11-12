@@ -1,39 +1,39 @@
 <head>
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <h2>Update Account Details:</h2>
-        <article>
-            <div id="form-wrap">
-                <div id="grid-container">
-                    <form action="/user/edit" method="POST">
-                        <input type="hidden" name="_method" value="patch">
-                        <div>
-                            <label for="username">New Username: </label>
-                            <input id="username" type="text" name="user[username]" value="<%=current_user.username%>">
-                        </div>
-
-                        <div>
-                            <label for="name">New Name:</label>
-                            <input id="name" type="text" name="user[name]" value="<%=current_user.name%>">
-                        </div>
-
-                        <div>
-                            <label for="email">New Email:</label>
-                            <input id="email" type="email" name="user[email]" value="<%=current_user.email%>">
-                        </div>
-                        
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+    <h2>Update Account Details:</h2>
+    <article>
+      <div id="form-wrap">
+        <div id="grid-container">
+          <form action="/user/edit" method="POST">
+            <input type="hidden" name="_method" value="patch">
+            <div>
+              <label for="username">New Username: </label>
+              <input id="username" type="text" name="user[username]" value="<%=current_user.username%>">
             </div>
-            <h3>Usernames and emails may already be taken.</h3>
-        </article>
-    </main>
+
+            <div>
+              <label for="name">New Name:</label>
+              <input id="name" type="text" name="user[name]" value="<%=current_user.name%>">
+            </div>
+
+            <div>
+              <label for="email">New Email:</label>
+              <input id="email" type="email" name="user[email]" value="<%=current_user.email%>">
+            </div>
+            
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
+      <h3>Usernames and emails may already be taken.</h3>
+    </article>
+  </main>
 </body>
