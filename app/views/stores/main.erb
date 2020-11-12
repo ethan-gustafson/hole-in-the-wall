@@ -1,59 +1,59 @@
 <head>
-    <title>Store's Main</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="/stylesheets/stores/main.css" type="text/css">
+  <title>Store's Main</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/stores/main.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <article id="search-create">
-            <section id="search-create-headings">
-                <h2><a href="/stores/new">Create A Store </a></h2>
-                <h3>Number of stores in our database: <%=@stores_count%></h3>
-            </section>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+    <article id="search-create">
+      <section id="search-create-headings">
+        <h2><a href="/stores/new">Create A Store </a></h2>
+        <h3>Number of stores in our database: <%=@stores_count%></h3>
+      </section>
 
-            <section id="search-options">
-                <div id="align-options">
-                    <ul id="search-options-list">
-                        <li>To see all stores, hit "submit"</li>
-                        <li>To see all stores in a certain state, change state & hit "submit"</li>
-                        <li>To find specific stores in a certain state, type a name, set the state & hit "submit"</li>
-                    </ul>
-                </div>
-            </section>
+      <section id="search-options">
+        <div id="align-options">
+          <ul id="search-options-list">
+            <li>To see all stores, hit "submit"</li>
+            <li>To see all stores in a certain state, change state & hit "submit"</li>
+            <li>To find specific stores in a certain state, type a name, set the state & hit "submit"</li>
+          </ul>
+        </div>
+      </section>
 
-            <div class="search-flex">
-                <%= erb :'/stores/search' %>
-            </div>
-        </article>
-        
-        <aside id="aggregated">
-            <section class="store">
-                <div class="header-color">
-                    <h2 class="aggregate-heading">Most Popular Stores</h2>
-                </div>
-                <% @popular_stores.each do |store|%>
-                    <div id="store-container-<%= store['id'] %>">
-                        <h3><%= store['state'] %>: <a href="/stores/<%= store['id'] %>"><%= store['name'] %></a></h3>
-                        <p>Number of user favorites: <%= store['favorites_count'] %></p>
-                    </div>
-                <% end %>
-            </section>
+      <div class="search-flex">
+        <%= erb :'/stores/search' %>
+      </div>
+    </article>
 
-            <section class="store">
-                <div class="header-color">
-                    <h2 class="aggregate-heading">Most Reviewed Stores</h2>
-                </div>
-                <% @most_reviewed_stores.each do |store|%>
-                    <div id="store-container-<%= store['id'] %>">
-                        <h3><%= store['state'] %>: <a href="/stores/<%= store['id'] %>"><%= store['name'] %></a></h3>
-                        <p>Number of user reviews: <%= store['reviews_count'] %></p>
-                    </div>
-                <% end %>
-            </section>
-        </aside>
-    </main>
+    <aside id="aggregated">
+      <section class="store">
+        <div class="header-color">
+          <h2 class="aggregate-heading">Most Popular Stores</h2>
+        </div>
+        <% @popular_stores.each do |store|%>
+        <div id="store-container-<%= store.id %>">
+          <h3><%= store.state %>: <a href=<%= store_path(store.id) %>><%= store.name %></a></h3>
+          <p>Number of user favorites: <%= store.favorites_count %></p>
+        </div>
+        <% end %>
+      </section>
+
+      <section class="store">
+        <div class="header-color">
+          <h2 class="aggregate-heading">Most Reviewed Stores</h2>
+        </div>
+        <% @most_reviewed_stores.each do |store|%>
+        <div id="store-container-<%= store.id %>">
+          <h3><%= store.state %>: <a href=<%= store_path(store.id) %>><%= store.name %></a></h3>
+          <p>Number of user reviews: <%= store.reviews_count %></p>
+        </div>
+        <% end %>
+      </section>
+    </aside>
+  </main>
 </body>
