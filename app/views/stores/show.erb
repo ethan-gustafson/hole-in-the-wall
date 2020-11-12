@@ -1,105 +1,98 @@
 <head>
-    <title><%=@store.name%></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="/stylesheets/stores/show.css" type="text/css">
+  <title><%=@store.name%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/stores/show.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <article id="store-article">
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+    <article id="store-article">
+      <div id="store-info-container">
+        <section class="google-map">
+          <iframe
+            width="600"
+            height="400"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/place?key=<%=settings.google_api%>&q=
+            <%=@store.name%>+<%=@store.street%>+<%=@store.city%>+<%=@store.state%>+<%=@store.zip_code%>" allowfullscreen>
+          </iframe>
+        </section>
 
-            <div id="store-info-container">
-                <section class="google-map">
-                    <iframe
-                        width="600"
-                        height="400"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=<%=settings.google_api%>&q=
-                        <%=@store.name%>+<%=@store.street%>+<%=@store.city%>+<%=@store.state%>+<%=@store.zip_code%>" allowfullscreen>
-                    </iframe>
-                </section>
+        <section id="store-description">
+          <div id="description-adjust">
+            <h3><%=@store.name%></h3>
+            <%= @store.user_id == current_user.id ? "<p><a href=#{edit_store_path(@store.id)}>Edit Your Store?</a></p>" : ""  %>
+            <h4><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h4>
+            <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
+            <p><%=@store.description%></p>
+            <% if !@favorited %>
+            <div id="favorite-button">
+              <form action="/favorites" method="POST">
+                <input type="hidden" name="store_id" value="<%=@store.id%>">
+                <input type="submit" value="Favorite">
+              </form>
+            </div>
+           <% end %>
+          </div>
+        </section>
+      </div>
 
-                <section id="store-description">
-                    <div id="description-adjust">
-                        <h3><%=@store.name%></h3>
-                        <%= @store.user_id == current_user.id ? "<p><a href='/stores/#{@store.id}/edit'>Edit Your Store?</a></p>" : ""  %>
-                        <h4><%=@store.street%>, <%=@store.city%>, <%=@store.state%>, <%=@store.zip_code%></h4>
-                        <p><a href="<%=@store.website%>"><%=@store.website%></a></p>
-                        <p><%=@store.description%></p>
-                        <% if !@favorited %>
-                        <div id="favorite-button">
-                            <form action="/favorites" method="POST">
-                                <input type="hidden" name="store_id" value="<%=@store.id%>">
-                                <input type="submit" value="Favorite">
-                            </form>
-                        </div>
-                    <% end %>
-                    </div>
-                </section>
+      <section id="store-reviews">
+        <div id="create-review">
+          <form id="new-review-form" action="/reviews" method="POST">
+            <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
+            <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
+
+            <h3 class="new-review-flex">Create a New Review:</h3>
+
+            <div class="new-review-flex">
+              <label for="review-title">Title: </label>
+              <input id="review-title" type="text" name="review[title]" placeholder="Title">
             </div>
 
-            <section id="store-reviews">
+            <div class="new-review-flex">
+              <label for="review-content">Content: </label>
+              <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
+            </div>
+            
+            <div class="new-review-flex">
+              <input id="review-submit" type="submit" value="Submit">
+            </div>
+          </form>
+        </div>
 
-                <div id="create-review">
-                    <form id="new-review-form" action="/reviews" method="POST">
-                        <input id="store_id" type="hidden" name='review[store_id]' value='<%=@store.id%>'>
-                        <input id="user_id" type="hidden" name='review[user_id]' value='<%=current_user.id%>'>
-
-                        <h3 class="new-review-flex">Create a New Review:</h3>
-
-                        <div class="new-review-flex">
-                            <label for="review-title">Title: </label>
-                            <input id="review-title" type="text" name="review[title]" placeholder="Title">
-                        </div>
-
-                        <div class="new-review-flex">
-                            <label for="review-content">Content: </label>
-                            <textarea id="review-content" name="review[content]" placeholder="Content"></textarea>
-                        </div>
-                        
-                        <div class="new-review-flex">
-                            <input id="review-submit" type="submit" value="Submit">
-                        </div>
-                    </form>
-                </div>
-
-                <div id="top-review-heading">
-                    <h4>Reviews:</h4>
-                </div>
-                
-                <div id="store-reviews-container">
-                    <%@store.reviews.each do |review|%>
-                        <article id="review-container-<%=review.id%>">
-                            <div id="review-info-<%=review.id%>">
-                                <div id="<%=review.title.gsub(' ', '-')%>">
-                                    <h4 id="user-review-title-<%=review.id%>"><%=review.title%></h4>
-                                    <p>By <a id="review-user-id-<%=review.id%>" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
-                                </div>
-                                
-                                <div>
-                                    <p id="user-review-content-<%=review.id%>"><%=review.content%></p>
-                                </div>
-                            </div>
-
-                            <% if current_user.id == review.user_id%>
-                            <div id="button-container-<%=review.id%>">
-
-                                <p class="buttons-inline"><a href="/reviews/<%=review.id%>/edit">Edit</a></p>
-
-                                <form class="buttons-inline" action="/reviews/<%=review.id%>" method="POST">
-                                    <input id="hidden" type="hidden" name="_method" value="delete">
-                                    <input type="submit" value="Delete">
-                                </form>
-
-                            </div>
-                            <% end %>
-                        </article>
-                    <% end %>
-                </div>
-            </section>
+      <div id="top-review-heading">
+        <h4>Reviews:</h4>
+      </div>
+        
+      <div id="store-reviews-container">
+        <%@store.reviews.each do |review|%>
+        <article id="review-container-<%=review.id%>">
+          <div id="review-info-<%=review.id%>">
+            <div id="<%=review.title.gsub(' ', '-')%>">
+              <h4 id="user-review-title-<%=review.id%>"><%=review.title%></h4>
+              <p>By <a id="review-user-id-<%=review.id%>" href="/users/<%=review.user_id%>"><%=review.user.username%></a>:</p>
+            </div>
+            <div>
+              <p id="user-review-content-<%=review.id%>"><%=review.content%></p>
+            </div>
+          </div>
+          <% if current_user.id == review.user_id%>
+          <div id="button-container-<%=review.id%>">
+            <p class="buttons-inline"><a href="/reviews/<%=review.id%>/edit">Edit</a></p>
+            <form class="buttons-inline" action="/reviews/<%=review.id%>" method="POST">
+              <input id="hidden" type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete">
+            </form>
+          </div>
+          <% end %>
         </article>
-    </main>
+        <% end %>
+        </div>
+      </section>
+    </article>
+  </main>
 </body>
