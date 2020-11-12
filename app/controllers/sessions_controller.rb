@@ -1,32 +1,32 @@
 class SessionsController < ApplicationController
+  get "/login" do
+    redirect_current_user_back_to_root?
+    erb :'/sessions/login'
+  end
 
-    get "/login" do # sessions#new
-        redirect_inside?
-        erb :'/sessions/login'
+  post "/" do
+    @user = User.find_by_username(params[:user][:username])
+    if !@user.nil? && @user.authenticate(params[:user][:password]) 
+      session[:user_id] = @user.id 
+      redirect_to root_path
+    else
+      flash[:credentials] = {
+        invalid: "Authentication Failed.",
+        username: params[:user][:username], 
+        password: params[:user][:password]
+      }
+      redirect_to login_path
     end
+  end
 
-    post "/" do # sessions#create
-        @user = User.find_by_username(params[:user][:username])
+  get "/" do
+    redirect_logged_out_user_to_login?
+    @home_feed_reviews = Review.last_five_reviews 
+    erb :'/sessions/root'
+  end
 
-        if !@user.nil? && !!@user.authenticate(params[:user][:password]) 
-            session[:user_id] = @user.id 
-            redirect '/'
-        else
-            flash[:invalid]     = "Authentication Failed."
-            flash[:credentials] = {username: params[:user][:username], password: params[:user][:password]}
-            redirect '/login'
-        end
-    end
-
-    get "/" do # root
-        redirect_outside?
-        @home_feed_reviews = Review.last(5).reverse 
-        erb :'/sessions/root'
-    end
-
-    get "/logout" do # sessions#destroy
-		session.clear
-		redirect "/login"
-    end
-
+  get "/logout" do
+    session.clear
+    redirect_to login_path
+  end
 end
