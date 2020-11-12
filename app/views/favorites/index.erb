@@ -1,25 +1,25 @@
 <head>
-    <title>Favorites <%=@current_page%></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <title>Favorites <%=@current_page%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <h2>Here are all your Favorites!</h1>
-        <article>
-            <%@favs.each.with_index(1) do |favorite, index|%>
-                <section>
-                    <p><%= index %>.) <a href="/stores/<%=favorite.store.id%>"><%= favorite.store.name %></a></p>
-                    <form action="/favorites" method="POST">
-                        <input type="hidden" name="_method" value="delete">
-                        <input type="hidden" name="favorite_id" value="<%=favorite.id%>">
-                        <input id="submit" type="submit" value="delete">                
-                    </form>
-                </section>
-                <% end %>
-        </article>
-    </main>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+    <h2>Here are all your Favorites!</h1>
+    <article>
+    <%@favs.each.with_index(1) do |favorite, index|%>
+      <section>
+        <p><%= index %>.) <a href=<%= store_path(favorite.store.id) %>><%= favorite.store.name %></a></p>
+        <form action="/favorites" method="POST">
+          <input type="hidden" name="_method" value="delete">
+          <input type="hidden" name="favorite_id" value="<%=favorite.id%>">
+          <input id="submit" type="submit" value="delete">                
+        </form>
+      </section>
+    <% end %>
+    </article>
+  </main>
 </body>
