@@ -1,29 +1,28 @@
 <section id="form-container">
-    <form id="search-form" action="/stores/results" method="POST" role="search" aria-label="Search through stores in our database" aria-labelledby="search-options-list">
-        <div class="flex">
+  <form id="search-form" action="/stores/results" method="POST" role="search" aria-label="Search through stores in our database" aria-labelledby="search-options-list">
+    <div class="flex">
+      <div class="inside-flex">
+        <label class="el-inside-flex" for="search-form-state-select">State: </label>
+        <select name="state" class="el-inside-flex" id="search-form-state-select">
+          <option value=""></option>
+          <% states.keys.each do |state|%>
+            <option value="<%= state %>"><%= state %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
 
-            <div class="inside-flex">
-                <label class="el-inside-flex" for="search-form-state-select">State: </label>
-                <select name="state" class="el-inside-flex" id="search-form-state-select">
-                    <option value=""></option>
-                    <% states.keys.each do |state|%>
-                        <option value="<%= state %>"><%= state %></option>
-                    <% end %>
-                </select>
-            </div>
-        </div>
+    <div class="flex">
+      <div class="inside-flex">
+        <label class="el-inside-flex" for="search-input">Name:</label>
+        <input class="el-inside-flex" id="search-input" type="text" name="name" placeholder="Beefy King" autocomplete="on">
+      </div>
+    </div>
 
-        <div class="flex">
-            <div class="inside-flex">
-                <label class="el-inside-flex" for="search-input">Name:</label>
-                <input class="el-inside-flex" id="search-input" type="text" name="name" placeholder="Beefy King" autocomplete="on">
-            </div>
-        </div>
-
-        <div class="flex">
-            <div class="inside-flex flex-submit">
-                <input class="el-inside-flex" id="search-submit" type="submit" value="Submit" autocomplete="on">
-            </div>
-        </div>
-    </form>
+    <div class="flex">
+      <div class="inside-flex flex-submit">
+        <input class="el-inside-flex" id="search-submit" type="submit" value="Submit" autocomplete="on">
+      </div>
+    </div>
+  </form>
 </section>
