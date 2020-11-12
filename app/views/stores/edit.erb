@@ -1,62 +1,62 @@
 <head>
-    <title>Edit: <%=@store.name%></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="/stylesheets/stores/edit.css" type="text/css">
+  <title>Edit: <%=@store.name%></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
+  <link rel="stylesheet" href="/stylesheets/stores/edit.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main>
-        <article id="form-container">
-            <h2 id="edit-store">Edit "<%=@store.name%>"</h2>
-            <form role="form" id="store-form" action="/stores/<%=@store.id%>" method="POST" aria-labelledby="edit-store">
-            <input type="hidden" name="_method" value="patch">
-                <div class="store-edit-inputs">   
-                    <label for="name">Name:</label>
-                    <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro" value="<%=@store.name%>">
-                </div>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main>
+    <article id="form-container">
+      <h2 id="edit-store">Edit "<%=@store.name%>"</h2>
+      <form role="form" id="store-form" action=<%= store_path(@store.id) %> method="POST" aria-labelledby="edit-store">
+        <input type="hidden" name="_method" value="patch">
+        <div class="store-edit-inputs">   
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="store[name]" placeholder="Saigon Bistro" value="<%=@store.name%>">
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="street">Street:</label>
-                    <input id="street" type="text" name="store[street]" placeholder="600 S Yonge St # 16B" value="<%=@store.street%>">
-                </div>
+        <div class="store-edit-inputs">
+          <label for="street">Street:</label>
+          <input id="street" type="text" name="store[street]" placeholder="600 S Yonge St # 16B" value="<%=@store.street%>">
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="city">City:</label>
-                    <input id="city" type="text" name="store[city]" placeholder="Ormond Beach" value="<%=@store.city%>">
-                </div>
+        <div class="store-edit-inputs">
+          <label for="city">City:</label>
+          <input id="city" type="text" name="store[city]" placeholder="Ormond Beach" value="<%=@store.city%>">
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="search-form-state-select">State:</label>
-                    <select name="store[state]" id="search-form-state-select">
-                        <option value="<%=@store.state%>"><%=@store.state%></option>
-                        <% states.keys.each do |state|%>
-                            <option value="<%= state %>"><%= state %></option>
-                        <% end %>
-                    </select>
-                </div>
+        <div class="store-edit-inputs">
+          <label for="search-form-state-select">State:</label>
+          <select name="store[state]" id="search-form-state-select">
+            <option value="<%=@store.state%>"><%=@store.state%></option>
+            <% states.keys.each do |state|%>
+              <option value="<%= state %>"><%= state %></option>
+            <% end %>
+          </select>
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="zip_code">Zip Code:</label>
-                    <input id="zip_code" type="text" name="store[zip_code]" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174" value="<%=@store.zip_code%>">
-                </div>
+        <div class="store-edit-inputs">
+          <label for="zip_code">Zip Code:</label>
+          <input id="zip_code" type="text" name="store[zip_code]" placeholder="600 S Yonge St # 16B, Ormond Beach, FL 32174" value="<%=@store.zip_code%>">
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="website">Website URL:</label>
-                    <input id="website" type="text" name="store[website]" placeholder="http://www.saigon-bistro.com/" value="<%=@store.website%>">
-                </div>
+        <div class="store-edit-inputs">
+          <label for="website">Website URL:</label>
+          <input id="website" type="text" name="store[website]" placeholder="http://www.saigon-bistro.com/" value="<%=@store.website%>">
+        </div>
 
-                <div class="store-edit-inputs">
-                    <label for="description">Store Description:</label>
-                    <textarea id="description" name="store[description]" placeholder="Description"><%=@store.description%></textarea>
-                </div>
+        <div class="store-edit-inputs">
+          <label for="description">Store Description:</label>
+          <textarea id="description" name="store[description]" placeholder="Description"><%=@store.description%></textarea>
+        </div>
 
-                <div class="store-edit-inputs">
-                    <input type="submit" value="Submit">
-                </div>
-            </form>
-        </article>
-    </main>
+        <div class="store-edit-inputs">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </article>
+  </main>
 </body>
