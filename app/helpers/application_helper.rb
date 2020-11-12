@@ -1,45 +1,58 @@
 module ApplicationHelper
+  def redirect_to(path)
+    redirect path
+  end
+  
+  def current_user 
+    @current_user = User.find_by_id(session[:user_id]) if session[:user_id]
+  end
 
-    # The states method is reading from the ./app/assets/files/states.txt file which is a list of all states & their abbreviations.
-    # It will read the file and then split it where there is a line break("\n"). Once it has been turned into an array of values,
-    # it will iterate through each array item and slice the state name as a key, and slice off the ending abbreviation as the value.
-    # The resulting @states instance variable will now hold a hash of key/value pairs of {state: abbreviation}. This method is
-    # only set to run once, when the application is initiated, so that it won't set the @states instance variable again.
+  def logged_in? 
+    !!current_user
+  end
 
-    def get_states
-        filepath     = File.join(".", "app", "assets", "files", "states.txt")
-        file         = File.read(filepath)
-        states_array = file.split("\n")
+  def redirect_current_user_back_to_root?
+    redirect_to root_path if logged_in? 
+  end
 
-        states = {}
+  def redirect_logged_out_user_to_login?
+    redirect_to login_path if !logged_in?
+  end 
 
-        states_array.each do |state|
-            key                = state.slice(0, state.index("-") - 1)
-            value              = state.slice((state.length - 2), state.length)
-            states[key.to_sym] = value
-            @states = states
-        end
-        @states
+  def add_attributes(params, class_name, *permitted_params)
+    required_param = class_name.to_s.downcase.to_sym
+    attributes = {required_param => {}}
+    permitted_params.each do |p|
+      attributes[required_param][p] = params[required_param][p]
     end
+    attributes[required_param]
+  end
 
-    def states
-        @states ||= get_states
-    end
+  def new_strong_params(params, class_name, *permitted_params)
+    parameters = add_attributes(params, class_name, *permitted_params)
+    class_name.new(parameters)
+  end
 
-    def current_user # If there is a session, then a user is logged in. Don't set @current_user again if already set.
-        @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
-    end
+  def update_strong_params(params, class_name, *permitted_params)
+    parameters = add_attributes(params, class_name, *permitted_params)
+    class_name.update(parameters)
+  end
 
-    def logged_in? 
-        !!current_user # will return true if a record is present, will return false if the current_user is nil.
-    end
-    
-    def redirect_inside?
-        redirect '/' if logged_in? # if the current_user tries to access the login page, they will be redirected 
-    end
+  def get_states
+    filepath     = File.join(".", "app", "assets", "files", "states.txt")
+    file         = File.read(filepath)
+    states_array = file.split("\n")
+    states       = {}
 
-    def redirect_outside?
-        redirect '/login' if !logged_in? # if a non-user tries to access pages where they need to be logged in, they will be redirected 
+    states_array.each do |state|
+      key                = state.slice(0, state.index("-") - 1) # Florida
+      value              = state.slice((state.length - 2), state.length) # FL
+      states[key.to_sym] = value
     end
+    states
+  end
 
+  def states
+    @states ||= get_states
+  end
 end
