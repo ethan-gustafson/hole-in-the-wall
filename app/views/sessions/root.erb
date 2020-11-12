@@ -1,56 +1,56 @@
 <head>
-    <title>Hole in the Wall</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <title>Hole in the Wall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="stylesheets/banners/loggedin.css" type="text/css">
-    <link rel="stylesheet" href="stylesheets/users/main.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/banners/loggedin.css" type="text/css">
+  <link rel="stylesheet" href="stylesheets/users/main.css" type="text/css">
 </head>
 
 <body>
-    <%= erb :'/partials/banner/_loggedin_banner'%>
-    <main id="home-main">
-        <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
-            <aside id="home-aside">
-                <iframe
-                    width="500" 
-                    height="500"
-                    rameborder="0" style="border:0;border-radius:20px;"
-                    src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
-                </iframe>
-            </aside>
+  <%= erb :'/partials/banner/_loggedin_banner'%>
+  <main id="home-main">
+    <article id="home-article" role="feed" aria-label="Recent reviews feed featuring google maps">
+      <aside id="home-aside">
+        <iframe
+          width="500" 
+          height="500"
+          rameborder="0" style="border:0;border-radius:20px;"
+          src="https://www.onlyinyourstate.com/florida/hole-in-the-wall-fl/" allowfullscreen>
+        </iframe>
+      </aside>
 
-            <section class="home-flex-container">
-                <%@home_feed_reviews.each do |review|%>
-                    <article class="inner-flex">
-                        <div class="google-flex">
-                            <div class="home-google-map">
-                                <iframe
-                                    width="250"
-                                    height="350"
-                                    frameborder="0" style="border:0"
-                                    src="https://www.google.com/maps/embed/v1/place?key=<%=settings.google_api%>
-                                    &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-
-                        <div class="user-info-flex">
-                            <div class="home-user-info">
-                                <% if !review.user.nil? %>
-                                    <h2><%=review.store.state%>: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                                    <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a> says:</h3>
-                                    <p><%= review.title %></p>
-                                <% else %>
-                                    <h2><%=review.store.state%>: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
-                                    <h3>[deleted] says:</h3> 
-                                    <p><%= review.title %></p>
-                                <% end %>
-                            </div>
-                        </div>
-                    </article>
-                <%end%>
-            </section>
+      <section class="home-flex-container">
+        <h2>Recent Reviews</h2>
+      <%@home_feed_reviews.each do |review|%>
+        <article class="inner-flex">
+          <div class="google-flex">
+            <div class="home-google-map">
+              <iframe
+                width="250"
+                height="350"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key=<%=settings.google_api%>
+                &q=<%=review.store.name%>+<%=review.store.street%>+<%=review.store.city%>+<%=review.store.state%>+<%=review.store.zip_code%>" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+          <div class="user-info-flex">
+            <div class="home-user-info">
+            <% if !review.user.nil? %>
+              <h2><%=review.store.state%>: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+              <h3><a href="/users/<%=review.user.id%>"><%=review.user.username%></a> says:</h3>
+              <p><%= review.title %></p>
+            <% else %>
+              <h2><%=review.store.state%>: <a href="/stores/<%=review.store_id%>"><%=review.store.name%></a></h2>
+              <h3>[deleted] says:</h3> 
+              <p><%= review.title %></p>
+            <% end %>
+            </div>
+          </div>
         </article>
-    </main>
+        <%end%>
+      </section>
+    </article>
+  </main>
 </body>
