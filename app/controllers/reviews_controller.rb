@@ -1,58 +1,33 @@
 class ReviewsController < ApplicationController
+  post "/reviews" do
+    @review = new_strong_params(params, Review, :title, :content, :user_id, :store_id)
+    redirect_to store_path(@review.store_id) if @review.save || !@review.save
+  end
 
-    post "/reviews" do
-        @review = Review.new(
-            title: params[:review][:title],
-            content: params[:review][:content],
-            user_id: params[:review][:user_id],
-            store_id: params[:review][:store_id]
-            )
-        if @review.save
-            redirect "/stores/#{@review.store_id}"
-        else
-            redirect "/stores/#{@review.store_id}"
-        end
+  get "/reviews/:id/edit" do
+    redirect_logged_out_user_to_login?
+    set_review
+    @store = Store.find_by_id(@review.store_id)
+    erb :'/reviews/edit'
+  end
+
+  patch "/reviews/:id" do
+    set_review
+    if review_belongs_to_user && 
+       update_strong_params(params, Review, @review, :title, :content)
+      redirect_to store_path(@review.store_id)
+    else
+      redirect_to store_path(@review.store_id)
     end
+  end
 
-    get "/reviews/:id/edit" do
-        find_review
-        @store = Store.find_by_id(@review.store_id)
-        erb :'/reviews/edit'
+  delete "/reviews/:id" do 
+    set_review
+    store_id = @review.store_id
+    if review_belongs_to_user && @review.destroy 
+      redirect_to store_path(store_id)
+    else
+      redirect_to store_path(store_id)
     end
-
-    patch "/reviews/:id" do
-        find_review
-
-        if user_is_review_owner
-            if @review.update(title: params[:review][:title], content: params[:review][:content])
-                redirect "/stores/#{@review.store_id}"
-            end
-        else
-            redirect "/stores/#{@review.store_id}"
-        end
-    end
-
-    delete "/reviews/:id" do 
-        find_review
-        store_id = @review.store_id
-
-        if user_is_review_owner
-            if @review.destroy 
-                redirect "/stores/#{store_id}"
-            end
-        else
-            redirect "/stores/#{store_id}"
-        end
-    end
-
-    private
-
-    def find_review
-        @review = Review.find_by_id(params[:id]) 
-    end
-
-    def user_is_review_owner
-        @review.user_id == current_user.id
-    end
-
+  end
 end
