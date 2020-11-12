@@ -1,86 +1,85 @@
 <head>
-    <title>Signup</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+  <title>Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/stylesheets/banners/loggedout.css" type="text/css">
-    <script type="application/javascript" src="/javascript/session/Signup.js" charset="UTF-8" defer></script>
+  <link rel="stylesheet" href="/stylesheets/banners/loggedout.css" type="text/css">
+  <script type="application/javascript" src="/javascript/session/Signup.js" charset="UTF-8" defer></script>
 </head>
 
 <body>
-    <header id="banner">
-        <h1>Hole in the Wall</h1>
-    </header>
+  <header id="banner">
+    <h1>Hole in the Wall</h1>
+  </header>
     
-    <main>
-        <article>
-            <h2 id="ls-greeting">Sign up to review stores considered to be a "Hole in the Wall."</h2>
-            <div id="signup-form-wrap">
-                <div id="ls-flex-container">
-                    <form role="form" id="signup-form" action="/users" method="POST" aria-labelledby="ls-greeting">
+  <main>
+    <article>
+      <h2 id="ls-greeting">Sign up to review stores considered to be a "Hole in the Wall."</h2>
+        <div id="signup-form-wrap">
+          <div id="ls-flex-container">
+            <form role="form" id="signup-form" action="/users" method="POST" aria-labelledby="ls-greeting">
+              <div class="signup-flex">
+                <label class="signup-label" for="name">Name:</label>
+                <input 
+                class="ls-input-box" 
+                id="name" 
+                type="text" 
+                name="user[name]" 
+                size="35" 
+                placeholder="Bob Smith"
+                <%="value='#{flash[:credentials][:name]}'" if flash[:credentials]%>
+                autocomplete="on">
+              </div>
 
-                        <div class="signup-flex">
-                            <label class="signup-label" for="name">Name:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="name" 
-                            type="text" 
-                            name="user[name]" 
-                            size="35" 
-                            placeholder="Bob Smith"
-                            <%="value='#{flash[:credentials][:name]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
+              <div class="signup-flex">
+                <label class="signup-label" for="username">Username:</label>
+                <input 
+                class="ls-input-box" 
+                id="username" 
+                type="text" 
+                name="user[username]" 
+                size="35" 
+                placeholder="BatmanBeyond"
+                <%="value='#{flash[:credentials][:username]}'" if flash[:credentials]%>
+                autocomplete="on">
+              </div>
 
-                        <div class="signup-flex">
-                            <label class="signup-label" for="username">Username:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="username" 
-                            type="text" 
-                            name="user[username]" 
-                            size="35" 
-                            placeholder="BatmanBeyond"
-                            <%="value='#{flash[:credentials][:username]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
+              <div class="signup-flex">
+                <label class="signup-label" for="email">Email:</label>
+                <input 
+                class="ls-input-box" 
+                id="email" 
+                type="email" 
+                name="user[email]" 
+                size="35" 
+                placeholder="name@email.com"
+                <%="value='#{flash[:credentials][:email]}'" if flash[:credentials]%>
+                autocomplete="on">
+              </div>
 
-                        <div class="signup-flex">
-                            <label class="signup-label" for="email">Email:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="email" 
-                            type="email" 
-                            name="user[email]" 
-                            size="35" 
-                            placeholder="name@email.com"
-                            <%="value='#{flash[:credentials][:email]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
+              <div class="signup-flex">
+                <label class="signup-label" for="password">Password:</label>
+                <input 
+                class="ls-input-box" 
+                id="password" 
+                type="password" 
+                name="user[password]" 
+                size="35" 
+                placeholder="Password" 
+                <%="value='#{flash[:credentials][:password]}'" if flash[:credentials]%>
+                autocomplete="on">
+              </div>
 
-                        <div class="signup-flex">
-                            <label class="signup-label" for="password">Password:</label>
-                            <input 
-                            class="ls-input-box" 
-                            id="password" 
-                            type="password" 
-                            name="user[password]" 
-                            size="35" 
-                            placeholder="Password" 
-                            <%="value='#{flash[:credentials][:password]}'" if flash[:credentials]%>
-                            autocomplete="on">
-                        </div>
-
-                        <div class="signup-flex" id="signup-submit-container">
-                            <input id="ls-submit" type="submit" value="Sign Up">
-                            <%= "<h3 style='color:#e76f62;text-decoration:black underline;' id='invalid-signup'>#{flash[:invalid]}</h3>" if flash[:invalid] %>
-                        </div>
-                    </form>
-                    <div>
-                        <h3 id="ls-login">Have an account? <a href="/login">Log In</a></h3> 
-                    </div>
-                </div>
-            </div>
-        </article>
-    </main>
+              <div class="signup-flex" id="signup-submit-container">
+                <input id="ls-submit" type="submit" value="Sign Up">
+                <%= "<h3 style='color:#e76f62;text-decoration:black underline;' id='invalid-signup'>#{flash[:credentials][:invalid]}</h3>" if flash[:credentials] && flash[:credentials].has_key?(:invalid)  %>
+              </div>
+            </form>
+          <div>
+            <h3 id="ls-login">Have an account? <a href="/login">Log In</a></h3> 
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
 </body>
