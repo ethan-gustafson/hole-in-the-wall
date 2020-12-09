@@ -1,14 +1,14 @@
 module ApplicationHelper
-  def redirect_to(path)
-    redirect path
-  end
-  
   def current_user 
     @current_user = User.find_by_id(session[:user_id]) if session[:user_id]
   end
 
   def logged_in? 
     !!current_user
+  end
+  
+  def redirect_to(path)
+    redirect path
   end
 
   def redirect_current_user_back_to_root?
