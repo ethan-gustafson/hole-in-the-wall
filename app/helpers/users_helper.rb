@@ -12,10 +12,6 @@ module UsersHelper
     "/users/#{id}"
   end
 
-  def is_current_user
-    current_user.id.equal?(params[:id].to_i)
-  end
-
   def current_user_reviews
     Review
       .joins(:store)
