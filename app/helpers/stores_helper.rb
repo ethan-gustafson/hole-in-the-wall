@@ -34,15 +34,6 @@ module StoresHelper
   # The difference between select and pluck is that pluck converts a database result into an array, without constructing
   # ActiveRecord Objects.
 
-  def invalid_resource?
-    set_store
-    if current_user.id.equal?(@store.user_id)
-      @store 
-    else
-      redirect_to store_path(@store.id)
-    end
-  end
-
   def valid_state?
     if states.any? { |k, v| v.eql?(params[:state]) }
       @stores = Store.where(state: params[:state])
@@ -62,7 +53,6 @@ module StoresHelper
 
   def stores_search(array, search_param)
     @search_results = []
-
     array.each do |store|
       if store.name.respond_to?(:downcase)
         store.name.downcase.include?(search_param) ? @search_results << store : next
@@ -71,25 +61,37 @@ module StoresHelper
     @search_results
   end
 
+  def if_state_exists_and_name_exists(params)
+    if states.has_key?(params[:state].to_sym) 
+      flash[:search_results] = stores_search(store_names_by_state(params[:state]), params[:name])
+    else
+      flash[:search_results] = ["No results found"]
+    end
+  end
+
+  def if_only_state_exists(params)
+    if states.has_key?(params[:state].to_sym) 
+      flash[:search_results] = Store.where(state: params[:state].to_sym)
+    else
+      flash[:search_results] = ["No results found"]
+    end
+  end
+
+  def if_only_name_exists(params)
+    if !store_names(params[:name]).empty?
+      flash[:search_results] = @search_results
+    else
+      flash[:search_results] = ["No results found"]
+    end
+  end
+
   def search_conditions(params)
     if !params[:state].blank? && !params[:name].blank?
-      if states.has_key?(params[:state].to_sym) 
-        flash[:search_results] = stores_search(store_names_by_state(params[:state]), params[:name])
-      else
-        flash[:search_results] = ["No results found"]
-      end
+      if_state_exists_and_name_exists(params)
     elsif !params[:state].blank? && params[:name].blank?
-      if states.has_key?(params[:state].to_sym) 
-        flash[:search_results] = Store.where(state: params[:state].to_sym)
-      else
-        flash[:search_results] = ["No results found"]
-      end
+      if_only_state_exists(params)
     elsif params[:state].blank? && !params[:name].blank?
-      if !store_names(params[:name]).empty?
-        flash[:search_results] = @search_results
-      else
-        flash[:search_results] = ["No results found"]
-      end
+      if_only_name_exists(params)
     else
       flash[:search_results] = Store.select(:id, :name, :state).order(state: :asc).as_json
     end
