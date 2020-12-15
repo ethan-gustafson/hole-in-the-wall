@@ -86,4 +86,11 @@ class StoresController < ApplicationController
     @store = Store.find_by_id(params[:id]) 
     redirect_to stores_path if @store.nil?
   end
+
+  def invalid_resource?
+    set_store
+    if !current_user.id.equal?(@store.user_id)
+      redirect_to store_path(@store.id)
+    end
+  end
 end
