@@ -3,6 +3,10 @@ module ApplicationHelper
     @current_user = User.find_by_id(session[:user_id]) if session[:user_id]
   end
 
+  def is_current_user
+    current_user.id.equal?(params[:id].to_i)
+  end
+
   def logged_in? 
     !!current_user
   end
