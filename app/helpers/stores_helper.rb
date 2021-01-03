@@ -3,36 +3,21 @@ module StoresHelper
     "/stores"
   end
   
-  def store_path(id) # Show
+  def store_path(id)
     "/stores/#{id}"
   end
 
-  def new_store_path # New
+  def new_store_path
     "/stores/new"
   end
 
-  def edit_store_path(id) # Edit
+  def edit_store_path(id)
     "/stores/#{id}/edit"
   end
 
   def search_results_path
    "/stores/search-results"
   end
-
-  # Method chaining is allowed when the previous method called returns an ActiveRecord::Relation.
-  # The following methods return an ActiveRecord::Relation:
-  # select, order, where, all, group, joins, limit, and includes.
-
-  # Scoping will also return ActiveRecord::Relations.
-
-  # The `as_json` method, converts an ActiveRecord::Relation into an Array of Associative Arrays(Hashes)
-  # If your query doesn't return a match, it will return an empty ActiveRecord::Relation array. 
-
-  # If you call it on a method like find_by, it will return a hash only, because find_by doesn't return an 
-  # ActiveRecord::Relation. It returns an instance of the class.
-
-  # The difference between select and pluck is that pluck converts a database result into an array, without constructing
-  # ActiveRecord Objects.
 
   def valid_state?
     if states.any? { |k, v| v.eql?(params[:state]) }
@@ -95,5 +80,23 @@ module StoresHelper
     else
       flash[:search_results] = Store.select(:id, :name, :state).order(state: :asc).as_json
     end
+  end
+
+  def get_states
+    filepath     = File.join(".", "app", "assets", "files", "states.txt")
+    file         = File.read(filepath)
+    states_array = file.split("\n")
+    states       = {}
+
+    states_array.each do |state|
+      key                = state.slice(0, state.index("-") - 1) # Florida
+      value              = state.slice((state.length - 2), state.length) # FL
+      states[key.to_sym] = value
+    end
+    states
+  end
+
+  def states
+    @states ||= get_states
   end
 end
