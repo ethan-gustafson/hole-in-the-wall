@@ -1,31 +1,20 @@
 class StoresController < ApplicationController
-  before { redirect_logged_out_user_to_login? }
+  before { redirect_non_user_to_login? }
 
-  get "/stores" do # stores#index
-    @popular_stores = Store.popular_stores
-    @most_reviewed_stores = Store.most_reviewed_stores
+  get "/stores" do
+    @popular_stores = Store.last_five_most_popular
+    @most_reviewed_stores = Store.last_five_most_reviewed
     @state = ""
     @stores_count = Store.count
     erb :'/stores/main'
   end
 
-  get "/stores/new" do # stores#new
+  get "/stores/new" do
     erb :'/stores/new' 
   end
 
-  post "/stores" do # stores#create
-    @store = new_strong_params(
-      params,
-      Store,
-      :name,
-      :street,
-      :city,
-      :state,
-      :zip_code,
-      :description,
-      :website,
-      :user_id
-    )
+  post "/stores" do
+    @store = Store.new(**new_store_params)
     @store.user_id = current_user.id
     if @store.save
       redirect_to store_path(@store.id)
@@ -34,12 +23,12 @@ class StoresController < ApplicationController
     end
   end
 
-  post "/stores/results" do # stores#create-search-results
+  post "/stores/results" do
     search_conditions(params)
     redirect_to search_results_path
   end
 
-  get '/stores/search-results' do # stores#search-results
+  get '/stores/search-results' do
     @results = 
       if flash[:search_results]
         flash[:search_results]
@@ -49,31 +38,20 @@ class StoresController < ApplicationController
     erb :'/stores/results'
   end
 
-  get "/stores/:id" do # stores#show
-    set_store
+  get "/stores/:id" do
+    find_store
     @favorited = Favorite.find_by_user_id_and_store_id(current_user.id, params[:id])
     erb :'/stores/show'
   end
 
-  get "/stores/:id/edit" do # stores#edit
+  get "/stores/:id/edit" do
     invalid_resource?
     erb :'/stores/edit'
   end
 
-  patch "/stores/:id" do # stores#update
+  patch "/stores/:id" do
     invalid_resource?
-    if update_strong_params(
-      params, 
-      Store, 
-      @store, 
-      :name, 
-      :street, 
-      :city, 
-      :state, 
-      :zip_code,
-      :description,
-      :website
-    )
+    if Store.update(**update_store_params)
       redirect_to store_path(@store.id)
     else
       redirect_to store_path(@store.id)
@@ -82,13 +60,23 @@ class StoresController < ApplicationController
 
   private
 
-  def set_store
+  def new_store_params
+    attr_to_object(:store, :name, :street, :city, :state, :zip_code, :description, :website, :user_id)
+  end
+
+  def update_store_params
+    attr_to_object(:name, :street, :city, :state, :zip_code, :description, :website)
+  end
+
+  def find_store
     @store = Store.find_by_id(params[:id]) 
-    redirect_to stores_path if @store.nil?
+    if @store.nil?
+      redirect_to stores_path
+    end
   end
 
   def invalid_resource?
-    set_store
+    find_store
     if !current_user.id.equal?(@store.user_id)
       redirect_to store_path(@store.id)
     end
