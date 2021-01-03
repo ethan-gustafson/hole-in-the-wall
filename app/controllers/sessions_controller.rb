@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   get "/login" do
-    redirect_current_user_back_to_root?
+    redirect_current_user_to_root?
     erb :'/sessions/login'
   end
 
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   get "/" do
-    redirect_logged_out_user_to_login?
+    redirect_non_user_to_login?
     @home_feed_reviews = Review.last_five_reviews 
     erb :'/sessions/root'
   end

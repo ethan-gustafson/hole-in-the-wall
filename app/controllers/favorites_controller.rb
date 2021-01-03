@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  post '/favorites' do # favorites#create
+  post '/favorites' do
     already_favorited?
     favorited_store = Favorite.new(user_id: current_user.id, store_id: params[:store_id])
     if favorited_store.save 
@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
     end
   end
 
-  get '/favorites/:id/delete' do # favorites#destroy
+  get '/favorites/:id/delete' do
     favorite = Favorite.find_by_id(params[:id]) 
     favorite.delete
     redirect_to user_path(current_user.id)
