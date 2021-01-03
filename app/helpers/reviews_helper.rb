@@ -3,7 +3,7 @@ module ReviewsHelper
     "/reviews/#{id}/edit"
   end
   
-  def set_review
+  def find_review
     @review = Review.find_by_id(params[:id]) 
   end
 
