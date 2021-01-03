@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 
   has_many :reviews
   has_many :stores
-
   has_many :favorites
   has_many :favorited_stores, through: :favorites, source: :store
 
@@ -12,7 +11,6 @@ class User < ActiveRecord::Base
   validates :name, :email, :username, presence: true
   validates :password, presence: :true, on: :create
   validates :username, :email, uniqueness: true
-
   validates :username, length: { in: 2..64 }
   validates :email, length: { maximum: 254 }
   validates :password, length: { in: 2..128 }, on: :create

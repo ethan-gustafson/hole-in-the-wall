@@ -7,10 +7,9 @@ class Store < ActiveRecord::Base
 
   validates :name, :street, :city, :state, :zip_code, :description, :website, :user_id, presence: true, on: :create
   validates :name, :street, :city, :state, :zip_code, :description, :website, presence: true, on: :update
-  # Zip codes in the United States are exactly 5 digits in length
   validates :zip_code, length: { is: 5 }
 
-  def self.popular_stores 
+  def self.last_five_most_popular
     select("stores.*, count(favorites.store_id) AS favorites_count")
       .joins(:favorites)
       .limit(5)
@@ -18,7 +17,7 @@ class Store < ActiveRecord::Base
       order("favorites_count DESC")
   end
 
-  def self.most_reviewed_stores
+  def self.last_five_most_reviewed
     select("stores.*, count(reviews.store_id) AS reviews_count")
       .joins(:reviews)
       .limit(5)
