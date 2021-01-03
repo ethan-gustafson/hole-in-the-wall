@@ -1,5 +1,5 @@
 <head>
-  <title><%=@user.name%></title>
+  <title><%=@user[:current].name%></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/stylesheets/banners/loggedin.css" type="text/css">
@@ -26,8 +26,8 @@
 
       <section class="last-user-flex">
         <div>
-          <p>Signed up on: <%=@user.created_at%></p>
-          <p>Updated Account up on: <%=@user.updated_at%></p>
+          <p>Signed up on: <%=@user[:current].created_at%></p>
+          <p>Updated Account up on: <%=@user[:current].updated_at%></p>
         </div>
       </section>
     </article>
@@ -35,8 +35,8 @@
     <article id="user-data">
       <section class="user-data-box" id="user-reviews-list">
         <div class="data-container" id="user-reviews-container">
-          <h2>Number of reviews: <%=@reviews_count%></h2>
-          <%@reviews.each.with_index(1) do |review, index|%>
+          <h2>Number of reviews: <%=@user[:reviews_count]%></h2>
+          <%@user[:reviews].each.with_index(1) do |review, index|%>
             <div class="data">
               <h3><%=index%>.) <a href="/stores/<%=review.store_id%>"><%=review.store_name%></a>: <%=review.title%></h3>
             </div>
@@ -46,8 +46,8 @@
 
       <section class="user-data-box" id="user-favorites-list">
         <div class="data-container" id="user-favorites-container">
-          <h2>Number of favorites: <%=@favorites_count%></h2>
-          <%@favorites.each.with_index(1) do |fav, index|%>
+          <h2>Number of favorites: <%=@user[:favorites_count]%></h2>
+          <%@user[:favorites].each.with_index(1) do |fav, index|%>
             <div class="data">
               <h3><%=index%>.) <a href="/stores/<%=fav.store_id%>"><%=fav.store_name%></a>: <a href=<%=delete_favorite_path(fav.id)%>>Delete</a></h3>
             </div>
@@ -57,8 +57,8 @@
 
       <section class="user-data-box" id="user-stores-list">
         <div class="data-container" id="user-stores-container">
-          <h2>Number of stores you have created: <%=@stores_count%></h2>
-          <%@stores.each.with_index(1) do |store, index|%>
+          <h2>Number of stores you have created: <%=@user[:stores_count]%></h2>
+          <%@user[:stores].each.with_index(1) do |store, index|%>
             <div class="data">
               <h3><%=index%>.) <a href=<%=store_path(store.id)%>><%=store.name%></a></h3>
               <p><a href=<%=edit_store_path(store.id)%>>Edit</a></p>
@@ -77,8 +77,8 @@
 
       <section class="rand-user-data-box" id="rand-user-reviews-list">
         <div id="rand-user-reviews-container">
-          <h2>Number of reviews: <%=@user_reviews_count%></h2>
-          <% @reviews.each.with_index(1) do |review, index| %>
+          <h2>Number of reviews: <%=@user[:reviews_count]%></h2>
+          <% @user[:reviews].each.with_index(1) do |review, index| %>
             <div class="rand-border">
               <h3><%=index%>. <a href="/stores/<%=review.store.id%>"><%=review.store.name%></a></h3>
               <p class="rand-user-review-title"><a href="/stores/#<%=review.title%>"><%=review.title%></a></p>

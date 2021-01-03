@@ -11,14 +11,14 @@
   <main>
     <article>
       <ul id="users-flex-container">
-        <%@users.each do |user|%>
+        <%@users_info[:user_range].each do |user|%>
           <li class="user-flex-item"><%=user.id%>.) <a href="/users/<%=user.id%>"> <%= user.username %></a></li>
         <%end%>
       </ul>
     </article>
   </main>
   <div id="bottom">
-    <h2>Number of Users: <%=@user_count%></h2>
+    <h2>Number of Users: <%=@users_info[:user_count]%></h2>
     <nav id="page-nav">
       <ul id="bottom-nav-flex-container">
         <li><a href=<%= users_path(1) %>>First</a></li>
