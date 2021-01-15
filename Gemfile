@@ -40,7 +40,6 @@ end
 group :development do
   gem 'sqlite3', '~> 1.4', '>= 1.4.2'
   gem 'pry', '~> 0.13.1'
-  gem 'tux', '~> 0.3.0'
 end
 
 group :development, :production do
