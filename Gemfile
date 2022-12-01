@@ -9,7 +9,7 @@ source 'http://rubygems.org'
 # Each application may specify a Ruby engine. If an engine is specified, an engine version must also be specified.
 ruby '2.7.1'
 
-gem 'sinatra', '~> 2.1'
+gem 'sinatra', '~> 2.2'
 gem 'thin', '~> 1.7', '>= 1.7.2'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
